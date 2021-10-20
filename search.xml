@@ -1,6 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>月记 ~ Oct 2021</title>
+    <url>/2021/10/18/Oct2021/</url>
+    <content><![CDATA[<!-- more -->
+
+<h1 id="月记-Oct-2021"><a href="#月记-Oct-2021" class="headerlink" title="月记 ~ Oct 2021"></a>月记 ~ Oct 2021</h1><h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><p>继上一篇年记以来有约莫一个月，也算是遵循自己立下的规矩了。上个月写年记要求自己至少一个月post一篇记录or笔记，可以不长，但必须得有。</p>
+<p>十月经历了两个秋日标志性的节气——寒露和霜降，其中还夹了个重阳节。经过这三个节日，气温有了明显下降，变得比较适合人类居住（指23℃上下波动），尘封一年的格子衫也终于重见天日。</p>
+<p>但实际上我还感觉到一丝干燥，但当日湿度是55%左右，不知是不是风大所致。</p>
+<p>这个月人的心态是比较放松的——当然，具体指的其实是，比较有空闲时间，可以做很多想做的事。</p>
+<p>做了什么事，这里开始总结下。</p>
+<hr>
+<h2 id="What-I-am-doing"><a href="#What-I-am-doing" class="headerlink" title="What I am doing"></a>What I am doing</h2><h3 id="CS-APP的学习"><a href="#CS-APP的学习" class="headerlink" title="CS:APP的学习"></a>CS:APP的学习</h3><blockquote>
+<p>“这计组课本不知道在写什么。我已经尽力尝试去理解了。”</p>
+<p>“I don’t really understand what the book is talking about, even though I have tried to.”</p>
+</blockquote>
+<p>令人怀疑的例题解释和课本习题，导致我无法再继续完全只靠《计算机组成与系统结构（第2版）》这本书学习这门课。</p>
+<p>10月8日，我上台讲代码。讲完了，经老师一指点才发现自己竟然没有用到任何一个例子（ppt里面那个除外，那是要解决的问题）。丢掉举例解释，就不能指望别人理解你说的Solution；丢掉好的例子，就不能指望别人理解透彻。</p>
+<p>这两件事后我明白，举例在说话时有多重要——对具体事物抽象的能力，是工科生、理科生的必备专业技能；但反过来，我发现我和不少人已经忘记：将抽象概念安装到合适的例子和事物上，才是实践。只挑自己不熟的活练手，会导致极易忽略自己原来很熟悉的东西，也叫“邯郸学步”。</p>
+<p>说了这么多，CS:APP登场了。这既是一本书又是一个课程，全名Computer Science: A Programmer’s Perspective，如其书名，从一个程序员的角度去看计算机各层的运作。在B站上已有中英字幕的网课，而电子书搜一搜也有。至于其中涉及的lab，去官网找self study handout即可，不需要实名注册。到10月8日，追到Lecture 3，目前感觉良好。</p>
+<h3 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h3><p>和之前一样，进度不快，还在JavaFX处停留。</p>
+<p>LibericaJDK——虽然有些明明需要JavaFX的mc启动器不认识LibericaJDK，但那启动器毕竟是别人业余开发的，我甚至都没Donate，那只能看开发者心情。不过这跟学习JavaFX就没什么关系了。</p>
+<h3 id="数据结构与算法"><a href="#数据结构与算法" class="headerlink" title="数据结构与算法"></a>数据结构与算法</h3><p>目前学起来还是Confusing，该学好的没学好（其实连功夫都没下）。</p>
+<p>栈、队列等代码是会写了，但应用范围太窄，人家stl又把轮子写好了，所以不知道自己要干什么。期待Java能快点进步是因为快到数据结构的内容了，我也可以肯定，在遇到什么刺激之前，我只有学到Java数据结构那块。我才会认真学数据结构，否则摸了。</p>
+<h3 id="锻炼"><a href="#锻炼" class="headerlink" title="锻炼"></a>锻炼</h3><p>主要是校园跑。</p>
+<p>目前的42.5km中，有一次骑车，但还有一次3km的因为没走必经点没有记录，所以替换一下，可以视为纯度很高的锻炼了。</p>
+<p>平均速度大概5’45’’一公里，不求快，只求锻炼到位。体测时发现肺活量明显上升了（4200-&gt;4750），可能也得益于这样的锻炼。</p>
+<p>引体向上也不像上个学期般吃力，也许这也是我想要的。</p>
+<p>毕竟到了期末那会，冷的要死，必定也不想出去锻炼了，所以练好体质，应对后面成堆而来的考试（我靠，我差点忘了还有CET-6，怎么办？）</p>
+<hr>
+<h2 id="What-I-have-done"><a href="#What-I-have-done" class="headerlink" title="What I have done"></a>What I have done</h2><h3 id="重装系统后的恢复"><a href="#重装系统后的恢复" class="headerlink" title="重装系统后的恢复"></a>重装系统后的恢复</h3><p>起因是C#脚本无高亮，结果后面发现VS积累一年的暗病没法忍受了。Installer表示也无能为力，卸不掉，装不上，安装位置各种错误，起因可能是我之前把VS从C盘迁移到了另一个盘。虽然项目和设置里大多适配了，但各种毛病还是层出不穷。</p>
+<p>于是重装了系统。</p>
+<p>写代码，有高亮和没高亮是两个世界。大师可以在没高亮的世界感受六根清净，但菜鸟可以在没高亮的情况下自然是从入门到入土。新的语言API不熟悉，在版本也不一样的情况下，很难把稍有不同的部分进行下去——互联网往往也爱莫能助，只能给你一份API reference瞎折腾去。</p>
+<p>许多环境配置倒不再那么棘手——轻车熟路是一部分，自己解决问题的能力也跟上一次重装系统时有略微变化了。</p>
+<p>这次乖乖把VS装在了C盘，此后不敢再动它。</p>
+<p>当然，需要倒腾的还有hexo博客的一些配置，但只要你能看到这篇文章，说明我已经完成了。</p>
+<h3 id="村通网"><a href="#村通网" class="headerlink" title="村通网"></a>村通网</h3><p>用小米3G路由器刷上了自己编译的原版固件，正常运行。</p>
+<p>但在校内想要上网，还得比其他OpenWRT用户多考虑一步：你需要编译一个ipk适合自己学校校园网用的，通过在Windows上用WinSCP和ssh将它和它的图形化附属安装上去，调参数和设置，然后，才能上网。</p>
+<p>所以在编译好固件之后还得使用SDK单独编译好以上的包，才能通过OpenWRT的镜像源去镜像站下载各种Software，比如i18n，UPnP，nlbwmon等。</p>
+<h4 id="这个过程中涉及的环境配置很多。"><a href="#这个过程中涉及的环境配置很多。" class="headerlink" title="这个过程中涉及的环境配置很多。"></a>这个过程中涉及的环境配置很多。</h4><p>首先得有一个足够的磁盘，最好留出100G左右的空间。安装Ubuntu分配60-80G，剩余的留给风险。</p>
+<p>其次是，主机网络环境（假设是Win10），要求必须有顺畅的全局或PAC过GFW的环境，不然会吃很多苦头。今年3月份时我试过自己编译固件，然而那时候没有这个环境，导致2~3小时的等待，最后编译失败。过了半年，到今早，看着ImmortalWrt的编译过程，上百万行代码呼啸滚动，我心里蛮舒服的——因为我觉得那是编译成功的欢呼。</p>
+<img src="https://raw.githubusercontent.com/RH-Xie/RH-Xie.github.io/images/When%20compilation%20is%20done.png" style="zoom:55%;" />
+
+<p>扯远了，继续说环境——还得设置虚拟机的网络环境。其实上一段已经说了，我是在虚拟机Ubuntu下编译的，而且又是校园网，桥接模式效果不佳（具体原因我不了解，所以不能乱说），所以虚拟机的网络得调成NAT。而对于想给虚拟机可以过GFW的能力，还得多一步：这里以猫猫为例，要打开Allow LAN，然后在Ubuntu的Network-&gt;Network Proxy里设置http proxy（听说SSR是socks5协议，具体要查询适合自己的），ip为主机的DNS（多种方法，最直接的是ipconfig里以太网（Cable）或WLAN（Wifi）中看），端口为猫猫代理的端口，通常显示在General里。</p>
+<p>不过，挺庆幸我这次思维转换了——之前我还想着小飞机和猫猫软件本体哪个在linux系统下，用起来简单点，结果想了想，是虚拟机，那应该可以共享网络嘛。</p>
+<p>如果你像我这样会在图书馆、教室等地方使用PC，请记住，主机DNS会变，及时在虚拟机更改你Manual下的代理地址。所以我建议只在宿舍编译固件，环境算稳定。（当然你可以选择调好了所有东西，然后去教室开始编译，丢一边做别的事，但实际我试过，教室等地的WLAN，似乎不那么赞同你这么做，即使图书馆可能相对教室更稳定一点）</p>
+<p>最后，才到OpenWrt的登场。你需要阅读官方手册，明白什么是SDK什么是Image，然后按官方教程配置环境、编译。这是我第一次认真地阅读大篇幅的官方文档。</p>
+<p>在此体验的过程中，我认为官方教程里使用的最好的教学模式，是先给出所有要执行的命令，然后下面有每条命令的详细解释——其实就我来说，能折腾到这里，说明的部分就算不能全看懂，也能知道自己执行命令的各种后果（results）了。为了防止囫囵吞枣，教程里还塞了点有标识“xxx”代替具体镜像和软件的名字，让读者自己填充，何尝不是一种检验读者的手段。就算再不济，教程还给了例子呢，照着例子去找合适自己的，这个连我都能学会了。<del>不像某计组课本</del></p>
+<p>至于WinSCP和ssh等软件和命令的使用，靠国内互联网可以解决问题。</p>
+<p>其余的事情，比如影响git传输的，有两个问题，一个是dns解析不了github.com，但主机可以，那就搜一下如何绑定github.com和解析出来的ip；另一个是git走代理，走的是ssh协议，也可以百度谷歌解决问题。</p>
+<h4 id="你以为这就结束了？路由器怎么办？"><a href="#你以为这就结束了？路由器怎么办？" class="headerlink" title="你以为这就结束了？路由器怎么办？"></a>你以为这就结束了？路由器怎么办？</h4><p>上面是主机和虚拟机的，路由器这一端还有环境配置。</p>
+<p>如果是新的linux系统路由器，可能需要刷入开发版之类的。不知道该不该说“好在”，商家已经给路由器刷了Breed，即Boot and Recovery Environment for Embedded Devices。没了体验成功刷入breed的过程，但也没有刷机失败变砖的风险下，也为我省去了一点时间。</p>
+<img src="https://i.loli.net/2021/10/20/rIHFX9wgqhnVJty.png" style="zoom:75%;" />
+
+<p>对于刷机失败，你如何认识这种事件？</p>
+<p>以一个亲历者的角度来看，其实这不是“固件完好和版本是否完全对应，并且操作是否完全正确”就能决定的，刷机失败是赌上概率的事。</p>
+<p>而我在中午恰恰就体验了一把刷固件失败：在OpenWrt界面刷入sysupgrade.bin（此前已刷入kernel.bin），十多分钟了，路由器没有动静，Web一直转圈圈。</p>
+<p>正常刷机成功不需要等待这么久，并且成功了会自动刷新到登录页面——恰恰这次刷固件出了意外。</p>
+<p>我在以为它刷入完成的情况下，手动重启了。结果开机后黄灯常亮不止，几分钟没变过蓝灯。</p>
+<img src="https://i.loli.net/2021/10/20/LV7fkYsZ9bhwc5l.jpg" style="zoom:18%;" />
+
+<p>直到写下这些文字时，我依然认为我的操作万无一失，并且和之前刷入成功的操作没有任何变动——但它就是失败了。</p>
+<p>还好，不是有Breed救命嘛，给了我重新刷机的机会。熟练操作下，第二次和第一次操作完全相同，而第二次却成功了。</p>
+<p>虽然备份都没用上，但至少给了几分刷机的底气。</p>
+<p>提一提最后设置RJ验证时，因为是新版本的固件，21.02的，没有了Physical Settings这一栏，需要把三个接口（minieap、wan、wan6）都归到eth0下，Save&amp;Apply，然后拔掉WAN口网线，重启，再插上，等个三五分钟，直到WAN口绿灯常闪，否则再重启重复上面步骤。</p>
+<p>至于为啥不玩旧版本嘛，官网上写着stable了，然后看看也支持小米3G，所以心想就整个新的进去。结果最后看到路由器界面，下面赫然写着“21.02 SNAPSHOT”，也不知道是不是我理解错了什么。</p>
+<h4 id="总之，村通网了。"><a href="#总之，村通网了。" class="headerlink" title="总之，村通网了。"></a>总之，村通网了。</h4><p>这个过程中遇到的问题，吸收的教训，很多。</p>
+<p>但折腾好了，还是会有成就感，并且Private Room+1。</p>
+<p>这个路由还打算干点别的，也有可能重刷，就写在Plan to do里面吧。</p>
+<p>目前对固件的内存占用（运行居然需要60MB）比较不满意（无论是OpenWRT还是三方固件ImmortalWRT），着手优化这一块。</p>
+<h3 id="去玩"><a href="#去玩" class="headerlink" title="去玩"></a>去玩</h3><p>原本计划国庆10.4去THO，结果不料因为一个国际会展取消了。虽然跳票不是Cyberpunk 2077专属，但难得国庆佳节，很多人这下半年只在这个假期有时间，遇到跳票只得含恨/remake。心急的老哥在第一次推迟通知时取消了一次机票，在THO获得一线生机后又买票——随之第二次推迟通知就在当晚发出，老哥的机票和酒店退款，血亏上千。</p>
+<p>此后我的国庆计划便是空空如也——其实不计划也有我的个人原因，感冒了。</p>
+<p>首先不想带病乱跑，其次想要养病，这感冒咳嗽始终需要静养的时间。</p>
+<p>然后situ2001一行人有计划，带深大来的老同学逛逛广州，我倒同意去凑个热闹——选择哪个其实都挺好。静养，宿舍里也大有可为；而出去玩呢，熟悉广州，也是何乐而不为。至于病，痛在口腔溃疡。实际上时，口腔溃疡还很重，但毕竟饭是要吃的。几天大餐如果放在平时，那可太享受了——猪扒包和一大柄鸡腿。而国庆享受这需要大量咬合力的晚餐时，只能磨着伤口吃香喝辣，痛苦并快乐着了，哈哈。<del>（广大学子青春版.jpg）</del></p>
+<h3 id="看番"><a href="#看番" class="headerlink" title="看番"></a>看番</h3><p>国庆期间和舍友在宿舍看完了《冰菓》，虽然不时有点卡顿，但还能接受。剧情在平淡和稳定中度过，女主千反田的人物印象一直都很清晰（其实看之前已经觉得这个角色的辨识度非常高了）。和魔旅一样，我还是认同这番出第二季的。</p>
+<hr>
+<h2 id="What-I-plan-to-do"><a href="#What-I-plan-to-do" class="headerlink" title="What I plan to do"></a>What I plan to do</h2><h3 id="路由器"><a href="#路由器" class="headerlink" title="路由器"></a>路由器</h3><h4 id="路由器改良"><a href="#路由器改良" class="headerlink" title="路由器改良"></a>路由器改良</h4><ul>
+<li><input disabled="" type="checkbox"> 内存占用缩小</li>
+<li><input disabled="" type="checkbox"> 定时重启的脚本</li>
+<li><input disabled="" type="checkbox"> 定时断电通电（外设）</li>
+</ul>
+<h4 id="集齐功能"><a href="#集齐功能" class="headerlink" title="集齐功能"></a>集齐功能</h4><ul>
+<li><input disabled="" type="checkbox"> UPnP</li>
+<li><input disabled="" type="checkbox"> OpenClash（仍需考量）</li>
+<li><input disabled="" type="checkbox"> 网易云音乐解锁</li>
+<li><input disabled="" type="checkbox"> 网络唤醒测试（顺带学一下远程电脑，从虚拟机下手）</li>
+<li><input disabled="" type="checkbox"> 一个好看的主题</li>
+<li><input disabled="" type="checkbox"> 迅雷快鸟（不妨先搞清楚真正的作用？）</li>
+<li><input disabled="" type="checkbox"> DDNS（远程访问路由器是它唯一的用处了么？）</li>
+<li><input disabled="" type="checkbox"> nlbwmon</li>
+</ul>
+<h3 id="课堂"><a href="#课堂" class="headerlink" title="课堂"></a>课堂</h3><h4 id="CS-APP-计组"><a href="#CS-APP-计组" class="headerlink" title="CS:APP / 计组"></a>CS:APP / 计组</h4><p>计组需要应付下星期的测验，所以CS:APP课程要跟上，并且计组还有作业。</p>
+<p>即使CS:APP不能完全替代计组，但看了看Lecture的各章名称，我能确认我没来错地方。</p>
+<p>计组还有实验，也需要在本周末谨慎对待——嘶，这仅剩的一天，如何安排实在是令人头疼啊。</p>
+<h4 id="JAVA"><a href="#JAVA" class="headerlink" title="JAVA"></a>JAVA</h4><p>尽快完成。</p>
+<h4 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h4><p>减少囫囵吞枣的行为，认真学一下新的内容，这是个考试课。</p>
+<h4 id="物理实验"><a href="#物理实验" class="headerlink" title="物理实验"></a>物理实验</h4><p>物理实验开始堆积了，有必要提前写好预习报告，否则后面全天满课会很难受。</p>
+<h4 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h4><p>这其实是个很有趣的课程，只是理论无聊了点。我想法还是先上JAVA Database再看课本吧——因为JAVA Database里也有学校课本的大部分内容。</p>
+<h3 id="THO"><a href="#THO" class="headerlink" title="THO"></a>THO</h3><p>周六还是打算去吧，毕竟什么时候不忙呢？</p>
+<h3 id="降低开销"><a href="#降低开销" class="headerlink" title="降低开销"></a>降低开销</h3><p>这个月开支实在有点大，尤其国庆几天，加上校园网到期了。能推到后面再买的东西就不用急着买了。另一个下手的方面是夜宵改成小方便面，晚餐可以像以前一样去饭堂。</p>
+<h3 id="LeetCode"><a href="#LeetCode" class="headerlink" title="LeetCode"></a>LeetCode</h3><p>这个也属于要折腾很久的一类。写到这里，我觉得我需要研究一下自己——不是研究什么日程规划表什么作息之类的，而是研究自己。如何劝勉自己安心地去写LeetCode这样增强自己的事，来替换掉一些去B站消遣、去找涩图的行为，我觉得能行，但是没办到，那这就是一门学问了——鸡汤没用，威逼之下没有效率。什么样的模式才会适合我自己去做增强自身的行为？</p>
+<hr>
+<h2 id="END"><a href="#END" class="headerlink" title="END"></a>END</h2><p>欢庆的十月，适宜的温度，总而言之最近是很适合生产力大爆发的时候，所以务必抓紧机会，走走之前计划的道路。早点休息，而在游戏咨询方面，我关注明日方舟，那就静待佳音吧。</p>
+<p>总是想摸更多的鱼，但这么想的时候似乎已经忙到头上了。</p>
+]]></content>
+      <categories>
+        <category>生活记录</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C++笔记</title>
     <url>/2021/05/31/C++%E7%AC%94%E8%AE%B0%5B%E6%95%A3%E8%AE%B0%5D/</url>
     <content><![CDATA[<h1 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h1><p>Warning: This passage includes wrong grammar, wrong words.</p>
@@ -77,113 +188,70 @@
       </tags>
   </entry>
   <entry>
-    <title>月记 ~ Oct 2021</title>
-    <url>/2021/10/18/Oct2021/</url>
-    <content><![CDATA[<!-- more -->
+    <title>C++笔记[数组]</title>
+    <url>/2020/11/23/c++%E7%AC%94%E8%AE%B0%5B%E6%95%B0%E7%BB%84%5D/</url>
+    <content><![CDATA[<h2 id="数组的各种符号，摸清楚"><a href="#数组的各种符号，摸清楚" class="headerlink" title="数组的各种符号，摸清楚"></a><!-- more -->数组的各种符号，摸清楚</h2><hr>
+<h3 id="起步"><a href="#起步" class="headerlink" title="起步"></a>起步</h3><img src="https://i.loli.net/2020/11/24/5hOA8Pt3DSMH7bf.png" style="zoom:125%;" />
 
-<h1 id="月记-Oct-2021"><a href="#月记-Oct-2021" class="headerlink" title="月记 ~ Oct 2021"></a>月记 ~ Oct 2021</h1><h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><p>继上一篇年记以来有约莫一个月，也算是遵循自己立下的规矩了。上个月写年记要求自己至少一个月post一篇记录or笔记，可以不长，但必须得有。</p>
-<p>十月经历了两个秋日标志性的节气——寒露和霜降，其中还夹了个重阳节。经过这三个节日，气温有了明显下降，变得比较适合人类居住（指23℃上下波动），尘封一年的格子衫也终于重见天日。</p>
-<p>但实际上我还感觉到一丝干燥，但当日湿度是55%左右，不知是不是风大所致。</p>
-<p>这个月人的心态是比较放松的——当然，具体指的其实是，比较有空闲时间，可以做很多想做的事。</p>
-<p>做了什么事，这里开始总结下。</p>
-<hr>
-<h2 id="What-I-am-doing"><a href="#What-I-am-doing" class="headerlink" title="What I am doing"></a>What I am doing</h2><h3 id="CS-APP的学习"><a href="#CS-APP的学习" class="headerlink" title="CS:APP的学习"></a>CS:APP的学习</h3><blockquote>
-<p>“这计组课本不知道在写什么。我已经尽力尝试去理解了。”</p>
-<p>“I don’t really understand what the book is talking about, even though I have tried to.”</p>
-</blockquote>
-<p>令人怀疑的例题解释和课本习题，导致我无法再继续完全只靠《计算机组成与系统结构（第2版）》这本书学习这门课。</p>
-<p>10月8日，我上台讲代码。讲完了，经老师一指点才发现自己竟然没有用到任何一个例子（ppt里面那个除外，那是要解决的问题）。丢掉举例解释，就不能指望别人理解你说的Solution；丢掉好的例子，就不能指望别人理解透彻。</p>
-<p>这两件事后我明白，举例在说话时有多重要——对具体事物抽象的能力，是工科生、理科生的必备专业技能；但反过来，我发现我和不少人已经忘记：将抽象概念安装到合适的例子和事物上，才是实践。只挑自己不熟的活练手，会导致极易忽略自己原来很熟悉的东西，也叫“邯郸学步”。</p>
-<p>说了这么多，CS:APP登场了。这既是一本书又是一个课程，全名Computer Science: A Programmer’s Perspective，如其书名，从一个程序员的角度去看计算机各层的运作。在B站上已有中英字幕的网课，而电子书搜一搜也有。至于其中涉及的lab，去官网找self study handout即可，不需要实名注册。到10月8日，追到Lecture 3，目前感觉良好。</p>
-<h3 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h3><p>和之前一样，进度不快，还在JavaFX处停留。</p>
-<p>LibericaJDK——虽然有些明明需要JavaFX的mc启动器不认识LibericaJDK，但那启动器毕竟是别人业余开发的，我甚至都没Donate，那只能看开发者心情。不过这跟学习JavaFX就没什么关系了。</p>
-<h3 id="数据结构与算法"><a href="#数据结构与算法" class="headerlink" title="数据结构与算法"></a>数据结构与算法</h3><p>目前学起来还是Confusing，该学好的没学好（其实连功夫都没下）。</p>
-<p>栈、队列等代码是会写了，但应用范围太窄，人家stl又把轮子写好了，所以不知道自己要干什么。期待Java能快点进步是因为快到数据结构的内容了，我也可以肯定，在遇到什么刺激之前，我只有学到Java数据结构那块。我才会认真学数据结构，否则摸了。</p>
-<h3 id="锻炼"><a href="#锻炼" class="headerlink" title="锻炼"></a>锻炼</h3><p>主要是校园跑。</p>
-<p>目前的42.5km中，有一次骑车，但还有一次3km的因为没走必经点没有记录，所以替换一下，可以视为纯度很高的锻炼了。</p>
-<p>平均速度大概5’45’’一公里，不求快，只求锻炼到位。体测时发现肺活量明显上升了（4200-&gt;4750），可能也得益于这样的锻炼。</p>
-<p>引体向上也不像上个学期般吃力，也许这也是我想要的。</p>
-<p>毕竟到了期末那会，冷的要死，必定也不想出去锻炼了，所以练好体质，应对后面成堆而来的考试（我靠，我差点忘了还有CET-6，怎么办？）</p>
-<hr>
-<h2 id="What-I-have-done"><a href="#What-I-have-done" class="headerlink" title="What I have done"></a>What I have done</h2><h3 id="重装系统后的恢复"><a href="#重装系统后的恢复" class="headerlink" title="重装系统后的恢复"></a>重装系统后的恢复</h3><p>起因是C#脚本无高亮，结果后面发现VS积累一年的暗病没法忍受了。Installer表示也无能为力，卸不掉，装不上，安装位置各种错误，起因可能是我之前把VS从C盘迁移到了另一个盘。虽然项目和设置里大多适配了，但各种毛病还是层出不穷。</p>
-<p>于是重装了系统。</p>
-<p>写代码，有高亮和没高亮是两个世界。大师可以在没高亮的世界感受六根清净，但菜鸟可以在没高亮的情况下自然是从入门到入土。新的语言API不熟悉，在版本也不一样的情况下，很难把稍有不同的部分进行下去——互联网往往也爱莫能助，只能给你一份API reference瞎折腾去。</p>
-<p>许多环境配置倒不再那么棘手——轻车熟路是一部分，自己解决问题的能力也跟上一次重装系统时有略微变化了。</p>
-<p>这次乖乖把VS装在了C盘，此后不敢再动它。</p>
-<p>当然，需要倒腾的还有hexo博客的一些配置，但只要你能看到这篇文章，说明我已经完成了。</p>
-<h3 id="村通网"><a href="#村通网" class="headerlink" title="村通网"></a>村通网</h3><p>用小米3G路由器刷上了自己编译的原版固件，正常运行。</p>
-<p>但在校内想要上网，还得比其他OpenWRT用户多考虑一步：你需要编译一个ipk适合自己学校校园网用的，通过在Windows上用WinSCP和ssh将它和它的图形化附属安装上去，调参数和设置，然后，才能上网。</p>
-<p>所以在编译好固件之后还得使用SDK单独编译好以上的包，才能通过OpenWRT的镜像源去镜像站下载各种Software，比如i18n，UPnP，nlbwmon等。</p>
-<h4 id="这个过程中涉及的环境配置很多。"><a href="#这个过程中涉及的环境配置很多。" class="headerlink" title="这个过程中涉及的环境配置很多。"></a>这个过程中涉及的环境配置很多。</h4><p>首先得有一个足够的磁盘，最好留出100G左右的空间。安装Ubuntu分配60-80G，剩余的留给风险。</p>
-<p>其次是，主机网络环境（假设是Win10），要求必须有顺畅的全局或PAC过GFW的环境，不然会吃很多苦头。今年3月份时我试过自己编译固件，然而那时候没有这个环境，导致2~3小时的等待，最后编译失败。过了半年，到今早，看着ImmortalWrt的编译过程，上百万行代码呼啸滚动，我心里蛮舒服的——因为我觉得那是编译成功的欢呼。</p>
-<img src="C:\Users\RH Xie\AppData\Roaming\Typora\typora-user-images\image-20211020134555373.png" alt="image-20211020134555373" style="zoom:65%;" />
+<p>首先记住上图，[]表示数组取值运算符。地址可以“无限”加下去（有限的无限）</p>
+<p>它们对应的代码是这样的：（main函数省略）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a[] = &#123; <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">6</span>,<span class="number">7</span> &#125;;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">sizeof</span>(a) / <span class="keyword">sizeof</span>(<span class="keyword">int</span>); i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; a[i] &lt;&lt; <span class="string">&#x27;,&#x27;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span> &lt;&lt; <span class="string">&quot;a表示&quot;</span> &lt;&lt; a &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;*a表示&quot;</span> &lt;&lt; *a &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;a[0]表示&quot;</span> &lt;&lt; a[<span class="number">0</span>] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;a[1]表示&quot;</span> &lt;&lt; a[<span class="number">1</span>] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;a+1表示&quot;</span> &lt;&lt; a + <span class="number">1</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;a+6表示&quot;</span> &lt;&lt; a + <span class="number">6</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;交换数组首尾&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure>
 
-<p>扯远了，继续说环境——还得设置虚拟机的网络环境。其实上一段已经说了，我是在虚拟机Ubuntu下编译的，而且又是校园网，桥接模式效果不佳（具体原因我不了解，所以不能乱说），所以虚拟机的网络得调成NAT。而对于想给虚拟机可以过GFW的能力，还得多一步：这里以猫猫为例，要打开Allow LAN，然后在Ubuntu的Network-&gt;Network Proxy里设置http proxy（听说SSR是socks5协议，具体要查询适合自己的），ip为主机的DNS（多种方法，最直接的是ipconfig里以太网（Cable）或WLAN（Wifi）中看），端口为猫猫代理的端口，通常显示在General里。</p>
-<p>不过，挺庆幸我这次思维转换了——之前我还想着小飞机和猫猫软件本体哪个在linux系统下，用起来简单点，结果想了想，是虚拟机，那应该可以共享网络嘛。</p>
-<p>如果你像我这样会在图书馆、教室等地方使用PC，请记住，主机DNS会变，及时在虚拟机更改你Manual下的代理地址。所以我建议只在宿舍编译固件，环境算稳定。（当然你可以选择调好了所有东西，然后去教室开始编译，丢一边做别的事，但实际我试过，教室等地的WLAN，似乎不那么赞同你这么做，即使图书馆可能相对教室更稳定一点）</p>
-<p>最后，才到OpenWrt的登场。你需要阅读官方手册，明白什么是SDK什么是Image，然后按官方教程配置环境、编译。这是我第一次认真地阅读大篇幅的官方文档。</p>
-<p>在此体验的过程中，我认为官方教程里使用的最好的教学模式，是先给出所有要执行的命令，然后下面有每条命令的详细解释——其实就我来说，能折腾到这里，说明的部分就算不能全看懂，也能知道自己执行命令的各种后果（results）了。为了防止囫囵吞枣，教程里还塞了点有标识“xxx”代替具体镜像和软件的名字，让读者自己填充，何尝不是一种检验读者的手段。就算再不济，教程还给了例子呢，照着例子去找合适自己的，这个连我都能学会了。<del>不像某计组课本</del></p>
-<p>至于WinSCP和ssh等软件和命令的使用，靠国内互联网可以解决问题。</p>
-<p>其余的事情，比如影响git传输的，有两个问题，一个是dns解析不了github.com，但主机可以，那就搜一下如何绑定github.com和解析出来的ip；另一个是git走代理，走的是ssh协议，也可以百度谷歌解决问题。</p>
-<h4 id="你以为这就结束了？路由器怎么办？"><a href="#你以为这就结束了？路由器怎么办？" class="headerlink" title="你以为这就结束了？路由器怎么办？"></a>你以为这就结束了？路由器怎么办？</h4><p>上面是主机和虚拟机的，路由器这一端还有环境配置。</p>
-<p>如果是新的linux系统路由器，可能需要刷入开发版之类的。不知道该不该说“好在”，商家已经给路由器刷了Breed，即Boot and Recovery Environment for Embedded Devices。没了体验成功刷入breed的过程，但也没有刷机失败变砖的风险下，也为我省去了一点时间。</p>
-<img src="https://i.loli.net/2021/10/20/rIHFX9wgqhnVJty.png" style="zoom:75%;" />
+<h3 id="交换函数"><a href="#交换函数" class="headerlink" title="交换函数"></a>交换函数</h3><p>记住正常的交换函数，用指针从实质地指向值，与以前的区别在于，指针直接对应值，绕开了字母变量。也就是指针（十六进制地址）上有一个值（char,int,double等）</p>
+<p>以下x,y是十六进制的地址，*x为指向的变量。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(T* x, T* y)</span> <span class="comment">//交换指针指向的变量</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	T t = *x;<span class="comment">//t赋值为x指向的变量</span></span><br><span class="line">	*x = *y;<span class="comment">//将y的值赋给x</span></span><br><span class="line">	*y = t;<span class="comment">//y得到变量t的值</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>对于刷机失败，你如何认识这种事件？</p>
-<p>以一个亲历者的角度来看，其实这不是“固件完好和版本是否完全对应，并且操作是否完全正确”就能决定的，刷机失败是赌上概率的事。</p>
-<p>而我在中午恰恰就体验了一把刷固件失败：在OpenWrt界面刷入sysupgrade.bin（此前已刷入kernel.bin），十多分钟了，路由器没有动静，Web一直转圈圈。</p>
-<p>正常刷机成功不需要等待这么久，并且成功了会自动刷新到登录页面——恰恰这次刷固件出了意外。</p>
-<p>我在以为它刷入完成的情况下，手动重启了。结果开机后黄灯常亮不止，几分钟没变过蓝灯。</p>
-<img src="https://i.loli.net/2021/10/20/LV7fkYsZ9bhwc5l.jpg" style="zoom: 18%;" />
+<p>这里又想到取址符&amp;，那这样一来，以前的”int a= 5;”中a与值，与指针，之间是什么关系？</p>
+<p>1.T* a与T a平级，没有依赖关系，定义时，均可以不初始化，而且对应量都是随机的（十六进制数0xcccccccc[???]和随机的T类型内容（但为什么每次都是固定的一个数呢？））</p>
+<p>2.两者指向同一对象时，用&amp;联系起来。&amp;普通变量=变量的地址。</p>
+<p>明白以上两点，数组就好理解了。交换地址上的值，实际上是以指针形式表达变量（因为指针也是变量），并进行着类似以前”int t = a,a =b, b=t;”的操作。而此处具体可以表达为：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">普通变量的值 &#x3D; 指针1上的值</span><br><span class="line"></span><br><span class="line">指针1上的值 &#x3D; 指针2上的值</span><br><span class="line"></span><br><span class="line">指针2上的值 &#x3D; 普通变量的值</span><br></pre></td></tr></table></figure>
 
-<p>直到写下这些文字时，我依然认为我的操作万无一失，并且和之前刷入成功的操作没有任何变动——但它就是失败了。</p>
-<p>还好，不是有Breed救命嘛，给了我重新刷机的机会。熟练操作下，第二次和第一次操作完全相同，而第二次却成功了。</p>
-<p>虽然备份都没用上，但至少给了几分刷机的底气。</p>
-<p>提一提最后设置RJ验证时，因为是新版本的固件，21.02的，没有了Physical Settings这一栏，需要把三个接口（minieap、wan、wan6）都归到eth0下，Save&amp;Apply，然后拔掉WAN口网线，重启，再插上，等个三五分钟，直到WAN口绿灯常闪，否则再重启重复上面步骤。</p>
-<p>至于为啥不玩旧版本嘛，官网上写着stable了，然后看看也支持小米3G，所以心想就整个新的进去。结果最后看到路由器界面，下面赫然写着“21.02 SNAPSHOT”，也不知道是不是我理解错了什么。</p>
-<h4 id="总之，村通网了。"><a href="#总之，村通网了。" class="headerlink" title="总之，村通网了。"></a>总之，村通网了。</h4><p>这个过程中遇到的问题，吸收的教训，很多。</p>
-<p>但折腾好了，还是会有成就感，并且Private Room+1。</p>
-<p>这个路由还打算干点别的，也有可能重刷，就写在Plan to do里面吧。</p>
-<p>目前对固件的内存占用（运行居然需要60MB）比较不满意（无论是OpenWRT还是三方固件ImmortalWRT），着手优化这一块。</p>
-<h3 id="去玩"><a href="#去玩" class="headerlink" title="去玩"></a>去玩</h3><p>原本计划国庆10.4去THO，结果不料因为一个国际会展取消了。虽然跳票不是Cyberpunk 2077专属，但难得国庆佳节，很多人这下半年只在这个假期有时间，遇到跳票只得含恨/remake。心急的老哥在第一次推迟通知时取消了一次机票，在THO获得一线生机后又买票——随之第二次推迟通知就在当晚发出，老哥的机票和酒店退款，血亏上千。</p>
-<p>此后我的国庆计划便是空空如也——其实不计划也有我的个人原因，感冒了。</p>
-<p>首先不想带病乱跑，其次想要养病，这感冒咳嗽始终需要静养的时间。</p>
-<p>然后situ2001一行人有计划，带深大来的老同学逛逛广州，我倒同意去凑个热闹——选择哪个其实都挺好。静养，宿舍里也大有可为；而出去玩呢，熟悉广州，也是何乐而不为。至于病，痛在口腔溃疡。实际上时，口腔溃疡还很重，但毕竟饭是要吃的。几天大餐如果放在平时，那可太享受了——猪扒包和一大柄鸡腿。而国庆享受这需要大量咬合力的晚餐时，只能磨着伤口吃香喝辣，痛苦并快乐着了，哈哈。<del>（广大学子青春版.jpg）</del></p>
-<h3 id="看番"><a href="#看番" class="headerlink" title="看番"></a>看番</h3><p>国庆期间和舍友在宿舍看完了《冰菓》，虽然不时有点卡顿，但还能接受。剧情在平淡和稳定中度过，女主千反田的人物印象一直都很清晰（其实看之前已经觉得这个角色的辨识度非常高了）。和魔旅一样，我还是认同这番出第二季的。</p>
+<p>完成交换。</p>
+<p>▲注意交换完后，原数组会变化！</p>
+<p>因此最好使用以下函数进行备份</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">backup</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> p[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n = <span class="keyword">sizeof</span>(a)/<span class="keyword">sizeof</span>(<span class="keyword">int</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">        p[i] = a[i];</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;<span class="comment">//未试过能否运行，思路是这个就差不多了，遍历复制。</span></span><br></pre></td></tr></table></figure>
+
 <hr>
-<h2 id="What-I-plan-to-do"><a href="#What-I-plan-to-do" class="headerlink" title="What I plan to do"></a>What I plan to do</h2><h3 id="路由器"><a href="#路由器" class="headerlink" title="路由器"></a>路由器</h3><h4 id="路由器改良"><a href="#路由器改良" class="headerlink" title="路由器改良"></a>路由器改良</h4><ul>
-<li><input disabled="" type="checkbox"> 内存占用缩小</li>
-<li><input disabled="" type="checkbox"> 定时重启的脚本</li>
-<li><input disabled="" type="checkbox"> 定时断电通电（外设）</li>
-</ul>
-<h4 id="集齐功能"><a href="#集齐功能" class="headerlink" title="集齐功能"></a>集齐功能</h4><ul>
-<li><input disabled="" type="checkbox"> UPnP</li>
-<li><input disabled="" type="checkbox"> OpenClash（仍需考量）</li>
-<li><input disabled="" type="checkbox"> 网易云音乐解锁</li>
-<li><input disabled="" type="checkbox"> 网络唤醒测试（顺带学一下远程电脑，从虚拟机下手）</li>
-<li><input disabled="" type="checkbox"> 一个好看的主题</li>
-<li><input disabled="" type="checkbox"> 迅雷快鸟（不妨先搞清楚真正的作用？）</li>
-<li><input disabled="" type="checkbox"> DDNS（远程访问路由器是它唯一的用处了么？）</li>
-<li><input disabled="" type="checkbox"> nlbwmon</li>
-</ul>
-<h3 id="课堂"><a href="#课堂" class="headerlink" title="课堂"></a>课堂</h3><h4 id="CS-APP-计组"><a href="#CS-APP-计组" class="headerlink" title="CS:APP / 计组"></a>CS:APP / 计组</h4><p>计组需要应付下星期的测验，所以CS:APP课程要跟上，并且计组还有作业。</p>
-<p>即使CS:APP不能完全替代计组，但看了看Lecture的各章名称，我能确认我没来错地方。</p>
-<p>计组还有实验，也需要在本周末谨慎对待——嘶，这仅剩的一天，如何安排实在是令人头疼啊。</p>
-<h4 id="JAVA"><a href="#JAVA" class="headerlink" title="JAVA"></a>JAVA</h4><p>尽快完成。</p>
-<h4 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h4><p>减少囫囵吞枣的行为，认真学一下新的内容，这是个考试课。</p>
-<h4 id="物理实验"><a href="#物理实验" class="headerlink" title="物理实验"></a>物理实验</h4><p>物理实验开始堆积了，有必要提前写好预习报告，否则后面全天满课会很难受。</p>
-<h4 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h4><p>这其实是个很有趣的课程，只是理论无聊了点。我想法还是先上JAVA Database再看课本吧——因为JAVA Database里也有学校课本的大部分内容。</p>
-<h3 id="THO"><a href="#THO" class="headerlink" title="THO"></a>THO</h3><p>周六还是打算去吧，毕竟什么时候不忙呢？</p>
-<h3 id="降低开销"><a href="#降低开销" class="headerlink" title="降低开销"></a>降低开销</h3><p>这个月开支实在有点大，尤其国庆几天，加上校园网到期了。能推到后面再买的东西就不用急着买了。另一个下手的方面是夜宵改成小方便面，晚餐可以像以前一样去饭堂。</p>
-<h3 id="LeetCode"><a href="#LeetCode" class="headerlink" title="LeetCode"></a>LeetCode</h3><p>这个也属于要折腾很久的一类。写到这里，我觉得我需要研究一下自己——不是研究什么日程规划表什么作息之类的，而是研究自己。如何劝勉自己安心地去写LeetCode这样增强自己的事，来替换掉一些去B站消遣、去找涩图的行为，我觉得能行，但是没办到，那这就是一门学问了——鸡汤没用，威逼之下没有效率。什么样的模式才会适合我自己去做增强自身的行为？</p>
-<hr>
-<h2 id="END"><a href="#END" class="headerlink" title="END"></a>END</h2><p>欢庆的十月，适宜的温度，总而言之最近是很适合生产力大爆发的时候，所以务必抓紧机会，走走之前计划的道路。早点休息，而在游戏咨询方面，我关注明日方舟，那就静待佳音吧。</p>
+<h2 id="探索函数与数组的激烈摩擦"><a href="#探索函数与数组的激烈摩擦" class="headerlink" title="探索函数与数组的激烈摩擦"></a>探索函数与数组的激烈摩擦</h2><h3 id="数组在函数中的写法"><a href="#数组在函数中的写法" class="headerlink" title="数组在函数中的写法"></a>数组在函数中的写法</h3><p>就像指针在函数的参数位置，表达为T* m一样神奇，数组的首地址表达为T m[]</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sort_order</span><span class="params">(T m[],<span class="keyword">int</span> size)</span><span class="comment">//因为数组不能引用而只能用指针!!!</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> len = size / <span class="keyword">sizeof</span>(T);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= len; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = i+<span class="number">1</span>; j &lt;= len; j++)</span><br><span class="line">			<span class="keyword">if</span> (m[i - <span class="number">1</span>] &lt; m[j - <span class="number">1</span>])</span><br><span class="line">				pin_swap(m + i - <span class="number">1</span>, m + j - <span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>不要写T *m[]！！m[]本身就是个地址！如果这么干，你需要给它喂指针的地址（类型是T **，双星啊）（叶莲娜：“？”）</p>
+<h3 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h3><p><strong>标识符</strong>是c++中由字母（A-Z，a-z）、数字（0-9）、下划线“_”组成，并且首字符不能是数字，但可以是字母或者下划线，例如”len = 10”中len就是标识符。<strong>指针也是标识符</strong>，指针有自己的地址。</p>
+<p>下午使用选择排序函数+交换函数的顺序时，编译器最后一声轰鸣：“选择排序函数它找不到标识符！！”</p>
+<p>查了下百度，当初我是不信的，后来把它们换了下顺序，程序duang的一下运行了，并且成功排序。</p>
+<p><img src="https://raw.githubusercontent.com/Makri-hub/WolpersHome.github.io/PicGo/%E8%B0%83%E5%92%8C%E5%9B%BE%E7%89%87.png"></p>
+<p>啊，用html调节图片好难受，远没有word功能多，原则上还是少用图片吧。</p>
+<p>这期间借鉴了：</p>
+<p><a href="https://blog.csdn.net/qq_41573234/article/details/80297995">HTML——添加图像、设置图像属性_时光·漫步的博客-CSDN博客</a></p>
+<p><a href="https://blog.csdn.net/zfx1101804091/article/details/108749605">Typora关于 插入图片 居中 靠左 靠右设置_zfx1101804091的博客-CSDN博客_typora 图片居中</a></p>
+<p>来帮助设置图片。</p>
+<h3 id="字符数组"><a href="#字符数组" class="headerlink" title="字符数组"></a>字符数组</h3><p>以下这段关于字符数组的连接，出现了严重的问题。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span>* <span class="title">mystrcat</span><span class="params">(<span class="keyword">char</span>* strDest, <span class="keyword">const</span> <span class="keyword">char</span>* strSrc)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n = <span class="built_in">strlen</span>(strDest);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; strSrc[i] != <span class="string">&#x27;\0&#x27;</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> ((<span class="string">&#x27;A&#x27;</span> &lt;= strSrc[i] &lt;= <span class="string">&#x27;Z&#x27;</span> )|| (<span class="string">&#x27;a&#x27;</span> &lt;= strSrc[i] &lt;= <span class="string">&#x27;z&#x27;</span>))</span><br><span class="line">		&#123;</span><br><span class="line">			*(strDest + n +i) = strSrc[i];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> strDest;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>问题一：在c++中不能使用类似a&lt;=x&lt;=b、a&lt;x&lt;b这样的判断语句，拿a&lt;x&lt;b为例，c++中大小、等、不等判断符的<strong>结合性</strong>均为从左往右，判别式的逻辑是：</p>
+<p>a&lt;x否？否，则化为0&lt;b；是，化为1&lt;b；</p>
+<p>然后1&lt;b否？否，则为0；是，化为1。此处不再做过多赘述。</p>
+<p>问题二：指针的移动没有处理好（具体点说，是这个int i不好用）            </p>
+<p>在这里应该设置两个指针（或者两个自增变量），一个i，在strDest上移动，一个j，在strSrc上移动；而这里仅有一个i，无论如何都会自增，导致strSrc上的位置错误，显示是乱码变了（一个乱码汉字变成另一个乱码汉字，因为汉字对应的编码变了，但笔者还没学汉字的编码，只能先搁着之后再回来补充）</p>
+<h3 id="指针和数组（待补）"><a href="#指针和数组（待补）" class="headerlink" title="指针和数组（待补）"></a>指针和数组（待补）</h3><p>如果有（main函数省略）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a[<span class="number">20</span>];</span><br><span class="line"><span class="keyword">int</span>* p  = a;</span><br><span class="line">a[<span class="number">1</span>] = <span class="number">5</span>;</span><br></pre></td></tr></table></figure>
+
+<p>这是常见的操作，那么：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(p[<span class="number">1</span>] ==a[<span class="number">1</span>])</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;p[1]表达意思与a[1]相同\n&quot;</span>;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;p[1]值为：&quot;</span>&lt;&lt;p[<span class="number">1</span>]&lt;&lt;<span class="string">&quot;\na[1]值为：&quot;</span>&lt;&lt;a[<span class="number">1</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;p[1]表达意思与a[1]不同&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>大家猜猜输出的是哪个？</p>
+<p>答案是第一个，相同，对应值是都是5。</p>
+<p>为什么“指针名[n]”可以表示“数组名[n]”，首先我认为数组a本身是个指针</p>
+<p>而这个认识，就是二维数组的基础</p>
+<p>这里留个坑，留下一张图给大家细细品味，注意“类型”一栏。</p>
+<p><img src="https://raw.githubusercontent.com/Makri-hub/WolpersHome.github.io/PicGo/%E8%AF%A1%E5%BC%82.png"></p>
 ]]></content>
       <categories>
-        <category>生活记录</category>
+        <category>C++</category>
       </categories>
       <tags>
-        <tag>记录</tag>
+        <tag>笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -276,73 +344,6 @@
 
 <p>以上，写得比较菜，定有疏漏之处，还恳请各位轻喷。比如链表的那两个“必须额外再复制两个指针”是否可以简化点思路？是否尝试过复制结构体的方法？</p>
 <p>文章实质上可能是期末复习笔记之类的，凑合着像一篇教程</p>
-]]></content>
-      <categories>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++笔记[数组]</title>
-    <url>/2020/11/23/c++%E7%AC%94%E8%AE%B0%5B%E6%95%B0%E7%BB%84%5D/</url>
-    <content><![CDATA[<h2 id="数组的各种符号，摸清楚"><a href="#数组的各种符号，摸清楚" class="headerlink" title="数组的各种符号，摸清楚"></a><!-- more -->数组的各种符号，摸清楚</h2><hr>
-<h3 id="起步"><a href="#起步" class="headerlink" title="起步"></a>起步</h3><img src="https://i.loli.net/2020/11/24/5hOA8Pt3DSMH7bf.png" style="zoom:125%;" />
-
-<p>首先记住上图，[]表示数组取值运算符。地址可以“无限”加下去（有限的无限）</p>
-<p>它们对应的代码是这样的：（main函数省略）</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a[] = &#123; <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">6</span>,<span class="number">7</span> &#125;;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">sizeof</span>(a) / <span class="keyword">sizeof</span>(<span class="keyword">int</span>); i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; a[i] &lt;&lt; <span class="string">&#x27;,&#x27;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span> &lt;&lt; <span class="string">&quot;a表示&quot;</span> &lt;&lt; a &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;*a表示&quot;</span> &lt;&lt; *a &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;a[0]表示&quot;</span> &lt;&lt; a[<span class="number">0</span>] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;a[1]表示&quot;</span> &lt;&lt; a[<span class="number">1</span>] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;a+1表示&quot;</span> &lt;&lt; a + <span class="number">1</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;a+6表示&quot;</span> &lt;&lt; a + <span class="number">6</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;交换数组首尾&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure>
-
-<h3 id="交换函数"><a href="#交换函数" class="headerlink" title="交换函数"></a>交换函数</h3><p>记住正常的交换函数，用指针从实质地指向值，与以前的区别在于，指针直接对应值，绕开了字母变量。也就是指针（十六进制地址）上有一个值（char,int,double等）</p>
-<p>以下x,y是十六进制的地址，*x为指向的变量。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(T* x, T* y)</span> <span class="comment">//交换指针指向的变量</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	T t = *x;<span class="comment">//t赋值为x指向的变量</span></span><br><span class="line">	*x = *y;<span class="comment">//将y的值赋给x</span></span><br><span class="line">	*y = t;<span class="comment">//y得到变量t的值</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这里又想到取址符&amp;，那这样一来，以前的”int a= 5;”中a与值，与指针，之间是什么关系？</p>
-<p>1.T* a与T a平级，没有依赖关系，定义时，均可以不初始化，而且对应量都是随机的（十六进制数0xcccccccc[???]和随机的T类型内容（但为什么每次都是固定的一个数呢？））</p>
-<p>2.两者指向同一对象时，用&amp;联系起来。&amp;普通变量=变量的地址。</p>
-<p>明白以上两点，数组就好理解了。交换地址上的值，实际上是以指针形式表达变量（因为指针也是变量），并进行着类似以前”int t = a,a =b, b=t;”的操作。而此处具体可以表达为：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">普通变量的值 &#x3D; 指针1上的值</span><br><span class="line"></span><br><span class="line">指针1上的值 &#x3D; 指针2上的值</span><br><span class="line"></span><br><span class="line">指针2上的值 &#x3D; 普通变量的值</span><br></pre></td></tr></table></figure>
-
-<p>完成交换。</p>
-<p>▲注意交换完后，原数组会变化！</p>
-<p>因此最好使用以下函数进行备份</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">backup</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> p[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n = <span class="keyword">sizeof</span>(a)/<span class="keyword">sizeof</span>(<span class="keyword">int</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">        p[i] = a[i];</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;<span class="comment">//未试过能否运行，思路是这个就差不多了，遍历复制。</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="探索函数与数组的激烈摩擦"><a href="#探索函数与数组的激烈摩擦" class="headerlink" title="探索函数与数组的激烈摩擦"></a>探索函数与数组的激烈摩擦</h2><h3 id="数组在函数中的写法"><a href="#数组在函数中的写法" class="headerlink" title="数组在函数中的写法"></a>数组在函数中的写法</h3><p>就像指针在函数的参数位置，表达为T* m一样神奇，数组的首地址表达为T m[]</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sort_order</span><span class="params">(T m[],<span class="keyword">int</span> size)</span><span class="comment">//因为数组不能引用而只能用指针!!!</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> len = size / <span class="keyword">sizeof</span>(T);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= len; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = i+<span class="number">1</span>; j &lt;= len; j++)</span><br><span class="line">			<span class="keyword">if</span> (m[i - <span class="number">1</span>] &lt; m[j - <span class="number">1</span>])</span><br><span class="line">				pin_swap(m + i - <span class="number">1</span>, m + j - <span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>不要写T *m[]！！m[]本身就是个地址！如果这么干，你需要给它喂指针的地址（类型是T **，双星啊）（叶莲娜：“？”）</p>
-<h3 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h3><p><strong>标识符</strong>是c++中由字母（A-Z，a-z）、数字（0-9）、下划线“_”组成，并且首字符不能是数字，但可以是字母或者下划线，例如”len = 10”中len就是标识符。<strong>指针也是标识符</strong>，指针有自己的地址。</p>
-<p>下午使用选择排序函数+交换函数的顺序时，编译器最后一声轰鸣：“选择排序函数它找不到标识符！！”</p>
-<p>查了下百度，当初我是不信的，后来把它们换了下顺序，程序duang的一下运行了，并且成功排序。</p>
-<p><img src="https://raw.githubusercontent.com/Makri-hub/WolpersHome.github.io/PicGo/%E8%B0%83%E5%92%8C%E5%9B%BE%E7%89%87.png"></p>
-<p>啊，用html调节图片好难受，远没有word功能多，原则上还是少用图片吧。</p>
-<p>这期间借鉴了：</p>
-<p><a href="https://blog.csdn.net/qq_41573234/article/details/80297995">HTML——添加图像、设置图像属性_时光·漫步的博客-CSDN博客</a></p>
-<p><a href="https://blog.csdn.net/zfx1101804091/article/details/108749605">Typora关于 插入图片 居中 靠左 靠右设置_zfx1101804091的博客-CSDN博客_typora 图片居中</a></p>
-<p>来帮助设置图片。</p>
-<h3 id="字符数组"><a href="#字符数组" class="headerlink" title="字符数组"></a>字符数组</h3><p>以下这段关于字符数组的连接，出现了严重的问题。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span>* <span class="title">mystrcat</span><span class="params">(<span class="keyword">char</span>* strDest, <span class="keyword">const</span> <span class="keyword">char</span>* strSrc)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n = <span class="built_in">strlen</span>(strDest);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; strSrc[i] != <span class="string">&#x27;\0&#x27;</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> ((<span class="string">&#x27;A&#x27;</span> &lt;= strSrc[i] &lt;= <span class="string">&#x27;Z&#x27;</span> )|| (<span class="string">&#x27;a&#x27;</span> &lt;= strSrc[i] &lt;= <span class="string">&#x27;z&#x27;</span>))</span><br><span class="line">		&#123;</span><br><span class="line">			*(strDest + n +i) = strSrc[i];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> strDest;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>问题一：在c++中不能使用类似a&lt;=x&lt;=b、a&lt;x&lt;b这样的判断语句，拿a&lt;x&lt;b为例，c++中大小、等、不等判断符的<strong>结合性</strong>均为从左往右，判别式的逻辑是：</p>
-<p>a&lt;x否？否，则化为0&lt;b；是，化为1&lt;b；</p>
-<p>然后1&lt;b否？否，则为0；是，化为1。此处不再做过多赘述。</p>
-<p>问题二：指针的移动没有处理好（具体点说，是这个int i不好用）            </p>
-<p>在这里应该设置两个指针（或者两个自增变量），一个i，在strDest上移动，一个j，在strSrc上移动；而这里仅有一个i，无论如何都会自增，导致strSrc上的位置错误，显示是乱码变了（一个乱码汉字变成另一个乱码汉字，因为汉字对应的编码变了，但笔者还没学汉字的编码，只能先搁着之后再回来补充）</p>
-<h3 id="指针和数组（待补）"><a href="#指针和数组（待补）" class="headerlink" title="指针和数组（待补）"></a>指针和数组（待补）</h3><p>如果有（main函数省略）</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a[<span class="number">20</span>];</span><br><span class="line"><span class="keyword">int</span>* p  = a;</span><br><span class="line">a[<span class="number">1</span>] = <span class="number">5</span>;</span><br></pre></td></tr></table></figure>
-
-<p>这是常见的操作，那么：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(p[<span class="number">1</span>] ==a[<span class="number">1</span>])</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;p[1]表达意思与a[1]相同\n&quot;</span>;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;p[1]值为：&quot;</span>&lt;&lt;p[<span class="number">1</span>]&lt;&lt;<span class="string">&quot;\na[1]值为：&quot;</span>&lt;&lt;a[<span class="number">1</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;p[1]表达意思与a[1]不同&quot;</span>;</span><br></pre></td></tr></table></figure>
-
-<p>大家猜猜输出的是哪个？</p>
-<p>答案是第一个，相同，对应值是都是5。</p>
-<p>为什么“指针名[n]”可以表示“数组名[n]”，首先我认为数组a本身是个指针</p>
-<p>而这个认识，就是二维数组的基础</p>
-<p>这里留个坑，留下一张图给大家细细品味，注意“类型”一栏。</p>
-<p><img src="https://raw.githubusercontent.com/Makri-hub/WolpersHome.github.io/PicGo/%E8%AF%A1%E5%BC%82.png"></p>
 ]]></content>
       <categories>
         <category>C++</category>

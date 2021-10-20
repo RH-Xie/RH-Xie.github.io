@@ -31,15 +31,15 @@
 <meta property="og:site_name" content="お帰り、ドクター。">
 <meta property="og:description" content="金秋十月，仔细想想其实还不少事">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="c:/Users/RH%20Xie/AppData/Roaming/Typora/typora-user-images/image-20211020134555373.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/RH-Xie/RH-Xie.github.io/images/When%20compilation%20is%20done.png">
 <meta property="og:image" content="https://i.loli.net/2021/10/20/rIHFX9wgqhnVJty.png">
 <meta property="og:image" content="https://i.loli.net/2021/10/20/LV7fkYsZ9bhwc5l.jpg">
 <meta property="article:published_time" content="2021-10-18T06:09:00.000Z">
-<meta property="article:modified_time" content="2021-10-20T05:54:47.156Z">
+<meta property="article:modified_time" content="2021-10-20T07:23:42.473Z">
 <meta property="article:author" content="RH Xie">
 <meta property="article:tag" content="记录">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="c:/Users/RH%20Xie/AppData/Roaming/Typora/typora-user-images/image-20211020134555373.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/RH-Xie/RH-Xie.github.io/images/When%20compilation%20is%20done.png">
 
 
 <link rel="canonical" href="http://example.com/2021/10/18/Oct2021/">
@@ -343,7 +343,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-10-20 13:54:47" itemprop="dateModified" datetime="2021-10-20T13:54:47+08:00">2021-10-20</time>
+        <time title="修改时间：2021-10-20 15:23:42" itemprop="dateModified" datetime="2021-10-20T15:23:42+08:00">2021-10-20</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -416,7 +416,7 @@
 <p>所以在编译好固件之后还得使用SDK单独编译好以上的包，才能通过OpenWRT的镜像源去镜像站下载各种Software，比如i18n，UPnP，nlbwmon等。</p>
 <h4 id="这个过程中涉及的环境配置很多。"><a href="#这个过程中涉及的环境配置很多。" class="headerlink" title="这个过程中涉及的环境配置很多。"></a>这个过程中涉及的环境配置很多。</h4><p>首先得有一个足够的磁盘，最好留出100G左右的空间。安装Ubuntu分配60-80G，剩余的留给风险。</p>
 <p>其次是，主机网络环境（假设是Win10），要求必须有顺畅的全局或PAC过GFW的环境，不然会吃很多苦头。今年3月份时我试过自己编译固件，然而那时候没有这个环境，导致2~3小时的等待，最后编译失败。过了半年，到今早，看着ImmortalWrt的编译过程，上百万行代码呼啸滚动，我心里蛮舒服的——因为我觉得那是编译成功的欢呼。</p>
-<img src="C:\Users\RH Xie\AppData\Roaming\Typora\typora-user-images\image-20211020134555373.png" alt="image-20211020134555373" style="zoom:65%;" />
+<img src="https://raw.githubusercontent.com/RH-Xie/RH-Xie.github.io/images/When%20compilation%20is%20done.png" style="zoom:55%;" />
 
 <p>扯远了，继续说环境——还得设置虚拟机的网络环境。其实上一段已经说了，我是在虚拟机Ubuntu下编译的，而且又是校园网，桥接模式效果不佳（具体原因我不了解，所以不能乱说），所以虚拟机的网络得调成NAT。而对于想给虚拟机可以过GFW的能力，还得多一步：这里以猫猫为例，要打开Allow LAN，然后在Ubuntu的Network-&gt;Network Proxy里设置http proxy（听说SSR是socks5协议，具体要查询适合自己的），ip为主机的DNS（多种方法，最直接的是ipconfig里以太网（Cable）或WLAN（Wifi）中看），端口为猫猫代理的端口，通常显示在General里。</p>
 <p>不过，挺庆幸我这次思维转换了——之前我还想着小飞机和猫猫软件本体哪个在linux系统下，用起来简单点，结果想了想，是虚拟机，那应该可以共享网络嘛。</p>
@@ -434,7 +434,7 @@
 <p>而我在中午恰恰就体验了一把刷固件失败：在OpenWrt界面刷入sysupgrade.bin（此前已刷入kernel.bin），十多分钟了，路由器没有动静，Web一直转圈圈。</p>
 <p>正常刷机成功不需要等待这么久，并且成功了会自动刷新到登录页面——恰恰这次刷固件出了意外。</p>
 <p>我在以为它刷入完成的情况下，手动重启了。结果开机后黄灯常亮不止，几分钟没变过蓝灯。</p>
-<img src="https://i.loli.net/2021/10/20/LV7fkYsZ9bhwc5l.jpg" style="zoom: 18%;" />
+<img src="https://i.loli.net/2021/10/20/LV7fkYsZ9bhwc5l.jpg" style="zoom:18%;" />
 
 <p>直到写下这些文字时，我依然认为我的操作万无一失，并且和之前刷入成功的操作没有任何变动——但它就是失败了。</p>
 <p>还好，不是有Breed救命嘛，给了我重新刷机的机会。熟练操作下，第二次和第一次操作完全相同，而第二次却成功了。</p>
@@ -478,6 +478,7 @@
 <h3 id="LeetCode"><a href="#LeetCode" class="headerlink" title="LeetCode"></a>LeetCode</h3><p>这个也属于要折腾很久的一类。写到这里，我觉得我需要研究一下自己——不是研究什么日程规划表什么作息之类的，而是研究自己。如何劝勉自己安心地去写LeetCode这样增强自己的事，来替换掉一些去B站消遣、去找涩图的行为，我觉得能行，但是没办到，那这就是一门学问了——鸡汤没用，威逼之下没有效率。什么样的模式才会适合我自己去做增强自身的行为？</p>
 <hr>
 <h2 id="END"><a href="#END" class="headerlink" title="END"></a>END</h2><p>欢庆的十月，适宜的温度，总而言之最近是很适合生产力大爆发的时候，所以务必抓紧机会，走走之前计划的道路。早点休息，而在游戏咨询方面，我关注明日方舟，那就静待佳音吧。</p>
+<p>总是想摸更多的鱼，但这么想的时候似乎已经忙到头上了。</p>
 
     </div>
 
