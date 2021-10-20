@@ -1,0 +1,926 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>C++笔记</title>
+    <url>/2021/05/31/C++%E7%AC%94%E8%AE%B0%5B%E6%95%A3%E8%AE%B0%5D/</url>
+    <content><![CDATA[<h1 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h1><p>Warning: This passage includes wrong grammar, wrong words.</p>
+<hr>
+<p>How to understand pure virtual function and abstract class ?</p>
+<p>We can’t always know the implementation of base class, for it’s just not sure before derivate classes define the functions to make that description. For instance, we define a base class Shape, but we can’t draw it before we define it’s real shape in a derivate class, Rectangle or Triangle. In this occasion, the base class didn’t initialize the parameters or functions on how to draw it, because none of the methods to initialization seems to be appropriate. We can’t just draw a default rectangle instead of letting users use derivate classes. Why not let users make a good use of derivate classes ?</p>
+<hr>
+<p>Which to choose?</p>
+<p>There’s a template function containing arguments of type Double and type Float. Then I call the function and key 1.1 and 2.2 into it. Then what’s type of these two temporary arguments?</p>
+<p>In fact, if you just do this, both arguments will be recognized as type Double. What about forcing the second argument into Float? That will go as you think : the second argument is successfully changed into Float.</p>
+<p>In short, C++ Compiler regards decimals as Double at default, but you can force it into Float or Int.</p>
+<hr>
+<p>How to call Template Function directly without calling normal function I defined?</p>
+<p>Just use this format:</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">FunctionName&lt;&gt;(argument1, argument2);</span><br></pre></td></tr></table></figure>
+
+<p>There’s nothing in &lt;&gt;, but this provides the hint for compiler to use the template function.</p>
+<p>How to forcibly NOT call template function?</p>
+<p>Easy. Just let the template have only one typename and two arguments in this same type, then key two different types of arguments in it. This will run well once you prepare the corresponding function you want to call.</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">mmax</span><span class="params">(T a, T b)</span><span class="comment">//I do NOT want to call this!!</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a &gt;b?a:b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">mmax</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">char</span> b)</span><span class="comment">//And I want to call this instead!</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a &gt; b ? a : b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; mmax(<span class="number">1</span>,<span class="number">1.2222</span>);<span class="comment">//This is what I said &quot;key two different types of arguments&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>How to skip variable with <code>const</code> in class?</p>
+<p>Use the Initialization Function when .</p>
+<hr>
+<p>Today I saw an <strong>AMAZING</strong> explanation of how to pass the size of an array.</p>
+<p>@<a href="https://stackoverflow.com/questions/1328223/when-a-function-has-a-specific-size-array-parameter-why-is-it-replaced-with-a-p">https://stackoverflow.com/questions/1328223/when-a-function-has-a-specific-size-array-parameter-why-is-it-replaced-with-a-p</a></p>
+<p>The function:</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo</span> <span class="params">( <span class="keyword">char</span> a[<span class="number">100</span>] )</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>Will have the parameter adjusted to be a pointer, and so becomes:</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo</span> <span class="params">( <span class="keyword">char</span> * a )</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>If you want that the array type is preserved, you should pass in a reference to the array:</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo</span> <span class="params">( <span class="keyword">char</span> (&amp;a)[<span class="number">100</span>] )</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>C++ ‘03 8.3.5/3:</strong></p>
+<blockquote>
+<p>…The type of a function is determined using the following rules. The type of each parameter is determined from its own decl-specifier-seq and declarator. After determining the type of each parameter, any parameter of type “array of T” or “function returning T” is adjusted to be “pointer to T” or “pointer to function returning T,” respectively….</p>
+</blockquote>
+<p><strong>To explain the syntax:</strong></p>
+<p>Check for “right-left” rule in google; I found one description of it <a href="http://www.cpp-home.com/archives/106.html">here</a>.</p>
+<p>It would be applied to this example approximately as follows:</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo</span> <span class="params">(<span class="keyword">char</span> (&amp;a)[<span class="number">100</span>])</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>Start at identifier ‘a’</p>
+<blockquote>
+<p>‘a’ is a</p>
+</blockquote>
+<p>Move right - we find a <code>)</code> so we reverse direction looking for the <code>(</code>. As we move left we pass <code>&amp;</code></p>
+<blockquote>
+<p>‘a’ is a reference</p>
+</blockquote>
+<p>After the <code>&amp;</code> we reach the opening <code>(</code> so we reverse again and look right. We now see <code>[100]</code></p>
+<blockquote>
+<p>‘a’ is a reference to an array of 100</p>
+</blockquote>
+<p>And we reverse direction again until we reach <code>char</code>:</p>
+<blockquote>
+<p>‘a’ is a reference to an array of 100 chars</p>
+</blockquote>
+<p>Text above elaborately explains how the right-left works.</p>
+<p>And I say that Notion is a quite good place for pasting codes and pages. It even retains the links (Hypertext) in pages that you copy.</p>
+<hr>
+<p>I don’t know how important on adding <code>this</code> to a base class which has derivate class until today. It is convenient for you to copy them directly to the derivate class without frequently adding <code>this</code> . But don’t do it in friend function.</p>
+<p>Overloading of signal “=’ could <strong>NOT</strong> be declared as a friend function.</p>
+<p>Declaration order of class</p>
+<p>If vs show some problems on “see the declaration of class xx” and “xxx is not a member of class xx”, but actually xxx is a member of class xx, then you need to check whether your class xx includes other classes. If it does, make the included one declared in front of class xx.</p>
+]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>月记 ~ Oct 2021</title>
+    <url>/2021/10/18/Oct2021/</url>
+    <content><![CDATA[<!-- more -->
+
+<h1 id="月记-Oct-2021"><a href="#月记-Oct-2021" class="headerlink" title="月记 ~ Oct 2021"></a>月记 ~ Oct 2021</h1><h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><p>继上一篇年记以来有约莫一个月，也算是遵循自己立下的规矩了。上个月写年记要求自己至少一个月post一篇记录or笔记，可以不长，但必须得有。</p>
+<p>十月经历了两个秋日标志性的节气——寒露和霜降，其中还夹了个重阳节。经过这三个节日，气温有了明显下降，变得比较适合人类居住（指23℃上下波动），尘封一年的格子衫也终于重见天日。</p>
+<p>但实际上我还感觉到一丝干燥，但当日湿度是55%左右，不知是不是风大所致。</p>
+<p>这个月人的心态是比较放松的——当然，具体指的其实是，比较有空闲时间，可以做很多想做的事。</p>
+<p>做了什么事，这里开始总结下。</p>
+<hr>
+<h2 id="What-I-am-doing"><a href="#What-I-am-doing" class="headerlink" title="What I am doing"></a>What I am doing</h2><h3 id="CS-APP的学习"><a href="#CS-APP的学习" class="headerlink" title="CS:APP的学习"></a>CS:APP的学习</h3><blockquote>
+<p>“这计组课本不知道在写什么。我已经尽力尝试去理解了。”</p>
+<p>“I don’t really understand what the book is talking about, even though I have tried to.”</p>
+</blockquote>
+<p>令人怀疑的例题解释和课本习题，导致我无法再继续完全只靠《计算机组成与系统结构（第2版）》这本书学习这门课。</p>
+<p>10月8日，我上台讲代码。讲完了，经老师一指点才发现自己竟然没有用到任何一个例子（ppt里面那个除外，那是要解决的问题）。丢掉举例解释，就不能指望别人理解你说的Solution；丢掉好的例子，就不能指望别人理解透彻。</p>
+<p>这两件事后我明白，举例在说话时有多重要——对具体事物抽象的能力，是工科生、理科生的必备专业技能；但反过来，我发现我和不少人已经忘记：将抽象概念安装到合适的例子和事物上，才是实践。只挑自己不熟的活练手，会导致极易忽略自己原来很熟悉的东西，也叫“邯郸学步”。</p>
+<p>说了这么多，CS:APP登场了。这既是一本书又是一个课程，全名Computer Science: A Programmer’s Perspective，如其书名，从一个程序员的角度去看计算机各层的运作。在B站上已有中英字幕的网课，而电子书搜一搜也有。至于其中涉及的lab，去官网找self study handout即可，不需要实名注册。到10月8日，追到Lecture 3，目前感觉良好。</p>
+<h3 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h3><p>和之前一样，进度不快，还在JavaFX处停留。</p>
+<p>LibericaJDK——虽然有些明明需要JavaFX的mc启动器不认识LibericaJDK，但那启动器毕竟是别人业余开发的，我甚至都没Donate，那只能看开发者心情。不过这跟学习JavaFX就没什么关系了。</p>
+<h3 id="数据结构与算法"><a href="#数据结构与算法" class="headerlink" title="数据结构与算法"></a>数据结构与算法</h3><p>目前学起来还是Confusing，该学好的没学好（其实连功夫都没下）。</p>
+<p>栈、队列等代码是会写了，但应用范围太窄，人家stl又把轮子写好了，所以不知道自己要干什么。期待Java能快点进步是因为快到数据结构的内容了，我也可以肯定，在遇到什么刺激之前，我只有学到Java数据结构那块。我才会认真学数据结构，否则摸了。</p>
+<h3 id="锻炼"><a href="#锻炼" class="headerlink" title="锻炼"></a>锻炼</h3><p>主要是校园跑。</p>
+<p>目前的42.5km中，有一次骑车，但还有一次3km的因为没走必经点没有记录，所以替换一下，可以视为纯度很高的锻炼了。</p>
+<p>平均速度大概5’45’’一公里，不求快，只求锻炼到位。体测时发现肺活量明显上升了（4200-&gt;4750），可能也得益于这样的锻炼。</p>
+<p>引体向上也不像上个学期般吃力，也许这也是我想要的。</p>
+<p>毕竟到了期末那会，冷的要死，必定也不想出去锻炼了，所以练好体质，应对后面成堆而来的考试（我靠，我差点忘了还有CET-6，怎么办？）</p>
+<hr>
+<h2 id="What-I-have-done"><a href="#What-I-have-done" class="headerlink" title="What I have done"></a>What I have done</h2><h3 id="重装系统后的恢复"><a href="#重装系统后的恢复" class="headerlink" title="重装系统后的恢复"></a>重装系统后的恢复</h3><p>起因是C#脚本无高亮，结果后面发现VS积累一年的暗病没法忍受了。Installer表示也无能为力，卸不掉，装不上，安装位置各种错误，起因可能是我之前把VS从C盘迁移到了另一个盘。虽然项目和设置里大多适配了，但各种毛病还是层出不穷。</p>
+<p>于是重装了系统。</p>
+<p>写代码，有高亮和没高亮是两个世界。大师可以在没高亮的世界感受六根清净，但菜鸟可以在没高亮的情况下自然是从入门到入土。新的语言API不熟悉，在版本也不一样的情况下，很难把稍有不同的部分进行下去——互联网往往也爱莫能助，只能给你一份API reference瞎折腾去。</p>
+<p>许多环境配置倒不再那么棘手——轻车熟路是一部分，自己解决问题的能力也跟上一次重装系统时有略微变化了。</p>
+<p>这次乖乖把VS装在了C盘，此后不敢再动它。</p>
+<p>当然，需要倒腾的还有hexo博客的一些配置，但只要你能看到这篇文章，说明我已经完成了。</p>
+<h3 id="村通网"><a href="#村通网" class="headerlink" title="村通网"></a>村通网</h3><p>用小米3G路由器刷上了自己编译的原版固件，正常运行。</p>
+<p>但在校内想要上网，还得比其他OpenWRT用户多考虑一步：你需要编译一个ipk适合自己学校校园网用的，通过在Windows上用WinSCP和ssh将它和它的图形化附属安装上去，调参数和设置，然后，才能上网。</p>
+<p>所以在编译好固件之后还得使用SDK单独编译好以上的包，才能通过OpenWRT的镜像源去镜像站下载各种Software，比如i18n，UPnP，nlbwmon等。</p>
+<h4 id="这个过程中涉及的环境配置很多。"><a href="#这个过程中涉及的环境配置很多。" class="headerlink" title="这个过程中涉及的环境配置很多。"></a>这个过程中涉及的环境配置很多。</h4><p>首先得有一个足够的磁盘，最好留出100G左右的空间。安装Ubuntu分配60-80G，剩余的留给风险。</p>
+<p>其次是，主机网络环境（假设是Win10），要求必须有顺畅的全局或PAC过GFW的环境，不然会吃很多苦头。今年3月份时我试过自己编译固件，然而那时候没有这个环境，导致2~3小时的等待，最后编译失败。过了半年，到今早，看着ImmortalWrt的编译过程，上百万行代码呼啸滚动，我心里蛮舒服的——因为我觉得那是编译成功的欢呼。</p>
+<img src="C:\Users\RH Xie\AppData\Roaming\Typora\typora-user-images\image-20211020134555373.png" alt="image-20211020134555373" style="zoom:65%;" />
+
+<p>扯远了，继续说环境——还得设置虚拟机的网络环境。其实上一段已经说了，我是在虚拟机Ubuntu下编译的，而且又是校园网，桥接模式效果不佳（具体原因我不了解，所以不能乱说），所以虚拟机的网络得调成NAT。而对于想给虚拟机可以过GFW的能力，还得多一步：这里以猫猫为例，要打开Allow LAN，然后在Ubuntu的Network-&gt;Network Proxy里设置http proxy（听说SSR是socks5协议，具体要查询适合自己的），ip为主机的DNS（多种方法，最直接的是ipconfig里以太网（Cable）或WLAN（Wifi）中看），端口为猫猫代理的端口，通常显示在General里。</p>
+<p>不过，挺庆幸我这次思维转换了——之前我还想着小飞机和猫猫软件本体哪个在linux系统下，用起来简单点，结果想了想，是虚拟机，那应该可以共享网络嘛。</p>
+<p>如果你像我这样会在图书馆、教室等地方使用PC，请记住，主机DNS会变，及时在虚拟机更改你Manual下的代理地址。所以我建议只在宿舍编译固件，环境算稳定。（当然你可以选择调好了所有东西，然后去教室开始编译，丢一边做别的事，但实际我试过，教室等地的WLAN，似乎不那么赞同你这么做，即使图书馆可能相对教室更稳定一点）</p>
+<p>最后，才到OpenWrt的登场。你需要阅读官方手册，明白什么是SDK什么是Image，然后按官方教程配置环境、编译。这是我第一次认真地阅读大篇幅的官方文档。</p>
+<p>在此体验的过程中，我认为官方教程里使用的最好的教学模式，是先给出所有要执行的命令，然后下面有每条命令的详细解释——其实就我来说，能折腾到这里，说明的部分就算不能全看懂，也能知道自己执行命令的各种后果（results）了。为了防止囫囵吞枣，教程里还塞了点有标识“xxx”代替具体镜像和软件的名字，让读者自己填充，何尝不是一种检验读者的手段。就算再不济，教程还给了例子呢，照着例子去找合适自己的，这个连我都能学会了。<del>不像某计组课本</del></p>
+<p>至于WinSCP和ssh等软件和命令的使用，靠国内互联网可以解决问题。</p>
+<p>其余的事情，比如影响git传输的，有两个问题，一个是dns解析不了github.com，但主机可以，那就搜一下如何绑定github.com和解析出来的ip；另一个是git走代理，走的是ssh协议，也可以百度谷歌解决问题。</p>
+<h4 id="你以为这就结束了？路由器怎么办？"><a href="#你以为这就结束了？路由器怎么办？" class="headerlink" title="你以为这就结束了？路由器怎么办？"></a>你以为这就结束了？路由器怎么办？</h4><p>上面是主机和虚拟机的，路由器这一端还有环境配置。</p>
+<p>如果是新的linux系统路由器，可能需要刷入开发版之类的。不知道该不该说“好在”，商家已经给路由器刷了Breed，即Boot and Recovery Environment for Embedded Devices。没了体验成功刷入breed的过程，但也没有刷机失败变砖的风险下，也为我省去了一点时间。</p>
+<img src="https://i.loli.net/2021/10/20/rIHFX9wgqhnVJty.png" style="zoom:75%;" />
+
+<p>对于刷机失败，你如何认识这种事件？</p>
+<p>以一个亲历者的角度来看，其实这不是“固件完好和版本是否完全对应，并且操作是否完全正确”就能决定的，刷机失败是赌上概率的事。</p>
+<p>而我在中午恰恰就体验了一把刷固件失败：在OpenWrt界面刷入sysupgrade.bin（此前已刷入kernel.bin），十多分钟了，路由器没有动静，Web一直转圈圈。</p>
+<p>正常刷机成功不需要等待这么久，并且成功了会自动刷新到登录页面——恰恰这次刷固件出了意外。</p>
+<p>我在以为它刷入完成的情况下，手动重启了。结果开机后黄灯常亮不止，几分钟没变过蓝灯。</p>
+<img src="https://i.loli.net/2021/10/20/LV7fkYsZ9bhwc5l.jpg" style="zoom: 18%;" />
+
+<p>直到写下这些文字时，我依然认为我的操作万无一失，并且和之前刷入成功的操作没有任何变动——但它就是失败了。</p>
+<p>还好，不是有Breed救命嘛，给了我重新刷机的机会。熟练操作下，第二次和第一次操作完全相同，而第二次却成功了。</p>
+<p>虽然备份都没用上，但至少给了几分刷机的底气。</p>
+<p>提一提最后设置RJ验证时，因为是新版本的固件，21.02的，没有了Physical Settings这一栏，需要把三个接口（minieap、wan、wan6）都归到eth0下，Save&amp;Apply，然后拔掉WAN口网线，重启，再插上，等个三五分钟，直到WAN口绿灯常闪，否则再重启重复上面步骤。</p>
+<p>至于为啥不玩旧版本嘛，官网上写着stable了，然后看看也支持小米3G，所以心想就整个新的进去。结果最后看到路由器界面，下面赫然写着“21.02 SNAPSHOT”，也不知道是不是我理解错了什么。</p>
+<h4 id="总之，村通网了。"><a href="#总之，村通网了。" class="headerlink" title="总之，村通网了。"></a>总之，村通网了。</h4><p>这个过程中遇到的问题，吸收的教训，很多。</p>
+<p>但折腾好了，还是会有成就感，并且Private Room+1。</p>
+<p>这个路由还打算干点别的，也有可能重刷，就写在Plan to do里面吧。</p>
+<p>目前对固件的内存占用（运行居然需要60MB）比较不满意（无论是OpenWRT还是三方固件ImmortalWRT），着手优化这一块。</p>
+<h3 id="去玩"><a href="#去玩" class="headerlink" title="去玩"></a>去玩</h3><p>原本计划国庆10.4去THO，结果不料因为一个国际会展取消了。虽然跳票不是Cyberpunk 2077专属，但难得国庆佳节，很多人这下半年只在这个假期有时间，遇到跳票只得含恨/remake。心急的老哥在第一次推迟通知时取消了一次机票，在THO获得一线生机后又买票——随之第二次推迟通知就在当晚发出，老哥的机票和酒店退款，血亏上千。</p>
+<p>此后我的国庆计划便是空空如也——其实不计划也有我的个人原因，感冒了。</p>
+<p>首先不想带病乱跑，其次想要养病，这感冒咳嗽始终需要静养的时间。</p>
+<p>然后situ2001一行人有计划，带深大来的老同学逛逛广州，我倒同意去凑个热闹——选择哪个其实都挺好。静养，宿舍里也大有可为；而出去玩呢，熟悉广州，也是何乐而不为。至于病，痛在口腔溃疡。实际上时，口腔溃疡还很重，但毕竟饭是要吃的。几天大餐如果放在平时，那可太享受了——猪扒包和一大柄鸡腿。而国庆享受这需要大量咬合力的晚餐时，只能磨着伤口吃香喝辣，痛苦并快乐着了，哈哈。<del>（广大学子青春版.jpg）</del></p>
+<h3 id="看番"><a href="#看番" class="headerlink" title="看番"></a>看番</h3><p>国庆期间和舍友在宿舍看完了《冰菓》，虽然不时有点卡顿，但还能接受。剧情在平淡和稳定中度过，女主千反田的人物印象一直都很清晰（其实看之前已经觉得这个角色的辨识度非常高了）。和魔旅一样，我还是认同这番出第二季的。</p>
+<hr>
+<h2 id="What-I-plan-to-do"><a href="#What-I-plan-to-do" class="headerlink" title="What I plan to do"></a>What I plan to do</h2><h3 id="路由器"><a href="#路由器" class="headerlink" title="路由器"></a>路由器</h3><h4 id="路由器改良"><a href="#路由器改良" class="headerlink" title="路由器改良"></a>路由器改良</h4><ul>
+<li><input disabled="" type="checkbox"> 内存占用缩小</li>
+<li><input disabled="" type="checkbox"> 定时重启的脚本</li>
+<li><input disabled="" type="checkbox"> 定时断电通电（外设）</li>
+</ul>
+<h4 id="集齐功能"><a href="#集齐功能" class="headerlink" title="集齐功能"></a>集齐功能</h4><ul>
+<li><input disabled="" type="checkbox"> UPnP</li>
+<li><input disabled="" type="checkbox"> OpenClash（仍需考量）</li>
+<li><input disabled="" type="checkbox"> 网易云音乐解锁</li>
+<li><input disabled="" type="checkbox"> 网络唤醒测试（顺带学一下远程电脑，从虚拟机下手）</li>
+<li><input disabled="" type="checkbox"> 一个好看的主题</li>
+<li><input disabled="" type="checkbox"> 迅雷快鸟（不妨先搞清楚真正的作用？）</li>
+<li><input disabled="" type="checkbox"> DDNS（远程访问路由器是它唯一的用处了么？）</li>
+<li><input disabled="" type="checkbox"> nlbwmon</li>
+</ul>
+<h3 id="课堂"><a href="#课堂" class="headerlink" title="课堂"></a>课堂</h3><h4 id="CS-APP-计组"><a href="#CS-APP-计组" class="headerlink" title="CS:APP / 计组"></a>CS:APP / 计组</h4><p>计组需要应付下星期的测验，所以CS:APP课程要跟上，并且计组还有作业。</p>
+<p>即使CS:APP不能完全替代计组，但看了看Lecture的各章名称，我能确认我没来错地方。</p>
+<p>计组还有实验，也需要在本周末谨慎对待——嘶，这仅剩的一天，如何安排实在是令人头疼啊。</p>
+<h4 id="JAVA"><a href="#JAVA" class="headerlink" title="JAVA"></a>JAVA</h4><p>尽快完成。</p>
+<h4 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h4><p>减少囫囵吞枣的行为，认真学一下新的内容，这是个考试课。</p>
+<h4 id="物理实验"><a href="#物理实验" class="headerlink" title="物理实验"></a>物理实验</h4><p>物理实验开始堆积了，有必要提前写好预习报告，否则后面全天满课会很难受。</p>
+<h4 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h4><p>这其实是个很有趣的课程，只是理论无聊了点。我想法还是先上JAVA Database再看课本吧——因为JAVA Database里也有学校课本的大部分内容。</p>
+<h3 id="THO"><a href="#THO" class="headerlink" title="THO"></a>THO</h3><p>周六还是打算去吧，毕竟什么时候不忙呢？</p>
+<h3 id="降低开销"><a href="#降低开销" class="headerlink" title="降低开销"></a>降低开销</h3><p>这个月开支实在有点大，尤其国庆几天，加上校园网到期了。能推到后面再买的东西就不用急着买了。另一个下手的方面是夜宵改成小方便面，晚餐可以像以前一样去饭堂。</p>
+<h3 id="LeetCode"><a href="#LeetCode" class="headerlink" title="LeetCode"></a>LeetCode</h3><p>这个也属于要折腾很久的一类。写到这里，我觉得我需要研究一下自己——不是研究什么日程规划表什么作息之类的，而是研究自己。如何劝勉自己安心地去写LeetCode这样增强自己的事，来替换掉一些去B站消遣、去找涩图的行为，我觉得能行，但是没办到，那这就是一门学问了——鸡汤没用，威逼之下没有效率。什么样的模式才会适合我自己去做增强自身的行为？</p>
+<hr>
+<h2 id="END"><a href="#END" class="headerlink" title="END"></a>END</h2><p>欢庆的十月，适宜的温度，总而言之最近是很适合生产力大爆发的时候，所以务必抓紧机会，走走之前计划的道路。早点休息，而在游戏咨询方面，我关注明日方舟，那就静待佳音吧。</p>
+]]></content>
+      <categories>
+        <category>生活记录</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>c++笔记[结构体]</title>
+    <url>/2020/11/29/c++%E7%AC%94%E8%AE%B0%5B%E7%BB%93%E6%9E%84%E4%BD%93%5D/</url>
+    <content><![CDATA[<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h3 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h3><p>这是第二篇c++笔记，原因是写在纸质笔记本上我并不会去看，写得慢还写得很乱<del>写在博客你可能也不会去看</del>。</p>
+<p>这一次是结构体，为什么连这个都要写呢？因为结构体里会有比较多容易混淆的东西，就比如我以为<code>struct</code>是可以换成别的东西，而没有认识到这是个关键字</p>
+<p>而我刚开始就是轻视了这一块，独自去编译器里探索</p>
+<p>探索了个寂寞</p>
+<p>再然后，只能老老实实看老师的视频</p>
+<p>在此写下笔记，以记录一些易忘点、易漏点，以及一些认识结构体的关键突破点。</p>
+<h3 id="结构体“复制”"><a href="#结构体“复制”" class="headerlink" title="结构体“复制”"></a>结构体“复制”</h3><p>当且仅当两个结构体类型相同时，才可以相互赋值。成员未初始化值的，在函数（包括main函数）外默认为0，否则为伪随机值（存储单元的值）。</p>
+<p>这种赋值也叫位拷贝，即按位拷贝，逐位逐位地拷贝（其实只是和值拷贝区分）</p>
+<h3 id="结构体作形参"><a href="#结构体作形参" class="headerlink" title="结构体作形参"></a>结构体作形参</h3><p>结构体的<strong>成员</strong>在函数中作为参数时，有三种方法可以将其“导入”</p>
+<p>一是用“类型+变量名”，得到一份copy，不操作原变量，函数内的拷贝操作完即销毁，存在开销大、用途有限（比如我只是想把数据拿出来看看，不对数据进行操作），缺点明显。</p>
+<p>二是用指针，也就是结构体的首地址，拿根针在结构体的某个成员上移来移去表示对应的值，缺点是不够直观。</p>
+<p>三是使用引用，对，这是福音，结构体可以使用引用，操作起来跟main函数内部没什么两样。当然了，会改变原结构体的信息，注意备份。</p>
+<p>第三种在平常操作中很推荐，不过如果仅仅是打印、得出结论，不想改变原数据，那么第一种可以尝试。</p>
+<p>初学还是建议<strong>非必要情况不要使用第一种</strong>。第二种为了练习指针的话，也浅尝辄止。</p>
+<p>1.4</p>
+<p>结构体中一般<strong>不考虑</strong>成员顺序对结构体<strong>占用字节</strong>的影响，而更加考虑代码的可维护性。至于代码的可维护性，局部的代码不太能阐述这件事情。成员顺序不同，结构体占用字节也有所不同，其原因是<strong>字节对齐</strong>。</p>
+<p>有关字节对齐，只要知道对齐是为了机器读取方便而进行的一种操作就可以了。</p>
+<h3 id="关于new和delete"><a href="#关于new和delete" class="headerlink" title="关于new和delete"></a>关于new和delete</h3><p>形如new int、new double、new char(‘a’)，会开辟空间并返回地址，用<strong>delete 地址</strong> 来删除。</p>
+<p>形如new int [10]、new char [20]等等，会开辟数组（包括字符数组）并返回数组首地址，用<strong>delete 首地址</strong>来删除</p>
+<p>具体使用：*int p = new 类型[(初值)] [长度];</p>
+<p>delete p;</p>
+<h4 id="关于delete之后"><a href="#关于delete之后" class="headerlink" title="关于delete之后"></a>关于delete之后</h4><p>delete后，指针p仍存在，仅仅是”new 类型[(初值)] [长度] “不见了。</p>
+<p>这个指针可以通过p=nullptr清理回收。</p>
+<p>这里强调一下，用nullptr，不用0，也不用NULL，nullptr是为了避免0和NULL在指针上产生问题而生的，用它就没错，而以后进一步学习，再来区分NULL、0、nullptr三者区别。</p>
+<h4 id="值得注意的delete-数组"><a href="#值得注意的delete-数组" class="headerlink" title="值得注意的delete []数组"></a>值得注意的delete []数组</h4><p>删除数组如果使用</p>
+<p>注意，new的存储单元在运行时堆上，默认为随机值</p>
+<p>头指针head:在结构体定时，最后一个成员后面，加上一个指针，便可以把每个具体的结构体连接起来</p>
+<p>（请注意这仅仅是思想，具体步骤，请看Part II）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//这是一段伪代码，visit和next均为特定的操作，并非c++内置。</span></span><br><span class="line">Student* p =head;</span><br><span class="line"><span class="keyword">while</span>(p)<span class="comment">//也就是p不为NULL时，就继续循环。结构体的最后一个是NULL。</span></span><br><span class="line">&#123;</span><br><span class="line">    visit(p);</span><br><span class="line">    p=p-&gt;next;<span class="comment">//走向下一个</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>有BUG的代码</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">output</span><span class="params">(Student&amp; s)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	Student* p = &amp;s;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; p-&gt;No &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; p-&gt;Name &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; p-&gt;score[<span class="number">0</span>] &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; p-&gt;score[<span class="number">1</span>] &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; p-&gt;score[<span class="number">2</span>] &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; p[i].score[<span class="number">0</span>] + p[i].score[<span class="number">1</span>] + p[i].score[<span class="number">2</span>] &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;<span class="comment">//p是由s开始的结构体的（亦是首地址），后面调用时为s1</span></span><br><span class="line">		p++;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<p>问题发现了；指针隔着跳了，结果总分是第1、3、5名的，显示在1 2 3名的总分上，而4 5名的总分是第7 9名的，并不存在，显示为0和-nan。-nan意为Not a Number，即NaN。<br>具体体现为，i=3时，p便已经在s5上了。<br>问题又来了，指针为什么会跳呢?<br>观察发现，input()和output()表示分数的方式，不一样，input()为p-&gt;score[数字]格式，output()的总分为p[i].score[数字]格式。<br>调试中看到，有关p[i]的描述在第四名和第五名上，都是错误的，没有指向正确对象。<br>再联想下，p和i都是每次循环自增1，在仅仅循环一次的情况下，怎么样才能让p移动2呢？那就是p和i同时增加1了，代码中确实有这个操作。<br>那问题就解决了，表示分数p自增1即可，跟i没有实质上的关系，i是个计数用的。<br>这应该是源于习惯问题，习惯上用计数器作移动的指标。<br>结果碰上格式混用，前面一部分纯指针，用-&gt;，没出问题，后一半用p[i]，出问题了，双倍自增。<br>于是去掉[i]，换用(<em>p)即可。（注意”.”运算符比”</em>“运算符优先级高，括号不能去掉，否则是”地址.成员”，而正确格式是”结构体.成员”）</p>
+<p>所以把总分的显示格式与i无关化即可，随便选择一种格式均可。如p-&gt;score[0]，(*p).socre[0]。</p>
+<p>这里另外一提，目前见过好几次while(变量)的结构，也就是等待变量归零再退出循环，常见的有：变量最终归为链表的最后一节nullptr。不过不知怎么的，虽然能用，感觉这么用相当不规范，而且首次见到可能不大好理解——while(next!=0)比这个好理解多了。老师的视频里出现了这种写法，暂且视作规范吧。（或许这就是简化的写法吧）</p>
+<hr>
+<h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>这是我个人给它的一个定义，给一个可用、实用的链表下的一个定义。</p>
+<p>链表有三个要素：头指针（用于寻找数据位置），其他成员（用于数据储存），节点指针（形成链表的前提）。</p>
+<p>整体来看，链表包括头指针、成员、节点指针和尾指针（一般值为nullptr，当然，你想做头尾相接的也行）；而从结构体的角度来看，链表由一or多个结构体组成，链表中每个结构体尾部都有一个指针指向下一个结构体。</p>
+<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><p>整体思想：每建立一个结构体，都让尾指针“next = new 结构体类型”；复制头指针，让这个复制的指针在链表上移动，以取得自己想要的数据。</p>
+<p>具体操作，举例</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Student</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> No;</span><br><span class="line">    <span class="keyword">char</span> Name[<span class="number">20</span>];<span class="comment">//名字最多9个汉字</span></span><br><span class="line">    <span class="keyword">double</span> score[<span class="number">3</span>];<span class="comment">//三门成绩</span></span><br><span class="line">    Student* next;<span class="comment">//节点指针，如果这个链表到尾部了，那么这是尾指针（暂时只考虑单向链表，也就是从头走到尾的）</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Student ChainList;<span class="comment">//先在运行时栈创建一个结构体，其实head = new Student也可以</span></span><br><span class="line">    Student* head = ChainList;<span class="comment">//获取头指针</span></span><br><span class="line">    ---录入数据---（链表操作在后面说，先创建，才能操作）</span><br><span class="line">    head.next = <span class="keyword">new</span> Student;<span class="comment">//在运行时堆里new一个新的空结构体</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>到这里，虽然我们只创建了含两个结构体的链表，而且第二个还是空的，但接下来的事，其实也就在重复以上的操作</p>
+<p>这就是连续输入数据。</p>
+<h3 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h3><h4 id="结构体作形参-1"><a href="#结构体作形参-1" class="headerlink" title="结构体作形参"></a>结构体作形参</h4><p>创建函数时，十分<strong>建议引用</strong>，但指针也不差。所以刚刚上面给出了两种创建方式：在运行时栈里创建and运行时堆里创建。</p>
+<p>前一种可以有名字，调用函数时，参数位置直接填写链表名，在函数里使用“链表名.成员= 想要赋的值”完事（也就是第一个结构体的名称，上例为ChainList，则如果我想录入分数，只需要：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">ChainList.score[<span class="number">0</span>]=第一门成绩;</span><br><span class="line">ChainList.score[<span class="number">1</span>]=第二门成绩;</span><br><span class="line">ChainList.score[<span class="number">2</span>]=第三门成绩;</span><br></pre></td></tr></table></figure>
+
+<p>（其中，点”.”是成员运算符，接下来的“-&gt;”是指向运算符）</p>
+<p>后一种写个指针，然后input函数中使用“head-&gt;成员=想要赋的值”的格式给成员赋值。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">head-&gt;score[<span class="number">0</span>]=第一门成绩;</span><br><span class="line">head-&gt;score[<span class="number">1</span>]=第二门成绩;</span><br><span class="line">head-&gt;score[<span class="number">2</span>]=第三门成绩;</span><br></pre></td></tr></table></figure>
+
+<p>但接下来两点才是重点。</p>
+<p>①为了链表可以重复操作，你必须额外再创建两个指针，分别用于在链表的头指针处和最前端处，不妨先叫它们：moving_pointer和pioneer_pointer（移动指针和先锋指针，当然，是我瞎编的）。其中moving_pointer初值为head，并且在每次操作完链表后，加一句moving_pointer = head，将其值自动归为头指针的地址，以备下一次使用；另一个pioneer_pointer，一般为最后一个结构体的头指针，而在每次创建一个结构体时，更新为尾指针，然后获得的返回值，再次成为最后一个结构体的头指针，即</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">pioneer_pointer = pioneer_pointer-&gt;next;</span><br><span class="line">pioneer_pointer = <span class="keyword">new</span> Student;</span><br></pre></td></tr></table></figure>
+
+<p>一般接着输入函数，请看例子：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="number">3</span>:<span class="comment">//插入新的学生信息</span></span><br><span class="line">	<span class="keyword">if</span> (n == <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line"></span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;[添加]请输入学生信息：\n&quot;</span>;</span><br><span class="line">		input(stu);</span><br><span class="line">		n++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (n &gt; <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;[添加]请输入学生信息：\n&quot;</span>;</span><br><span class="line"></span><br><span class="line">		(*p).next = <span class="keyword">new</span> Student;<span class="comment">//此处的p即为pioneer_pointer</span></span><br><span class="line">		p = p-&gt;next;</span><br><span class="line">		input(*p);</span><br><span class="line">	&#125;</span><br><span class="line">	p-&gt;next = <span class="literal">nullptr</span>;</span><br><span class="line">	<span class="keyword">if</span> (moving_pin == <span class="literal">nullptr</span>)head = p;</span><br><span class="line">	<span class="keyword">break</span>;</span><br></pre></td></tr></table></figure>
+
+<p>为什么需要它们？想一想，第一次输入完成时，对于引用型函数来说，下一次应该在它的参数位置填什么？还是ChainList吗？</p>
+<p>显然不是。</p>
+<p>上面代码的input()函数就是引用型的，我更换成了*p（先锋指针作为最后一个结构体的头指针，那么*p发挥了类似ChainList的作用），不然的话，下一次赋值将直接覆盖第一次的数据，并没有形成链表</p>
+<p>②</p>
+<h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><p>类似于input()函数，只不过关于char字符数组的部分，需要用strcpy_s(字符串1,字符串2)。这里不知道为什么strcpy()不行，会报错，而strcpy_s()没有这个问题，以下input()函数仅供参考：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">input</span><span class="params">(Student&amp; v_stu)</span><span class="comment">//我也忘记v是什么意思了，virtual?但形参是parameter。</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; v_stu.No &gt;&gt;v_stu.Name&gt;&gt; v_stu.score[<span class="number">0</span>] &gt;&gt; v_stu.score[<span class="number">1</span>] &gt;&gt; v_stu.score[<span class="number">2</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="插入、删除"><a href="#插入、删除" class="headerlink" title="插入、删除"></a>插入、删除</h4><p>这里只简略说明下思路，代码放到另一篇文章里了（参考篇）。</p>
+<p>插入，因为暂时不需要排序，所以每次往new出来的新空间里input就可以了（有排序那另说，其实也只不过是next指针的调换）。</p>
+<p>删除，要分三种情况</p>
+<p>一是去头，二是去尾，三是去中间。去头需要调动头指针，让头部往后挪；去尾在删掉数据后，让倒数第二个结构体的next指向新的空间即可；去中间，将前一个结构体的next指针赋值为将要被删的结构体的next指针，然后删除想删除的结构体成员即可。（将要被删除结构体的next指针其实就是它下一个结构体的头指针，这样就依然可以连起来）</p>
+<h4 id="交换顺序"><a href="#交换顺序" class="headerlink" title="交换顺序"></a>交换顺序</h4><p>参考数组排序的做法即可，就是指针交换那儿有点绕，多想想就好。</p>
+<p>具体一点，我的方法是选择排序，一定一动，定与动比较，需要交换时，我们假设个结构体a和b吧，先给个中间变量t（是指针），先让t= a.next,再使a.next = b.next,最后b.next = t，（）</p>
+<p>选择排序，冒泡排序，目前我就学了这两种，而我还需要学八种。先放上典图。</p>
+<p><img src="https://raw.githubusercontent.com/Makri-hub/WolpersHome.github.io/PicGo/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20201211173838.png"></p>
+<p>我也并不急于去理解它们，等到了时候再说吧。这里上代码，看起来就像把平面图形拉成了立体图形。（其实就是多输入几个）</p>
+<p>这里给出的代码，要注意，我是另外备份了一个链表来排序的。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap_not_including_pin</span><span class="params">(Student&amp; a, Student&amp; b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	Student T;<span class="comment">//中间变量</span></span><br><span class="line">	strcpy_s(T.Name, a.Name); T.No = a.No; T.score[<span class="number">0</span>] = a.score[<span class="number">0</span>]; T.score[<span class="number">1</span>] = a.score[<span class="number">1</span>]; T.score[<span class="number">2</span>] = a.score[<span class="number">2</span>];<span class="comment">//T = a</span></span><br><span class="line">	strcpy_s(a.Name, b.Name); a.No = b.No; a.score[<span class="number">0</span>] = b.score[<span class="number">0</span>]; a.score[<span class="number">1</span>] = b.score[<span class="number">1</span>]; a.score[<span class="number">2</span>] = b.score[<span class="number">2</span>];<span class="comment">//a = b;</span></span><br><span class="line">	strcpy_s(b.Name, T.Name); b.No = T.No; b.score[<span class="number">0</span>] = T.score[<span class="number">0</span>]; b.score[<span class="number">1</span>] = T.score[<span class="number">1</span>]; b.score[<span class="number">2</span>] = T.score[<span class="number">2</span>];<span class="comment">//b = t;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对比下简单变量的交换，就明白上面是什么意思了。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap_not_including__pointer</span><span class="params">(<span class="keyword">int</span> &amp;a,<span class="keyword">int</span> &amp;b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> T;</span><br><span class="line">    T = a;</span><br><span class="line">    a = b;</span><br><span class="line">    b = t;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以上，写得比较菜，定有疏漏之处，还恳请各位轻喷。比如链表的那两个“必须额外再复制两个指针”是否可以简化点思路？是否尝试过复制结构体的方法？</p>
+<p>文章实质上可能是期末复习笔记之类的，凑合着像一篇教程</p>
+]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++笔记[数组]</title>
+    <url>/2020/11/23/c++%E7%AC%94%E8%AE%B0%5B%E6%95%B0%E7%BB%84%5D/</url>
+    <content><![CDATA[<h2 id="数组的各种符号，摸清楚"><a href="#数组的各种符号，摸清楚" class="headerlink" title="数组的各种符号，摸清楚"></a><!-- more -->数组的各种符号，摸清楚</h2><hr>
+<h3 id="起步"><a href="#起步" class="headerlink" title="起步"></a>起步</h3><img src="https://i.loli.net/2020/11/24/5hOA8Pt3DSMH7bf.png" style="zoom:125%;" />
+
+<p>首先记住上图，[]表示数组取值运算符。地址可以“无限”加下去（有限的无限）</p>
+<p>它们对应的代码是这样的：（main函数省略）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a[] = &#123; <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">6</span>,<span class="number">7</span> &#125;;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">sizeof</span>(a) / <span class="keyword">sizeof</span>(<span class="keyword">int</span>); i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; a[i] &lt;&lt; <span class="string">&#x27;,&#x27;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span> &lt;&lt; <span class="string">&quot;a表示&quot;</span> &lt;&lt; a &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;*a表示&quot;</span> &lt;&lt; *a &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;a[0]表示&quot;</span> &lt;&lt; a[<span class="number">0</span>] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;a[1]表示&quot;</span> &lt;&lt; a[<span class="number">1</span>] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;a+1表示&quot;</span> &lt;&lt; a + <span class="number">1</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;a+6表示&quot;</span> &lt;&lt; a + <span class="number">6</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;交换数组首尾&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="交换函数"><a href="#交换函数" class="headerlink" title="交换函数"></a>交换函数</h3><p>记住正常的交换函数，用指针从实质地指向值，与以前的区别在于，指针直接对应值，绕开了字母变量。也就是指针（十六进制地址）上有一个值（char,int,double等）</p>
+<p>以下x,y是十六进制的地址，*x为指向的变量。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(T* x, T* y)</span> <span class="comment">//交换指针指向的变量</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	T t = *x;<span class="comment">//t赋值为x指向的变量</span></span><br><span class="line">	*x = *y;<span class="comment">//将y的值赋给x</span></span><br><span class="line">	*y = t;<span class="comment">//y得到变量t的值</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里又想到取址符&amp;，那这样一来，以前的”int a= 5;”中a与值，与指针，之间是什么关系？</p>
+<p>1.T* a与T a平级，没有依赖关系，定义时，均可以不初始化，而且对应量都是随机的（十六进制数0xcccccccc[???]和随机的T类型内容（但为什么每次都是固定的一个数呢？））</p>
+<p>2.两者指向同一对象时，用&amp;联系起来。&amp;普通变量=变量的地址。</p>
+<p>明白以上两点，数组就好理解了。交换地址上的值，实际上是以指针形式表达变量（因为指针也是变量），并进行着类似以前”int t = a,a =b, b=t;”的操作。而此处具体可以表达为：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">普通变量的值 &#x3D; 指针1上的值</span><br><span class="line"></span><br><span class="line">指针1上的值 &#x3D; 指针2上的值</span><br><span class="line"></span><br><span class="line">指针2上的值 &#x3D; 普通变量的值</span><br></pre></td></tr></table></figure>
+
+<p>完成交换。</p>
+<p>▲注意交换完后，原数组会变化！</p>
+<p>因此最好使用以下函数进行备份</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">backup</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> p[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n = <span class="keyword">sizeof</span>(a)/<span class="keyword">sizeof</span>(<span class="keyword">int</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">        p[i] = a[i];</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;<span class="comment">//未试过能否运行，思路是这个就差不多了，遍历复制。</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="探索函数与数组的激烈摩擦"><a href="#探索函数与数组的激烈摩擦" class="headerlink" title="探索函数与数组的激烈摩擦"></a>探索函数与数组的激烈摩擦</h2><h3 id="数组在函数中的写法"><a href="#数组在函数中的写法" class="headerlink" title="数组在函数中的写法"></a>数组在函数中的写法</h3><p>就像指针在函数的参数位置，表达为T* m一样神奇，数组的首地址表达为T m[]</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sort_order</span><span class="params">(T m[],<span class="keyword">int</span> size)</span><span class="comment">//因为数组不能引用而只能用指针!!!</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> len = size / <span class="keyword">sizeof</span>(T);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= len; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = i+<span class="number">1</span>; j &lt;= len; j++)</span><br><span class="line">			<span class="keyword">if</span> (m[i - <span class="number">1</span>] &lt; m[j - <span class="number">1</span>])</span><br><span class="line">				pin_swap(m + i - <span class="number">1</span>, m + j - <span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>不要写T *m[]！！m[]本身就是个地址！如果这么干，你需要给它喂指针的地址（类型是T **，双星啊）（叶莲娜：“？”）</p>
+<h3 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h3><p><strong>标识符</strong>是c++中由字母（A-Z，a-z）、数字（0-9）、下划线“_”组成，并且首字符不能是数字，但可以是字母或者下划线，例如”len = 10”中len就是标识符。<strong>指针也是标识符</strong>，指针有自己的地址。</p>
+<p>下午使用选择排序函数+交换函数的顺序时，编译器最后一声轰鸣：“选择排序函数它找不到标识符！！”</p>
+<p>查了下百度，当初我是不信的，后来把它们换了下顺序，程序duang的一下运行了，并且成功排序。</p>
+<p><img src="https://raw.githubusercontent.com/Makri-hub/WolpersHome.github.io/PicGo/%E8%B0%83%E5%92%8C%E5%9B%BE%E7%89%87.png"></p>
+<p>啊，用html调节图片好难受，远没有word功能多，原则上还是少用图片吧。</p>
+<p>这期间借鉴了：</p>
+<p><a href="https://blog.csdn.net/qq_41573234/article/details/80297995">HTML——添加图像、设置图像属性_时光·漫步的博客-CSDN博客</a></p>
+<p><a href="https://blog.csdn.net/zfx1101804091/article/details/108749605">Typora关于 插入图片 居中 靠左 靠右设置_zfx1101804091的博客-CSDN博客_typora 图片居中</a></p>
+<p>来帮助设置图片。</p>
+<h3 id="字符数组"><a href="#字符数组" class="headerlink" title="字符数组"></a>字符数组</h3><p>以下这段关于字符数组的连接，出现了严重的问题。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span>* <span class="title">mystrcat</span><span class="params">(<span class="keyword">char</span>* strDest, <span class="keyword">const</span> <span class="keyword">char</span>* strSrc)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n = <span class="built_in">strlen</span>(strDest);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; strSrc[i] != <span class="string">&#x27;\0&#x27;</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> ((<span class="string">&#x27;A&#x27;</span> &lt;= strSrc[i] &lt;= <span class="string">&#x27;Z&#x27;</span> )|| (<span class="string">&#x27;a&#x27;</span> &lt;= strSrc[i] &lt;= <span class="string">&#x27;z&#x27;</span>))</span><br><span class="line">		&#123;</span><br><span class="line">			*(strDest + n +i) = strSrc[i];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> strDest;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>问题一：在c++中不能使用类似a&lt;=x&lt;=b、a&lt;x&lt;b这样的判断语句，拿a&lt;x&lt;b为例，c++中大小、等、不等判断符的<strong>结合性</strong>均为从左往右，判别式的逻辑是：</p>
+<p>a&lt;x否？否，则化为0&lt;b；是，化为1&lt;b；</p>
+<p>然后1&lt;b否？否，则为0；是，化为1。此处不再做过多赘述。</p>
+<p>问题二：指针的移动没有处理好（具体点说，是这个int i不好用）            </p>
+<p>在这里应该设置两个指针（或者两个自增变量），一个i，在strDest上移动，一个j，在strSrc上移动；而这里仅有一个i，无论如何都会自增，导致strSrc上的位置错误，显示是乱码变了（一个乱码汉字变成另一个乱码汉字，因为汉字对应的编码变了，但笔者还没学汉字的编码，只能先搁着之后再回来补充）</p>
+<h3 id="指针和数组（待补）"><a href="#指针和数组（待补）" class="headerlink" title="指针和数组（待补）"></a>指针和数组（待补）</h3><p>如果有（main函数省略）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a[<span class="number">20</span>];</span><br><span class="line"><span class="keyword">int</span>* p  = a;</span><br><span class="line">a[<span class="number">1</span>] = <span class="number">5</span>;</span><br></pre></td></tr></table></figure>
+
+<p>这是常见的操作，那么：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(p[<span class="number">1</span>] ==a[<span class="number">1</span>])</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;p[1]表达意思与a[1]相同\n&quot;</span>;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;p[1]值为：&quot;</span>&lt;&lt;p[<span class="number">1</span>]&lt;&lt;<span class="string">&quot;\na[1]值为：&quot;</span>&lt;&lt;a[<span class="number">1</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;p[1]表达意思与a[1]不同&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>大家猜猜输出的是哪个？</p>
+<p>答案是第一个，相同，对应值是都是5。</p>
+<p>为什么“指针名[n]”可以表示“数组名[n]”，首先我认为数组a本身是个指针</p>
+<p>而这个认识，就是二维数组的基础</p>
+<p>这里留个坑，留下一张图给大家细细品味，注意“类型”一栏。</p>
+<p><img src="https://raw.githubusercontent.com/Makri-hub/WolpersHome.github.io/PicGo/%E8%AF%A1%E5%BC%82.png"></p>
+]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于评论区</title>
+    <url>/2020/12/14/%E5%85%B3%E4%BA%8E%E8%AF%84%E8%AE%BA%E5%8C%BA/</url>
+    <content><![CDATA[<p>其实很简单</p>
+<a id="more"></a>
+
+<h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><p>第一步，安装，不过因为我中途更换了教程贴，所以我不大敢确定这一步是不是必要的，但我直觉它需要</p>
+<p>cmd里面输入：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm i --save gitalk</span><br></pre></td></tr></table></figure>
+
+<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><p>第二步，开始之前我倒是想废话两句，Github上的教程卡在npm安装上了，import不太懂是什么情况，前面加了npm也没用。基于时间问题，只能去找找帖子。结果找了老半天，有swig安装，有ejs安装，直到我发现自己的文件格式跟他们都不一样，我是.njk。这里举几篇例子，但他们做得其实都不错。</p>
+<p>其实呢，创建gitalk.swig的时候居然没发现，隔壁就有一个gitalk.njk，之后写这篇博客的时，回想起来，终于意识到网上版本是真的版本太久了，打开一看：</p>
+
+<p>原来已经简化了，之前要添加的乱七八糟的，都在这里，不用添加了，那好，直接走起，注册去！</p>
+<p><a href="https://github.com/settings/applications/new">点击这里进入Github OAuth注册</a></p>
+<p>注册的同时，和其他教程一样，修改.\theme\主题\下的_config.yml即可，详细描述参考上面的四篇教程就足够了，这里不再赘述。</p>
+]]></content>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>测试页面</title>
+    <url>/2020/11/20/%E6%B5%8B%E8%AF%95/</url>
+    <content><![CDATA[<p>这个页面是用来测试的，是因第一次Hexo一片空白而产生的测试页面</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>我的第一篇文章</title>
+    <url>/2020/11/21/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
+    <content><![CDATA[<p>始于2020</p>
+<a id="more"></a>
+
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 搭建博客</li>
+<li><input checked="" disabled="" type="checkbox"> 使用合适的主题</li>
+<li><input checked="" disabled="" type="checkbox"> 更改头像</li>
+<li><input disabled="" type="checkbox"> 添加分类（标签和目录）</li>
+<li><input disabled="" type="checkbox"> 开放评论区</li>
+</ul>
+<p>这里↑要回车一下才能跳开tag（奇怪的bug）</p>
+<p>间距有点宽，调一下？</p>
+<p>好吧并没有找到调节的地方，先放一放。</p>
+<p>11月21日小雪，早晨，终于完整地完成了Hexo博客的搭建。</p>
+<p>历时居然有三个星期。第一个星期看Next和Hexo的原版文档，在Gitlab那边花了很多时间；结果也没怎么成功（说不定现在回去弄一下其实也可以用，因为关键一步已经“搞懂”了）</p>
+<p>然后第二个星期，老老实实去GitHub搞，但因为一如既往的皮命名，网址访问不了——把存储名写成了WolpersHome.github.io，你是有多喜欢狐狸。</p>
+<p>要写自己的用户名+.github.io才可以。具体原理没有搞清楚，不过挺奇妙的是我还没输完，只输入用户名时，它告诉我如果只输入用户名作为存储名的话，可以给自己的github页面做README.md，大概也挺好的？</p>
+<p>当然，最后一个星期五晚上，终于接通，是通过b站看视频比对模拟完成的——为什么说是比对模拟，因为视频至少是一年前的，而更新之后的Hexo在_config.yml上有略微改变——最显著的就是找不到那个“URL”而只有一个“prettyurl（简洁的url）”，输入之后也全部木大，估摸着是给买了服务器和域名的人用的——这一步GitHub给我们提供了免费的页面，也算是文件储存服务器了吧。</p>
+<p>简单谈谈这个博客的来历。某天situ2001把他博客发了给我，很棒，虽然没做太炫酷的东西，但博客有该有的东西，页面不伤眼——于是想到我打word时痛苦的眼睛，以及没有优雅感的.docx堆，我下定决心也做一个。当然，照猫画虎就是了，前人道路已经没有黑暗之处，走走便是。</p>
+<p>于是照猫画虎画了三个星期。更恰当来说，是“照虎画猫”。现在还没找到合适的主题，没有标签和分类，没有评论功能。评论多半是给我自己更正什么的。</p>
+<p>好了现在还没解决的问题有一，ip没有变，还是github的，我要确认那是不是需要购买域名才能换成我想要的博客ip——买个.cn或.com，每个月都得开销，这谁顶得住。（这是大致的认识，但我写的时候就觉得有偏差，域名ip？有空具体查下看看）</p>
+<p>先把我成功搭建博客的扶手梯放在这里，以供复习搭建思路。↓↓↓↓↓</p>
+<iframe src="//player.bilibili.com/player.html?aid=44544186&bvid=BV1Yb411a7ty&cid=158772893&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+<p>从Typora看到这个视频只有25%高度，看看发布之后是怎么样的。</p>
+<p>本来想在这里放上代码，发现html语言的符号会让页面全部木大，而使用代码块演示，倒是可以。</p>
+<img src="https://i.loli.net/2020/11/22/GWLTJmQnPiMrt9f.png" alt="![QQ]20201122124154.png" style="zoom:80%;" />
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;iframe src&#x3D;&quot;&#x2F;&#x2F;player.bilibili.com&#x2F;player.html?aid&#x3D;44544186&amp;bvid&#x3D;BV1Yb411a7ty&amp;cid&#x3D;158772893&amp;page&#x3D;1&quot; scrolling&#x3D;&quot;no&quot; border&#x3D;&quot;0&quot; frameborder&#x3D;&quot;no&quot; framespacing&#x3D;&quot;0&quot; allowfullscreen&#x3D;&quot;true&quot;&gt; &lt;&#x2F;iframe&gt;</span><br></pre></td></tr></table></figure>
+
+<p>写这篇文章的同时，我学会了hexo上放b站视频，复制代码块，使用图库，后台hexo自动登录等等，还是多亏了互联网。</p>
+<p>行文没有思路，经常穿插，内容偶有重复，是随心所致，望谅解。</p>
+]]></content>
+      <categories>
+        <category>生活记录</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>结构体补充</title>
+    <url>/2020/12/15/%E7%BB%93%E6%9E%84%E4%BD%93%E8%A1%A5%E5%85%85/</url>
+    <content><![CDATA[<p>补充关于结构体和链表的操作</p>
+<a id="more"></a>
+
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function">Student* <span class="title">loadData</span><span class="params">(<span class="keyword">int</span>&amp; n)</span><span class="comment">//考虑做存档功能</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	n = <span class="number">0</span>;<span class="comment">//之前的数据全部清零</span></span><br><span class="line">	<span class="keyword">int</span> No; <span class="keyword">char</span> Name[<span class="number">20</span>]; <span class="keyword">double</span> Score[<span class="number">3</span>];</span><br><span class="line">	Student* T = <span class="keyword">new</span> Student;<span class="comment">//只有Student T是在运行时栈上，会被销毁</span></span><br><span class="line">	Student* mp2 = T;</span><br><span class="line">	FILE* fp = fopen(<span class="string">&quot;./学生成绩单.txt&quot;</span>, <span class="string">&quot;r&quot;</span>);</span><br><span class="line"><span class="keyword">while</span> (!feof(fp)) </span><br><span class="line">    <span class="comment">//feof（）检测一个文件是否结束，即到达文件尾，若结束，则返回非0值，否则返回0</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">fscanf</span>(fp, <span class="string">&quot;%d\t%s\t%lf\t%lf\t%lf\n&quot;</span>, &amp;No, Name, Score, Score + <span class="number">1</span>, Score + <span class="number">2</span>);</span><br><span class="line">	mp2-&gt;No = No; strcpy_s(mp2-&gt;Name, Name); mp2-&gt;score[<span class="number">0</span>] = Score[<span class="number">0</span>]; mp2-&gt;score[<span class="number">1</span>] = Score[<span class="number">1</span>]; mp2-&gt;score[<span class="number">2</span>] = Score[<span class="number">2</span>];</span><br><span class="line">	mp2-&gt;next = <span class="keyword">new</span> Student;</span><br><span class="line">	mp2 = mp2-&gt;next;</span><br><span class="line">	mp2-&gt;next = <span class="literal">nullptr</span>;<span class="comment">//使成员next变为nullptr，这才是真正的封装，下面那个不算，只是指针归零，方便下次再用。</span></span><br><span class="line">	n++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>问题代码：多出一组屯屯屯</p>
+<p>原因出于在已new了一组空的结构体，按while内逻辑，会多出一个“给下一组数据准备的空间”，无论多少组都是，结束循环后会多出一组空结构体，然后名字就叫“屯屯屯…（20个）”。</p>
+<p>改正后：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">Student* <span class="title">loadData</span><span class="params">(<span class="keyword">int</span>&amp; n)</span><span class="comment">//考虑做存档功能？</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	n = <span class="number">0</span>;<span class="comment">//之前的数据全部清零</span></span><br><span class="line">	<span class="keyword">int</span> No; <span class="keyword">char</span> Name[<span class="number">20</span>]; <span class="keyword">double</span> Score[<span class="number">3</span>];</span><br><span class="line">	Student* T = <span class="keyword">new</span> Student;<span class="comment">//只有Student T是在运行时栈上，会被销毁</span></span><br><span class="line">	Student* mp2 = T;</span><br><span class="line">	FILE* fp = fopen(<span class="string">&quot;./学生成绩单.txt&quot;</span>, <span class="string">&quot;r&quot;</span>);</span><br><span class="line">	<span class="keyword">while</span> (!feof(fp)) <span class="comment">//feof（）检测一个文件是否结束，即到达文件尾，若结束，则返回非0值，否则返回0</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (n &gt; <span class="number">0</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			mp2-&gt;next = <span class="keyword">new</span> Student;</span><br><span class="line">			mp2 = mp2-&gt;next;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">fscanf</span>(fp, <span class="string">&quot;%d\t%s\t%lf\t%lf\t%lf\n&quot;</span>, &amp;No, Name, Score, Score + <span class="number">1</span>, Score + <span class="number">2</span>);</span><br><span class="line">		mp2-&gt;No = No; strcpy_s(mp2-&gt;Name, Name); mp2-&gt;score[<span class="number">0</span>] = Score[<span class="number">0</span>]; mp2-&gt;score[<span class="number">1</span>] = Score[<span class="number">1</span>]; mp2-&gt;score[<span class="number">2</span>] = Score[<span class="number">2</span>];</span><br><span class="line">		mp2-&gt;next = <span class="literal">nullptr</span>;<span class="comment">//使成员next变为nullptr，这才是真正的封装，下面那个不算，只是指针归零，方便下次再用。</span></span><br><span class="line">		n++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//封装尾部，不能只让移动指针变为nullptr，否则最后一个结构体的成员next仍为乱码。</span></span><br><span class="line">	<span class="comment">//让指针变为nullptr只是让指针归零，归零后甚至还能调用；但原本指针指向的数据呢？还在那里？归于荒野？都是。</span></span><br><span class="line">	<span class="comment">//也就是说，next指针和这个mp2是不同的两个指针，一个是结构体成员，一个是外来辅助用的。</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">//其实这也是封装不统一导致的后果，有的封空结构体的头为nullptr，有的封空结构体的尾为nullptr，</span></span><br><span class="line">	<span class="comment">//其他功能调用到时候又各有不同（特别是while(移动指针!=nullptr)），结果为了统一只能两个都封</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//再注：原本的封装方式略有问题，我们创建的每一个结构体都应该是满的，但之前是装满之后再new一个出来，这不好，会多出一组屯屯屯（不过正好因为这个问题也有了上面的结论）</span></span><br><span class="line">	<span class="comment">//这也才想起我之前为什么在case 3里面分出两种情况：一种是第一次添加，另一种是第二次及以后添加，因为我们在前头都已经声明了一个空的结构体，如果这个结构体不使用，</span></span><br><span class="line">	<span class="comment">//而用统一格式去添加新结构体的话，就会向上面那样多出一组屯屯屯；但是，既然知道了关键点在哪里，也不用再写一次第一次该怎么办的分支了——用简单的吧，给new“上锁”</span></span><br><span class="line">	<span class="comment">//那么“锁”只有在n &gt; 0才去打开。</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//这种方式是不能使用的：我们没必要把不知道会不会填充的地方开辟出来。而应该确认了它会填充，再开辟空间</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>另一个简单点的例子，不过你要提前想好，我们已经声明了一个空的结构体;</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">&#123;…………省略前面…………</span><br><span class="line">    <span class="keyword">int</span> overlap = <span class="number">0</span>;<span class="comment">//检测重复数量</span></span><br><span class="line">	<span class="keyword">while</span> (moving_pin != <span class="literal">nullptr</span>)</span><br><span class="line">    &#123;</span><br><span class="line">		<span class="keyword">if</span> (moving_pin-&gt;No != No)</span><br><span class="line">				overlap++;</span><br><span class="line">		moving_pin = moving_pin-&gt;next;</span><br><span class="line">		moving_pin = head;</span><br><span class="line">		(*p).next = <span class="keyword">new</span> Student;</span><br><span class="line">		p = p-&gt;next;</span><br><span class="line">		p-&gt;No = No; <span class="built_in">strcpy</span>(p-&gt;Name, Name); p-&gt;score[<span class="number">0</span>] = score[<span class="number">0</span>]; p-&gt;score[<span class="number">1</span>] = score[<span class="number">1</span>]; p-&gt;score[<span class="number">2</span>] = score[<span class="number">2</span>];</span><br><span class="line">		p-&gt;next = <span class="literal">nullptr</span>;<span class="comment">//调整了先锋指针封装末尾的顺序，原本这是在else if外面的</span></span><br><span class="line">		n++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>HTML笔记</title>
+    <url>/2021/04/05/html%E5%B0%8F%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="# 序言"></a># 序言</h1><p>每一点内容均有例子，尽量清晰地讲诉每一个常见符号的作用。如果你想查询某个符号，请看边栏，或者前往W3C、<a href="https://www.tutorialspoint.com/html/index.htm">tutorialspoint</a>。文章附带了新手理解层面的一些见解，有所不周，还请见谅。</p>
+<p>Hypertext Markup Language，简称HTML，是世界上最广泛用于编写网页的语言。</p>
+<blockquote>
+<p>Hypertext是一种网页连接方式（类似word中的超文本），网页上可以点击的连接其实就是Hypertext（超文本）</p>
+<p>Html是标记语言，也就是用带标记（Tag）的文字告诉网页如何架构其显示内容的一种语言<del>（其实我更想叫它标签语言，但入乡随俗了）</del></p>
+</blockquote>
+<p>应用：网页页面，网页导航，跨平台UI，离线阅读，游戏开发</p>
+<p>与html密切相关：javascript,php,angular。在此栽下一棵树。</p>
+<h1 id="第一个网页"><a href="#第一个网页" class="headerlink" title="第一个网页"></a>第一个网页</h1><p>猜猜会是谁？当然是大家喜闻乐见的Hello World了！</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span>Is this a descrption for document?<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">h1</span>&gt;</span>This is the first website by Makri_BW<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span>Hello World!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>如果你没有合适的HTML代码展示平台，可以点击<a href="http://tpcg.io/v5h38Z3B">这里</a>查看效果</p>
+<p>下面一一解释上文所用Tag的作用</p>
+<table>
+<thead>
+<tr>
+<th>序号Sr.No</th>
+<th>标记Tag</th>
+<th>描述Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td><!DOCTYPE html></td>
+<td>Document Type 规定文本类型和HTML版本的标记，这里规定的文本类型即html</td>
+</tr>
+<tr>
+<td>2</td>
+<td><html></td>
+<td>包含完整的HTML文本，主要由文本头（暂不理是什么，用<head></head>&gt;表示）和文本体（即文本内容，用<body></body>表示）</td>
+</tr>
+<tr>
+<td>3</td>
+<td><head></td>
+<td>可以存放<title><link>等HTML标记</td>
+</tr>
+<tr>
+<td>4</td>
+<td><title></td>
+<td>如上提及，在<head>内部.</td>
+</tr>
+<tr>
+<td>5</td>
+<td><body></td>
+<td>存放<h1><div><p>等标记</td>
+</tr>
+<tr>
+<td>6</td>
+<td><h1></td>
+<td>heading 1 一级标题，以此类推，<h2>是二级标题。</td>
+</tr>
+<tr>
+<td>7</td>
+<td><p></td>
+<td>Paragraph，自然段</td>
+</tr>
+</tbody></table>
+<h2 id="lt-DOCTYPE-gt-声明标记"><a href="#lt-DOCTYPE-gt-声明标记" class="headerlink" title="&lt;!DOCTYPE&gt;声明标记"></a>&lt;!DOCTYPE&gt;声明标记</h2><p>作用是供浏览器理解HTML版本</p>
+<h2 id="标题标记"><a href="#标题标记" class="headerlink" title="标题标记"></a>标题标记</h2><p>&lt;h1&gt;为一级标题，&lt;h2&gt;为二级标题，依此类推到。一级标题最大，六级标题最小，超过六级会变成与大小相当的文字。至于有无标题作用，我们以后讨论。</p>
+<h2 id="自然段标记"><a href="#自然段标记" class="headerlink" title="自然段标记"></a>自然段标记</h2><p>&lt;p&gt;&lt;/p&gt;所包含内容即为一个自然段。</p>
+<h3 id="lt-br-gt-换行标记"><a href="#lt-br-gt-换行标记" class="headerlink" title="&lt;br /&gt;换行标记"></a>&lt;br /&gt;换行标记</h3><p>&lt;br /&gt;即line break，可在&lt;p&gt;&lt;/p&gt;中使用，以达到自己想要的目的。</p>
+<h3 id="lt-center-gt-lt-center-gt-居中标记"><a href="#lt-center-gt-lt-center-gt-居中标记" class="headerlink" title="&lt;center&gt;&lt;/center&gt;居中标记"></a>&lt;center&gt;&lt;/center&gt;居中标记</h3><p>&lt;center&gt;&lt;/center&gt;，在&lt;p&gt;&lt;/p&gt;之外中使用，例如：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span>This is name of the page<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	    <span class="tag">&lt;<span class="name">h2</span>&gt;</span>Centring the content<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">center</span>&gt;</span></span><br><span class="line">		    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">		    <span class="tag">&lt;<span class="name">p</span>&gt;</span>We Are the Center of Galaxy<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">center</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>建议读者亲自敲一下以上代码，熟悉一下格式，也可以<a href="http://tpcg.io/Vi9qHr20">点击此处查看效果</a>。</p>
+<h3 id="lt-hr-gt-分割线"><a href="#lt-hr-gt-分割线" class="headerlink" title="&lt;hr /&gt;分割线"></a>&lt;hr /&gt;分割线</h3><p>本身叫Horizontal Lines，缩写hr。在各大论坛中和贴主们形影不离的存在。视觉上既有强制分隔的作用，又有装饰作用。来看看<a href="http://tpcg.io/oL7KsUG5">这个</a>例子，加深体会</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span>This is name of the page<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	    <span class="tag">&lt;<span class="name">h2</span>&gt;</span>Centring the content<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">center</span>&gt;</span></span><br><span class="line">		    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">		    <span class="tag">&lt;<span class="name">hr</span> /&gt;</span></span><br><span class="line">		    <span class="tag">&lt;<span class="name">p</span>&gt;</span>We Are the Center of Galaxy<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">center</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>读到这里，你应该早发现了<strong>&lt;br /&gt;**换行标记和</strong>&lt;hr /&gt;<strong>分割线标记似乎是</strong>同一类型<strong>的。它们没有其他标签那样的开始、结束标签（譬如&lt;p&gt;和&lt;/p&gt;)，格式为&lt;xx /&gt;，标签名和斜杠之间有空格。它们有一个共同的名字，叫做</strong>置空元素<strong>，俗称</strong>空标签**。以后你还会遇到很多相当有趣的空标签。</p>
+<h3 id="lt-pre-gt-lt-pre-gt-格式保护"><a href="#lt-pre-gt-lt-pre-gt-格式保护" class="headerlink" title="&lt;pre&gt;&lt;/pre&gt;格式保护"></a>&lt;pre&gt;&lt;/pre&gt;格式保护</h3><p>全名Preserve Formatting。在HTML中打一段代码，经常要换行，老是&lt;br /&gt;来&lt;br /&gt;去，相信你会感到十分繁琐。所以&lt;pre&gt;&lt;/pre&gt;之间的文字排版格式会被保留下来，就像txt一样，&lt;br /&gt;这样的标记，你不需要单独去打了，而且这样你的内容会非常直观，就像看源代码一样。</p>
+<p>具体<a href="http://tpcg.io/76TScrhN">例子</a>：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span>This is name of the page<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">center</span>&gt;</span></span><br><span class="line">		    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">		    <span class="tag">&lt;<span class="name">hr</span> /<span class="attr">N</span></span></span><br><span class="line">		    &lt;p&gt;We are going to show you some codes below&lt;/p&gt;</span><br><span class="line">		<span class="tag">&lt;/<span class="name">center</span>&gt;</span> </span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">		    <span class="tag">&lt;<span class="name">pre</span>&gt;</span></span><br><span class="line">def Func()</span><br><span class="line">&#123;</span><br><span class="line">    print(&quot;你好&quot;)</span><br><span class="line">&#125;</span><br><span class="line">            <span class="tag">&lt;/<span class="name">pre</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>如果你尝试不使用&lt;pre&gt;&lt;/pre&gt;，那么需要加4个&lt;br /&gt;。越是长的代码，越能体现&lt;pre&gt;&lt;/pre&gt;格式保护的优势。</p>
+<h3 id="amp-nbsp-不换行的空格"><a href="#amp-nbsp-不换行的空格" class="headerlink" title="&amp;nbsp;不换行的空格"></a><strong>&amp;nbsp</strong>;不换行的空格</h3><p>全称Nonbreaking space，强制不换行的空格，这一点针对带空格的书名、报名、人名等，英文中使用得比较多。</p>
+<p>给出<a href="http://tpcg.io/OhhfWR">例子</a>，调成Mobile&nbsp;320*568之后，可见整个<em>12 Angry Men</em>都推到了下面，<strong>以此防止重要内容断开</strong>。</p>
+<p>建议读者去掉代码中的&amp;nbsp;之后，再试一次，看看有何异同。</p>
+<h2 id="区分“标记”和“元素”"><a href="#区分“标记”和“元素”" class="headerlink" title="区分“标记”和“元素”"></a>区分“标记”和“元素”</h2><p>标记分为开始标记和结束标记，而元素是标记+包含的内容，</p>
+<blockquote>
+<p>比如：</p>
+<p>&lt;p&gt;是开始标记&lt;/p&gt;是结束标记，</p>
+<p>&lt;p&gt;This is the content between the opening tag and closing tag&lt;/p&gt;则是一个元素</p>
+</blockquote>
+<h1 id="第二个网页"><a href="#第二个网页" class="headerlink" title="第二个网页"></a>第二个网页</h1><p>我们补充几个常用符号，通过上面的学习，相信下面内容读起来，你再熟悉不过了。</p>
+<p>下划线：&lt;u&gt;&lt;/u&gt;</p>
+<p>斜体：&lt;i&gt;&lt;/i&gt;</p>
+<p>加粗：&lt;b&gt;&lt;/b&gt;或&lt;strong&gt;&lt;/strong&gt;</p>
+<p>引用：</p>
+<p>Ⅰ.&lt;blockquote&gt;&lt;/blockquote&gt;，引用一大段话，与&lt;p&gt;&lt;/p&gt;同级，作为一个自然段，会居中显示。</p>
+<p>Ⅱ.&lt;q&gt;&lt;/q&gt;，引用一小句话，位于&lt;p&gt;&lt;/p&gt;等之内，作用不明显。</p>
+<p>（还有个&lt;div&gt;&lt;/div&gt;，因为跟CSS挂钩，所以在此先不作要求，等到CSS篇再细说）</p>
+<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><p>原名Attributes，用于修饰标记的内容，由“键值对”构成（打双引号使因为像，但并不完全是键值对），常常放在<strong>开始标记</strong>(Opening Tags)中，常见的由align（对齐）、title（光标提示，光标浮在标记内文字上面时，会显示提示，俗称tooltip，下面会详细演示）、style（css相关的风格设置，有颜色、对齐等等）、dir（文字方向，阿拉伯文是从右到左读的，dir因此而生）</p>
+<h3 id="title"><a href="#title" class="headerlink" title="title"></a>title</h3><p>浏览网页的时候，相信你有见过将鼠标放在某些地方，那里就会冒出一些提示来，这就是属性title，下面看个<a href="http://tpcg.io/jF86OmIh">例子</a>立刻明白：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">title</span>&gt;</span>The title Attribute Example<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	</span><br><span class="line">   <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">h3</span> <span class="attr">title</span> = <span class="string">&quot;Hello HTML!<span class="symbol">&amp;#x0a;</span>这就是提示，也叫Tooltip&quot;</span>&gt;</span>Float your cursor here<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line">	</span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这里放了个&amp;#x0a;是啥意思？其实是想让你先亲自去试试，那是个换行符。你会问为何不用&lt;br /&gt;？可以参考下面的解释，但实际上我对自己的搜索并不满意，我还是不清楚为何title属性中的字符串不能用&lt;br /&gt;——目前只是解释为不合语义；希望看到这里的各位爷指出问题关键，帮帮我这个菜鸡。</p>
+<blockquote>
+<p><a href="https://stackoverflow.com/questions/26093623/br-not-working-in-title-tag-for-tooltip">https://stackoverflow.com/questions/26093623/br-not-working-in-title-tag-for-tooltip</a> &lt;br /&gt;在title属性中不起作用</p>
+<p><a href="https://stackoverflow.com/questions/1726073/is-it-sometimes-bad-to-use-br">https://stackoverflow.com/questions/1726073/is-it-sometimes-bad-to-use-br</a>  什么时候不该用&lt;br /&gt;？</p>
+</blockquote>
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p>格式：&lt;!– 注释内容 –&gt;</p>
+<p>作为一个html编辑者，自然要在交流过程中对自己的代码写下一些注释。</p>
+<p>请注意这个交流的对象<strong>不仅仅是他人</strong>，还有<strong>未来的你</strong>。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="tag">&lt;<span class="name">head</span>&gt;</span>  </span><br><span class="line">      <span class="tag">&lt;<span class="name">title</span>&gt;</span>Multiline Comments<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">head</span>&gt;</span> </span><br><span class="line">	  <span class="comment">&lt;!--This is the end of tag &lt;head&gt;&lt;/head&gt; --&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">         This is a multiline comment and it can</span></span><br><span class="line"><span class="comment">         span through as many as lines you like.</span></span><br><span class="line"><span class="comment">      --&gt;</span></span><br><span class="line">      </span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>Document content goes here.....<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line">   <span class="comment">&lt;!--End of this html tag--&gt;</span></span><br><span class="line">   <span class="comment">&lt;!-- And you can see that spaces </span></span><br><span class="line"><span class="comment">   are not required to both tags of comment--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>查看<a href="http://tpcg.io/GQEicU9X">效果</a></p>
+<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p>格式： &lt;img src = “图片路径或网址，即图片直链” alt = “Test Image” /&gt;</p>
+<p>这个很新鲜了吧？经过前面枯燥的学习，终于有点好康的东西了。</p>
+<p>我们来一一解释：img src即image source，图片来源，一般后边的双引号里是图片路径，以.png、.jpeg结尾居多，有两种表示方式：</p>
+<details><summary>①绝对“路径”</summary>其实是互联网上的图片链接，比如：
+    <blockquote>https://i.loli.net/2019/12/30/e9th3ZPN5CAOFoV.png</blockquote>
+    <blockquote>https://inews.gtimg.com/newsapp_ls/0/13249243546/0</blockquote>
+嘛，为什么说“一般”，第二个链接就可以看出来了，您尽可打开看一看，至少笔者在写时这俩图片的图床都没有爆炸。
+</details>
+
+<details><summary>②相对路径</summary>以"/"起头，以为以你现在的网页为零点，进入"/"后的路径进行图片的读取。<br /><br />这一点对一个大型网站来说十分有用，在节省代码量的同时减少了访问其他网站（如不属于本网站的图床网站）的机会，维护起来更稳定——万一哪天图床变了、炸了，或者是你的网址变了，使用绝对路径的你会发现，网页里的图全崩了。<br /><br/>具体到某一个网站，我们可以用github来举例。如果你的respiratory既做博客网站的存放点，同时也储存了图片，那么就可以使用相对路径，访问respiratory的图片。<br /><br />我的博客文件储存在：https://github.com/RH-Xie/RH-Xie.github.io/<br /><br />
+那么我想展示一下我的头像：（可能要代理才能看到）<br />
+<src img= "https://github.com/RH-Xie/RH-Xie.github.io/blob/master/images/20201108230401.jpg" alt = "MyIcon" />
+</details>
+
+<p>alt为alternate text，替代文本。当<strong>图片显示不出</strong>的时候，浏览器就会在图片位置放上一个表示“图片”的小图标和alt后双引号内的文字，以示此处原应有图，因为访问超时而<strong>获取不到图片</strong>。如果你没有开github的代理，那么你有可能在上面的“相对路径”里就见到这个了</p>
+<p>查看<a href="http://tpcg.io/9KkHGq">效果</a>：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">title</span>&gt;</span>Using Image in Webpage<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	</span><br><span class="line">   <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>Simple Image Insert<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span> = <span class="string">&quot;/html/images/test.png&quot;</span> <span class="attr">alt</span> = <span class="string">&quot;Test Image&quot;</span> /&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line">	</span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="图片跳转"><a href="#图片跳转" class="headerlink" title="图片跳转"></a>图片跳转</h3><p>在论坛的的顶部，我们常常见到有该论坛的图标，点击它们，一般会返回到论坛的主页。而我们只要把上述的图片与超链接结合起来，就可以得到这样的功能。在各大下载站点的广告也常有应用。</p>
+<p>这里依然以mcbbs为例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>An example of Image Link<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>Click the picture below<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span> = <span class="string">&quot;https://www.mcbbs.net&quot;</span> <span class="attr">target</span> = <span class="string">&quot;_self&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span> = <span class="string">&quot;https://www.mcbbs.net/template/MCBBS_v3/image/logo.png&quot;</span> <span class="attr">alt</span> = <span class="string">&quot;The Icon of MCBBS(CN)&quot;</span> <span class="attr">border</span> = <span class="string">&quot;4&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><a href="http://tpcg.io/iS7hQwU5">查看效果</a></p>
+<p>这里的&lt;a&gt;&lt;/a&gt;全名为anchor，原意为“锚”，可以引申为“导航”，是专门用于展示可点击链接的地方。关于它的属性不只有href，但href十分常用。href全名为html reference，即网页引用，后面跟一个url链接（网页的链接，Uniform Resource Locator，通俗来讲就是<strong>网址</strong>）。</p>
+<p>alt标签，不是键盘上的ALT！其全名<code>alternative</code>，<strong>可替代的文字</strong>。当图片显示不出时，就会显示这些文字，不过链接依然能跳转（一般来说）。</p>
+<p>还有几个常用的属性：download，指定下载文件的文件名；target，指定以什么方式打开新的网页，如_self在本网页跳转只下个网页，_parent、_top、_blank则是打开新窗口以访问网页。具体区别建议谷歌，这里不作区分</p>
+<h2 id="视频"><a href="#视频" class="headerlink" title="视频"></a>视频</h2><p>类似图片，多了一点属性。其实这个不需要专门去学，知道一下几个属性即可，因为在一般的视频网站“分享”下回直接有html源码让你复制到html文件中。</p>
+<table>
+<thead>
+<tr>
+<th align="center">属性</th>
+<th align="center">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">src</td>
+<td align="center">视频源链接，一般只有播放器，没有评论、点赞之类的按键</td>
+</tr>
+<tr>
+<td align="center">width</td>
+<td align="center">视频宽度，可以填像素，也可以填占窗口的百分比</td>
+</tr>
+<tr>
+<td align="center">height</td>
+<td align="center">视频高度，同理</td>
+</tr>
+<tr>
+<td align="center">name</td>
+<td align="center">在javascript中用于引用元素</td>
+</tr>
+<tr>
+<td align="center">marginheight</td>
+<td align="center">边缘高度</td>
+</tr>
+<tr>
+<td align="center">marginwidth</td>
+<td align="center">边缘宽度</td>
+</tr>
+</tbody></table>
+<p>演示代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;iframe src&#x3D;&quot;&#x2F;&#x2F;player.bilibili.com&#x2F;player.html?aid&#x3D;501616931&amp;bvid&#x3D;BV1rN411R7XQ&amp;cid&#x3D;294474330&amp;page&#x3D;1&quot; scrolling&#x3D;&quot;no&quot; border&#x3D;&quot;0&quot; frameborder&#x3D;&quot;no&quot; framespacing&#x3D;&quot;0&quot; allowfullscreen&#x3D;&quot;true&quot;&gt; &lt;&#x2F;iframe&gt;</span><br></pre></td></tr></table></figure>
+
+<iframe src="//player.bilibili.com/player.html?aid=501616931&bvid=BV1rN411R7XQ&cid=294474330&page=1" scrolling="no" border="0" frameborder="10" framespacing="0" allowfullscreen="true"> </iframe>
+
+
+
+<h1 id="第三个网页"><a href="#第三个网页" class="headerlink" title="第三个网页"></a>第三个网页</h1><p>以上，我们分别认识了HTML的文字处理和一些常用的部件，那么接下来应该整体规划一下我们的<strong>网页布局</strong>了。事实上现在设计者更倾向于使用CSS和Javascript来设计布局，而这里只是以HTML作引导，为上述两者铺基础，以便之后学习CSS和Javascript时不会吃力。</p>
+<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><p>表格，一种具有布局性质的零部件。</p>
+<p>下面是一个简单的表格</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">    &lt;html&gt;</span><br><span class="line">        &lt;head&gt;</span><br><span class="line">        	&lt;title&gt;一个简单的表格&lt;&#x2F;title&gt;</span><br><span class="line">        &lt;&#x2F;head&gt;</span><br><span class="line">        &lt;body&gt;</span><br><span class="line">            &lt;table border &#x3D; &quot;1&quot;&gt;</span><br><span class="line">                &lt;tr&gt;</span><br><span class="line">                    &lt;th&gt;商品名&lt;&#x2F;th&gt;</span><br><span class="line">                    &lt;th&gt;价格&lt;&#x2F;th&gt;</span><br><span class="line">                &lt;&#x2F;tr&gt;</span><br><span class="line">                &lt;tr&gt;</span><br><span class="line">                    &lt;td&gt;榨汁机&lt;&#x2F;td&gt;</span><br><span class="line">                    &lt;td&gt;35&lt;&#x2F;td&gt;</span><br><span class="line">                &lt;&#x2F;tr&gt;</span><br><span class="line">                &lt;tr&gt;</span><br><span class="line">                    &lt;td&gt;菜刀&lt;&#x2F;td&gt;</span><br><span class="line">                    &lt;td&gt;50&lt;&#x2F;td&gt;</span><br><span class="line">                &lt;&#x2F;tr&gt;</span><br><span class="line">            &lt;&#x2F;table&gt;</span><br><span class="line">	&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>展示效果：</p>
+<!DOCTYPE html>
+<pre><code>&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;一个简单的表格&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;table border = &quot;1&quot;&gt;
+            &lt;tr&gt;
+                &lt;th&gt;商品名&lt;/th&gt;
+                &lt;th&gt;价格&lt;/th&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;榨汁机&lt;/td&gt;
+                &lt;td&gt;35&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;菜刀&lt;/td&gt;
+                &lt;td&gt;50&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;
+&lt;/html&gt;</code></pre>
+<p>你只需要记住</p>
+<ul>
+<li>tr = Table Row，即表格的一行；</li>
+<li>th = Table Heading（或Table Header，记住就行）会稍显粗一点；</li>
+<li>td = Table Data，表格数据。</li>
+</ul>
+<p>认识到html中表格是<strong>以行(Row)为单位</strong>的即可，即一行一个&lt;tr&gt;&lt;/tr&gt;，东西全在里面了。</p>
+<p>如果你发现这个表格太胖了，那么给table来个属性<code>width</code>和<code>height</code>，让它限制一下大小：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">width</span> = <span class="string">&quot;像素或者百分比&quot;</span> <span class="attr">height</span> = <span class="string">&quot;像素或者百分比&quot;</span> <span class="attr">border</span> = <span class="string">&quot;1&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<!DOCTYPE html>
+<pre><code>&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;一个简单的表格&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;table width = &quot;200&quot; height = &quot;100&quot; border = &quot;1&quot;&gt;
+            &lt;tr&gt;
+                &lt;th&gt;商品名&lt;/th&gt;
+                &lt;th&gt;价格&lt;/th&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;榨汁机&lt;/td&gt;
+                &lt;td&gt;35&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;菜刀&lt;/td&gt;
+                &lt;td&gt;50&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;
+&lt;/html&gt;</code></pre>
+<p>如果你问，我皮，我就不对齐，多了一列出来，怎么着？</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">    &lt;html&gt;</span><br><span class="line">        &lt;head&gt;</span><br><span class="line">        	&lt;title&gt;一个突出了一列的表格&lt;&#x2F;title&gt;</span><br><span class="line">        &lt;&#x2F;head&gt;</span><br><span class="line">        &lt;body&gt;</span><br><span class="line">            &lt;table border &#x3D; &quot;1&quot;&gt;</span><br><span class="line">                &lt;tr&gt;</span><br><span class="line">                    &lt;th&gt;商品名&lt;&#x2F;th&gt;</span><br><span class="line">                    &lt;th&gt;价格&lt;&#x2F;th&gt;</span><br><span class="line">                &lt;&#x2F;tr&gt;</span><br><span class="line">                &lt;tr&gt;</span><br><span class="line">                    &lt;td&gt;榨汁机&lt;&#x2F;td&gt;</span><br><span class="line">                    &lt;td&gt;35&lt;&#x2F;td&gt;</span><br><span class="line">                &lt;&#x2F;tr&gt;</span><br><span class="line">                &lt;tr&gt;</span><br><span class="line">                    &lt;td&gt;菜刀&lt;&#x2F;td&gt;</span><br><span class="line">                    &lt;td&gt;50&lt;&#x2F;td&gt;</span><br><span class="line">                    &lt;td&gt;多出来一列</span><br><span class="line">                &lt;&#x2F;tr&gt;</span><br><span class="line">            &lt;&#x2F;table&gt;</span><br><span class="line">	&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<!DOCTYPE html>
+<pre><code>&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;一个简单的表格&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;table border = &quot;1&quot;&gt;
+            &lt;tr&gt;
+                &lt;th&gt;商品名&lt;/th&gt;
+                &lt;th&gt;价格&lt;/th&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;榨汁机&lt;/td&gt;
+                &lt;td&gt;35&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;菜刀&lt;/td&gt;
+                &lt;td&gt;50&lt;/td&gt;
+                &lt;td&gt;多出来一列
+            &lt;/tr&gt;
+        &lt;/table&gt;
+&lt;/html&gt;</code></pre>
+<p>也没怎么样，多一列就多一列，不会报错。这样对注释是很友好的，或者我只是不想要什么标题，就这么干。</p>
+<p>如果你想要更复杂的表格：</p>
+<!DOCTYPE html>
+<pre><code>&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;一个简单的表格&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;table border = &quot;1&quot;&gt;
+            &lt;tr&gt;
+                &lt;th&gt;商品名&lt;/th&gt;
+                &lt;th&gt;价格&lt;/th&gt;
+                &lt;th&gt;类型&lt;/th&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;榨汁机&lt;/td&gt;
+                &lt;td&gt;35&lt;/td&gt;
+                &lt;td rowspan = &quot;2&quot;&gt;厨具&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;菜刀&lt;/td&gt;
+                &lt;td&gt;50&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td colspan = &#39;3&#39;&gt;总计：85&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;
+&lt;/html&gt;</code></pre>
+<p>这就像你的物理实验报告，你往往要串行串列、合并着写，而非每一个方格都是1x1。</p>
+<p>实现功能的是&lt;td&gt;&lt;/td&gt;的标签，合并行（即竖着合并）为<code>rowspan</code>，合并列为<code>colspan</code>，后面跟上数值。比如上面“厨具”、“总计：85”对应的就是：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">rowspan</span> = <span class="string">&quot;2&quot;</span>&gt;</span>厨具\<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span> = <span class="string">&#x27;3&#x27;</span>&gt;</span>总计：85\<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>（注意外面有&lt;tr&gt;&lt;/tr&gt;包裹）</p>
+<p>另外还有一个不太重要的东西&lt;caption&gt;&lt;/caption&gt;，表格名。</p>
+<p>比如在上面的代码里&lt;table&gt;&lt;/table&gt;内加入</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">caption</span>&gt;</span>价格表一览<span class="tag">&lt;/<span class="name">caption</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>表格会变为：</p>
+<!DOCTYPE html>
+<pre><code>&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;一个简单的表格&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;table border = &quot;1&quot;&gt;
+            &lt;caption&gt;价格表一览&lt;/caption&gt;
+            &lt;tr&gt;
+                &lt;th&gt;商品名&lt;/th&gt;
+                &lt;th&gt;价格&lt;/th&gt;
+                &lt;th&gt;类型&lt;/th&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;榨汁机&lt;/td&gt;
+                &lt;td&gt;35&lt;/td&gt;
+                &lt;td rowspan = &quot;2&quot;&gt;厨具&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;菜刀&lt;/td&gt;
+                &lt;td&gt;50&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td colspan = &#39;3&#39;&gt;总计：85&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;
+&lt;/html&gt;</code></pre>
+<p><strong>未完待续</strong>…</p>
+<h2 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h2><p>事实上，本篇教程省去了很多的内容，比如<meta>标签和多种强调标签（phrase tags）。原因是它们的作用在<strong>局限于html的时候</strong>作用不大，或者有替代品。有必要的话，以后在css|javascript有接触到它们时，我再回来补充；而在那之前，本篇教程不作讲解，读者可以前往<a href="https://www.tutorialspoint.com/html/">tutorialspoint</a>查询详细信息。</p>
+<p>最后说一点点菜鸡作者的感受：庆幸我们是生在互联网时代的人们，是长期接触过浏览器，受弹窗广告洗礼的人们，才切身体会到网页设计的有趣。许多tag在学习的时候，脑中不由得就有了熟悉的例子。</p>
+<p>本文以后也许还会进行一次更新，有两点：一个是根据整体来调整各个标签所占的分量，增删内容，突出重点；二是文章结构的调整，让三个网页的例子更加清晰地站在三个部分的结尾。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>零散的年记</title>
+    <url>/2021/09/13/%E9%9B%B6%E6%95%A3%E7%9A%84%E5%B9%B4%E8%AE%B0/</url>
+    <content><![CDATA[<!-- more -->
+
+<p>不知用了多少次“高考成绩出来前我都不知道有广州大学”，也不记得走过多少次理南和风雨长廊，在一片自适应中，大一一年就过去了。</p>
+<p>时值中秋前十日，朝晚有清风，酷暑不离身，我坐在图书馆总结了一年下来的走动和忙活。</p>
+<p>“走动”似乎用的不是那么贴切，因为我不大走动。但能记录下来的事大多离不了校园内四处走走，又不能用“舍里蹲”来形容，所以还是用“走动”吧。</p>
+<hr>
+<ul>
+<li>自适应：总括起来就是调整自己适应环境，但也不乏选择环境或者改造环境他，来适应自己</li>
+</ul>
+<h2 id="上半学年"><a href="#上半学年" class="headerlink" title="上半学年"></a>上半学年</h2><p>庚子年，乙酉月辛酉日，携行李进入校园，俄而大雨倾盆。至舍，疲矣。时四舍友卧床午休，不能响动也。遂至商中，市桶盆、洗浴用品。复至舍，舍友竞相起，理床被。步图书馆，寻聪，沙县小吃以为晚餐。入夜，愁流量见底，校园网服务姗姗不来，度一晚流量节制。</p>
+<p>次日，导生领路，行遍校园。于此，大学生活基调落定。</p>
+<p>当月的二十三日，与老同学去大学城的GOGO购物中心——实际上当时我并没有准备，同学约我时我在图书馆，所以背包里还有台电脑，也没有回宿舍便出发了。路上多是闲聊，下午一点半回到宿舍，衣着尽湿，全是汗。</p>
+<h3 id="部门"><a href="#部门" class="headerlink" title="部门"></a>部门</h3><p>如上文所说，自适应中走过大学一年，而最频繁自适应的，是上半学年。</p>
+<p>起初几日，社团部门宣传，我有一个想法：尽量多地去面试，最后再考虑要不要加入。尝试过的有校广播台、校青协、院新媒体、院义修队等等。记得其中两个部门下辖小部门，广播台面试了视频组和广播组，新媒体面试了视频组和另一个跟团党有关的部门（记岔了别打我）。几日后，约莫有三个收了我，基本上都是短信通知的。在适应大学节奏的同时，我评估了我再在每个部门的适应性，最后只呆在了义修队。</p>
+<p>一年下来证明，我的选择没有离大谱。</p>
+<p>义修队里交流时间比较充足，不似其他部门以工作和DDL为主。毕竟就两个字，一个“义”，“志愿”的服务，一个“修”，会就修，不会就学。除此之外，值班时间交给闲聊，自然能获得很多前辈的经验之谈。</p>
+<p>反观我面试的其他部门，确实没哪个是这么轻松的（当然应该确实有更清闲的，一学长曾向我推荐院青协，不是校青协，因为当时不知情而错过了）。至于我进入的另一个部门，校青协的网络资讯部，分工多，忙活却也多，要学要改要挨批的，该来都来，一样不少。于是在11月上旬，正式的“全体大会”之前，便退出了。</p>
+<p>义修因为本届人多，三周一值班，不得不说，很轻松了——其他两周惬意地在兰三吃个晚饭，之后回去打游戏，或者忙活其他，都十分地自在——要是实在无聊了，就去义修队吹空调呗。</p>
+<p>感恩于师兄们的培养，今年就算不留部，依旧会时不时过去帮忙的——能帮则帮，能学则学。</p>
+<p>记得有一师兄给我印象特深。</p>
+<p>一次值班，应该是次年学年中，一义修老师兄临收工来清灰——我们端详时，才知道是17级的师兄，没留部，但技术依旧了得。本子特厚实，游戏本，A面贴着初音未来。给到我手上掂量时，我是懵的——完全不会拆，结构异常复杂。还好师兄只是来借工具清灰，不然全交给我就尴尬了。不过即便他自己会拆，也必须时不时对着视频确认。期间他说起自己，已经入党，三四年来打竞赛、参加活动颇多，也颇有收获。“拆机最紧要的，是胆大心细，”看着他拆机时，他说到，“要多少时间不重要。”</p>
+<p>想了想也是。别不敢拆，不然别人也不敢把电脑给你。</p>
+<p>后来在队长交接时，另一位师兄发了张当年的合照，看到上面确实有他。也不得不感叹，人在四年间变化了不少，在照片中的许多师兄，我差点认不出来。</p>
+<h3 id="作息"><a href="#作息" class="headerlink" title="作息"></a>作息</h3><p>次年一月前后，寒风凛冽，走个天桥冻死人。在这种情况下，我还要打排球，出一身汗，然后中午躺床上睡觉——这一开始就让带点儿洁癖的我感到十分膈应。于是选择中午洗澡——然而还是十分不舒服。</p>
+<p>最后迟迟在军训时决定，没有条件就不再睡午觉了。</p>
+<p>睡不着，睡得痒，睡得昏，还不如犯犯困，然后学点东西、乃至看有趣的东西放松一下来得好。</p>
+<h3 id="军训"><a href="#军训" class="headerlink" title="军训"></a>军训</h3><p>军训十四天，实则十三天——有一天极其的舒服。冬训早晨下了点小雨，忽然教官们全走到路边，开始人体传令。约莫九点半，全体回宿舍，曰“今日任务改为卫生检查”。作为一个学生，我自然推测是学校担心冬季淋雨极易感冒，引发大规模流感就可能要封校停训了，毕竟新冠肺炎当头，集体流感也不是闹着玩的，全都得当作新冠肺炎，隔离监察。于是选择牺牲掉一天，避免出事。</p>
+<p>考完试的我们，没事做，午觉从十二点睡到两三点，打一场L4D2，然后吃完饭，吃完回来再打——不用吃饱就赶去训练、睡极其短暂的午觉，也不用晚上赶着时间洗澡睡觉，这军训实在是过分舒服了。</p>
+<p>我参加了分列式——简单来说是去代表连队和院去表演走正步的方阵。训练过程说苦不苦，说不苦那是假的。不过教官们甚至还有心机去考虑被裁出来那些队员的军训项目加分，显然大部分教官还是人好啊。没有参加分列式的同学，闲下来时闲而充实，因为学校允许带手机，休息时间可以看——不过如果训练时拿出手机的话，就是你的不对了。</p>
+<h3 id="学业"><a href="#学业" class="headerlink" title="学业"></a>学业</h3><p>中规中矩，虽然有不少瑕疵，但还是平稳度过了。</p>
+<p>个人用时用心最多的是高数、C++和线代。线代最终不太满意——张老师不太会教，只能自己去宋浩那儿学，笔记也乱七八糟。成绩估摸着是因为没回答过问题，被平时分拉下去了。好几节课我都是戴蓝牙耳机上宋浩的课，最终也只是会做点题。建议来年计算机的学弟学妹注意避雷，提前做好刷课刷题准备。当然，很大程度上看老师，老师会教，时不时给点作业和联系，线代是很容易过的。尤其是有习题讲解的那种老师，专心听，做笔记，保证你不用额外功夫去上网课。 </p>
+<p>这位老师倒是给我们留下了一个梗：“往前坐！”。事出一次上课前，两个班的人，前三四排一个人都没有，于是张老师跑到课室后面把人赶到前排：“后面三排的，往前坐！”事后我们竞相争中间靠边的位置，以腾出足够空间上网课并逃避张老师跑上来检查的扫视。</p>
+<p>张老师的考勤还极其苛刻——到了倒数几节课，突然全部要考勤，并且是关门打狗式的考勤。一边盯着门一边盯着同学签名签到，以防有人代签。</p>
+<p>网络基础的课还是很好玩的。最后搞完实验了，可以组网打CS。</p>
+<p>当然，剪网线是我没想到的。还有测试通路的机器，如下图。</p>
+<img src="https://i.loli.net/2021/09/16/hNpUyWjmnXLfIBb.jpg" style="zoom:10%;" />
+
+<p>年末，考试周。第一个学期，我的专业拉分点（拉低）在高数——6个学分啊，所有科目加起来大概也就20来学分。现实情况是，高数难，普遍不能往上拉。何况高二到高三我拉跨的就是数学呢？第一个学期下来拼了老命，还好最后绩点维持在了3.5+；</p>
+<h2 id="下半学年"><a href="#下半学年" class="headerlink" title="下半学年"></a>下半学年</h2><h3 id="再出发"><a href="#再出发" class="headerlink" title="再出发"></a>再出发</h3><p>思考上半年的经历之后，我最终选择了给自己两条路走，网络和软件（偏游戏开发）。于是下半学年多与待宿舍写代码有关。</p>
+<h3 id="博客"><a href="#博客" class="headerlink" title="博客"></a>博客</h3><p>当初situ带我入坑，很抱歉并没能频繁更新——不过我也知道自己在忙啥。去年十一月份照猫画虎用了几个周末才整了个博客的壳子，到如今评论区都还没完善，其他文章的内容也很杂乱，甚至还有的没写完。所以我得计划下博客接下来怎么搞。</p>
+<ul>
+<li>每月至少更新一次博客</li>
+<li>优化阅读体验</li>
+<li>整理档案</li>
+<li>补上所有可点击的页面</li>
+</ul>
+<p>这次经历也证明，计算机的东西，频繁使用照猫画虎是个坏习惯。</p>
+<h3 id="游走"><a href="#游走" class="headerlink" title="游走"></a>游走</h3><p>三月末，记得是清明节，和老同学前往北京路。虽然人比较多，但也符合我们印象里“步行街”的模样。</p>
+<img src="https://i.loli.net/2021/09/16/lcI8jMJxmrUbOPL.jpg" style="zoom: 20%;" />
+
+<p align="center">北京路，清明假期，人头攒动</p>
+
+<img src="https://i.loli.net/2021/09/16/GHDMrs3khj9Vq2Y.jpg" style="zoom:20%;" />
+
+<p align="center">财政府前，彩灯通明</p>
+
+<img src="https://i.loli.net/2021/09/16/eDblVSCZALRsxUF.jpg" style="zoom:20%;" />
+
+
+
+<p>之后因心意未满，又独自去了一些地方。<br><img src="https://i.loli.net/2021/09/16/idshHryBtWmQGbT.jpg" style="zoom:33%;" /></p>
+<p>图片数量众多，只取几张。</p>
+<img src="https://i.loli.net/2021/09/16/TMhD18uje5C9qiI.jpg" style="zoom:33%;" />
+
+<p align="center">越秀山水</p>
+
+<img src="https://i.loli.net/2021/09/16/G3tRweZKUXrMzcA.jpg" style="zoom:25%;" />
+
+<p align="center">越秀五羊</p>
+
+<img src="https://i.loli.net/2021/09/16/hMCgZ3AHUWLpFfo.jpg" style="zoom:15%;" />
+
+<p align="center">花城广场</p>
+
+<img src="https://i.loli.net/2021/09/16/SdnqzLyg4EjMFcX.jpg" style="zoom:17%;" />
+
+<p align="center">广州图书馆</p>
+
+<h3 id="学业-1"><a href="#学业-1" class="headerlink" title="学业"></a>学业</h3><p>经历了上个学期的打磨，大部分科目已经不成问题，并且应试技巧在第二个学期得到适应性的强化。</p>
+<p>（说得自己越来越像Scape and Run: Parasite的寄生虫怪物了）</p>
+<p>多亏义修队的大哥们和宿舍老哥出手相助，离散数学成了我的MVP科目。而在考试前的两三个星期，我还不知道怎么去学这个科目。</p>
+<p>学了个MFC，当然学得是比较有兴趣的——我早在Windows XP年代已经想象过这些按钮的创建过程，很期望自己也有朝一日能写一个窗口程序。但落到实际上来说，MFC显然是过于老旧了，不方便的地方处处皆是，随便拉一个东西都可以抱怨上一天。就这样堆了几个下午，查查Microsoft Docs，MFC基本上就会了。课设我也选了MFC，不知道选的人多不多。临课设截止前的一个下午，我还“突发奇想”重写了第二个程序——关于画图的。第一个本来是直接从网上抄的，同质化严重，所以才有了重写。</p>
+<p>虽然最终没有细化，但勉强能用。（找个时间把课设咕到Github上.jpg）</p>
+<img src="https://i.loli.net/2021/09/16/Zxn9IyLv3eHqDXJ.jpg" style="zoom:30%;" />
+
+<p align="center">"RH, a programmer uploading his course design pass 8:00 pm, didn't even have his dinner, leaving him UNCONCIOUS." </p>
+
+<p>至于网络专业课，本学期是Linux专场。开始鼓捣路由器之后，才发觉Linux命令根本是越早学越好。至今还是只会几个常见命令。</p>
+<p>每个学期都离不开数学，高数学完了《上》还有《下》，是关于多元函数求导、空间图形问题的，好好学，老师在讲例题的时候，一定要搞懂，那么复习时做起卷子来不会有太卡的地方。</p>
+<p>最后下来成绩自己已经满意了，算上上个学期，绩点是3.74。对我来说，这样的成绩点到为止，不能再求高了。因为这是两个学期合起来的绩点，可以算算单下半学年的绩点是多少，就知道为啥不该再求高了。</p>
+<h3 id="疫情"><a href="#疫情" class="headerlink" title="疫情"></a>疫情</h3><p>五月中旬，广州疫情再次冒出苗头。次月，疫情愈发严重，封校愈发严格。记得在这个月连续测了3次核酸。到七月初，方才逐步停息。</p>
+<h3 id="游戏"><a href="#游戏" class="headerlink" title="游戏"></a>游戏</h3><p>自己唯一玩的一款手游《明日方舟》，既迎来了二三四五月良好发展的高峰，又在六七八月跌入了低潮。二月《画中人》，三月《源石尘行动》（彩虹六号联动）、四月《遗尘漫步》、五月周年庆外加大哈鱼整活，使整个圈子经历了高速的扩张。记得“两面包夹芝士”的时代，“游戏葡萄”发表了一篇文章《<a href="https://mp.weixin.qq.com/s/WVNLla4KvIAQ82QN3hhqPw">「两面包夹芝士」背后，《明日方舟》的文化裂变</a>》。</p>
+<p>其中奶了一句：</p>
+<blockquote>
+<p>方舟已经占领了这个市场里很大一块空间，而且继续这样发酵下去，用户心里留给其他产品的位置就不够了，往后再出现优秀的产品，也没有足够空间可以发挥。</p>
+<p>要与之对抗，<strong>恐怕只能等《明日方舟》自己犯错</strong>。然而即使它会犯错，在这之前，其他人已经没有机会了。</p>
+</blockquote>
+<p>当然，说“毒奶”自然是不合适，文章没有期待其犯错之意。然而，谁想到这之后便是下坡的开始。</p>
+<p>偌大的六月仅有一个故事集《灯火序曲》作为新内容。后来，从九月的目光看，这故事集与主线还没有任何关联。</p>
+<p>七月的新模式联锁竞赛游戏性不足，没有像多维合作那样作为伴生活动开启，导致玩家不得不去玩此新模式——结果可想而知。多重障碍下，这款游戏停止了它声誉的持续上涨，转而急剧下跌，部分玩家退坑。此后有《如我所见》故事集作为缓冲，但七月末的空降直播带来的新限定，再次让相当一部分人乱了阵脚。贯穿一个月的活动没有伴生往年的新模式，可见又是一次冒险。</p>
+<p>对于不混圈的玩家、不社交、非氪的玩家，其实这些倒不算什么。打完后下线也不会有什么戒断反应，更不会因为活动质量而到处喷人。反之，则是大部分人，会选择去找问题，跟着热评的思路去验证，发现是对的，那就是对的。于是展示人类的本质——复读机，把这些未经思考的武断，无偿地传播出去。于是今天的社区就酿成了一种戾气，是时刻都要准备大骂特骂的戾气。</p>
+<p>不错，我也曾是这大部分人中的一员，仅仅是脱离得较早，在“让你爱上学习”等UP的引导下独立思考过后，才能勉强比以前客观一点地去观察和记录。</p>
+<p>在我看来，你要真觉得不好玩，自己去做一个好玩的吧。不开玩笑，你做嘛。</p>
+<h2 id="暑期"><a href="#暑期" class="headerlink" title="暑期"></a>暑期</h2><h3 id="缩略"><a href="#缩略" class="headerlink" title="缩略"></a>缩略</h3><p>学车，还是学车。具体过程不在这儿说了，也许以后会补上一篇暑假的记录。总而言之，每天早上搭公交去小车场，练了19天，主要是侧库和人字库，以及衍生的其他东西。8月27号上大场，练3天，8月30号考试，过了，非常险，运气差一点点就过不了了。过不了后果非常严重——要用另一个寒假来补科目二，然后再到暑假才是科目三科目四。上大场非常累，并且晒、热，时常没有午休。</p>
+<p>Java只继续了一点点，把基础打牢了。</p>
+<p>不过还是要挂一下本次危机合约的曲子，比较洗脑。</p>
+<p>Python已弃坑，不知道哪天再填坑。</p>
+<p>关于学车，就评价两点罢。</p>
+<p>一个是，学车，即考“中华人民共和国机动车驾驶证”，其实像做体操。把动作操熟了，大概也能过得去。并不能让你变得有胆子上路开车，除非你在学之前就开过。但体操是体操，上路，则更像是越野跑和障碍赛，有不一样的地方。</p>
+<p>另一个，学车，很坏节奏。每天去车场，你可能觉得太勤奋了，我就只去半天就够了！你没想错，我说是每天去，其实是指，只要那天去了车场，就算做那天都去了。而我其实居多时候，也只是去半天。</p>
+<img src="https://i.loli.net/2021/09/16/8jbhfBlSnNQMgaF.jpg" style="zoom:40%;" />
+
+<p>然而，不管去了上午还是下午，其实那天就干不了什么了。早上去了，下午睡觉，傻一天；下午去了，早上睡醒吃午饭就该去了，晚上回来，累的一批，只想打游戏，这一天又没了。我时常有想推进Java的进度，学了半章，又写了几个题目，觉得很用功了——但回头一看，才半章啊、怎么一个暑假才推进了六七章啊。反之，如果连续地学，即便被题目卡了许久，下次回到推进形态时，也必定不会慢的。</p>
+<p>关于读书，暑期末读了《鼠疫》前半。emmm居然还没读完，于是明天去图书馆就看书吧。</p>
+<p>观他人之记录，如久未经园艺的庭院，经其手便理成了干净整洁的庭院，盆罐壶水罗列得整齐清楚；而自己来写时，却有点不知何从下手，时时清理下杂草，还没清理完就去扫地；好不容易扫完了，又浇水把干净的小路沾湿了点，然后只能等它自己干掉。到了差不多干净的时候，又发现有点东西应该在扫地之前就清理而没有清理。</p>
+<p>一句话，那就是看别人整的好，自己来整就整的乱，没有提前组织文章结构——但高考过后，也许我还没又那个兴致来写好一篇记录。至少在之前的记录里都大致有这个通病。</p>
+<p>但又想了想，这是病么？字里行间，时时渗透、互相照应，这样的写法似乎又有自己的好处。</p>
+<p>于是再也不管那么多，哪天想改再说吧。</p>
+<h2 id="尾声"><a href="#尾声" class="headerlink" title="尾声"></a>尾声</h2><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>大一一年，平淡无奇，社交起伏不大，能力在隐隐地上升，但还需要更多的激励方能开启下一阶段。个人对目前的适应情况比较满意——对所有事都有几个备用方案的程度，并且基本能执行出并非最差预估的结果。这对一些人来说是奢求，对另一些人来说是essential，亦不再做多的评价。</p>
+<h3 id="计划"><a href="#计划" class="headerlink" title="计划"></a>计划</h3><p>Java，JavaScript，然后是C#和JavaScript的衍生。要求实战为先，在这年内，做一些能玩的小游戏。<br>网络得会点基础，看看计算机概论那本书，然后去看CSAPP。</p>
+<p>配好一个openwrt的编译环境。</p>
+<p>博客完善，如上文计划一样。</p>
+<p>最大程度上保证学业正常发育，不要求高绩点，不要求竞争。</p>
+<p>常常逛逛Leetcode。</p>
+<p>读书，《网络》、《鼠疫》、《毛泽东》、《算法》</p>
+<p>尝试着去参加点竞赛，弥补下经验的空缺。</p>
+<p><del>还有什么来着？明天继续整理</del></p>
+]]></content>
+      <categories>
+        <category>生活记录</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+      </tags>
+  </entry>
+</search>

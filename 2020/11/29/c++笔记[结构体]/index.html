@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"8.0.2","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":"auto","trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="还是基础，这篇文章作为备忘笔记而存在">
+<meta property="og:type" content="article">
+<meta property="og:title" content="c++笔记[结构体]">
+<meta property="og:url" content="http://example.com/2020/11/29/c++%E7%AC%94%E8%AE%B0[%E7%BB%93%E6%9E%84%E4%BD%93]/index.html">
+<meta property="og:site_name" content="お帰り、ドクター。">
+<meta property="og:description" content="还是基础，这篇文章作为备忘笔记而存在">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/Makri-hub/WolpersHome.github.io/PicGo/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20201211173838.png">
+<meta property="article:published_time" content="2020-11-29T03:06:08.000Z">
+<meta property="article:modified_time" content="2021-09-16T09:01:19.825Z">
+<meta property="article:author" content="RH Xie">
+<meta property="article:tag" content="笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Makri-hub/WolpersHome.github.io/PicGo/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20201211173838.png">
+
+
+<link rel="canonical" href="http://example.com/2020/11/29/c++%E7%AC%94%E8%AE%B0[%E7%BB%93%E6%9E%84%E4%BD%93]/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/ilyabirman-likely@2/release/likely.min.css"><link rel="stylesheet" href="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.css"><style>
+#needsharebutton-float {
+  bottom: 88px;
+  cursor: pointer;
+  left: -8px;
+  position: fixed;
+  z-index: 9999;
+}
+#needsharebutton-float .btn {
+  border: 1px solid $btn-default-border-color;
+  border-radius: 4px;
+  padding: 0 10px 0 14px;
+}
+</style>
+
+  <title>c++笔记[结构体] | お帰り、ドクター。</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">お帰り、ドクター。</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80"><span class="nav-number">1.</span> <span class="nav-text">基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%8F%E8%A8%80"><span class="nav-number">1.1.</span> <span class="nav-text">序言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93%E2%80%9C%E5%A4%8D%E5%88%B6%E2%80%9D"><span class="nav-number">1.2.</span> <span class="nav-text">结构体“复制”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93%E4%BD%9C%E5%BD%A2%E5%8F%82"><span class="nav-number">1.3.</span> <span class="nav-text">结构体作形参</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E4%BA%8Enew%E5%92%8Cdelete"><span class="nav-number">1.4.</span> <span class="nav-text">关于new和delete</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E4%BA%8Edelete%E4%B9%8B%E5%90%8E"><span class="nav-number">1.4.1.</span> <span class="nav-text">关于delete之后</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%80%BC%E5%BE%97%E6%B3%A8%E6%84%8F%E7%9A%84delete-%E6%95%B0%E7%BB%84"><span class="nav-number">1.4.2.</span> <span class="nav-text">值得注意的delete []数组</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%93%BE%E8%A1%A8"><span class="nav-number">2.</span> <span class="nav-text">链表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-number">2.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E6%B3%95"><span class="nav-number">2.2.</span> <span class="nav-text">用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C"><span class="nav-number">2.3.</span> <span class="nav-text">操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93%E4%BD%9C%E5%BD%A2%E5%8F%82-1"><span class="nav-number">2.3.1.</span> <span class="nav-text">结构体作形参</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5"><span class="nav-number">2.3.2.</span> <span class="nav-text">输入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E3%80%81%E5%88%A0%E9%99%A4"><span class="nav-number">2.3.3.</span> <span class="nav-text">插入、删除</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%A4%E6%8D%A2%E9%A1%BA%E5%BA%8F"><span class="nav-number">2.3.4.</span> <span class="nav-text">交换顺序</span></a></li></ol></li></ol></li></ol></div>
+        </section>
+        <!--/noindex-->
+
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="RH Xie"
+      src="/images/20201108230401.jpg">
+  <p class="site-author-name" itemprop="name">RH Xie</p>
+  <div class="site-description" itemprop="description">每个人面前，都有一块无知之幕 / There lays a veil of ignorance in front of every mankind.</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.situ2001.com/" title="https:&#x2F;&#x2F;blog.situ2001.com" rel="noopener" target="_blank">situ2001</a>
+        </li>
+    </ul>
+  </div>
+
+        </section>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/11/29/c++%E7%AC%94%E8%AE%B0[%E7%BB%93%E6%9E%84%E4%BD%93]/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/20201108230401.jpg">
+      <meta itemprop="name" content="RH Xie">
+      <meta itemprop="description" content="每个人面前，都有一块无知之幕 / There lays a veil of ignorance in front of every mankind.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="お帰り、ドクター。">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          c++笔记[结构体]
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-11-29 11:06:08" itemprop="dateCreated datePublished" datetime="2020-11-29T11:06:08+08:00">2020-11-29</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-09-16 17:01:19" itemprop="dateModified" datetime="2021-09-16T17:01:19+08:00">2021-09-16</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>5.8k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>5 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h3 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h3><p>这是第二篇c++笔记，原因是写在纸质笔记本上我并不会去看，写得慢还写得很乱<del>写在博客你可能也不会去看</del>。</p>
+<p>这一次是结构体，为什么连这个都要写呢？因为结构体里会有比较多容易混淆的东西，就比如我以为<code>struct</code>是可以换成别的东西，而没有认识到这是个关键字</p>
+<p>而我刚开始就是轻视了这一块，独自去编译器里探索</p>
+<p>探索了个寂寞</p>
+<p>再然后，只能老老实实看老师的视频</p>
+<p>在此写下笔记，以记录一些易忘点、易漏点，以及一些认识结构体的关键突破点。</p>
+<h3 id="结构体“复制”"><a href="#结构体“复制”" class="headerlink" title="结构体“复制”"></a>结构体“复制”</h3><p>当且仅当两个结构体类型相同时，才可以相互赋值。成员未初始化值的，在函数（包括main函数）外默认为0，否则为伪随机值（存储单元的值）。</p>
+<p>这种赋值也叫位拷贝，即按位拷贝，逐位逐位地拷贝（其实只是和值拷贝区分）</p>
+<h3 id="结构体作形参"><a href="#结构体作形参" class="headerlink" title="结构体作形参"></a>结构体作形参</h3><p>结构体的<strong>成员</strong>在函数中作为参数时，有三种方法可以将其“导入”</p>
+<p>一是用“类型+变量名”，得到一份copy，不操作原变量，函数内的拷贝操作完即销毁，存在开销大、用途有限（比如我只是想把数据拿出来看看，不对数据进行操作），缺点明显。</p>
+<p>二是用指针，也就是结构体的首地址，拿根针在结构体的某个成员上移来移去表示对应的值，缺点是不够直观。</p>
+<p>三是使用引用，对，这是福音，结构体可以使用引用，操作起来跟main函数内部没什么两样。当然了，会改变原结构体的信息，注意备份。</p>
+<p>第三种在平常操作中很推荐，不过如果仅仅是打印、得出结论，不想改变原数据，那么第一种可以尝试。</p>
+<p>初学还是建议<strong>非必要情况不要使用第一种</strong>。第二种为了练习指针的话，也浅尝辄止。</p>
+<p>1.4</p>
+<p>结构体中一般<strong>不考虑</strong>成员顺序对结构体<strong>占用字节</strong>的影响，而更加考虑代码的可维护性。至于代码的可维护性，局部的代码不太能阐述这件事情。成员顺序不同，结构体占用字节也有所不同，其原因是<strong>字节对齐</strong>。</p>
+<p>有关字节对齐，只要知道对齐是为了机器读取方便而进行的一种操作就可以了。</p>
+<h3 id="关于new和delete"><a href="#关于new和delete" class="headerlink" title="关于new和delete"></a>关于new和delete</h3><p>形如new int、new double、new char(‘a’)，会开辟空间并返回地址，用<strong>delete 地址</strong> 来删除。</p>
+<p>形如new int [10]、new char [20]等等，会开辟数组（包括字符数组）并返回数组首地址，用<strong>delete 首地址</strong>来删除</p>
+<p>具体使用：*int p = new 类型[(初值)] [长度];</p>
+<p>delete p;</p>
+<h4 id="关于delete之后"><a href="#关于delete之后" class="headerlink" title="关于delete之后"></a>关于delete之后</h4><p>delete后，指针p仍存在，仅仅是”new 类型[(初值)] [长度] “不见了。</p>
+<p>这个指针可以通过p=nullptr清理回收。</p>
+<p>这里强调一下，用nullptr，不用0，也不用NULL，nullptr是为了避免0和NULL在指针上产生问题而生的，用它就没错，而以后进一步学习，再来区分NULL、0、nullptr三者区别。</p>
+<h4 id="值得注意的delete-数组"><a href="#值得注意的delete-数组" class="headerlink" title="值得注意的delete []数组"></a>值得注意的delete []数组</h4><p>删除数组如果使用</p>
+<p>注意，new的存储单元在运行时堆上，默认为随机值</p>
+<p>头指针head:在结构体定时，最后一个成员后面，加上一个指针，便可以把每个具体的结构体连接起来</p>
+<p>（请注意这仅仅是思想，具体步骤，请看Part II）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这是一段伪代码，visit和next均为特定的操作，并非c++内置。</span></span><br><span class="line">Student* p =head;</span><br><span class="line"><span class="keyword">while</span>(p)<span class="comment">//也就是p不为NULL时，就继续循环。结构体的最后一个是NULL。</span></span><br><span class="line">&#123;</span><br><span class="line">    visit(p);</span><br><span class="line">    p=p-&gt;next;<span class="comment">//走向下一个</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>有BUG的代码</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">output</span><span class="params">(Student&amp; s)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	Student* p = &amp;s;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; p-&gt;No &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; p-&gt;Name &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; p-&gt;score[<span class="number">0</span>] &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; p-&gt;score[<span class="number">1</span>] &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; p-&gt;score[<span class="number">2</span>] &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; p[i].score[<span class="number">0</span>] + p[i].score[<span class="number">1</span>] + p[i].score[<span class="number">2</span>] &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;<span class="comment">//p是由s开始的结构体的（亦是首地址），后面调用时为s1</span></span><br><span class="line">		p++;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<p>问题发现了；指针隔着跳了，结果总分是第1、3、5名的，显示在1 2 3名的总分上，而4 5名的总分是第7 9名的，并不存在，显示为0和-nan。-nan意为Not a Number，即NaN。<br>具体体现为，i=3时，p便已经在s5上了。<br>问题又来了，指针为什么会跳呢?<br>观察发现，input()和output()表示分数的方式，不一样，input()为p-&gt;score[数字]格式，output()的总分为p[i].score[数字]格式。<br>调试中看到，有关p[i]的描述在第四名和第五名上，都是错误的，没有指向正确对象。<br>再联想下，p和i都是每次循环自增1，在仅仅循环一次的情况下，怎么样才能让p移动2呢？那就是p和i同时增加1了，代码中确实有这个操作。<br>那问题就解决了，表示分数p自增1即可，跟i没有实质上的关系，i是个计数用的。<br>这应该是源于习惯问题，习惯上用计数器作移动的指标。<br>结果碰上格式混用，前面一部分纯指针，用-&gt;，没出问题，后一半用p[i]，出问题了，双倍自增。<br>于是去掉[i]，换用(<em>p)即可。（注意”.”运算符比”</em>“运算符优先级高，括号不能去掉，否则是”地址.成员”，而正确格式是”结构体.成员”）</p>
+<p>所以把总分的显示格式与i无关化即可，随便选择一种格式均可。如p-&gt;score[0]，(*p).socre[0]。</p>
+<p>这里另外一提，目前见过好几次while(变量)的结构，也就是等待变量归零再退出循环，常见的有：变量最终归为链表的最后一节nullptr。不过不知怎么的，虽然能用，感觉这么用相当不规范，而且首次见到可能不大好理解——while(next!=0)比这个好理解多了。老师的视频里出现了这种写法，暂且视作规范吧。（或许这就是简化的写法吧）</p>
+<hr>
+<h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>这是我个人给它的一个定义，给一个可用、实用的链表下的一个定义。</p>
+<p>链表有三个要素：头指针（用于寻找数据位置），其他成员（用于数据储存），节点指针（形成链表的前提）。</p>
+<p>整体来看，链表包括头指针、成员、节点指针和尾指针（一般值为nullptr，当然，你想做头尾相接的也行）；而从结构体的角度来看，链表由一or多个结构体组成，链表中每个结构体尾部都有一个指针指向下一个结构体。</p>
+<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><p>整体思想：每建立一个结构体，都让尾指针“next = new 结构体类型”；复制头指针，让这个复制的指针在链表上移动，以取得自己想要的数据。</p>
+<p>具体操作，举例</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Student</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> No;</span><br><span class="line">    <span class="keyword">char</span> Name[<span class="number">20</span>];<span class="comment">//名字最多9个汉字</span></span><br><span class="line">    <span class="keyword">double</span> score[<span class="number">3</span>];<span class="comment">//三门成绩</span></span><br><span class="line">    Student* next;<span class="comment">//节点指针，如果这个链表到尾部了，那么这是尾指针（暂时只考虑单向链表，也就是从头走到尾的）</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Student ChainList;<span class="comment">//先在运行时栈创建一个结构体，其实head = new Student也可以</span></span><br><span class="line">    Student* head = ChainList;<span class="comment">//获取头指针</span></span><br><span class="line">    ---录入数据---（链表操作在后面说，先创建，才能操作）</span><br><span class="line">    head.next = <span class="keyword">new</span> Student;<span class="comment">//在运行时堆里new一个新的空结构体</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>到这里，虽然我们只创建了含两个结构体的链表，而且第二个还是空的，但接下来的事，其实也就在重复以上的操作</p>
+<p>这就是连续输入数据。</p>
+<h3 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h3><h4 id="结构体作形参-1"><a href="#结构体作形参-1" class="headerlink" title="结构体作形参"></a>结构体作形参</h4><p>创建函数时，十分<strong>建议引用</strong>，但指针也不差。所以刚刚上面给出了两种创建方式：在运行时栈里创建and运行时堆里创建。</p>
+<p>前一种可以有名字，调用函数时，参数位置直接填写链表名，在函数里使用“链表名.成员= 想要赋的值”完事（也就是第一个结构体的名称，上例为ChainList，则如果我想录入分数，只需要：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ChainList.score[<span class="number">0</span>]=第一门成绩;</span><br><span class="line">ChainList.score[<span class="number">1</span>]=第二门成绩;</span><br><span class="line">ChainList.score[<span class="number">2</span>]=第三门成绩;</span><br></pre></td></tr></table></figure>
+
+<p>（其中，点”.”是成员运算符，接下来的“-&gt;”是指向运算符）</p>
+<p>后一种写个指针，然后input函数中使用“head-&gt;成员=想要赋的值”的格式给成员赋值。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">head-&gt;score[<span class="number">0</span>]=第一门成绩;</span><br><span class="line">head-&gt;score[<span class="number">1</span>]=第二门成绩;</span><br><span class="line">head-&gt;score[<span class="number">2</span>]=第三门成绩;</span><br></pre></td></tr></table></figure>
+
+<p>但接下来两点才是重点。</p>
+<p>①为了链表可以重复操作，你必须额外再创建两个指针，分别用于在链表的头指针处和最前端处，不妨先叫它们：moving_pointer和pioneer_pointer（移动指针和先锋指针，当然，是我瞎编的）。其中moving_pointer初值为head，并且在每次操作完链表后，加一句moving_pointer = head，将其值自动归为头指针的地址，以备下一次使用；另一个pioneer_pointer，一般为最后一个结构体的头指针，而在每次创建一个结构体时，更新为尾指针，然后获得的返回值，再次成为最后一个结构体的头指针，即</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pioneer_pointer = pioneer_pointer-&gt;next;</span><br><span class="line">pioneer_pointer = <span class="keyword">new</span> Student;</span><br></pre></td></tr></table></figure>
+
+<p>一般接着输入函数，请看例子：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="number">3</span>:<span class="comment">//插入新的学生信息</span></span><br><span class="line">	<span class="keyword">if</span> (n == <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line"></span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;[添加]请输入学生信息：\n&quot;</span>;</span><br><span class="line">		input(stu);</span><br><span class="line">		n++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (n &gt; <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;[添加]请输入学生信息：\n&quot;</span>;</span><br><span class="line"></span><br><span class="line">		(*p).next = <span class="keyword">new</span> Student;<span class="comment">//此处的p即为pioneer_pointer</span></span><br><span class="line">		p = p-&gt;next;</span><br><span class="line">		input(*p);</span><br><span class="line">	&#125;</span><br><span class="line">	p-&gt;next = <span class="literal">nullptr</span>;</span><br><span class="line">	<span class="keyword">if</span> (moving_pin == <span class="literal">nullptr</span>)head = p;</span><br><span class="line">	<span class="keyword">break</span>;</span><br></pre></td></tr></table></figure>
+
+<p>为什么需要它们？想一想，第一次输入完成时，对于引用型函数来说，下一次应该在它的参数位置填什么？还是ChainList吗？</p>
+<p>显然不是。</p>
+<p>上面代码的input()函数就是引用型的，我更换成了*p（先锋指针作为最后一个结构体的头指针，那么*p发挥了类似ChainList的作用），不然的话，下一次赋值将直接覆盖第一次的数据，并没有形成链表</p>
+<p>②</p>
+<h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><p>类似于input()函数，只不过关于char字符数组的部分，需要用strcpy_s(字符串1,字符串2)。这里不知道为什么strcpy()不行，会报错，而strcpy_s()没有这个问题，以下input()函数仅供参考：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">input</span><span class="params">(Student&amp; v_stu)</span><span class="comment">//我也忘记v是什么意思了，virtual?但形参是parameter。</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; v_stu.No &gt;&gt;v_stu.Name&gt;&gt; v_stu.score[<span class="number">0</span>] &gt;&gt; v_stu.score[<span class="number">1</span>] &gt;&gt; v_stu.score[<span class="number">2</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="插入、删除"><a href="#插入、删除" class="headerlink" title="插入、删除"></a>插入、删除</h4><p>这里只简略说明下思路，代码放到另一篇文章里了（参考篇）。</p>
+<p>插入，因为暂时不需要排序，所以每次往new出来的新空间里input就可以了（有排序那另说，其实也只不过是next指针的调换）。</p>
+<p>删除，要分三种情况</p>
+<p>一是去头，二是去尾，三是去中间。去头需要调动头指针，让头部往后挪；去尾在删掉数据后，让倒数第二个结构体的next指向新的空间即可；去中间，将前一个结构体的next指针赋值为将要被删的结构体的next指针，然后删除想删除的结构体成员即可。（将要被删除结构体的next指针其实就是它下一个结构体的头指针，这样就依然可以连起来）</p>
+<h4 id="交换顺序"><a href="#交换顺序" class="headerlink" title="交换顺序"></a>交换顺序</h4><p>参考数组排序的做法即可，就是指针交换那儿有点绕，多想想就好。</p>
+<p>具体一点，我的方法是选择排序，一定一动，定与动比较，需要交换时，我们假设个结构体a和b吧，先给个中间变量t（是指针），先让t= a.next,再使a.next = b.next,最后b.next = t，（）</p>
+<p>选择排序，冒泡排序，目前我就学了这两种，而我还需要学八种。先放上典图。</p>
+<p><img src="https://raw.githubusercontent.com/Makri-hub/WolpersHome.github.io/PicGo/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20201211173838.png"></p>
+<p>我也并不急于去理解它们，等到了时候再说吧。这里上代码，看起来就像把平面图形拉成了立体图形。（其实就是多输入几个）</p>
+<p>这里给出的代码，要注意，我是另外备份了一个链表来排序的。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap_not_including_pin</span><span class="params">(Student&amp; a, Student&amp; b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	Student T;<span class="comment">//中间变量</span></span><br><span class="line">	strcpy_s(T.Name, a.Name); T.No = a.No; T.score[<span class="number">0</span>] = a.score[<span class="number">0</span>]; T.score[<span class="number">1</span>] = a.score[<span class="number">1</span>]; T.score[<span class="number">2</span>] = a.score[<span class="number">2</span>];<span class="comment">//T = a</span></span><br><span class="line">	strcpy_s(a.Name, b.Name); a.No = b.No; a.score[<span class="number">0</span>] = b.score[<span class="number">0</span>]; a.score[<span class="number">1</span>] = b.score[<span class="number">1</span>]; a.score[<span class="number">2</span>] = b.score[<span class="number">2</span>];<span class="comment">//a = b;</span></span><br><span class="line">	strcpy_s(b.Name, T.Name); b.No = T.No; b.score[<span class="number">0</span>] = T.score[<span class="number">0</span>]; b.score[<span class="number">1</span>] = T.score[<span class="number">1</span>]; b.score[<span class="number">2</span>] = T.score[<span class="number">2</span>];<span class="comment">//b = t;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对比下简单变量的交换，就明白上面是什么意思了。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap_not_including__pointer</span><span class="params">(<span class="keyword">int</span> &amp;a,<span class="keyword">int</span> &amp;b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> T;</span><br><span class="line">    T = a;</span><br><span class="line">    a = b;</span><br><span class="line">    b = t;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以上，写得比较菜，定有疏漏之处，还恳请各位轻喷。比如链表的那两个“必须额外再复制两个指针”是否可以简化点思路？是否尝试过复制结构体的方法？</p>
+<p>文章实质上可能是期末复习笔记之类的，凑合着像一篇教程</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div class="post-widgets">
+    <div class="likely">
+        <div class="twitter">Tweet</div>
+        <div class="facebook">Share</div>
+        <div class="linkedin">Link</div>
+        <div class="gplus">Plus</div>
+        <div class="vkontakte">Share</div>
+        <div class="odnoklassniki">Class</div>
+        <div class="telegram">Send</div>
+        <div class="whatsapp">Send</div>
+        <div class="pinterest">Pin</div>
+    </div>
+  </div>
+  <script src="//cdn.jsdelivr.net/npm/ilyabirman-likely@2/release/likely.min.js"></script>
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>RH Xie
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/2020/11/29/c++%E7%AC%94%E8%AE%B0[%E7%BB%93%E6%9E%84%E4%BD%93]/" title="c++笔记[结构体]">http://example.com/2020/11/29/c++笔记[结构体]/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag"># 笔记</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/11/23/c++%E7%AC%94%E8%AE%B0%5B%E6%95%B0%E7%BB%84%5D/" rel="prev" title="C++笔记[数组]">
+                  <i class="fa fa-chevron-left"></i> C++笔记[数组]
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/12/14/%E5%85%B3%E4%BA%8E%E8%AF%84%E8%AE%BA%E5%8C%BA/" rel="next" title="关于评论区">
+                  关于评论区 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+      
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">RH Xie</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">40k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">36 分钟</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script size="100" alpha="0.1" zIndex="2" src="//cdn.jsdelivr.net/npm/ribbon.js@1.0.2/dist/ribbon.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+<div id="needsharebutton-float">
+      <span class="btn">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </span>
+    </div>
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+      flOptions = {};
+        flOptions.iconStyle = "box";
+        flOptions.boxForm = "horizontal";
+        flOptions.position = "middleRight";
+        flOptions.networks = "Weibo,Wechat,QQZone";
+      new needShareButton('#needsharebutton-float', flOptions);
+  </script>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.7.0/dist/gitalk.css">
+
+<script>
+NexT.utils.loadComments('#gitalk-container', () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1.7.0/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '26d80db942359c887549',
+      clientSecret: '2617b9ff35540f776935f110f9317f41c9e5afc6',
+      repo        : 'RH-Xie.github.io',
+      owner       : '',
+      admin       : [''],
+      id          : '32f34f3f3d63896118fc99a0e9cd8c4b',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>

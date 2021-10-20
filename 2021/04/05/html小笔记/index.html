@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"8.0.2","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":"auto","trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="一些浅显的基础，看起来总像是在抄书">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML笔记">
+<meta property="og:url" content="http://example.com/2021/04/05/html%E5%B0%8F%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="お帰り、ドクター。">
+<meta property="og:description" content="一些浅显的基础，看起来总像是在抄书">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-04-05T08:46:00.000Z">
+<meta property="article:modified_time" content="2021-10-20T05:56:48.455Z">
+<meta property="article:author" content="RH Xie">
+<meta property="article:tag" content="前端">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2021/04/05/html%E5%B0%8F%E7%AC%94%E8%AE%B0/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/ilyabirman-likely@2/release/likely.min.css"><link rel="stylesheet" href="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.css"><style>
+#needsharebutton-float {
+  bottom: 88px;
+  cursor: pointer;
+  left: -8px;
+  position: fixed;
+  z-index: 9999;
+}
+#needsharebutton-float .btn {
+  border: 1px solid $btn-default-border-color;
+  border-radius: 4px;
+  padding: 0 10px 0 14px;
+}
+</style>
+
+  <title>HTML笔记 | お帰り、ドクター。</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">お帰り、ドクター。</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%8F%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text"># 序言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%BD%91%E9%A1%B5"><span class="nav-number">2.</span> <span class="nav-text">第一个网页</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">等标记</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">4.</span> <span class="nav-text"></span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">4.1.</span> <span class="nav-text">是二级标题。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lt-DOCTYPE-gt-%E5%A3%B0%E6%98%8E%E6%A0%87%E8%AE%B0"><span class="nav-number">4.2.</span> <span class="nav-text">&lt;!DOCTYPE&gt;声明标记</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%87%E9%A2%98%E6%A0%87%E8%AE%B0"><span class="nav-number">4.3.</span> <span class="nav-text">标题标记</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E7%84%B6%E6%AE%B5%E6%A0%87%E8%AE%B0"><span class="nav-number">4.4.</span> <span class="nav-text">自然段标记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#lt-br-gt-%E6%8D%A2%E8%A1%8C%E6%A0%87%E8%AE%B0"><span class="nav-number">4.4.1.</span> <span class="nav-text">&lt;br &#x2F;&gt;换行标记</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lt-center-gt-lt-center-gt-%E5%B1%85%E4%B8%AD%E6%A0%87%E8%AE%B0"><span class="nav-number">4.4.2.</span> <span class="nav-text">&lt;center&gt;&lt;&#x2F;center&gt;居中标记</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lt-hr-gt-%E5%88%86%E5%89%B2%E7%BA%BF"><span class="nav-number">4.4.3.</span> <span class="nav-text">&lt;hr &#x2F;&gt;分割线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lt-pre-gt-lt-pre-gt-%E6%A0%BC%E5%BC%8F%E4%BF%9D%E6%8A%A4"><span class="nav-number">4.4.4.</span> <span class="nav-text">&lt;pre&gt;&lt;&#x2F;pre&gt;格式保护</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#amp-nbsp-%E4%B8%8D%E6%8D%A2%E8%A1%8C%E7%9A%84%E7%A9%BA%E6%A0%BC"><span class="nav-number">4.4.5.</span> <span class="nav-text">&amp;nbsp;不换行的空格</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%BA%E5%88%86%E2%80%9C%E6%A0%87%E8%AE%B0%E2%80%9D%E5%92%8C%E2%80%9C%E5%85%83%E7%B4%A0%E2%80%9D"><span class="nav-number">4.5.</span> <span class="nav-text">区分“标记”和“元素”</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E4%B8%AA%E7%BD%91%E9%A1%B5"><span class="nav-number">5.</span> <span class="nav-text">第二个网页</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7"><span class="nav-number">5.1.</span> <span class="nav-text">属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#title"><span class="nav-number">5.1.1.</span> <span class="nav-text">title</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E9%87%8A"><span class="nav-number">5.2.</span> <span class="nav-text">注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E7%89%87"><span class="nav-number">5.3.</span> <span class="nav-text">图片</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E7%89%87%E8%B7%B3%E8%BD%AC"><span class="nav-number">5.3.1.</span> <span class="nav-text">图片跳转</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%86%E9%A2%91"><span class="nav-number">5.4.</span> <span class="nav-text">视频</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E4%B8%AA%E7%BD%91%E9%A1%B5"><span class="nav-number">6.</span> <span class="nav-text">第三个网页</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%A8%E6%A0%BC"><span class="nav-number">6.1.</span> <span class="nav-text">表格</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%83%E5%B1%80"><span class="nav-number">6.2.</span> <span class="nav-text">布局</span></a></li></ol></li></ol></div>
+        </section>
+        <!--/noindex-->
+
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="RH Xie"
+      src="/images/20201108230401.jpg">
+  <p class="site-author-name" itemprop="name">RH Xie</p>
+  <div class="site-description" itemprop="description">每个人面前，都有一块无知之幕 / There lays a veil of ignorance in front of every mankind.</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.situ2001.com/" title="https:&#x2F;&#x2F;blog.situ2001.com" rel="noopener" target="_blank">situ2001</a>
+        </li>
+    </ul>
+  </div>
+
+        </section>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/05/html%E5%B0%8F%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/20201108230401.jpg">
+      <meta itemprop="name" content="RH Xie">
+      <meta itemprop="description" content="每个人面前，都有一块无知之幕 / There lays a veil of ignorance in front of every mankind.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="お帰り、ドクター。">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          HTML笔记
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-04-05 16:46:00" itemprop="dateCreated datePublished" datetime="2021-04-05T16:46:00+08:00">2021-04-05</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-10-20 13:56:48" itemprop="dateModified" datetime="2021-10-20T13:56:48+08:00">2021-10-20</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>12k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>10 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="序言"><a href="#序言" class="headerlink" title="# 序言"></a># 序言</h1><p>每一点内容均有例子，尽量清晰地讲诉每一个常见符号的作用。如果你想查询某个符号，请看边栏，或者前往W3C、<a target="_blank" rel="noopener" href="https://www.tutorialspoint.com/html/index.htm">tutorialspoint</a>。文章附带了新手理解层面的一些见解，有所不周，还请见谅。</p>
+<p>Hypertext Markup Language，简称HTML，是世界上最广泛用于编写网页的语言。</p>
+<blockquote>
+<p>Hypertext是一种网页连接方式（类似word中的超文本），网页上可以点击的连接其实就是Hypertext（超文本）</p>
+<p>Html是标记语言，也就是用带标记（Tag）的文字告诉网页如何架构其显示内容的一种语言<del>（其实我更想叫它标签语言，但入乡随俗了）</del></p>
+</blockquote>
+<p>应用：网页页面，网页导航，跨平台UI，离线阅读，游戏开发</p>
+<p>与html密切相关：javascript,php,angular。在此栽下一棵树。</p>
+<h1 id="第一个网页"><a href="#第一个网页" class="headerlink" title="第一个网页"></a>第一个网页</h1><p>猜猜会是谁？当然是大家喜闻乐见的Hello World了！</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span>Is this a descrption for document?<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">h1</span>&gt;</span>This is the first website by Makri_BW<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span>Hello World!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>如果你没有合适的HTML代码展示平台，可以点击<a target="_blank" rel="noopener" href="http://tpcg.io/v5h38Z3B">这里</a>查看效果</p>
+<p>下面一一解释上文所用Tag的作用</p>
+<table>
+<thead>
+<tr>
+<th>序号Sr.No</th>
+<th>标记Tag</th>
+<th>描述Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td><!DOCTYPE html></td>
+<td>Document Type 规定文本类型和HTML版本的标记，这里规定的文本类型即html</td>
+</tr>
+<tr>
+<td>2</td>
+<td><html></td>
+<td>包含完整的HTML文本，主要由文本头（暂不理是什么，用<head></head>&gt;表示）和文本体（即文本内容，用<body></body>表示）</td>
+</tr>
+<tr>
+<td>3</td>
+<td><head></td>
+<td>可以存放<title><link>等HTML标记</td>
+</tr>
+<tr>
+<td>4</td>
+<td><title></td>
+<td>如上提及，在<head>内部.</td>
+</tr>
+<tr>
+<td>5</td>
+<td><body></td>
+<td>存放<h1><div><p>等标记</td>
+</tr>
+<tr>
+<td>6</td>
+<td><h1></td>
+<td>heading 1 一级标题，以此类推，<h2>是二级标题。</td>
+</tr>
+<tr>
+<td>7</td>
+<td><p></td>
+<td>Paragraph，自然段</td>
+</tr>
+</tbody></table>
+<h2 id="lt-DOCTYPE-gt-声明标记"><a href="#lt-DOCTYPE-gt-声明标记" class="headerlink" title="&lt;!DOCTYPE&gt;声明标记"></a>&lt;!DOCTYPE&gt;声明标记</h2><p>作用是供浏览器理解HTML版本</p>
+<h2 id="标题标记"><a href="#标题标记" class="headerlink" title="标题标记"></a>标题标记</h2><p>&lt;h1&gt;为一级标题，&lt;h2&gt;为二级标题，依此类推到。一级标题最大，六级标题最小，超过六级会变成与大小相当的文字。至于有无标题作用，我们以后讨论。</p>
+<h2 id="自然段标记"><a href="#自然段标记" class="headerlink" title="自然段标记"></a>自然段标记</h2><p>&lt;p&gt;&lt;/p&gt;所包含内容即为一个自然段。</p>
+<h3 id="lt-br-gt-换行标记"><a href="#lt-br-gt-换行标记" class="headerlink" title="&lt;br /&gt;换行标记"></a>&lt;br /&gt;换行标记</h3><p>&lt;br /&gt;即line break，可在&lt;p&gt;&lt;/p&gt;中使用，以达到自己想要的目的。</p>
+<h3 id="lt-center-gt-lt-center-gt-居中标记"><a href="#lt-center-gt-lt-center-gt-居中标记" class="headerlink" title="&lt;center&gt;&lt;/center&gt;居中标记"></a>&lt;center&gt;&lt;/center&gt;居中标记</h3><p>&lt;center&gt;&lt;/center&gt;，在&lt;p&gt;&lt;/p&gt;之外中使用，例如：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span>This is name of the page<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	    <span class="tag">&lt;<span class="name">h2</span>&gt;</span>Centring the content<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">center</span>&gt;</span></span><br><span class="line">		    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">		    <span class="tag">&lt;<span class="name">p</span>&gt;</span>We Are the Center of Galaxy<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">center</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>建议读者亲自敲一下以上代码，熟悉一下格式，也可以<a target="_blank" rel="noopener" href="http://tpcg.io/Vi9qHr20">点击此处查看效果</a>。</p>
+<h3 id="lt-hr-gt-分割线"><a href="#lt-hr-gt-分割线" class="headerlink" title="&lt;hr /&gt;分割线"></a>&lt;hr /&gt;分割线</h3><p>本身叫Horizontal Lines，缩写hr。在各大论坛中和贴主们形影不离的存在。视觉上既有强制分隔的作用，又有装饰作用。来看看<a target="_blank" rel="noopener" href="http://tpcg.io/oL7KsUG5">这个</a>例子，加深体会</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span>This is name of the page<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	    <span class="tag">&lt;<span class="name">h2</span>&gt;</span>Centring the content<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">center</span>&gt;</span></span><br><span class="line">		    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">		    <span class="tag">&lt;<span class="name">hr</span> /&gt;</span></span><br><span class="line">		    <span class="tag">&lt;<span class="name">p</span>&gt;</span>We Are the Center of Galaxy<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">center</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>读到这里，你应该早发现了<strong>&lt;br /&gt;**换行标记和</strong>&lt;hr /&gt;<strong>分割线标记似乎是</strong>同一类型<strong>的。它们没有其他标签那样的开始、结束标签（譬如&lt;p&gt;和&lt;/p&gt;)，格式为&lt;xx /&gt;，标签名和斜杠之间有空格。它们有一个共同的名字，叫做</strong>置空元素<strong>，俗称</strong>空标签**。以后你还会遇到很多相当有趣的空标签。</p>
+<h3 id="lt-pre-gt-lt-pre-gt-格式保护"><a href="#lt-pre-gt-lt-pre-gt-格式保护" class="headerlink" title="&lt;pre&gt;&lt;/pre&gt;格式保护"></a>&lt;pre&gt;&lt;/pre&gt;格式保护</h3><p>全名Preserve Formatting。在HTML中打一段代码，经常要换行，老是&lt;br /&gt;来&lt;br /&gt;去，相信你会感到十分繁琐。所以&lt;pre&gt;&lt;/pre&gt;之间的文字排版格式会被保留下来，就像txt一样，&lt;br /&gt;这样的标记，你不需要单独去打了，而且这样你的内容会非常直观，就像看源代码一样。</p>
+<p>具体<a target="_blank" rel="noopener" href="http://tpcg.io/76TScrhN">例子</a>：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span>This is name of the page<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">center</span>&gt;</span></span><br><span class="line">		    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">		    <span class="tag">&lt;<span class="name">hr</span> /<span class="attr">N</span></span></span><br><span class="line">		    &lt;p&gt;We are going to show you some codes below&lt;/p&gt;</span><br><span class="line">		<span class="tag">&lt;/<span class="name">center</span>&gt;</span> </span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">		    <span class="tag">&lt;<span class="name">pre</span>&gt;</span></span><br><span class="line">def Func()</span><br><span class="line">&#123;</span><br><span class="line">    print(&quot;你好&quot;)</span><br><span class="line">&#125;</span><br><span class="line">            <span class="tag">&lt;/<span class="name">pre</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>如果你尝试不使用&lt;pre&gt;&lt;/pre&gt;，那么需要加4个&lt;br /&gt;。越是长的代码，越能体现&lt;pre&gt;&lt;/pre&gt;格式保护的优势。</p>
+<h3 id="amp-nbsp-不换行的空格"><a href="#amp-nbsp-不换行的空格" class="headerlink" title="&amp;nbsp;不换行的空格"></a><strong>&amp;nbsp</strong>;不换行的空格</h3><p>全称Nonbreaking space，强制不换行的空格，这一点针对带空格的书名、报名、人名等，英文中使用得比较多。</p>
+<p>给出<a target="_blank" rel="noopener" href="http://tpcg.io/OhhfWR">例子</a>，调成Mobile&nbsp;320*568之后，可见整个<em>12 Angry Men</em>都推到了下面，<strong>以此防止重要内容断开</strong>。</p>
+<p>建议读者去掉代码中的&amp;nbsp;之后，再试一次，看看有何异同。</p>
+<h2 id="区分“标记”和“元素”"><a href="#区分“标记”和“元素”" class="headerlink" title="区分“标记”和“元素”"></a>区分“标记”和“元素”</h2><p>标记分为开始标记和结束标记，而元素是标记+包含的内容，</p>
+<blockquote>
+<p>比如：</p>
+<p>&lt;p&gt;是开始标记&lt;/p&gt;是结束标记，</p>
+<p>&lt;p&gt;This is the content between the opening tag and closing tag&lt;/p&gt;则是一个元素</p>
+</blockquote>
+<h1 id="第二个网页"><a href="#第二个网页" class="headerlink" title="第二个网页"></a>第二个网页</h1><p>我们补充几个常用符号，通过上面的学习，相信下面内容读起来，你再熟悉不过了。</p>
+<p>下划线：&lt;u&gt;&lt;/u&gt;</p>
+<p>斜体：&lt;i&gt;&lt;/i&gt;</p>
+<p>加粗：&lt;b&gt;&lt;/b&gt;或&lt;strong&gt;&lt;/strong&gt;</p>
+<p>引用：</p>
+<p>Ⅰ.&lt;blockquote&gt;&lt;/blockquote&gt;，引用一大段话，与&lt;p&gt;&lt;/p&gt;同级，作为一个自然段，会居中显示。</p>
+<p>Ⅱ.&lt;q&gt;&lt;/q&gt;，引用一小句话，位于&lt;p&gt;&lt;/p&gt;等之内，作用不明显。</p>
+<p>（还有个&lt;div&gt;&lt;/div&gt;，因为跟CSS挂钩，所以在此先不作要求，等到CSS篇再细说）</p>
+<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><p>原名Attributes，用于修饰标记的内容，由“键值对”构成（打双引号使因为像，但并不完全是键值对），常常放在<strong>开始标记</strong>(Opening Tags)中，常见的由align（对齐）、title（光标提示，光标浮在标记内文字上面时，会显示提示，俗称tooltip，下面会详细演示）、style（css相关的风格设置，有颜色、对齐等等）、dir（文字方向，阿拉伯文是从右到左读的，dir因此而生）</p>
+<h3 id="title"><a href="#title" class="headerlink" title="title"></a>title</h3><p>浏览网页的时候，相信你有见过将鼠标放在某些地方，那里就会冒出一些提示来，这就是属性title，下面看个<a target="_blank" rel="noopener" href="http://tpcg.io/jF86OmIh">例子</a>立刻明白：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">title</span>&gt;</span>The title Attribute Example<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	</span><br><span class="line">   <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">h3</span> <span class="attr">title</span> = <span class="string">&quot;Hello HTML!<span class="symbol">&amp;#x0a;</span>这就是提示，也叫Tooltip&quot;</span>&gt;</span>Float your cursor here<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line">	</span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这里放了个&amp;#x0a;是啥意思？其实是想让你先亲自去试试，那是个换行符。你会问为何不用&lt;br /&gt;？可以参考下面的解释，但实际上我对自己的搜索并不满意，我还是不清楚为何title属性中的字符串不能用&lt;br /&gt;——目前只是解释为不合语义；希望看到这里的各位爷指出问题关键，帮帮我这个菜鸡。</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/26093623/br-not-working-in-title-tag-for-tooltip">https://stackoverflow.com/questions/26093623/br-not-working-in-title-tag-for-tooltip</a> &lt;br /&gt;在title属性中不起作用</p>
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/1726073/is-it-sometimes-bad-to-use-br">https://stackoverflow.com/questions/1726073/is-it-sometimes-bad-to-use-br</a>  什么时候不该用&lt;br /&gt;？</p>
+</blockquote>
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p>格式：&lt;!– 注释内容 –&gt;</p>
+<p>作为一个html编辑者，自然要在交流过程中对自己的代码写下一些注释。</p>
+<p>请注意这个交流的对象<strong>不仅仅是他人</strong>，还有<strong>未来的你</strong>。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="tag">&lt;<span class="name">head</span>&gt;</span>  </span><br><span class="line">      <span class="tag">&lt;<span class="name">title</span>&gt;</span>Multiline Comments<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">head</span>&gt;</span> </span><br><span class="line">	  <span class="comment">&lt;!--This is the end of tag &lt;head&gt;&lt;/head&gt; --&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">         This is a multiline comment and it can</span></span><br><span class="line"><span class="comment">         span through as many as lines you like.</span></span><br><span class="line"><span class="comment">      --&gt;</span></span><br><span class="line">      </span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>Document content goes here.....<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line">   <span class="comment">&lt;!--End of this html tag--&gt;</span></span><br><span class="line">   <span class="comment">&lt;!-- And you can see that spaces </span></span><br><span class="line"><span class="comment">   are not required to both tags of comment--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>查看<a target="_blank" rel="noopener" href="http://tpcg.io/GQEicU9X">效果</a></p>
+<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p>格式： &lt;img src = “图片路径或网址，即图片直链” alt = “Test Image” /&gt;</p>
+<p>这个很新鲜了吧？经过前面枯燥的学习，终于有点好康的东西了。</p>
+<p>我们来一一解释：img src即image source，图片来源，一般后边的双引号里是图片路径，以.png、.jpeg结尾居多，有两种表示方式：</p>
+<details><summary>①绝对“路径”</summary>其实是互联网上的图片链接，比如：
+    <blockquote>https://i.loli.net/2019/12/30/e9th3ZPN5CAOFoV.png</blockquote>
+    <blockquote>https://inews.gtimg.com/newsapp_ls/0/13249243546/0</blockquote>
+嘛，为什么说“一般”，第二个链接就可以看出来了，您尽可打开看一看，至少笔者在写时这俩图片的图床都没有爆炸。
+</details>
+
+<details><summary>②相对路径</summary>以"/"起头，以为以你现在的网页为零点，进入"/"后的路径进行图片的读取。<br /><br />这一点对一个大型网站来说十分有用，在节省代码量的同时减少了访问其他网站（如不属于本网站的图床网站）的机会，维护起来更稳定——万一哪天图床变了、炸了，或者是你的网址变了，使用绝对路径的你会发现，网页里的图全崩了。<br /><br/>具体到某一个网站，我们可以用github来举例。如果你的respiratory既做博客网站的存放点，同时也储存了图片，那么就可以使用相对路径，访问respiratory的图片。<br /><br />我的博客文件储存在：https://github.com/RH-Xie/RH-Xie.github.io/<br /><br />
+那么我想展示一下我的头像：（可能要代理才能看到）<br />
+<src img= "https://github.com/RH-Xie/RH-Xie.github.io/blob/master/images/20201108230401.jpg" alt = "MyIcon" />
+</details>
+
+<p>alt为alternate text，替代文本。当<strong>图片显示不出</strong>的时候，浏览器就会在图片位置放上一个表示“图片”的小图标和alt后双引号内的文字，以示此处原应有图，因为访问超时而<strong>获取不到图片</strong>。如果你没有开github的代理，那么你有可能在上面的“相对路径”里就见到这个了</p>
+<p>查看<a target="_blank" rel="noopener" href="http://tpcg.io/9KkHGq">效果</a>：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">title</span>&gt;</span>Using Image in Webpage<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	</span><br><span class="line">   <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>Simple Image Insert<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span> = <span class="string">&quot;/html/images/test.png&quot;</span> <span class="attr">alt</span> = <span class="string">&quot;Test Image&quot;</span> /&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line">	</span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="图片跳转"><a href="#图片跳转" class="headerlink" title="图片跳转"></a>图片跳转</h3><p>在论坛的的顶部，我们常常见到有该论坛的图标，点击它们，一般会返回到论坛的主页。而我们只要把上述的图片与超链接结合起来，就可以得到这样的功能。在各大下载站点的广告也常有应用。</p>
+<p>这里依然以mcbbs为例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>An example of Image Link<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>Click the picture below<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span> = <span class="string">&quot;https://www.mcbbs.net&quot;</span> <span class="attr">target</span> = <span class="string">&quot;_self&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span> = <span class="string">&quot;https://www.mcbbs.net/template/MCBBS_v3/image/logo.png&quot;</span> <span class="attr">alt</span> = <span class="string">&quot;The Icon of MCBBS(CN)&quot;</span> <span class="attr">border</span> = <span class="string">&quot;4&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="http://tpcg.io/iS7hQwU5">查看效果</a></p>
+<p>这里的&lt;a&gt;&lt;/a&gt;全名为anchor，原意为“锚”，可以引申为“导航”，是专门用于展示可点击链接的地方。关于它的属性不只有href，但href十分常用。href全名为html reference，即网页引用，后面跟一个url链接（网页的链接，Uniform Resource Locator，通俗来讲就是<strong>网址</strong>）。</p>
+<p>alt标签，不是键盘上的ALT！其全名<code>alternative</code>，<strong>可替代的文字</strong>。当图片显示不出时，就会显示这些文字，不过链接依然能跳转（一般来说）。</p>
+<p>还有几个常用的属性：download，指定下载文件的文件名；target，指定以什么方式打开新的网页，如_self在本网页跳转只下个网页，_parent、_top、_blank则是打开新窗口以访问网页。具体区别建议谷歌，这里不作区分</p>
+<h2 id="视频"><a href="#视频" class="headerlink" title="视频"></a>视频</h2><p>类似图片，多了一点属性。其实这个不需要专门去学，知道一下几个属性即可，因为在一般的视频网站“分享”下回直接有html源码让你复制到html文件中。</p>
+<table>
+<thead>
+<tr>
+<th align="center">属性</th>
+<th align="center">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">src</td>
+<td align="center">视频源链接，一般只有播放器，没有评论、点赞之类的按键</td>
+</tr>
+<tr>
+<td align="center">width</td>
+<td align="center">视频宽度，可以填像素，也可以填占窗口的百分比</td>
+</tr>
+<tr>
+<td align="center">height</td>
+<td align="center">视频高度，同理</td>
+</tr>
+<tr>
+<td align="center">name</td>
+<td align="center">在javascript中用于引用元素</td>
+</tr>
+<tr>
+<td align="center">marginheight</td>
+<td align="center">边缘高度</td>
+</tr>
+<tr>
+<td align="center">marginwidth</td>
+<td align="center">边缘宽度</td>
+</tr>
+</tbody></table>
+<p>演示代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;iframe src&#x3D;&quot;&#x2F;&#x2F;player.bilibili.com&#x2F;player.html?aid&#x3D;501616931&amp;bvid&#x3D;BV1rN411R7XQ&amp;cid&#x3D;294474330&amp;page&#x3D;1&quot; scrolling&#x3D;&quot;no&quot; border&#x3D;&quot;0&quot; frameborder&#x3D;&quot;no&quot; framespacing&#x3D;&quot;0&quot; allowfullscreen&#x3D;&quot;true&quot;&gt; &lt;&#x2F;iframe&gt;</span><br></pre></td></tr></table></figure>
+
+<iframe src="//player.bilibili.com/player.html?aid=501616931&bvid=BV1rN411R7XQ&cid=294474330&page=1" scrolling="no" border="0" frameborder="10" framespacing="0" allowfullscreen="true"> </iframe>
+
+
+
+<h1 id="第三个网页"><a href="#第三个网页" class="headerlink" title="第三个网页"></a>第三个网页</h1><p>以上，我们分别认识了HTML的文字处理和一些常用的部件，那么接下来应该整体规划一下我们的<strong>网页布局</strong>了。事实上现在设计者更倾向于使用CSS和Javascript来设计布局，而这里只是以HTML作引导，为上述两者铺基础，以便之后学习CSS和Javascript时不会吃力。</p>
+<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><p>表格，一种具有布局性质的零部件。</p>
+<p>下面是一个简单的表格</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">    &lt;html&gt;</span><br><span class="line">        &lt;head&gt;</span><br><span class="line">        	&lt;title&gt;一个简单的表格&lt;&#x2F;title&gt;</span><br><span class="line">        &lt;&#x2F;head&gt;</span><br><span class="line">        &lt;body&gt;</span><br><span class="line">            &lt;table border &#x3D; &quot;1&quot;&gt;</span><br><span class="line">                &lt;tr&gt;</span><br><span class="line">                    &lt;th&gt;商品名&lt;&#x2F;th&gt;</span><br><span class="line">                    &lt;th&gt;价格&lt;&#x2F;th&gt;</span><br><span class="line">                &lt;&#x2F;tr&gt;</span><br><span class="line">                &lt;tr&gt;</span><br><span class="line">                    &lt;td&gt;榨汁机&lt;&#x2F;td&gt;</span><br><span class="line">                    &lt;td&gt;35&lt;&#x2F;td&gt;</span><br><span class="line">                &lt;&#x2F;tr&gt;</span><br><span class="line">                &lt;tr&gt;</span><br><span class="line">                    &lt;td&gt;菜刀&lt;&#x2F;td&gt;</span><br><span class="line">                    &lt;td&gt;50&lt;&#x2F;td&gt;</span><br><span class="line">                &lt;&#x2F;tr&gt;</span><br><span class="line">            &lt;&#x2F;table&gt;</span><br><span class="line">	&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>展示效果：</p>
+<!DOCTYPE html>
+<pre><code>&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;一个简单的表格&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;table border = &quot;1&quot;&gt;
+            &lt;tr&gt;
+                &lt;th&gt;商品名&lt;/th&gt;
+                &lt;th&gt;价格&lt;/th&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;榨汁机&lt;/td&gt;
+                &lt;td&gt;35&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;菜刀&lt;/td&gt;
+                &lt;td&gt;50&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;
+&lt;/html&gt;</code></pre>
+<p>你只需要记住</p>
+<ul>
+<li>tr = Table Row，即表格的一行；</li>
+<li>th = Table Heading（或Table Header，记住就行）会稍显粗一点；</li>
+<li>td = Table Data，表格数据。</li>
+</ul>
+<p>认识到html中表格是<strong>以行(Row)为单位</strong>的即可，即一行一个&lt;tr&gt;&lt;/tr&gt;，东西全在里面了。</p>
+<p>如果你发现这个表格太胖了，那么给table来个属性<code>width</code>和<code>height</code>，让它限制一下大小：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">width</span> = <span class="string">&quot;像素或者百分比&quot;</span> <span class="attr">height</span> = <span class="string">&quot;像素或者百分比&quot;</span> <span class="attr">border</span> = <span class="string">&quot;1&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<!DOCTYPE html>
+<pre><code>&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;一个简单的表格&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;table width = &quot;200&quot; height = &quot;100&quot; border = &quot;1&quot;&gt;
+            &lt;tr&gt;
+                &lt;th&gt;商品名&lt;/th&gt;
+                &lt;th&gt;价格&lt;/th&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;榨汁机&lt;/td&gt;
+                &lt;td&gt;35&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;菜刀&lt;/td&gt;
+                &lt;td&gt;50&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;
+&lt;/html&gt;</code></pre>
+<p>如果你问，我皮，我就不对齐，多了一列出来，怎么着？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">    &lt;html&gt;</span><br><span class="line">        &lt;head&gt;</span><br><span class="line">        	&lt;title&gt;一个突出了一列的表格&lt;&#x2F;title&gt;</span><br><span class="line">        &lt;&#x2F;head&gt;</span><br><span class="line">        &lt;body&gt;</span><br><span class="line">            &lt;table border &#x3D; &quot;1&quot;&gt;</span><br><span class="line">                &lt;tr&gt;</span><br><span class="line">                    &lt;th&gt;商品名&lt;&#x2F;th&gt;</span><br><span class="line">                    &lt;th&gt;价格&lt;&#x2F;th&gt;</span><br><span class="line">                &lt;&#x2F;tr&gt;</span><br><span class="line">                &lt;tr&gt;</span><br><span class="line">                    &lt;td&gt;榨汁机&lt;&#x2F;td&gt;</span><br><span class="line">                    &lt;td&gt;35&lt;&#x2F;td&gt;</span><br><span class="line">                &lt;&#x2F;tr&gt;</span><br><span class="line">                &lt;tr&gt;</span><br><span class="line">                    &lt;td&gt;菜刀&lt;&#x2F;td&gt;</span><br><span class="line">                    &lt;td&gt;50&lt;&#x2F;td&gt;</span><br><span class="line">                    &lt;td&gt;多出来一列</span><br><span class="line">                &lt;&#x2F;tr&gt;</span><br><span class="line">            &lt;&#x2F;table&gt;</span><br><span class="line">	&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<!DOCTYPE html>
+<pre><code>&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;一个简单的表格&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;table border = &quot;1&quot;&gt;
+            &lt;tr&gt;
+                &lt;th&gt;商品名&lt;/th&gt;
+                &lt;th&gt;价格&lt;/th&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;榨汁机&lt;/td&gt;
+                &lt;td&gt;35&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;菜刀&lt;/td&gt;
+                &lt;td&gt;50&lt;/td&gt;
+                &lt;td&gt;多出来一列
+            &lt;/tr&gt;
+        &lt;/table&gt;
+&lt;/html&gt;</code></pre>
+<p>也没怎么样，多一列就多一列，不会报错。这样对注释是很友好的，或者我只是不想要什么标题，就这么干。</p>
+<p>如果你想要更复杂的表格：</p>
+<!DOCTYPE html>
+<pre><code>&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;一个简单的表格&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;table border = &quot;1&quot;&gt;
+            &lt;tr&gt;
+                &lt;th&gt;商品名&lt;/th&gt;
+                &lt;th&gt;价格&lt;/th&gt;
+                &lt;th&gt;类型&lt;/th&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;榨汁机&lt;/td&gt;
+                &lt;td&gt;35&lt;/td&gt;
+                &lt;td rowspan = &quot;2&quot;&gt;厨具&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;菜刀&lt;/td&gt;
+                &lt;td&gt;50&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td colspan = &#39;3&#39;&gt;总计：85&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;
+&lt;/html&gt;</code></pre>
+<p>这就像你的物理实验报告，你往往要串行串列、合并着写，而非每一个方格都是1x1。</p>
+<p>实现功能的是&lt;td&gt;&lt;/td&gt;的标签，合并行（即竖着合并）为<code>rowspan</code>，合并列为<code>colspan</code>，后面跟上数值。比如上面“厨具”、“总计：85”对应的就是：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">rowspan</span> = <span class="string">&quot;2&quot;</span>&gt;</span>厨具\<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span> = <span class="string">&#x27;3&#x27;</span>&gt;</span>总计：85\<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>（注意外面有&lt;tr&gt;&lt;/tr&gt;包裹）</p>
+<p>另外还有一个不太重要的东西&lt;caption&gt;&lt;/caption&gt;，表格名。</p>
+<p>比如在上面的代码里&lt;table&gt;&lt;/table&gt;内加入</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">caption</span>&gt;</span>价格表一览<span class="tag">&lt;/<span class="name">caption</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>表格会变为：</p>
+<!DOCTYPE html>
+<pre><code>&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;一个简单的表格&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;table border = &quot;1&quot;&gt;
+            &lt;caption&gt;价格表一览&lt;/caption&gt;
+            &lt;tr&gt;
+                &lt;th&gt;商品名&lt;/th&gt;
+                &lt;th&gt;价格&lt;/th&gt;
+                &lt;th&gt;类型&lt;/th&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;榨汁机&lt;/td&gt;
+                &lt;td&gt;35&lt;/td&gt;
+                &lt;td rowspan = &quot;2&quot;&gt;厨具&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;菜刀&lt;/td&gt;
+                &lt;td&gt;50&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td colspan = &#39;3&#39;&gt;总计：85&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;
+&lt;/html&gt;</code></pre>
+<p><strong>未完待续</strong>…</p>
+<h2 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h2><p>事实上，本篇教程省去了很多的内容，比如<meta>标签和多种强调标签（phrase tags）。原因是它们的作用在<strong>局限于html的时候</strong>作用不大，或者有替代品。有必要的话，以后在css|javascript有接触到它们时，我再回来补充；而在那之前，本篇教程不作讲解，读者可以前往<a target="_blank" rel="noopener" href="https://www.tutorialspoint.com/html/">tutorialspoint</a>查询详细信息。</p>
+<p>最后说一点点菜鸡作者的感受：庆幸我们是生在互联网时代的人们，是长期接触过浏览器，受弹窗广告洗礼的人们，才切身体会到网页设计的有趣。许多tag在学习的时候，脑中不由得就有了熟悉的例子。</p>
+<p>本文以后也许还会进行一次更新，有两点：一个是根据整体来调整各个标签所占的分量，增删内容，突出重点；二是文章结构的调整，让三个网页的例子更加清晰地站在三个部分的结尾。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div class="post-widgets">
+    <div class="likely">
+        <div class="twitter">Tweet</div>
+        <div class="facebook">Share</div>
+        <div class="linkedin">Link</div>
+        <div class="gplus">Plus</div>
+        <div class="vkontakte">Share</div>
+        <div class="odnoklassniki">Class</div>
+        <div class="telegram">Send</div>
+        <div class="whatsapp">Send</div>
+        <div class="pinterest">Pin</div>
+    </div>
+  </div>
+  <script src="//cdn.jsdelivr.net/npm/ilyabirman-likely@2/release/likely.min.js"></script>
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>RH Xie
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/2021/04/05/html%E5%B0%8F%E7%AC%94%E8%AE%B0/" title="HTML笔记">http://example.com/2021/04/05/html小笔记/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"># 前端</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/12/15/%E7%BB%93%E6%9E%84%E4%BD%93%E8%A1%A5%E5%85%85/" rel="prev" title="结构体补充">
+                  <i class="fa fa-chevron-left"></i> 结构体补充
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/05/31/C++%E7%AC%94%E8%AE%B0%5B%E6%95%A3%E8%AE%B0%5D/" rel="next" title="C++笔记">
+                  C++笔记 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+      
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">RH Xie</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">40k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">36 分钟</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script size="100" alpha="0.1" zIndex="2" src="//cdn.jsdelivr.net/npm/ribbon.js@1.0.2/dist/ribbon.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+<div id="needsharebutton-float">
+      <span class="btn">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </span>
+    </div>
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+      flOptions = {};
+        flOptions.iconStyle = "box";
+        flOptions.boxForm = "horizontal";
+        flOptions.position = "middleRight";
+        flOptions.networks = "Weibo,Wechat,QQZone";
+      new needShareButton('#needsharebutton-float', flOptions);
+  </script>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.7.0/dist/gitalk.css">
+
+<script>
+NexT.utils.loadComments('#gitalk-container', () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1.7.0/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '26d80db942359c887549',
+      clientSecret: '2617b9ff35540f776935f110f9317f41c9e5afc6',
+      repo        : 'RH-Xie.github.io',
+      owner       : '',
+      admin       : [''],
+      id          : '411b1a48a1f66a68229ae9a47baeb349',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>
