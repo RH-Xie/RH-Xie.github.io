@@ -1,6 +1,247 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>C++笔记</title>
+    <url>/2021/05/31/C++%E7%AC%94%E8%AE%B0%5B%E6%95%A3%E8%AE%B0%5D/</url>
+    <content><![CDATA[<h1 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h1><p>Warning: This passage includes wrong grammar, wrong words.</p>
+<hr>
+<p>How to understand pure virtual function and abstract class ?</p>
+<p>We can’t always know the implementation of base class, for it’s just not sure before derivate classes define the functions to make that description. For instance, we define a base class Shape, but we can’t draw it before we define it’s real shape in a derivate class, Rectangle or Triangle. In this occasion, the base class didn’t initialize the parameters or functions on how to draw it, because none of the methods to initialization seems to be appropriate. We can’t just draw a default rectangle instead of letting users use derivate classes. Why not let users make a good use of derivate classes ?</p>
+<hr>
+<p>Which to choose?</p>
+<p>There’s a template function containing arguments of type Double and type Float. Then I call the function and key 1.1 and 2.2 into it. Then what’s type of these two temporary arguments?</p>
+<p>In fact, if you just do this, both arguments will be recognized as type Double. What about forcing the second argument into Float? That will go as you think : the second argument is successfully changed into Float.</p>
+<p>In short, C++ Compiler regards decimals as Double at default, but you can force it into Float or Int.</p>
+<hr>
+<p>How to call Template Function directly without calling normal function I defined?</p>
+<p>Just use this format:</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">FunctionName&lt;&gt;(argument1, argument2);</span><br></pre></td></tr></table></figure>
+
+<p>There’s nothing in &lt;&gt;, but this provides the hint for compiler to use the template function.</p>
+<p>How to forcibly NOT call template function?</p>
+<p>Easy. Just let the template have only one typename and two arguments in this same type, then key two different types of arguments in it. This will run well once you prepare the corresponding function you want to call.</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">mmax</span><span class="params">(T a, T b)</span><span class="comment">//I do NOT want to call this!!</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a &gt;b?a:b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">mmax</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">char</span> b)</span><span class="comment">//And I want to call this instead!</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a &gt; b ? a : b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; mmax(<span class="number">1</span>,<span class="number">1.2222</span>);<span class="comment">//This is what I said &quot;key two different types of arguments&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>How to skip variable with <code>const</code> in class?</p>
+<p>Use the Initialization Function when .</p>
+<hr>
+<p>Today I saw an <strong>AMAZING</strong> explanation of how to pass the size of an array.</p>
+<p>@<a href="https://stackoverflow.com/questions/1328223/when-a-function-has-a-specific-size-array-parameter-why-is-it-replaced-with-a-p">https://stackoverflow.com/questions/1328223/when-a-function-has-a-specific-size-array-parameter-why-is-it-replaced-with-a-p</a></p>
+<p>The function:</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo</span> <span class="params">( <span class="keyword">char</span> a[<span class="number">100</span>] )</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>Will have the parameter adjusted to be a pointer, and so becomes:</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo</span> <span class="params">( <span class="keyword">char</span> * a )</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>If you want that the array type is preserved, you should pass in a reference to the array:</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo</span> <span class="params">( <span class="keyword">char</span> (&amp;a)[<span class="number">100</span>] )</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>C++ ‘03 8.3.5/3:</strong></p>
+<blockquote>
+<p>…The type of a function is determined using the following rules. The type of each parameter is determined from its own decl-specifier-seq and declarator. After determining the type of each parameter, any parameter of type “array of T” or “function returning T” is adjusted to be “pointer to T” or “pointer to function returning T,” respectively….</p>
+</blockquote>
+<p><strong>To explain the syntax:</strong></p>
+<p>Check for “right-left” rule in google; I found one description of it <a href="http://www.cpp-home.com/archives/106.html">here</a>.</p>
+<p>It would be applied to this example approximately as follows:</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo</span> <span class="params">(<span class="keyword">char</span> (&amp;a)[<span class="number">100</span>])</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>Start at identifier ‘a’</p>
+<blockquote>
+<p>‘a’ is a</p>
+</blockquote>
+<p>Move right - we find a <code>)</code> so we reverse direction looking for the <code>(</code>. As we move left we pass <code>&amp;</code></p>
+<blockquote>
+<p>‘a’ is a reference</p>
+</blockquote>
+<p>After the <code>&amp;</code> we reach the opening <code>(</code> so we reverse again and look right. We now see <code>[100]</code></p>
+<blockquote>
+<p>‘a’ is a reference to an array of 100</p>
+</blockquote>
+<p>And we reverse direction again until we reach <code>char</code>:</p>
+<blockquote>
+<p>‘a’ is a reference to an array of 100 chars</p>
+</blockquote>
+<p>Text above elaborately explains how the right-left works.</p>
+<p>And I say that Notion is a quite good place for pasting codes and pages. It even retains the links (Hypertext) in pages that you copy.</p>
+<hr>
+<p>I don’t know how important on adding <code>this</code> to a base class which has derivate class until today. It is convenient for you to copy them directly to the derivate class without frequently adding <code>this</code> . But don’t do it in friend function.</p>
+<p>Overloading of signal “=’ could <strong>NOT</strong> be declared as a friend function.</p>
+<p>Declaration order of class</p>
+<p>If vs show some problems on “see the declaration of class xx” and “xxx is not a member of class xx”, but actually xxx is a member of class xx, then you need to check whether your class xx includes other classes. If it does, make the included one declared in front of class xx.</p>
+]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>c++笔记[结构体]</title>
+    <url>/2020/11/29/c++%E7%AC%94%E8%AE%B0%5B%E7%BB%93%E6%9E%84%E4%BD%93%5D/</url>
+    <content><![CDATA[<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h3 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h3><p>这是第二篇c++笔记，原因是写在纸质笔记本上我并不会去看，写得慢还写得很乱<del>写在博客你可能也不会去看</del>。</p>
+<p>这一次是结构体，为什么连这个都要写呢？因为结构体里会有比较多容易混淆的东西，就比如我以为<code>struct</code>是可以换成别的东西，而没有认识到这是个关键字</p>
+<p>而我刚开始就是轻视了这一块，独自去编译器里探索</p>
+<p>探索了个寂寞</p>
+<p>再然后，只能老老实实看老师的视频</p>
+<p>在此写下笔记，以记录一些易忘点、易漏点，以及一些认识结构体的关键突破点。</p>
+<h3 id="结构体“复制”"><a href="#结构体“复制”" class="headerlink" title="结构体“复制”"></a>结构体“复制”</h3><p>当且仅当两个结构体类型相同时，才可以相互赋值。成员未初始化值的，在函数（包括main函数）外默认为0，否则为伪随机值（存储单元的值）。</p>
+<p>这种赋值也叫位拷贝，即按位拷贝，逐位逐位地拷贝（其实只是和值拷贝区分）</p>
+<h3 id="结构体作形参"><a href="#结构体作形参" class="headerlink" title="结构体作形参"></a>结构体作形参</h3><p>结构体的<strong>成员</strong>在函数中作为参数时，有三种方法可以将其“导入”</p>
+<p>一是用“类型+变量名”，得到一份copy，不操作原变量，函数内的拷贝操作完即销毁，存在开销大、用途有限（比如我只是想把数据拿出来看看，不对数据进行操作），缺点明显。</p>
+<p>二是用指针，也就是结构体的首地址，拿根针在结构体的某个成员上移来移去表示对应的值，缺点是不够直观。</p>
+<p>三是使用引用，对，这是福音，结构体可以使用引用，操作起来跟main函数内部没什么两样。当然了，会改变原结构体的信息，注意备份。</p>
+<p>第三种在平常操作中很推荐，不过如果仅仅是打印、得出结论，不想改变原数据，那么第一种可以尝试。</p>
+<p>初学还是建议<strong>非必要情况不要使用第一种</strong>。第二种为了练习指针的话，也浅尝辄止。</p>
+<p>1.4</p>
+<p>结构体中一般<strong>不考虑</strong>成员顺序对结构体<strong>占用字节</strong>的影响，而更加考虑代码的可维护性。至于代码的可维护性，局部的代码不太能阐述这件事情。成员顺序不同，结构体占用字节也有所不同，其原因是<strong>字节对齐</strong>。</p>
+<p>有关字节对齐，只要知道对齐是为了机器读取方便而进行的一种操作就可以了。</p>
+<h3 id="关于new和delete"><a href="#关于new和delete" class="headerlink" title="关于new和delete"></a>关于new和delete</h3><p>形如new int、new double、new char(‘a’)，会开辟空间并返回地址，用<strong>delete 地址</strong> 来删除。</p>
+<p>形如new int [10]、new char [20]等等，会开辟数组（包括字符数组）并返回数组首地址，用<strong>delete 首地址</strong>来删除</p>
+<p>具体使用：*int p = new 类型[(初值)] [长度];</p>
+<p>delete p;</p>
+<h4 id="关于delete之后"><a href="#关于delete之后" class="headerlink" title="关于delete之后"></a>关于delete之后</h4><p>delete后，指针p仍存在，仅仅是”new 类型[(初值)] [长度] “不见了。</p>
+<p>这个指针可以通过p=nullptr清理回收。</p>
+<p>这里强调一下，用nullptr，不用0，也不用NULL，nullptr是为了避免0和NULL在指针上产生问题而生的，用它就没错，而以后进一步学习，再来区分NULL、0、nullptr三者区别。</p>
+<h4 id="值得注意的delete-数组"><a href="#值得注意的delete-数组" class="headerlink" title="值得注意的delete []数组"></a>值得注意的delete []数组</h4><p>删除数组如果使用</p>
+<p>注意，new的存储单元在运行时堆上，默认为随机值</p>
+<p>头指针head:在结构体定时，最后一个成员后面，加上一个指针，便可以把每个具体的结构体连接起来</p>
+<p>（请注意这仅仅是思想，具体步骤，请看Part II）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//这是一段伪代码，visit和next均为特定的操作，并非c++内置。</span></span><br><span class="line">Student* p =head;</span><br><span class="line"><span class="keyword">while</span>(p)<span class="comment">//也就是p不为NULL时，就继续循环。结构体的最后一个是NULL。</span></span><br><span class="line">&#123;</span><br><span class="line">    visit(p);</span><br><span class="line">    p=p-&gt;next;<span class="comment">//走向下一个</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>有BUG的代码</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">output</span><span class="params">(Student&amp; s)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	Student* p = &amp;s;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; p-&gt;No &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; p-&gt;Name &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; p-&gt;score[<span class="number">0</span>] &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; p-&gt;score[<span class="number">1</span>] &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; p-&gt;score[<span class="number">2</span>] &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; p[i].score[<span class="number">0</span>] + p[i].score[<span class="number">1</span>] + p[i].score[<span class="number">2</span>] &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;<span class="comment">//p是由s开始的结构体的（亦是首地址），后面调用时为s1</span></span><br><span class="line">		p++;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<p>问题发现了；指针隔着跳了，结果总分是第1、3、5名的，显示在1 2 3名的总分上，而4 5名的总分是第7 9名的，并不存在，显示为0和-nan。-nan意为Not a Number，即NaN。<br>具体体现为，i=3时，p便已经在s5上了。<br>问题又来了，指针为什么会跳呢?<br>观察发现，input()和output()表示分数的方式，不一样，input()为p-&gt;score[数字]格式，output()的总分为p[i].score[数字]格式。<br>调试中看到，有关p[i]的描述在第四名和第五名上，都是错误的，没有指向正确对象。<br>再联想下，p和i都是每次循环自增1，在仅仅循环一次的情况下，怎么样才能让p移动2呢？那就是p和i同时增加1了，代码中确实有这个操作。<br>那问题就解决了，表示分数p自增1即可，跟i没有实质上的关系，i是个计数用的。<br>这应该是源于习惯问题，习惯上用计数器作移动的指标。<br>结果碰上格式混用，前面一部分纯指针，用-&gt;，没出问题，后一半用p[i]，出问题了，双倍自增。<br>于是去掉[i]，换用(<em>p)即可。（注意”.”运算符比”</em>“运算符优先级高，括号不能去掉，否则是”地址.成员”，而正确格式是”结构体.成员”）</p>
+<p>所以把总分的显示格式与i无关化即可，随便选择一种格式均可。如p-&gt;score[0]，(*p).socre[0]。</p>
+<p>这里另外一提，目前见过好几次while(变量)的结构，也就是等待变量归零再退出循环，常见的有：变量最终归为链表的最后一节nullptr。不过不知怎么的，虽然能用，感觉这么用相当不规范，而且首次见到可能不大好理解——while(next!=0)比这个好理解多了。老师的视频里出现了这种写法，暂且视作规范吧。（或许这就是简化的写法吧）</p>
+<hr>
+<h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>这是我个人给它的一个定义，给一个可用、实用的链表下的一个定义。</p>
+<p>链表有三个要素：头指针（用于寻找数据位置），其他成员（用于数据储存），节点指针（形成链表的前提）。</p>
+<p>整体来看，链表包括头指针、成员、节点指针和尾指针（一般值为nullptr，当然，你想做头尾相接的也行）；而从结构体的角度来看，链表由一or多个结构体组成，链表中每个结构体尾部都有一个指针指向下一个结构体。</p>
+<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><p>整体思想：每建立一个结构体，都让尾指针“next = new 结构体类型”；复制头指针，让这个复制的指针在链表上移动，以取得自己想要的数据。</p>
+<p>具体操作，举例</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Student</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> No;</span><br><span class="line">    <span class="keyword">char</span> Name[<span class="number">20</span>];<span class="comment">//名字最多9个汉字</span></span><br><span class="line">    <span class="keyword">double</span> score[<span class="number">3</span>];<span class="comment">//三门成绩</span></span><br><span class="line">    Student* next;<span class="comment">//节点指针，如果这个链表到尾部了，那么这是尾指针（暂时只考虑单向链表，也就是从头走到尾的）</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Student ChainList;<span class="comment">//先在运行时栈创建一个结构体，其实head = new Student也可以</span></span><br><span class="line">    Student* head = ChainList;<span class="comment">//获取头指针</span></span><br><span class="line">    ---录入数据---（链表操作在后面说，先创建，才能操作）</span><br><span class="line">    head.next = <span class="keyword">new</span> Student;<span class="comment">//在运行时堆里new一个新的空结构体</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>到这里，虽然我们只创建了含两个结构体的链表，而且第二个还是空的，但接下来的事，其实也就在重复以上的操作</p>
+<p>这就是连续输入数据。</p>
+<h3 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h3><h4 id="结构体作形参-1"><a href="#结构体作形参-1" class="headerlink" title="结构体作形参"></a>结构体作形参</h4><p>创建函数时，十分<strong>建议引用</strong>，但指针也不差。所以刚刚上面给出了两种创建方式：在运行时栈里创建and运行时堆里创建。</p>
+<p>前一种可以有名字，调用函数时，参数位置直接填写链表名，在函数里使用“链表名.成员= 想要赋的值”完事（也就是第一个结构体的名称，上例为ChainList，则如果我想录入分数，只需要：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">ChainList.score[<span class="number">0</span>]=第一门成绩;</span><br><span class="line">ChainList.score[<span class="number">1</span>]=第二门成绩;</span><br><span class="line">ChainList.score[<span class="number">2</span>]=第三门成绩;</span><br></pre></td></tr></table></figure>
+
+<p>（其中，点”.”是成员运算符，接下来的“-&gt;”是指向运算符）</p>
+<p>后一种写个指针，然后input函数中使用“head-&gt;成员=想要赋的值”的格式给成员赋值。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">head-&gt;score[<span class="number">0</span>]=第一门成绩;</span><br><span class="line">head-&gt;score[<span class="number">1</span>]=第二门成绩;</span><br><span class="line">head-&gt;score[<span class="number">2</span>]=第三门成绩;</span><br></pre></td></tr></table></figure>
+
+<p>但接下来两点才是重点。</p>
+<p>①为了链表可以重复操作，你必须额外再创建两个指针，分别用于在链表的头指针处和最前端处，不妨先叫它们：moving_pointer和pioneer_pointer（移动指针和先锋指针，当然，是我瞎编的）。其中moving_pointer初值为head，并且在每次操作完链表后，加一句moving_pointer = head，将其值自动归为头指针的地址，以备下一次使用；另一个pioneer_pointer，一般为最后一个结构体的头指针，而在每次创建一个结构体时，更新为尾指针，然后获得的返回值，再次成为最后一个结构体的头指针，即</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">pioneer_pointer = pioneer_pointer-&gt;next;</span><br><span class="line">pioneer_pointer = <span class="keyword">new</span> Student;</span><br></pre></td></tr></table></figure>
+
+<p>一般接着输入函数，请看例子：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="number">3</span>:<span class="comment">//插入新的学生信息</span></span><br><span class="line">	<span class="keyword">if</span> (n == <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line"></span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;[添加]请输入学生信息：\n&quot;</span>;</span><br><span class="line">		input(stu);</span><br><span class="line">		n++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (n &gt; <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;[添加]请输入学生信息：\n&quot;</span>;</span><br><span class="line"></span><br><span class="line">		(*p).next = <span class="keyword">new</span> Student;<span class="comment">//此处的p即为pioneer_pointer</span></span><br><span class="line">		p = p-&gt;next;</span><br><span class="line">		input(*p);</span><br><span class="line">	&#125;</span><br><span class="line">	p-&gt;next = <span class="literal">nullptr</span>;</span><br><span class="line">	<span class="keyword">if</span> (moving_pin == <span class="literal">nullptr</span>)head = p;</span><br><span class="line">	<span class="keyword">break</span>;</span><br></pre></td></tr></table></figure>
+
+<p>为什么需要它们？想一想，第一次输入完成时，对于引用型函数来说，下一次应该在它的参数位置填什么？还是ChainList吗？</p>
+<p>显然不是。</p>
+<p>上面代码的input()函数就是引用型的，我更换成了*p（先锋指针作为最后一个结构体的头指针，那么*p发挥了类似ChainList的作用），不然的话，下一次赋值将直接覆盖第一次的数据，并没有形成链表</p>
+<p>②</p>
+<h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><p>类似于input()函数，只不过关于char字符数组的部分，需要用strcpy_s(字符串1,字符串2)。这里不知道为什么strcpy()不行，会报错，而strcpy_s()没有这个问题，以下input()函数仅供参考：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">input</span><span class="params">(Student&amp; v_stu)</span><span class="comment">//我也忘记v是什么意思了，virtual?但形参是parameter。</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; v_stu.No &gt;&gt;v_stu.Name&gt;&gt; v_stu.score[<span class="number">0</span>] &gt;&gt; v_stu.score[<span class="number">1</span>] &gt;&gt; v_stu.score[<span class="number">2</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="插入、删除"><a href="#插入、删除" class="headerlink" title="插入、删除"></a>插入、删除</h4><p>这里只简略说明下思路，代码放到另一篇文章里了（参考篇）。</p>
+<p>插入，因为暂时不需要排序，所以每次往new出来的新空间里input就可以了（有排序那另说，其实也只不过是next指针的调换）。</p>
+<p>删除，要分三种情况</p>
+<p>一是去头，二是去尾，三是去中间。去头需要调动头指针，让头部往后挪；去尾在删掉数据后，让倒数第二个结构体的next指向新的空间即可；去中间，将前一个结构体的next指针赋值为将要被删的结构体的next指针，然后删除想删除的结构体成员即可。（将要被删除结构体的next指针其实就是它下一个结构体的头指针，这样就依然可以连起来）</p>
+<h4 id="交换顺序"><a href="#交换顺序" class="headerlink" title="交换顺序"></a>交换顺序</h4><p>参考数组排序的做法即可，就是指针交换那儿有点绕，多想想就好。</p>
+<p>具体一点，我的方法是选择排序，一定一动，定与动比较，需要交换时，我们假设个结构体a和b吧，先给个中间变量t（是指针），先让t= a.next,再使a.next = b.next,最后b.next = t，（）</p>
+<p>选择排序，冒泡排序，目前我就学了这两种，而我还需要学八种。先放上典图。</p>
+<p><img src="https://raw.githubusercontent.com/Makri-hub/WolpersHome.github.io/PicGo/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20201211173838.png"></p>
+<p>我也并不急于去理解它们，等到了时候再说吧。这里上代码，看起来就像把平面图形拉成了立体图形。（其实就是多输入几个）</p>
+<p>这里给出的代码，要注意，我是另外备份了一个链表来排序的。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap_not_including_pin</span><span class="params">(Student&amp; a, Student&amp; b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	Student T;<span class="comment">//中间变量</span></span><br><span class="line">	strcpy_s(T.Name, a.Name); T.No = a.No; T.score[<span class="number">0</span>] = a.score[<span class="number">0</span>]; T.score[<span class="number">1</span>] = a.score[<span class="number">1</span>]; T.score[<span class="number">2</span>] = a.score[<span class="number">2</span>];<span class="comment">//T = a</span></span><br><span class="line">	strcpy_s(a.Name, b.Name); a.No = b.No; a.score[<span class="number">0</span>] = b.score[<span class="number">0</span>]; a.score[<span class="number">1</span>] = b.score[<span class="number">1</span>]; a.score[<span class="number">2</span>] = b.score[<span class="number">2</span>];<span class="comment">//a = b;</span></span><br><span class="line">	strcpy_s(b.Name, T.Name); b.No = T.No; b.score[<span class="number">0</span>] = T.score[<span class="number">0</span>]; b.score[<span class="number">1</span>] = T.score[<span class="number">1</span>]; b.score[<span class="number">2</span>] = T.score[<span class="number">2</span>];<span class="comment">//b = t;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对比下简单变量的交换，就明白上面是什么意思了。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap_not_including__pointer</span><span class="params">(<span class="keyword">int</span> &amp;a,<span class="keyword">int</span> &amp;b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> T;</span><br><span class="line">    T = a;</span><br><span class="line">    a = b;</span><br><span class="line">    b = t;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以上，写得比较菜，定有疏漏之处，还恳请各位轻喷。比如链表的那两个“必须额外再复制两个指针”是否可以简化点思路？是否尝试过复制结构体的方法？</p>
+<p>文章实质上可能是期末复习笔记之类的，凑合着像一篇教程</p>
+]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++笔记[数组]</title>
+    <url>/2020/11/23/c++%E7%AC%94%E8%AE%B0%5B%E6%95%B0%E7%BB%84%5D/</url>
+    <content><![CDATA[<h2 id="数组的各种符号，摸清楚"><a href="#数组的各种符号，摸清楚" class="headerlink" title="数组的各种符号，摸清楚"></a><!-- more -->数组的各种符号，摸清楚</h2><hr>
+<h3 id="起步"><a href="#起步" class="headerlink" title="起步"></a>起步</h3><img src="https://i.loli.net/2020/11/24/5hOA8Pt3DSMH7bf.png" style="zoom:125%;" />
+
+<p>首先记住上图，[]表示数组取值运算符。地址可以“无限”加下去（有限的无限）</p>
+<p>它们对应的代码是这样的：（main函数省略）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a[] = &#123; <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">6</span>,<span class="number">7</span> &#125;;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">sizeof</span>(a) / <span class="keyword">sizeof</span>(<span class="keyword">int</span>); i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; a[i] &lt;&lt; <span class="string">&#x27;,&#x27;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span> &lt;&lt; <span class="string">&quot;a表示&quot;</span> &lt;&lt; a &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;*a表示&quot;</span> &lt;&lt; *a &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;a[0]表示&quot;</span> &lt;&lt; a[<span class="number">0</span>] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;a[1]表示&quot;</span> &lt;&lt; a[<span class="number">1</span>] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;a+1表示&quot;</span> &lt;&lt; a + <span class="number">1</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;a+6表示&quot;</span> &lt;&lt; a + <span class="number">6</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;交换数组首尾&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="交换函数"><a href="#交换函数" class="headerlink" title="交换函数"></a>交换函数</h3><p>记住正常的交换函数，用指针从实质地指向值，与以前的区别在于，指针直接对应值，绕开了字母变量。也就是指针（十六进制地址）上有一个值（char,int,double等）</p>
+<p>以下x,y是十六进制的地址，*x为指向的变量。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(T* x, T* y)</span> <span class="comment">//交换指针指向的变量</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	T t = *x;<span class="comment">//t赋值为x指向的变量</span></span><br><span class="line">	*x = *y;<span class="comment">//将y的值赋给x</span></span><br><span class="line">	*y = t;<span class="comment">//y得到变量t的值</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里又想到取址符&amp;，那这样一来，以前的”int a= 5;”中a与值，与指针，之间是什么关系？</p>
+<p>1.T* a与T a平级，没有依赖关系，定义时，均可以不初始化，而且对应量都是随机的（十六进制数0xcccccccc[???]和随机的T类型内容（但为什么每次都是固定的一个数呢？））</p>
+<p>2.两者指向同一对象时，用&amp;联系起来。&amp;普通变量=变量的地址。</p>
+<p>明白以上两点，数组就好理解了。交换地址上的值，实际上是以指针形式表达变量（因为指针也是变量），并进行着类似以前”int t = a,a =b, b=t;”的操作。而此处具体可以表达为：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">普通变量的值 &#x3D; 指针1上的值</span><br><span class="line"></span><br><span class="line">指针1上的值 &#x3D; 指针2上的值</span><br><span class="line"></span><br><span class="line">指针2上的值 &#x3D; 普通变量的值</span><br></pre></td></tr></table></figure>
+
+<p>完成交换。</p>
+<p>▲注意交换完后，原数组会变化！</p>
+<p>因此最好使用以下函数进行备份</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">backup</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> p[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n = <span class="keyword">sizeof</span>(a)/<span class="keyword">sizeof</span>(<span class="keyword">int</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">        p[i] = a[i];</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;<span class="comment">//未试过能否运行，思路是这个就差不多了，遍历复制。</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="探索函数与数组的激烈摩擦"><a href="#探索函数与数组的激烈摩擦" class="headerlink" title="探索函数与数组的激烈摩擦"></a>探索函数与数组的激烈摩擦</h2><h3 id="数组在函数中的写法"><a href="#数组在函数中的写法" class="headerlink" title="数组在函数中的写法"></a>数组在函数中的写法</h3><p>就像指针在函数的参数位置，表达为T* m一样神奇，数组的首地址表达为T m[]</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sort_order</span><span class="params">(T m[],<span class="keyword">int</span> size)</span><span class="comment">//因为数组不能引用而只能用指针!!!</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> len = size / <span class="keyword">sizeof</span>(T);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= len; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = i+<span class="number">1</span>; j &lt;= len; j++)</span><br><span class="line">			<span class="keyword">if</span> (m[i - <span class="number">1</span>] &lt; m[j - <span class="number">1</span>])</span><br><span class="line">				pin_swap(m + i - <span class="number">1</span>, m + j - <span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>不要写T *m[]！！m[]本身就是个地址！如果这么干，你需要给它喂指针的地址（类型是T **，双星啊）（叶莲娜：“？”）</p>
+<h3 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h3><p><strong>标识符</strong>是c++中由字母（A-Z，a-z）、数字（0-9）、下划线“_”组成，并且首字符不能是数字，但可以是字母或者下划线，例如”len = 10”中len就是标识符。<strong>指针也是标识符</strong>，指针有自己的地址。</p>
+<p>下午使用选择排序函数+交换函数的顺序时，编译器最后一声轰鸣：“选择排序函数它找不到标识符！！”</p>
+<p>查了下百度，当初我是不信的，后来把它们换了下顺序，程序duang的一下运行了，并且成功排序。</p>
+<p><img src="https://raw.githubusercontent.com/Makri-hub/WolpersHome.github.io/PicGo/%E8%B0%83%E5%92%8C%E5%9B%BE%E7%89%87.png"></p>
+<p>啊，用html调节图片好难受，远没有word功能多，原则上还是少用图片吧。</p>
+<p>这期间借鉴了：</p>
+<p><a href="https://blog.csdn.net/qq_41573234/article/details/80297995">HTML——添加图像、设置图像属性_时光·漫步的博客-CSDN博客</a></p>
+<p><a href="https://blog.csdn.net/zfx1101804091/article/details/108749605">Typora关于 插入图片 居中 靠左 靠右设置_zfx1101804091的博客-CSDN博客_typora 图片居中</a></p>
+<p>来帮助设置图片。</p>
+<h3 id="字符数组"><a href="#字符数组" class="headerlink" title="字符数组"></a>字符数组</h3><p>以下这段关于字符数组的连接，出现了严重的问题。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span>* <span class="title">mystrcat</span><span class="params">(<span class="keyword">char</span>* strDest, <span class="keyword">const</span> <span class="keyword">char</span>* strSrc)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n = <span class="built_in">strlen</span>(strDest);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; strSrc[i] != <span class="string">&#x27;\0&#x27;</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> ((<span class="string">&#x27;A&#x27;</span> &lt;= strSrc[i] &lt;= <span class="string">&#x27;Z&#x27;</span> )|| (<span class="string">&#x27;a&#x27;</span> &lt;= strSrc[i] &lt;= <span class="string">&#x27;z&#x27;</span>))</span><br><span class="line">		&#123;</span><br><span class="line">			*(strDest + n +i) = strSrc[i];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> strDest;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>问题一：在c++中不能使用类似a&lt;=x&lt;=b、a&lt;x&lt;b这样的判断语句，拿a&lt;x&lt;b为例，c++中大小、等、不等判断符的<strong>结合性</strong>均为从左往右，判别式的逻辑是：</p>
+<p>a&lt;x否？否，则化为0&lt;b；是，化为1&lt;b；</p>
+<p>然后1&lt;b否？否，则为0；是，化为1。此处不再做过多赘述。</p>
+<p>问题二：指针的移动没有处理好（具体点说，是这个int i不好用）            </p>
+<p>在这里应该设置两个指针（或者两个自增变量），一个i，在strDest上移动，一个j，在strSrc上移动；而这里仅有一个i，无论如何都会自增，导致strSrc上的位置错误，显示是乱码变了（一个乱码汉字变成另一个乱码汉字，因为汉字对应的编码变了，但笔者还没学汉字的编码，只能先搁着之后再回来补充）</p>
+<h3 id="指针和数组（待补）"><a href="#指针和数组（待补）" class="headerlink" title="指针和数组（待补）"></a>指针和数组（待补）</h3><p>如果有（main函数省略）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a[<span class="number">20</span>];</span><br><span class="line"><span class="keyword">int</span>* p  = a;</span><br><span class="line">a[<span class="number">1</span>] = <span class="number">5</span>;</span><br></pre></td></tr></table></figure>
+
+<p>这是常见的操作，那么：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(p[<span class="number">1</span>] ==a[<span class="number">1</span>])</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;p[1]表达意思与a[1]相同\n&quot;</span>;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;p[1]值为：&quot;</span>&lt;&lt;p[<span class="number">1</span>]&lt;&lt;<span class="string">&quot;\na[1]值为：&quot;</span>&lt;&lt;a[<span class="number">1</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;p[1]表达意思与a[1]不同&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>大家猜猜输出的是哪个？</p>
+<p>答案是第一个，相同，对应值是都是5。</p>
+<p>为什么“指针名[n]”可以表示“数组名[n]”，首先我认为数组a本身是个指针</p>
+<p>而这个认识，就是二维数组的基础</p>
+<p>这里留个坑，留下一张图给大家细细品味，注意“类型”一栏。</p>
+<p><img src="https://raw.githubusercontent.com/Makri-hub/WolpersHome.github.io/PicGo/%E8%AF%A1%E5%BC%82.png"></p>
+]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>月记 ~ Oct 2021</title>
     <url>/2021/10/18/Oct2021/</url>
     <content><![CDATA[<!-- more -->
@@ -112,238 +353,30 @@
       </tags>
   </entry>
   <entry>
-    <title>C++笔记</title>
-    <url>/2021/05/31/C++%E7%AC%94%E8%AE%B0%5B%E6%95%A3%E8%AE%B0%5D/</url>
-    <content><![CDATA[<h1 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h1><p>Warning: This passage includes wrong grammar, wrong words.</p>
-<hr>
-<p>How to understand pure virtual function and abstract class ?</p>
-<p>We can’t always know the implementation of base class, for it’s just not sure before derivate classes define the functions to make that description. For instance, we define a base class Shape, but we can’t draw it before we define it’s real shape in a derivate class, Rectangle or Triangle. In this occasion, the base class didn’t initialize the parameters or functions on how to draw it, because none of the methods to initialization seems to be appropriate. We can’t just draw a default rectangle instead of letting users use derivate classes. Why not let users make a good use of derivate classes ?</p>
-<hr>
-<p>Which to choose?</p>
-<p>There’s a template function containing arguments of type Double and type Float. Then I call the function and key 1.1 and 2.2 into it. Then what’s type of these two temporary arguments?</p>
-<p>In fact, if you just do this, both arguments will be recognized as type Double. What about forcing the second argument into Float? That will go as you think : the second argument is successfully changed into Float.</p>
-<p>In short, C++ Compiler regards decimals as Double at default, but you can force it into Float or Int.</p>
-<hr>
-<p>How to call Template Function directly without calling normal function I defined?</p>
-<p>Just use this format:</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">FunctionName&lt;&gt;(argument1, argument2);</span><br></pre></td></tr></table></figure>
-
-<p>There’s nothing in &lt;&gt;, but this provides the hint for compiler to use the template function.</p>
-<p>How to forcibly NOT call template function?</p>
-<p>Easy. Just let the template have only one typename and two arguments in this same type, then key two different types of arguments in it. This will run well once you prepare the corresponding function you want to call.</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">mmax</span><span class="params">(T a, T b)</span><span class="comment">//I do NOT want to call this!!</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a &gt;b?a:b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">mmax</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">char</span> b)</span><span class="comment">//And I want to call this instead!</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a &gt; b ? a : b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; mmax(<span class="number">1</span>,<span class="number">1.2222</span>);<span class="comment">//This is what I said &quot;key two different types of arguments&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>How to skip variable with <code>const</code> in class?</p>
-<p>Use the Initialization Function when .</p>
-<hr>
-<p>Today I saw an <strong>AMAZING</strong> explanation of how to pass the size of an array.</p>
-<p>@<a href="https://stackoverflow.com/questions/1328223/when-a-function-has-a-specific-size-array-parameter-why-is-it-replaced-with-a-p">https://stackoverflow.com/questions/1328223/when-a-function-has-a-specific-size-array-parameter-why-is-it-replaced-with-a-p</a></p>
-<p>The function:</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo</span> <span class="params">( <span class="keyword">char</span> a[<span class="number">100</span>] )</span></span>;</span><br></pre></td></tr></table></figure>
-
-<p>Will have the parameter adjusted to be a pointer, and so becomes:</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo</span> <span class="params">( <span class="keyword">char</span> * a )</span></span>;</span><br></pre></td></tr></table></figure>
-
-<p>If you want that the array type is preserved, you should pass in a reference to the array:</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo</span> <span class="params">( <span class="keyword">char</span> (&amp;a)[<span class="number">100</span>] )</span></span>;</span><br></pre></td></tr></table></figure>
-
-<p><strong>C++ ‘03 8.3.5/3:</strong></p>
-<blockquote>
-<p>…The type of a function is determined using the following rules. The type of each parameter is determined from its own decl-specifier-seq and declarator. After determining the type of each parameter, any parameter of type “array of T” or “function returning T” is adjusted to be “pointer to T” or “pointer to function returning T,” respectively….</p>
-</blockquote>
-<p><strong>To explain the syntax:</strong></p>
-<p>Check for “right-left” rule in google; I found one description of it <a href="http://www.cpp-home.com/archives/106.html">here</a>.</p>
-<p>It would be applied to this example approximately as follows:</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo</span> <span class="params">(<span class="keyword">char</span> (&amp;a)[<span class="number">100</span>])</span></span>;</span><br></pre></td></tr></table></figure>
-
-<p>Start at identifier ‘a’</p>
-<blockquote>
-<p>‘a’ is a</p>
-</blockquote>
-<p>Move right - we find a <code>)</code> so we reverse direction looking for the <code>(</code>. As we move left we pass <code>&amp;</code></p>
-<blockquote>
-<p>‘a’ is a reference</p>
-</blockquote>
-<p>After the <code>&amp;</code> we reach the opening <code>(</code> so we reverse again and look right. We now see <code>[100]</code></p>
-<blockquote>
-<p>‘a’ is a reference to an array of 100</p>
-</blockquote>
-<p>And we reverse direction again until we reach <code>char</code>:</p>
-<blockquote>
-<p>‘a’ is a reference to an array of 100 chars</p>
-</blockquote>
-<p>Text above elaborately explains how the right-left works.</p>
-<p>And I say that Notion is a quite good place for pasting codes and pages. It even retains the links (Hypertext) in pages that you copy.</p>
-<hr>
-<p>I don’t know how important on adding <code>this</code> to a base class which has derivate class until today. It is convenient for you to copy them directly to the derivate class without frequently adding <code>this</code> . But don’t do it in friend function.</p>
-<p>Overloading of signal “=’ could <strong>NOT</strong> be declared as a friend function.</p>
-<p>Declaration order of class</p>
-<p>If vs show some problems on “see the declaration of class xx” and “xxx is not a member of class xx”, but actually xxx is a member of class xx, then you need to check whether your class xx includes other classes. If it does, make the included one declared in front of class xx.</p>
+    <title>测试页面</title>
+    <url>/2020/11/20/%E6%B5%8B%E8%AF%95/</url>
+    <content><![CDATA[<p>这个页面是用来测试的，是因第一次Hexo一片空白而产生的测试页面</p>
 ]]></content>
-      <categories>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
-      </tags>
   </entry>
   <entry>
-    <title>C++笔记[数组]</title>
-    <url>/2020/11/23/c++%E7%AC%94%E8%AE%B0%5B%E6%95%B0%E7%BB%84%5D/</url>
-    <content><![CDATA[<h2 id="数组的各种符号，摸清楚"><a href="#数组的各种符号，摸清楚" class="headerlink" title="数组的各种符号，摸清楚"></a><!-- more -->数组的各种符号，摸清楚</h2><hr>
-<h3 id="起步"><a href="#起步" class="headerlink" title="起步"></a>起步</h3><img src="https://i.loli.net/2020/11/24/5hOA8Pt3DSMH7bf.png" style="zoom:125%;" />
+    <title>结构体补充</title>
+    <url>/2020/12/15/%E7%BB%93%E6%9E%84%E4%BD%93%E8%A1%A5%E5%85%85/</url>
+    <content><![CDATA[<p>补充关于结构体和链表的操作</p>
+<a id="more"></a>
 
-<p>首先记住上图，[]表示数组取值运算符。地址可以“无限”加下去（有限的无限）</p>
-<p>它们对应的代码是这样的：（main函数省略）</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a[] = &#123; <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">6</span>,<span class="number">7</span> &#125;;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">sizeof</span>(a) / <span class="keyword">sizeof</span>(<span class="keyword">int</span>); i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; a[i] &lt;&lt; <span class="string">&#x27;,&#x27;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span> &lt;&lt; <span class="string">&quot;a表示&quot;</span> &lt;&lt; a &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;*a表示&quot;</span> &lt;&lt; *a &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;a[0]表示&quot;</span> &lt;&lt; a[<span class="number">0</span>] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;a[1]表示&quot;</span> &lt;&lt; a[<span class="number">1</span>] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;a+1表示&quot;</span> &lt;&lt; a + <span class="number">1</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;a+6表示&quot;</span> &lt;&lt; a + <span class="number">6</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;交换数组首尾&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure>
-
-<h3 id="交换函数"><a href="#交换函数" class="headerlink" title="交换函数"></a>交换函数</h3><p>记住正常的交换函数，用指针从实质地指向值，与以前的区别在于，指针直接对应值，绕开了字母变量。也就是指针（十六进制地址）上有一个值（char,int,double等）</p>
-<p>以下x,y是十六进制的地址，*x为指向的变量。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(T* x, T* y)</span> <span class="comment">//交换指针指向的变量</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	T t = *x;<span class="comment">//t赋值为x指向的变量</span></span><br><span class="line">	*x = *y;<span class="comment">//将y的值赋给x</span></span><br><span class="line">	*y = t;<span class="comment">//y得到变量t的值</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这里又想到取址符&amp;，那这样一来，以前的”int a= 5;”中a与值，与指针，之间是什么关系？</p>
-<p>1.T* a与T a平级，没有依赖关系，定义时，均可以不初始化，而且对应量都是随机的（十六进制数0xcccccccc[???]和随机的T类型内容（但为什么每次都是固定的一个数呢？））</p>
-<p>2.两者指向同一对象时，用&amp;联系起来。&amp;普通变量=变量的地址。</p>
-<p>明白以上两点，数组就好理解了。交换地址上的值，实际上是以指针形式表达变量（因为指针也是变量），并进行着类似以前”int t = a,a =b, b=t;”的操作。而此处具体可以表达为：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">普通变量的值 &#x3D; 指针1上的值</span><br><span class="line"></span><br><span class="line">指针1上的值 &#x3D; 指针2上的值</span><br><span class="line"></span><br><span class="line">指针2上的值 &#x3D; 普通变量的值</span><br></pre></td></tr></table></figure>
-
-<p>完成交换。</p>
-<p>▲注意交换完后，原数组会变化！</p>
-<p>因此最好使用以下函数进行备份</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">backup</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> p[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n = <span class="keyword">sizeof</span>(a)/<span class="keyword">sizeof</span>(<span class="keyword">int</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">        p[i] = a[i];</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;<span class="comment">//未试过能否运行，思路是这个就差不多了，遍历复制。</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="探索函数与数组的激烈摩擦"><a href="#探索函数与数组的激烈摩擦" class="headerlink" title="探索函数与数组的激烈摩擦"></a>探索函数与数组的激烈摩擦</h2><h3 id="数组在函数中的写法"><a href="#数组在函数中的写法" class="headerlink" title="数组在函数中的写法"></a>数组在函数中的写法</h3><p>就像指针在函数的参数位置，表达为T* m一样神奇，数组的首地址表达为T m[]</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sort_order</span><span class="params">(T m[],<span class="keyword">int</span> size)</span><span class="comment">//因为数组不能引用而只能用指针!!!</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> len = size / <span class="keyword">sizeof</span>(T);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= len; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = i+<span class="number">1</span>; j &lt;= len; j++)</span><br><span class="line">			<span class="keyword">if</span> (m[i - <span class="number">1</span>] &lt; m[j - <span class="number">1</span>])</span><br><span class="line">				pin_swap(m + i - <span class="number">1</span>, m + j - <span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>不要写T *m[]！！m[]本身就是个地址！如果这么干，你需要给它喂指针的地址（类型是T **，双星啊）（叶莲娜：“？”）</p>
-<h3 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h3><p><strong>标识符</strong>是c++中由字母（A-Z，a-z）、数字（0-9）、下划线“_”组成，并且首字符不能是数字，但可以是字母或者下划线，例如”len = 10”中len就是标识符。<strong>指针也是标识符</strong>，指针有自己的地址。</p>
-<p>下午使用选择排序函数+交换函数的顺序时，编译器最后一声轰鸣：“选择排序函数它找不到标识符！！”</p>
-<p>查了下百度，当初我是不信的，后来把它们换了下顺序，程序duang的一下运行了，并且成功排序。</p>
-<p><img src="https://raw.githubusercontent.com/Makri-hub/WolpersHome.github.io/PicGo/%E8%B0%83%E5%92%8C%E5%9B%BE%E7%89%87.png"></p>
-<p>啊，用html调节图片好难受，远没有word功能多，原则上还是少用图片吧。</p>
-<p>这期间借鉴了：</p>
-<p><a href="https://blog.csdn.net/qq_41573234/article/details/80297995">HTML——添加图像、设置图像属性_时光·漫步的博客-CSDN博客</a></p>
-<p><a href="https://blog.csdn.net/zfx1101804091/article/details/108749605">Typora关于 插入图片 居中 靠左 靠右设置_zfx1101804091的博客-CSDN博客_typora 图片居中</a></p>
-<p>来帮助设置图片。</p>
-<h3 id="字符数组"><a href="#字符数组" class="headerlink" title="字符数组"></a>字符数组</h3><p>以下这段关于字符数组的连接，出现了严重的问题。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span>* <span class="title">mystrcat</span><span class="params">(<span class="keyword">char</span>* strDest, <span class="keyword">const</span> <span class="keyword">char</span>* strSrc)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n = <span class="built_in">strlen</span>(strDest);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; strSrc[i] != <span class="string">&#x27;\0&#x27;</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> ((<span class="string">&#x27;A&#x27;</span> &lt;= strSrc[i] &lt;= <span class="string">&#x27;Z&#x27;</span> )|| (<span class="string">&#x27;a&#x27;</span> &lt;= strSrc[i] &lt;= <span class="string">&#x27;z&#x27;</span>))</span><br><span class="line">		&#123;</span><br><span class="line">			*(strDest + n +i) = strSrc[i];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> strDest;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>问题一：在c++中不能使用类似a&lt;=x&lt;=b、a&lt;x&lt;b这样的判断语句，拿a&lt;x&lt;b为例，c++中大小、等、不等判断符的<strong>结合性</strong>均为从左往右，判别式的逻辑是：</p>
-<p>a&lt;x否？否，则化为0&lt;b；是，化为1&lt;b；</p>
-<p>然后1&lt;b否？否，则为0；是，化为1。此处不再做过多赘述。</p>
-<p>问题二：指针的移动没有处理好（具体点说，是这个int i不好用）            </p>
-<p>在这里应该设置两个指针（或者两个自增变量），一个i，在strDest上移动，一个j，在strSrc上移动；而这里仅有一个i，无论如何都会自增，导致strSrc上的位置错误，显示是乱码变了（一个乱码汉字变成另一个乱码汉字，因为汉字对应的编码变了，但笔者还没学汉字的编码，只能先搁着之后再回来补充）</p>
-<h3 id="指针和数组（待补）"><a href="#指针和数组（待补）" class="headerlink" title="指针和数组（待补）"></a>指针和数组（待补）</h3><p>如果有（main函数省略）</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a[<span class="number">20</span>];</span><br><span class="line"><span class="keyword">int</span>* p  = a;</span><br><span class="line">a[<span class="number">1</span>] = <span class="number">5</span>;</span><br></pre></td></tr></table></figure>
-
-<p>这是常见的操作，那么：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(p[<span class="number">1</span>] ==a[<span class="number">1</span>])</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;p[1]表达意思与a[1]相同\n&quot;</span>;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;p[1]值为：&quot;</span>&lt;&lt;p[<span class="number">1</span>]&lt;&lt;<span class="string">&quot;\na[1]值为：&quot;</span>&lt;&lt;a[<span class="number">1</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;p[1]表达意思与a[1]不同&quot;</span>;</span><br></pre></td></tr></table></figure>
-
-<p>大家猜猜输出的是哪个？</p>
-<p>答案是第一个，相同，对应值是都是5。</p>
-<p>为什么“指针名[n]”可以表示“数组名[n]”，首先我认为数组a本身是个指针</p>
-<p>而这个认识，就是二维数组的基础</p>
-<p>这里留个坑，留下一张图给大家细细品味，注意“类型”一栏。</p>
-<p><img src="https://raw.githubusercontent.com/Makri-hub/WolpersHome.github.io/PicGo/%E8%AF%A1%E5%BC%82.png"></p>
-]]></content>
-      <categories>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>c++笔记[结构体]</title>
-    <url>/2020/11/29/c++%E7%AC%94%E8%AE%B0%5B%E7%BB%93%E6%9E%84%E4%BD%93%5D/</url>
-    <content><![CDATA[<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h3 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h3><p>这是第二篇c++笔记，原因是写在纸质笔记本上我并不会去看，写得慢还写得很乱<del>写在博客你可能也不会去看</del>。</p>
-<p>这一次是结构体，为什么连这个都要写呢？因为结构体里会有比较多容易混淆的东西，就比如我以为<code>struct</code>是可以换成别的东西，而没有认识到这是个关键字</p>
-<p>而我刚开始就是轻视了这一块，独自去编译器里探索</p>
-<p>探索了个寂寞</p>
-<p>再然后，只能老老实实看老师的视频</p>
-<p>在此写下笔记，以记录一些易忘点、易漏点，以及一些认识结构体的关键突破点。</p>
-<h3 id="结构体“复制”"><a href="#结构体“复制”" class="headerlink" title="结构体“复制”"></a>结构体“复制”</h3><p>当且仅当两个结构体类型相同时，才可以相互赋值。成员未初始化值的，在函数（包括main函数）外默认为0，否则为伪随机值（存储单元的值）。</p>
-<p>这种赋值也叫位拷贝，即按位拷贝，逐位逐位地拷贝（其实只是和值拷贝区分）</p>
-<h3 id="结构体作形参"><a href="#结构体作形参" class="headerlink" title="结构体作形参"></a>结构体作形参</h3><p>结构体的<strong>成员</strong>在函数中作为参数时，有三种方法可以将其“导入”</p>
-<p>一是用“类型+变量名”，得到一份copy，不操作原变量，函数内的拷贝操作完即销毁，存在开销大、用途有限（比如我只是想把数据拿出来看看，不对数据进行操作），缺点明显。</p>
-<p>二是用指针，也就是结构体的首地址，拿根针在结构体的某个成员上移来移去表示对应的值，缺点是不够直观。</p>
-<p>三是使用引用，对，这是福音，结构体可以使用引用，操作起来跟main函数内部没什么两样。当然了，会改变原结构体的信息，注意备份。</p>
-<p>第三种在平常操作中很推荐，不过如果仅仅是打印、得出结论，不想改变原数据，那么第一种可以尝试。</p>
-<p>初学还是建议<strong>非必要情况不要使用第一种</strong>。第二种为了练习指针的话，也浅尝辄止。</p>
-<p>1.4</p>
-<p>结构体中一般<strong>不考虑</strong>成员顺序对结构体<strong>占用字节</strong>的影响，而更加考虑代码的可维护性。至于代码的可维护性，局部的代码不太能阐述这件事情。成员顺序不同，结构体占用字节也有所不同，其原因是<strong>字节对齐</strong>。</p>
-<p>有关字节对齐，只要知道对齐是为了机器读取方便而进行的一种操作就可以了。</p>
-<h3 id="关于new和delete"><a href="#关于new和delete" class="headerlink" title="关于new和delete"></a>关于new和delete</h3><p>形如new int、new double、new char(‘a’)，会开辟空间并返回地址，用<strong>delete 地址</strong> 来删除。</p>
-<p>形如new int [10]、new char [20]等等，会开辟数组（包括字符数组）并返回数组首地址，用<strong>delete 首地址</strong>来删除</p>
-<p>具体使用：*int p = new 类型[(初值)] [长度];</p>
-<p>delete p;</p>
-<h4 id="关于delete之后"><a href="#关于delete之后" class="headerlink" title="关于delete之后"></a>关于delete之后</h4><p>delete后，指针p仍存在，仅仅是”new 类型[(初值)] [长度] “不见了。</p>
-<p>这个指针可以通过p=nullptr清理回收。</p>
-<p>这里强调一下，用nullptr，不用0，也不用NULL，nullptr是为了避免0和NULL在指针上产生问题而生的，用它就没错，而以后进一步学习，再来区分NULL、0、nullptr三者区别。</p>
-<h4 id="值得注意的delete-数组"><a href="#值得注意的delete-数组" class="headerlink" title="值得注意的delete []数组"></a>值得注意的delete []数组</h4><p>删除数组如果使用</p>
-<p>注意，new的存储单元在运行时堆上，默认为随机值</p>
-<p>头指针head:在结构体定时，最后一个成员后面，加上一个指针，便可以把每个具体的结构体连接起来</p>
-<p>（请注意这仅仅是思想，具体步骤，请看Part II）</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//这是一段伪代码，visit和next均为特定的操作，并非c++内置。</span></span><br><span class="line">Student* p =head;</span><br><span class="line"><span class="keyword">while</span>(p)<span class="comment">//也就是p不为NULL时，就继续循环。结构体的最后一个是NULL。</span></span><br><span class="line">&#123;</span><br><span class="line">    visit(p);</span><br><span class="line">    p=p-&gt;next;<span class="comment">//走向下一个</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function">Student* <span class="title">loadData</span><span class="params">(<span class="keyword">int</span>&amp; n)</span><span class="comment">//考虑做存档功能</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	n = <span class="number">0</span>;<span class="comment">//之前的数据全部清零</span></span><br><span class="line">	<span class="keyword">int</span> No; <span class="keyword">char</span> Name[<span class="number">20</span>]; <span class="keyword">double</span> Score[<span class="number">3</span>];</span><br><span class="line">	Student* T = <span class="keyword">new</span> Student;<span class="comment">//只有Student T是在运行时栈上，会被销毁</span></span><br><span class="line">	Student* mp2 = T;</span><br><span class="line">	FILE* fp = fopen(<span class="string">&quot;./学生成绩单.txt&quot;</span>, <span class="string">&quot;r&quot;</span>);</span><br><span class="line"><span class="keyword">while</span> (!feof(fp)) </span><br><span class="line">    <span class="comment">//feof（）检测一个文件是否结束，即到达文件尾，若结束，则返回非0值，否则返回0</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">fscanf</span>(fp, <span class="string">&quot;%d\t%s\t%lf\t%lf\t%lf\n&quot;</span>, &amp;No, Name, Score, Score + <span class="number">1</span>, Score + <span class="number">2</span>);</span><br><span class="line">	mp2-&gt;No = No; strcpy_s(mp2-&gt;Name, Name); mp2-&gt;score[<span class="number">0</span>] = Score[<span class="number">0</span>]; mp2-&gt;score[<span class="number">1</span>] = Score[<span class="number">1</span>]; mp2-&gt;score[<span class="number">2</span>] = Score[<span class="number">2</span>];</span><br><span class="line">	mp2-&gt;next = <span class="keyword">new</span> Student;</span><br><span class="line">	mp2 = mp2-&gt;next;</span><br><span class="line">	mp2-&gt;next = <span class="literal">nullptr</span>;<span class="comment">//使成员next变为nullptr，这才是真正的封装，下面那个不算，只是指针归零，方便下次再用。</span></span><br><span class="line">	n++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>问题代码：多出一组屯屯屯</p>
+<p>原因出于在已new了一组空的结构体，按while内逻辑，会多出一个“给下一组数据准备的空间”，无论多少组都是，结束循环后会多出一组空结构体，然后名字就叫“屯屯屯…（20个）”。</p>
+<p>改正后：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">Student* <span class="title">loadData</span><span class="params">(<span class="keyword">int</span>&amp; n)</span><span class="comment">//考虑做存档功能？</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	n = <span class="number">0</span>;<span class="comment">//之前的数据全部清零</span></span><br><span class="line">	<span class="keyword">int</span> No; <span class="keyword">char</span> Name[<span class="number">20</span>]; <span class="keyword">double</span> Score[<span class="number">3</span>];</span><br><span class="line">	Student* T = <span class="keyword">new</span> Student;<span class="comment">//只有Student T是在运行时栈上，会被销毁</span></span><br><span class="line">	Student* mp2 = T;</span><br><span class="line">	FILE* fp = fopen(<span class="string">&quot;./学生成绩单.txt&quot;</span>, <span class="string">&quot;r&quot;</span>);</span><br><span class="line">	<span class="keyword">while</span> (!feof(fp)) <span class="comment">//feof（）检测一个文件是否结束，即到达文件尾，若结束，则返回非0值，否则返回0</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (n &gt; <span class="number">0</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			mp2-&gt;next = <span class="keyword">new</span> Student;</span><br><span class="line">			mp2 = mp2-&gt;next;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">fscanf</span>(fp, <span class="string">&quot;%d\t%s\t%lf\t%lf\t%lf\n&quot;</span>, &amp;No, Name, Score, Score + <span class="number">1</span>, Score + <span class="number">2</span>);</span><br><span class="line">		mp2-&gt;No = No; strcpy_s(mp2-&gt;Name, Name); mp2-&gt;score[<span class="number">0</span>] = Score[<span class="number">0</span>]; mp2-&gt;score[<span class="number">1</span>] = Score[<span class="number">1</span>]; mp2-&gt;score[<span class="number">2</span>] = Score[<span class="number">2</span>];</span><br><span class="line">		mp2-&gt;next = <span class="literal">nullptr</span>;<span class="comment">//使成员next变为nullptr，这才是真正的封装，下面那个不算，只是指针归零，方便下次再用。</span></span><br><span class="line">		n++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//封装尾部，不能只让移动指针变为nullptr，否则最后一个结构体的成员next仍为乱码。</span></span><br><span class="line">	<span class="comment">//让指针变为nullptr只是让指针归零，归零后甚至还能调用；但原本指针指向的数据呢？还在那里？归于荒野？都是。</span></span><br><span class="line">	<span class="comment">//也就是说，next指针和这个mp2是不同的两个指针，一个是结构体成员，一个是外来辅助用的。</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">//其实这也是封装不统一导致的后果，有的封空结构体的头为nullptr，有的封空结构体的尾为nullptr，</span></span><br><span class="line">	<span class="comment">//其他功能调用到时候又各有不同（特别是while(移动指针!=nullptr)），结果为了统一只能两个都封</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//再注：原本的封装方式略有问题，我们创建的每一个结构体都应该是满的，但之前是装满之后再new一个出来，这不好，会多出一组屯屯屯（不过正好因为这个问题也有了上面的结论）</span></span><br><span class="line">	<span class="comment">//这也才想起我之前为什么在case 3里面分出两种情况：一种是第一次添加，另一种是第二次及以后添加，因为我们在前头都已经声明了一个空的结构体，如果这个结构体不使用，</span></span><br><span class="line">	<span class="comment">//而用统一格式去添加新结构体的话，就会向上面那样多出一组屯屯屯；但是，既然知道了关键点在哪里，也不用再写一次第一次该怎么办的分支了——用简单的吧，给new“上锁”</span></span><br><span class="line">	<span class="comment">//那么“锁”只有在n &gt; 0才去打开。</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//这种方式是不能使用的：我们没必要把不知道会不会填充的地方开辟出来。而应该确认了它会填充，再开辟空间</span></span><br></pre></td></tr></table></figure>
 
 
 
-<p>有BUG的代码</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">output</span><span class="params">(Student&amp; s)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	Student* p = &amp;s;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; p-&gt;No &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; p-&gt;Name &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; p-&gt;score[<span class="number">0</span>] &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; p-&gt;score[<span class="number">1</span>] &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; p-&gt;score[<span class="number">2</span>] &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; p[i].score[<span class="number">0</span>] + p[i].score[<span class="number">1</span>] + p[i].score[<span class="number">2</span>] &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;<span class="comment">//p是由s开始的结构体的（亦是首地址），后面调用时为s1</span></span><br><span class="line">		p++;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 
-<p>问题发现了；指针隔着跳了，结果总分是第1、3、5名的，显示在1 2 3名的总分上，而4 5名的总分是第7 9名的，并不存在，显示为0和-nan。-nan意为Not a Number，即NaN。<br>具体体现为，i=3时，p便已经在s5上了。<br>问题又来了，指针为什么会跳呢?<br>观察发现，input()和output()表示分数的方式，不一样，input()为p-&gt;score[数字]格式，output()的总分为p[i].score[数字]格式。<br>调试中看到，有关p[i]的描述在第四名和第五名上，都是错误的，没有指向正确对象。<br>再联想下，p和i都是每次循环自增1，在仅仅循环一次的情况下，怎么样才能让p移动2呢？那就是p和i同时增加1了，代码中确实有这个操作。<br>那问题就解决了，表示分数p自增1即可，跟i没有实质上的关系，i是个计数用的。<br>这应该是源于习惯问题，习惯上用计数器作移动的指标。<br>结果碰上格式混用，前面一部分纯指针，用-&gt;，没出问题，后一半用p[i]，出问题了，双倍自增。<br>于是去掉[i]，换用(<em>p)即可。（注意”.”运算符比”</em>“运算符优先级高，括号不能去掉，否则是”地址.成员”，而正确格式是”结构体.成员”）</p>
-<p>所以把总分的显示格式与i无关化即可，随便选择一种格式均可。如p-&gt;score[0]，(*p).socre[0]。</p>
-<p>这里另外一提，目前见过好几次while(变量)的结构，也就是等待变量归零再退出循环，常见的有：变量最终归为链表的最后一节nullptr。不过不知怎么的，虽然能用，感觉这么用相当不规范，而且首次见到可能不大好理解——while(next!=0)比这个好理解多了。老师的视频里出现了这种写法，暂且视作规范吧。（或许这就是简化的写法吧）</p>
-<hr>
-<h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>这是我个人给它的一个定义，给一个可用、实用的链表下的一个定义。</p>
-<p>链表有三个要素：头指针（用于寻找数据位置），其他成员（用于数据储存），节点指针（形成链表的前提）。</p>
-<p>整体来看，链表包括头指针、成员、节点指针和尾指针（一般值为nullptr，当然，你想做头尾相接的也行）；而从结构体的角度来看，链表由一or多个结构体组成，链表中每个结构体尾部都有一个指针指向下一个结构体。</p>
-<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><p>整体思想：每建立一个结构体，都让尾指针“next = new 结构体类型”；复制头指针，让这个复制的指针在链表上移动，以取得自己想要的数据。</p>
-<p>具体操作，举例</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Student</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> No;</span><br><span class="line">    <span class="keyword">char</span> Name[<span class="number">20</span>];<span class="comment">//名字最多9个汉字</span></span><br><span class="line">    <span class="keyword">double</span> score[<span class="number">3</span>];<span class="comment">//三门成绩</span></span><br><span class="line">    Student* next;<span class="comment">//节点指针，如果这个链表到尾部了，那么这是尾指针（暂时只考虑单向链表，也就是从头走到尾的）</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Student ChainList;<span class="comment">//先在运行时栈创建一个结构体，其实head = new Student也可以</span></span><br><span class="line">    Student* head = ChainList;<span class="comment">//获取头指针</span></span><br><span class="line">    ---录入数据---（链表操作在后面说，先创建，才能操作）</span><br><span class="line">    head.next = <span class="keyword">new</span> Student;<span class="comment">//在运行时堆里new一个新的空结构体</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>到这里，虽然我们只创建了含两个结构体的链表，而且第二个还是空的，但接下来的事，其实也就在重复以上的操作</p>
-<p>这就是连续输入数据。</p>
-<h3 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h3><h4 id="结构体作形参-1"><a href="#结构体作形参-1" class="headerlink" title="结构体作形参"></a>结构体作形参</h4><p>创建函数时，十分<strong>建议引用</strong>，但指针也不差。所以刚刚上面给出了两种创建方式：在运行时栈里创建and运行时堆里创建。</p>
-<p>前一种可以有名字，调用函数时，参数位置直接填写链表名，在函数里使用“链表名.成员= 想要赋的值”完事（也就是第一个结构体的名称，上例为ChainList，则如果我想录入分数，只需要：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">ChainList.score[<span class="number">0</span>]=第一门成绩;</span><br><span class="line">ChainList.score[<span class="number">1</span>]=第二门成绩;</span><br><span class="line">ChainList.score[<span class="number">2</span>]=第三门成绩;</span><br></pre></td></tr></table></figure>
+<p>另一个简单点的例子，不过你要提前想好，我们已经声明了一个空的结构体;</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">&#123;…………省略前面…………</span><br><span class="line">    <span class="keyword">int</span> overlap = <span class="number">0</span>;<span class="comment">//检测重复数量</span></span><br><span class="line">	<span class="keyword">while</span> (moving_pin != <span class="literal">nullptr</span>)</span><br><span class="line">    &#123;</span><br><span class="line">		<span class="keyword">if</span> (moving_pin-&gt;No != No)</span><br><span class="line">				overlap++;</span><br><span class="line">		moving_pin = moving_pin-&gt;next;</span><br><span class="line">		moving_pin = head;</span><br><span class="line">		(*p).next = <span class="keyword">new</span> Student;</span><br><span class="line">		p = p-&gt;next;</span><br><span class="line">		p-&gt;No = No; <span class="built_in">strcpy</span>(p-&gt;Name, Name); p-&gt;score[<span class="number">0</span>] = score[<span class="number">0</span>]; p-&gt;score[<span class="number">1</span>] = score[<span class="number">1</span>]; p-&gt;score[<span class="number">2</span>] = score[<span class="number">2</span>];</span><br><span class="line">		p-&gt;next = <span class="literal">nullptr</span>;<span class="comment">//调整了先锋指针封装末尾的顺序，原本这是在else if外面的</span></span><br><span class="line">		n++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>（其中，点”.”是成员运算符，接下来的“-&gt;”是指向运算符）</p>
-<p>后一种写个指针，然后input函数中使用“head-&gt;成员=想要赋的值”的格式给成员赋值。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">head-&gt;score[<span class="number">0</span>]=第一门成绩;</span><br><span class="line">head-&gt;score[<span class="number">1</span>]=第二门成绩;</span><br><span class="line">head-&gt;score[<span class="number">2</span>]=第三门成绩;</span><br></pre></td></tr></table></figure>
-
-<p>但接下来两点才是重点。</p>
-<p>①为了链表可以重复操作，你必须额外再创建两个指针，分别用于在链表的头指针处和最前端处，不妨先叫它们：moving_pointer和pioneer_pointer（移动指针和先锋指针，当然，是我瞎编的）。其中moving_pointer初值为head，并且在每次操作完链表后，加一句moving_pointer = head，将其值自动归为头指针的地址，以备下一次使用；另一个pioneer_pointer，一般为最后一个结构体的头指针，而在每次创建一个结构体时，更新为尾指针，然后获得的返回值，再次成为最后一个结构体的头指针，即</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">pioneer_pointer = pioneer_pointer-&gt;next;</span><br><span class="line">pioneer_pointer = <span class="keyword">new</span> Student;</span><br></pre></td></tr></table></figure>
-
-<p>一般接着输入函数，请看例子：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="number">3</span>:<span class="comment">//插入新的学生信息</span></span><br><span class="line">	<span class="keyword">if</span> (n == <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line"></span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;[添加]请输入学生信息：\n&quot;</span>;</span><br><span class="line">		input(stu);</span><br><span class="line">		n++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (n &gt; <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;[添加]请输入学生信息：\n&quot;</span>;</span><br><span class="line"></span><br><span class="line">		(*p).next = <span class="keyword">new</span> Student;<span class="comment">//此处的p即为pioneer_pointer</span></span><br><span class="line">		p = p-&gt;next;</span><br><span class="line">		input(*p);</span><br><span class="line">	&#125;</span><br><span class="line">	p-&gt;next = <span class="literal">nullptr</span>;</span><br><span class="line">	<span class="keyword">if</span> (moving_pin == <span class="literal">nullptr</span>)head = p;</span><br><span class="line">	<span class="keyword">break</span>;</span><br></pre></td></tr></table></figure>
-
-<p>为什么需要它们？想一想，第一次输入完成时，对于引用型函数来说，下一次应该在它的参数位置填什么？还是ChainList吗？</p>
-<p>显然不是。</p>
-<p>上面代码的input()函数就是引用型的，我更换成了*p（先锋指针作为最后一个结构体的头指针，那么*p发挥了类似ChainList的作用），不然的话，下一次赋值将直接覆盖第一次的数据，并没有形成链表</p>
-<p>②</p>
-<h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><p>类似于input()函数，只不过关于char字符数组的部分，需要用strcpy_s(字符串1,字符串2)。这里不知道为什么strcpy()不行，会报错，而strcpy_s()没有这个问题，以下input()函数仅供参考：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">input</span><span class="params">(Student&amp; v_stu)</span><span class="comment">//我也忘记v是什么意思了，virtual?但形参是parameter。</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; v_stu.No &gt;&gt;v_stu.Name&gt;&gt; v_stu.score[<span class="number">0</span>] &gt;&gt; v_stu.score[<span class="number">1</span>] &gt;&gt; v_stu.score[<span class="number">2</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="插入、删除"><a href="#插入、删除" class="headerlink" title="插入、删除"></a>插入、删除</h4><p>这里只简略说明下思路，代码放到另一篇文章里了（参考篇）。</p>
-<p>插入，因为暂时不需要排序，所以每次往new出来的新空间里input就可以了（有排序那另说，其实也只不过是next指针的调换）。</p>
-<p>删除，要分三种情况</p>
-<p>一是去头，二是去尾，三是去中间。去头需要调动头指针，让头部往后挪；去尾在删掉数据后，让倒数第二个结构体的next指向新的空间即可；去中间，将前一个结构体的next指针赋值为将要被删的结构体的next指针，然后删除想删除的结构体成员即可。（将要被删除结构体的next指针其实就是它下一个结构体的头指针，这样就依然可以连起来）</p>
-<h4 id="交换顺序"><a href="#交换顺序" class="headerlink" title="交换顺序"></a>交换顺序</h4><p>参考数组排序的做法即可，就是指针交换那儿有点绕，多想想就好。</p>
-<p>具体一点，我的方法是选择排序，一定一动，定与动比较，需要交换时，我们假设个结构体a和b吧，先给个中间变量t（是指针），先让t= a.next,再使a.next = b.next,最后b.next = t，（）</p>
-<p>选择排序，冒泡排序，目前我就学了这两种，而我还需要学八种。先放上典图。</p>
-<p><img src="https://raw.githubusercontent.com/Makri-hub/WolpersHome.github.io/PicGo/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20201211173838.png"></p>
-<p>我也并不急于去理解它们，等到了时候再说吧。这里上代码，看起来就像把平面图形拉成了立体图形。（其实就是多输入几个）</p>
-<p>这里给出的代码，要注意，我是另外备份了一个链表来排序的。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap_not_including_pin</span><span class="params">(Student&amp; a, Student&amp; b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	Student T;<span class="comment">//中间变量</span></span><br><span class="line">	strcpy_s(T.Name, a.Name); T.No = a.No; T.score[<span class="number">0</span>] = a.score[<span class="number">0</span>]; T.score[<span class="number">1</span>] = a.score[<span class="number">1</span>]; T.score[<span class="number">2</span>] = a.score[<span class="number">2</span>];<span class="comment">//T = a</span></span><br><span class="line">	strcpy_s(a.Name, b.Name); a.No = b.No; a.score[<span class="number">0</span>] = b.score[<span class="number">0</span>]; a.score[<span class="number">1</span>] = b.score[<span class="number">1</span>]; a.score[<span class="number">2</span>] = b.score[<span class="number">2</span>];<span class="comment">//a = b;</span></span><br><span class="line">	strcpy_s(b.Name, T.Name); b.No = T.No; b.score[<span class="number">0</span>] = T.score[<span class="number">0</span>]; b.score[<span class="number">1</span>] = T.score[<span class="number">1</span>]; b.score[<span class="number">2</span>] = T.score[<span class="number">2</span>];<span class="comment">//b = t;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>对比下简单变量的交换，就明白上面是什么意思了。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap_not_including__pointer</span><span class="params">(<span class="keyword">int</span> &amp;a,<span class="keyword">int</span> &amp;b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> T;</span><br><span class="line">    T = a;</span><br><span class="line">    a = b;</span><br><span class="line">    b = t;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>以上，写得比较菜，定有疏漏之处，还恳请各位轻喷。比如链表的那两个“必须额外再复制两个指针”是否可以简化点思路？是否尝试过复制结构体的方法？</p>
-<p>文章实质上可能是期末复习笔记之类的，凑合着像一篇教程</p>
 ]]></content>
       <categories>
         <category>C++</category>
@@ -372,12 +405,6 @@
       <tags>
         <tag>Hexo</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>测试页面</title>
-    <url>/2020/11/20/%E6%B5%8B%E8%AF%95/</url>
-    <content><![CDATA[<p>这个页面是用来测试的，是因第一次Hexo一片空白而产生的测试页面</p>
-]]></content>
   </entry>
   <entry>
     <title>我的第一篇文章</title>
@@ -423,30 +450,181 @@
       </tags>
   </entry>
   <entry>
-    <title>结构体补充</title>
-    <url>/2020/12/15/%E7%BB%93%E6%9E%84%E4%BD%93%E8%A1%A5%E5%85%85/</url>
-    <content><![CDATA[<p>补充关于结构体和链表的操作</p>
-<a id="more"></a>
+    <title>月记 ~ Nov-Dec 2021</title>
+    <url>/2021/12/31/Nov-Dec2021/</url>
+    <content><![CDATA[<h1 id="月记-Nov-Dec-2021"><a href="#月记-Nov-Dec-2021" class="headerlink" title="月记 ~ Nov-Dec 2021"></a>月记 ~ Nov-Dec 2021</h1><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1440791983&auto=0&height=66"></iframe>
 
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function">Student* <span class="title">loadData</span><span class="params">(<span class="keyword">int</span>&amp; n)</span><span class="comment">//考虑做存档功能</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	n = <span class="number">0</span>;<span class="comment">//之前的数据全部清零</span></span><br><span class="line">	<span class="keyword">int</span> No; <span class="keyword">char</span> Name[<span class="number">20</span>]; <span class="keyword">double</span> Score[<span class="number">3</span>];</span><br><span class="line">	Student* T = <span class="keyword">new</span> Student;<span class="comment">//只有Student T是在运行时栈上，会被销毁</span></span><br><span class="line">	Student* mp2 = T;</span><br><span class="line">	FILE* fp = fopen(<span class="string">&quot;./学生成绩单.txt&quot;</span>, <span class="string">&quot;r&quot;</span>);</span><br><span class="line"><span class="keyword">while</span> (!feof(fp)) </span><br><span class="line">    <span class="comment">//feof（）检测一个文件是否结束，即到达文件尾，若结束，则返回非0值，否则返回0</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">fscanf</span>(fp, <span class="string">&quot;%d\t%s\t%lf\t%lf\t%lf\n&quot;</span>, &amp;No, Name, Score, Score + <span class="number">1</span>, Score + <span class="number">2</span>);</span><br><span class="line">	mp2-&gt;No = No; strcpy_s(mp2-&gt;Name, Name); mp2-&gt;score[<span class="number">0</span>] = Score[<span class="number">0</span>]; mp2-&gt;score[<span class="number">1</span>] = Score[<span class="number">1</span>]; mp2-&gt;score[<span class="number">2</span>] = Score[<span class="number">2</span>];</span><br><span class="line">	mp2-&gt;next = <span class="keyword">new</span> Student;</span><br><span class="line">	mp2 = mp2-&gt;next;</span><br><span class="line">	mp2-&gt;next = <span class="literal">nullptr</span>;<span class="comment">//使成员next变为nullptr，这才是真正的封装，下面那个不算，只是指针归零，方便下次再用。</span></span><br><span class="line">	n++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>问题代码：多出一组屯屯屯</p>
-<p>原因出于在已new了一组空的结构体，按while内逻辑，会多出一个“给下一组数据准备的空间”，无论多少组都是，结束循环后会多出一组空结构体，然后名字就叫“屯屯屯…（20个）”。</p>
-<p>改正后：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">Student* <span class="title">loadData</span><span class="params">(<span class="keyword">int</span>&amp; n)</span><span class="comment">//考虑做存档功能？</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	n = <span class="number">0</span>;<span class="comment">//之前的数据全部清零</span></span><br><span class="line">	<span class="keyword">int</span> No; <span class="keyword">char</span> Name[<span class="number">20</span>]; <span class="keyword">double</span> Score[<span class="number">3</span>];</span><br><span class="line">	Student* T = <span class="keyword">new</span> Student;<span class="comment">//只有Student T是在运行时栈上，会被销毁</span></span><br><span class="line">	Student* mp2 = T;</span><br><span class="line">	FILE* fp = fopen(<span class="string">&quot;./学生成绩单.txt&quot;</span>, <span class="string">&quot;r&quot;</span>);</span><br><span class="line">	<span class="keyword">while</span> (!feof(fp)) <span class="comment">//feof（）检测一个文件是否结束，即到达文件尾，若结束，则返回非0值，否则返回0</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (n &gt; <span class="number">0</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			mp2-&gt;next = <span class="keyword">new</span> Student;</span><br><span class="line">			mp2 = mp2-&gt;next;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">fscanf</span>(fp, <span class="string">&quot;%d\t%s\t%lf\t%lf\t%lf\n&quot;</span>, &amp;No, Name, Score, Score + <span class="number">1</span>, Score + <span class="number">2</span>);</span><br><span class="line">		mp2-&gt;No = No; strcpy_s(mp2-&gt;Name, Name); mp2-&gt;score[<span class="number">0</span>] = Score[<span class="number">0</span>]; mp2-&gt;score[<span class="number">1</span>] = Score[<span class="number">1</span>]; mp2-&gt;score[<span class="number">2</span>] = Score[<span class="number">2</span>];</span><br><span class="line">		mp2-&gt;next = <span class="literal">nullptr</span>;<span class="comment">//使成员next变为nullptr，这才是真正的封装，下面那个不算，只是指针归零，方便下次再用。</span></span><br><span class="line">		n++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//封装尾部，不能只让移动指针变为nullptr，否则最后一个结构体的成员next仍为乱码。</span></span><br><span class="line">	<span class="comment">//让指针变为nullptr只是让指针归零，归零后甚至还能调用；但原本指针指向的数据呢？还在那里？归于荒野？都是。</span></span><br><span class="line">	<span class="comment">//也就是说，next指针和这个mp2是不同的两个指针，一个是结构体成员，一个是外来辅助用的。</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">//其实这也是封装不统一导致的后果，有的封空结构体的头为nullptr，有的封空结构体的尾为nullptr，</span></span><br><span class="line">	<span class="comment">//其他功能调用到时候又各有不同（特别是while(移动指针!=nullptr)），结果为了统一只能两个都封</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//再注：原本的封装方式略有问题，我们创建的每一个结构体都应该是满的，但之前是装满之后再new一个出来，这不好，会多出一组屯屯屯（不过正好因为这个问题也有了上面的结论）</span></span><br><span class="line">	<span class="comment">//这也才想起我之前为什么在case 3里面分出两种情况：一种是第一次添加，另一种是第二次及以后添加，因为我们在前头都已经声明了一个空的结构体，如果这个结构体不使用，</span></span><br><span class="line">	<span class="comment">//而用统一格式去添加新结构体的话，就会向上面那样多出一组屯屯屯；但是，既然知道了关键点在哪里，也不用再写一次第一次该怎么办的分支了——用简单的吧，给new“上锁”</span></span><br><span class="line">	<span class="comment">//那么“锁”只有在n &gt; 0才去打开。</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//这种方式是不能使用的：我们没必要把不知道会不会填充的地方开辟出来。而应该确认了它会填充，再开辟空间</span></span><br></pre></td></tr></table></figure>
+<h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><p>！！注意：文章并不在一天内写完，故前后日期有跨度！！</p>
+<p>相比起上月来，这个月“做”的东西很少，但能记的东西很多。所谓“做”就是指课堂之外的作为，开发、学习等。Unity进展有限，还需加把劲骑士。CSAPP竟然是快一个月不动了，刚好到DataLab那里停了，希望回去复习不会有什么事。其次就是上个月提到，这个月要做的事，做成了，就是“能记”的东西了。</p>
+<blockquote>
+<p>This directory contains the files that you will need to run the CS:APP<br>Data Lab, which helps develops the student’s understanding of bit<br>representations, two’s complement arithmetic, and IEEE floating point.</p>
+</blockquote>
+<p>没错，这就是前3节课的内容作了个Lab，所以有必要去做了再搞下面的课程；也许正因为要花一个单独的时间段来研究，我才没有继续下去……说是这么说，始终是逃避不掉的，因为学计组的时间，就只有这个半个学期。</p>
+<p>看看第一篇文章，发现我的博客一周年了欸。如你所见，第一年下来，东西还是毛毛糟糟，有点乱的。昨日11月19日正是小雪，而去年11月21日，也是小雪。</p>
+<h2 id="What-I-am-doing"><a href="#What-I-am-doing" class="headerlink" title="What I am doing"></a>What I am doing</h2><h3 id="锻炼调整与体测"><a href="#锻炼调整与体测" class="headerlink" title="锻炼调整与体测"></a>锻炼调整与体测</h3><p>经过一个月，校园跑计入路程已达100km。这期间有时候会长跑，但上个周记总结了，那样表面上不累，但疲劳会展现在你平常生活的各个地方，<strong>频繁长跑对我来说，是不适宜的</strong>。所以暂时回退，轻轻松松跑完2.5km便作罢。</p>
+<p>这一个月下来，体育的体测已经完成了，但估摸着分数可能只有六十几分——一个是有所衰退，但另一个更重要的是老师体测标准太严——之后打拳考试的结果可能更让人失望！引体向上本来只需要90°，头在杆子下面就可以再上去了，然而此名老师要求180°伸直，做不到位还给你减。做了9个，减一个，8个，作罢，自然开摆。</p>
+<p>我是自告奋勇第一个做的，至于后面老师对他们仁慈一点，还是说他们被前所未有的压力压倒而也只做了一两个？那就不得而知了（不过据经验前者的概率会大点，我可以大胆保证没有人真正能做到14个完全伸直的，为啥？因为没人准备过，并且没人知道老师这个对非体育生来说离谱的标准）</p>
+<p>（12.30）个别也许有，但显然不稀奇，尤其是补做的，随随便便11、12个大有人在。</p>
+<p>在12月上旬，校园跑跑完了，然而六级迫在眉睫，我这次确实真的没有去复习。</p>
+<h3 id="重走JavaFX长征路"><a href="#重走JavaFX长征路" class="headerlink" title="重走JavaFX长征路"></a>重走JavaFX长征路</h3><p>第八周周记中记录了JavaFX出了问题，是EventDrived Programming那里的，现在解决了——其实是在idea下.java文件不能乱丢，必须丢进module-info.java记录的那个包里——也就是说想分类还是重开一个项目吧（主要是没看过官方手册，又有点懒，如果<strong>哪天去读读或许解决方案会更灵活</strong>）</p>
+<p>（12.30）现在已是十七周，JavaFX有了一定的熟悉度（只能说是熟悉，没做过大型界面），而十五周末时转向了使用Qt，做起来感觉也不错。简洁有效，不知比某FC好到哪里去了。</p>
+<h3 id="调整饮食习惯"><a href="#调整饮食习惯" class="headerlink" title="调整饮食习惯"></a>调整饮食习惯</h3><p>半个学期下来，也就是两个多月，由于课程安排奇葩，我的饮食习惯也发生了奇葩的自适应。周一周二的上午第二节均是物理，必定逃课，但下午又是空的（后来有了实验课），于是十点半左右就吃饭，称作“lunchfast”，即早餐和午餐合并，早餐就不吃了，午餐吃饱一点。后来舍友警告我这会得胃病，问其原因，听着有道理，也就改成之前的模式了。自适应不能依赖，因为自适应的方向，是以我已知的事情为基础的。因为不知而适应了糟糕的方向，暗病会累积。而为了赶时间，长期吃“lunchfast”确实没必要。</p>
+<p>至于晚餐，只能说是“正在迎来回归”，校园跑还有11天跑完，之后便不再频繁下午4点吃饭了。但也不会晚上8点，那大概5点左右吧。这个点吃个饭，然后直接去教室自习（还有做作业）。</p>
+<h3 id="Unity进行中"><a href="#Unity进行中" class="headerlink" title="Unity进行中"></a>Unity进行中</h3><p>这时候跟的是秦老师的课，也才见识每个人做游戏的代码实现都会大有不同。时间其实主要花在了画动画的方面——虽然没有任何基础，但一些球体、史莱姆之类的还是能画吧。</p>
+<p>想了想，未来确实有可能会从事游戏行业——先走走看，要是解放后能力出众，又能遇上机会和良师益友，就可以彻底走这一条路了。</p>
+<h3 id="各个科目的实验"><a href="#各个科目的实验" class="headerlink" title="各个科目的实验"></a>各个科目的实验</h3><p>数据结构，数据库，计组，Java，前三个尤为重型。数据结构花时间，但是值得；数据库瞎折腾居多；计组的实验最麻烦最不值得花时间。Java算是个小菜。目前我是如此评价这几个。</p>
+<p>（12.30）今天已干完大部分，并且也干完了课设。针对我们班的情况，我要提一点：为何说计组实验没有什么意义？原因在于这几点明显的问题：①你不知道为何而来，大概是为了并不起作用的“实操”而来——有用的实操需要坚实的理论，不坚实是少也是踏实。显然，三个实验，三条指令，除了上过CSAPP的人对此有所准备，并没有一个人能独立做出来——绝大部分停在了对软件的不熟悉上。②没有任何指导。这就更为离谱了——这点上也很难去问老师：老师有说过吗？当然有；我们听得懂吗？当然听不懂，那顶啥用，不跟没讲一样。一句话，那是去讨骂的，也就是不想给你太多清晰的指示。以我们班的情况来看，我在盖棺定论：此种教学方式立下了天然的门槛，不合适。</p>
+<p>这里给出建议，必须有充足的理论知识再上计组实验，不然是白搭。</p>
+<h3 id="学习Qt"><a href="#学习Qt" class="headerlink" title="*学习Qt"></a>*学习Qt</h3><p>同时满足了数据结构课设和数据库，何乐而不为——主要还是想上手一个简易的非前端系界面库。</p>
+<h2 id="What-I-have-done"><a href="#What-I-have-done" class="headerlink" title="What I have done"></a>What I have done</h2><h3 id="广州THO"><a href="#广州THO" class="headerlink" title="广州THO"></a>广州THO</h3><p>周末去tho，感觉良好，就是钱包空了。购入两本文学作品，浊浪的《偷光》和胡博士的《东方文化学刊》，一个射命丸文立牌。本可以免费领取一个，结果当时想看舞台表演，又想逛摊位，结果错失Muse Dash灵梦立牌一个，还挺大的。</p>
+<p><img src="https://s2.loli.net/2021/12/30/JtjCU1s9AbwyRxq.jpg"></p>
+<h3 id="出游"><a href="#出游" class="headerlink" title="出游"></a>出游</h3><p>11/5 星期六，与老李出游。朝至岭南印象园，园林颇大，物景颇丰。某些地方，感到已经不在园林以内，而在某个时代的街头。宜人之景，若气温再降三两度，旅途将更为舒坦。</p>
+<p><img src="https://s2.loli.net/2021/12/30/yxN5R8VnjlpSUzm.jpg"></p>
+<p>园内，见道儒多家之庙，见十八般兵器，见皮加索生平之作，见八零年代四大件，见昔日广州街道之景。</p>
+<p>至晌午，老李南校饭堂一游，叹梅苑莫与之对比。</p>
+<p>未时，游长洲岛辛亥革命纪念馆，胡乱走一小时后，竟仍未出馆，大耶。见救国者纷，但细数全员，仅乃当时人口千万之一，亦即千万睡者，仅醒其一，实属可贵。</p>
+<p>后至黄埔军校，禁地，未摄。</p>
+<p>申时，返程。</p>
+<p><img src="https://s2.loli.net/2021/12/30/poemTYSrQBGN6Ps.jpg"></p>
+<p>次日晚，校内呼啸不止，轰隆达旦，这么恶臭的事便不要记录了罢。而我有所耳闻，因依低居之员弗兰多尔乃越共之一，我等草丛中等闲之辈，无一不举众欢呼，为之欣慰，为之感慨，并入Legend of legend欢呼之众，献以助庆。摘冠刻内，已有梗佬献弗兰多尔持猎枪之图，梗盛一时。</p>
+<h3 id="嵌入-第十周小记"><a href="#嵌入-第十周小记" class="headerlink" title="[嵌入]第十周小记"></a>[嵌入]第十周小记</h3><p>远程桌面折腾了很久，还没有成功。现在端口映射是没问题，但也只是映射到校园网内，因为分配的IP就是私有IP，所以DDNS还需要做点手脚，写个脚本，把“无效的IP”更新到DDNS解析服务器上。</p>
+<p>不过通过这次搞DDNS的经历，认识了挺多问题，对过去的问题有了初步答案。</p>
+<p>之前其他人开服都不能连接，其实是国内大部分路由获得的是私网IP，简单理解可以想象是我们的路由器上面其实还是个路由器，但这个大路由器是千家万户连在同一个上面的。</p>
+<p>做端口转发的操作，是没错，从来都没错，我重复了数年的操作，其实从来都没错。</p>
+<p>但是做完端口转发后，你的IP所在的子网是上级路由分配的，也就是说——</p>
+<p><strong>还是在内网</strong></p>
+<p>这就像拿我的内网IP 192.168.1.103给远在全国各地的玩家来联机，是没有任何区别的。</p>
+<p>而我家里分配给的IP，恰恰是公网IP，所以一查就可以发给别人连。</p>
+<p>GZHU校园网这个属于B类的内网，ip一查，外网ip是202开头的，而WAN显示是172开头，说明这查到的就是最上级主机的公网ip。</p>
+<p>但是值得注意，虽然在内网，内网的机器倒肯定是可以互联了。</p>
+<p>也就是说，如果我能把内网ip强制扔给3322更新，可以在校园网内连接路由，而外网连不到。</p>
+<p>所以之前有人说，校园网内可以随意联机，这个问题也自然解决了，可以互相访问的。</p>
+<p>（12.30）在11月末已实现，不难，需要的是熟悉一下shell编程即可，其他问题搜索引擎完全帮得上手。</p>
+<p><img src="https://s2.loli.net/2021/12/31/S4GaBbcsW8LI2vo.png"></p>
+<p><img src="https://s2.loli.net/2021/12/31/nARJS6LMwxeWBK3.png"></p>
+<h4 id="实现了内网DDNS"><a href="#实现了内网DDNS" class="headerlink" title="*实现了内网DDNS"></a>*<strong>实现了内网DDNS</strong></h4><p>其实也没啥原理，API接口给了，重点在更新反馈、提示，我要做的也就是改改一些语句、改一下逻辑。估计会有人觉得这没意义，又不是公网要什么DDNS？如果真有人这么说，我还不知是笑是哭。没人想大清早，忙里偷闲似的打开自己wifi管理界面看看，现在WAN口IP是啥呀？然后设备IP变了没？然后把它们用微信发到”文件传输助手“，待会到教室对着IP输入——这等麻烦差事，其实也就是域名的产生原因。要是真这么搞？还没出门呢，发现就没时间吃早餐了，啃包吧。</p>
+<h4 id="实现了远程桌面"><a href="#实现了远程桌面" class="headerlink" title="*实现了远程桌面"></a>*<strong>实现了远程桌面</strong></h4><p>为啥还记录呢？因为我的Win10版本唤作：</p>
+<p><strong>Windows 10 家庭版</strong></p>
+<p><img src="https://s2.loli.net/2021/12/30/eA48DbKNxl3ntEz.png"></p>
+<p>需要”解锁“一下，去Github上下载个RDP Wrapper，发现更新跟不上，于是去TG群组观察了下，大佬们都给你写好了。</p>
+<p>端口映射之类的就不说了，还有静态地址，老生常谈。总而言之，12周实现了之后，除了课设那会需要给老师展示，我上实验课再也没带过电脑——更可常见我两手空空，或者带瓶酸奶，就晃晃悠悠去实验室了。</p>
+<img src="https://s2.loli.net/2021/12/31/4XC1SroWVTiKuFL.jpg" style="zoom:50%;" />
+
+<img src="https://s2.loli.net/2021/12/31/TFqMs8nb97HIWJd.jpg" style="zoom: 33%;" />
 
 
 
+<h3 id="两周Pygame写一个游戏"><a href="#两周Pygame写一个游戏" class="headerlink" title="*两周Pygame写一个游戏"></a>*两周Pygame写一个游戏</h3><p>虽然有跟着大佬的教程，但过程已基本掌握，故完成教程后，疯狂往里面添加自己想要的东西。</p>
+<p>比如原教程只有直线射击，并且在同一水平线上打中敌人，我给改成了鼠标准心射击，并且区分了玩家和敌人的子弹。</p>
+<p>比如只有单发的枪，我给加了个近战武器、榴弹发射器、霰弹等等。</p>
+<p>比如教程给了敌人AI，我现在改了AI，变成了几种敌人，定位狙、突击兵、步兵等等。</p>
+<p>其实脑洞可以更大，只不过时间有限，又是第一次写游戏，实现一些经典的东西完全不妨。</p>
+<p>可惜唯独不通画术，无法把游戏性通过视觉表现出来，UI也比较勉强，没有点击音效、细化受击反馈，不太满意。</p>
+<img src="https://s2.loli.net/2021/12/30/u1Ldfm8sBoiRc7A.png" style="zoom:125%;" />
 
-
-<p>另一个简单点的例子，不过你要提前想好，我们已经声明了一个空的结构体;</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">&#123;…………省略前面…………</span><br><span class="line">    <span class="keyword">int</span> overlap = <span class="number">0</span>;<span class="comment">//检测重复数量</span></span><br><span class="line">	<span class="keyword">while</span> (moving_pin != <span class="literal">nullptr</span>)</span><br><span class="line">    &#123;</span><br><span class="line">		<span class="keyword">if</span> (moving_pin-&gt;No != No)</span><br><span class="line">				overlap++;</span><br><span class="line">		moving_pin = moving_pin-&gt;next;</span><br><span class="line">		moving_pin = head;</span><br><span class="line">		(*p).next = <span class="keyword">new</span> Student;</span><br><span class="line">		p = p-&gt;next;</span><br><span class="line">		p-&gt;No = No; <span class="built_in">strcpy</span>(p-&gt;Name, Name); p-&gt;score[<span class="number">0</span>] = score[<span class="number">0</span>]; p-&gt;score[<span class="number">1</span>] = score[<span class="number">1</span>]; p-&gt;score[<span class="number">2</span>] = score[<span class="number">2</span>];</span><br><span class="line">		p-&gt;next = <span class="literal">nullptr</span>;<span class="comment">//调整了先锋指针封装末尾的顺序，原本这是在else if外面的</span></span><br><span class="line">		n++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<h2 id="What-I-plan-to-do"><a href="#What-I-plan-to-do" class="headerlink" title="What I plan to do"></a>What I plan to do</h2><p>/* 这里是十一月末时的Plan */</p>
+<h3 id="修复评论区"><a href="#修复评论区" class="headerlink" title="修复评论区"></a>修复评论区</h3><p>又拖了几个星期，其实完全是忘了，闲下来的时候也没去搞，原因就是忘了</p>
+<h3 id="小NAS计划"><a href="#小NAS计划" class="headerlink" title="小NAS计划"></a>小NAS计划</h3><p>目前可能要重刷固件了，因为硬盘插上去没有反应。</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 首先是刷原版固件，看看行不行</li>
+<li><input disabled="" type="checkbox"> 不行的话，看看<a href="https://www.right.com.cn/forum/thread-3191532-1-1.html">这里</a>的固件能不能用</li>
+<li><input disabled="" type="checkbox"> 再不行重买吧TAT</li>
+</ul>
+<p>次日补充：有所进展，能挂上去了，但是：</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 需要让它自动挂载</li>
+<li><input checked="" disabled="" type="checkbox"> 网络分享没用，先排查是不是win10的问题，参考这两篇文章：</li>
+</ul>
+<blockquote>
+<p><a href="https://doc.embedfire.com/openwrt/user_manal/zh/latest/User_Manual/openwrt/samba.html">https://doc.embedfire.com/openwrt/user_manal/zh/latest/User_Manual/openwrt/samba.html</a></p>
+<p><a href="https://blog.wang19.com/1252">https://blog.wang19.com/1252</a></p>
+</blockquote>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 硬盘休眠一定要搞。先试试如何主动休眠，这里很详细了：</li>
+</ul>
+<blockquote>
+<p><a href="https://www.right.com.cn/forum/thread-4041719-1-1.html">https://www.right.com.cn/forum/thread-4041719-1-1.html</a></p>
+<p><a href="https://realneo.me/openwrt-spin-down-hard-disk/">https://realneo.me/openwrt-spin-down-hard-disk/</a></p>
+<p><a href="https://www.chriscn.cn/openwrt-all-in-one-part-04-hdd-health-care/">https://www.chriscn.cn/openwrt-all-in-one-part-04-hdd-health-care/</a></p>
+</blockquote>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 然后上一个磁盘管理，看看能否正常休眠</li>
+</ul>
+<blockquote>
+<p><a href="https://github.com/lisaac/luci-app-diskman">https://github.com/lisaac/luci-app-diskman</a></p>
+</blockquote>
+<p>此次探索收获了不少命令，这里记录一下：</p>
+<blockquote>
+<p>hdparm -C /dev/sdb2 – 查看idle/active 硬盘在工作还是待机</p>
+<p>smartctl -H /dev/sdb2 – 简单检测下健康状况</p>
+<p>smartctl –all /dev/sdb2 – 信息</p>
+<p>ps -ef | grep /opt/test.sh | wc -l – 查看test.sh进程数，用于判断是否已在执行</p>
+</blockquote>
+<p>一些关键性的扶手梯：</p>
+<blockquote>
+<p><a href="https://blog.csdn.net/kenen1985/article/details/96424575">https://blog.csdn.net/kenen1985/article/details/96424575</a> – cron设置</p>
+<p><a href="https://segmentfault.com/a/1190000020855034">https://segmentfault.com/a/1190000020855034</a> – 避免cron一瞬间重复执行多个任务</p>
+<p><a href="https://www.right.com.cn/forum/thread-2117504-1-1.html">https://www.right.com.cn/forum/thread-2117504-1-1.html</a> – 如何</p>
+<p>echo -n 3 &gt; /proc/sys/vm/drop_caches – 清理内存</p>
+<p>cron里不需要指定什么shell，直接五个* + 脚本路径即可。</p>
+<p><a href="https://www.right.com.cn/forum/thread-2117504-1-1.html">https://www.right.com.cn/forum/thread-2117504-1-1.html</a> – 挂载硬盘，在此之前装了其他驱动</p>
+</blockquote>
+<p>（12.30）目前来看，完全已经实现了，只不过啊，用”移动固态“（其实就是速度快一点的U盘罢了）实在划不来，因为Router的cache不够大，速度被限死在32MB/s内，这个PSSD可是读495MB/s、写290MB/s的欸，太浪费了。于是后来拿来存游戏、资料、安装包。</p>
+<p>另外一说，实现了校内DDNS更新，下面也有记录，之后看什么时候有时间传上去。</p>
+<h3 id="给ipad上梯子"><a href="#给ipad上梯子" class="headerlink" title="给ipad上梯子"></a>给ipad上梯子</h3><p>（12.30）寒假回家再折腾吧，这个需要好好体验一下各种方式的差别，能不能有直接安装的方式。</p>
+<h3 id="Unity继续稳步前进"><a href="#Unity继续稳步前进" class="headerlink" title="Unity继续稳步前进"></a>Unity继续稳步前进</h3><p>（12.30）遗憾，并没有继续。</p>
+<p>意外的是去整了个Pygame，在我自己看来其实还蛮有意思的，即使是跟着教程做出来的，做完之后我可在上面捣鼓了一番，整了些弹药啊，机制啊之类的东西。只可惜没有相应的美工，没有往细节上开发，人物很粗糙。</p>
+<h3 id="MC服务器开新周目"><a href="#MC服务器开新周目" class="headerlink" title="MC服务器开新周目"></a>MC服务器开新周目</h3><p>想做一个半RPG半生存的周目，有交易，世界分两个，一个是可破坏、挖矿，每周五刷新，作为“资源世界”，这些收集的资源，可以转化为插件支持的线上货币，换句话说，这个世界是“劳动世界”，随后所有的物品，都需要在交易中获得，因此交易模块要下很大功夫；另一个类似地皮，后者要具体研究一下怎么设计。我建议是有公共区域、多级权限。然后还有探索世界，不可破坏，但是有很多随机地牢，箱子可以拿；最后是一个“斗争血脉”世界，机制可以设置为必须要待多久、找到某些物品才能出来，有寄生虫等强力敌人，但是在这个世界的尽头，隐藏着神器和仙境的入口。</p>
+<p>我们来细化一下吧：</p>
+<p>货币分类，分三种吧，常规币、流通币、收藏币。第三者玄学比较大。经济打算和实物进行一一对应，也就是“半经济化”，经济数字仅仅起不同世界之间的数据衔接作用。</p>
+<p>武器材质方面，避开原版，先创造一种陌生感，强化高级感，</p>
+<p>好的话可以通过插件直接实现，坏的就是要自己搞计分板。</p>
+<blockquote>
+<p><a href="https://www.mcbbs.net/forum-servermod-1.html">https://www.mcbbs.net/forum-servermod-1.html</a></p>
+<p>登录：<a href="https://www.mcbbs.net/thread-586047-1-1.html">https://www.mcbbs.net/thread-586047-1-1.html</a></p>
+<p>反假人：<a href="https://www.mcbbs.net/thread-1212504-1-1.html">https://www.mcbbs.net/thread-1212504-1-1.html</a></p>
+<p>世界进入等级：<a href="https://www.mcbbs.net/thread-734215-1-1.html">https://www.mcbbs.net/thread-734215-1-1.html</a></p>
+<p>战斗系统：<a href="https://www.mcbbs.net/thread-1094927-1-1.html">https://www.mcbbs.net/thread-1094927-1-1.html</a></p>
+<p>签到系统：<a href="https://www.mcbbs.net/thread-1056080-1-1.html">https://www.mcbbs.net/thread-1056080-1-1.html</a></p>
+<p>多经济（需要前置Vault）：<a href="https://www.mcbbs.net/thread-962904-1-1.html">https://www.mcbbs.net/thread-962904-1-1.html</a></p>
+<p>属性插件（深度开发）：<a href="https://www.mcbbs.net/thread-898670-1-1.html">https://www.mcbbs.net/thread-898670-1-1.html</a></p>
+<p>属性药水（上面插件的增强）：<a href="https://www.mcbbs.net/thread-914482-1-1.html">https://www.mcbbs.net/thread-914482-1-1.html</a></p>
+<p>后台管理：<a href="https://www.mcbbs.net/thread-1230139-1-1.html">https://www.mcbbs.net/thread-1230139-1-1.html</a></p>
+<p>塔科夫模式：<a href="https://www.mcbbs.net/thread-1196298-1-1.html">https://www.mcbbs.net/thread-1196298-1-1.html</a></p>
+<p>多世界：<a href="https://www.mcbbs.net/thread-1016455-1-1.html">https://www.mcbbs.net/thread-1016455-1-1.html</a></p>
+<p>任务（仔细看，支持1.12）：<a href="https://www.mcbbs.net/thread-1145608-1-1.html">https://www.mcbbs.net/thread-1145608-1-1.html</a></p>
+<p>另一个任务插件：<a href="https://www.mcbbs.net/thread-826783-1-1.html">https://www.mcbbs.net/thread-826783-1-1.html</a></p>
+<p>又一个任务插件：<a href="https://www.mcbbs.net/thread-805904-1-1.html">https://www.mcbbs.net/thread-805904-1-1.html</a></p>
+</blockquote>
+<p>列完这一堆东西才发现，和我上一次使用插件相比，原来mc插件生态早已远超我的想象</p>
+<p>战斗系统可以丰富，但如何与生活的世界搭配，需要平衡。我认为要克制好武器伤害的上限，不能有超模的，加大附魔难度，不要让附魔书轻易进入玩家手中。</p>
+<p>限制地狱、末地的进入等级。</p>
+<p>顺便记录一下开发启动器可以参考的文章：</p>
+<blockquote>
+<p> <a href="https://blog.csdn.net/SuZiAngi/article/details/81357998">https://blog.csdn.net/SuZiAngi/article/details/81357998</a></p>
+</blockquote>
+<blockquote>
+<p> <a href="https://space.bilibili.com/44537204/channel/seriesdetail?sid=351828">https://space.bilibili.com/44537204/channel/seriesdetail?sid=351828</a></p>
+</blockquote>
+<p>整合包的实现方法依旧严格按照以前的层级：①给分类，基础类，次基础类+主内容，辅内容，花边，五种。②按层级添加mod和插件，测试压力我还没有定论，因为这和时间有关。③过程中出现严重冲突需要换mod插件的，越基础的等级越需要更长时间的海选、谨慎挑选。</p>
+<p>（12.30）目前服务器已经开了起来，不过还没用上该有的那些主体功能插件，比如登录、经济、签到、任务等等系统。越到忙的时刻，越意识到一个事实：一直准备是永远准备不好的，必须开起来了再说。于是草草整了个包，12.28开服，12.29帮无言搞定了系统问题，这个周目大概就先开起来了。唯一问题在于比较卡，可能要削掉某些东西。</p>
+<hr>
+<p>– 此处以下是年末Plan –</p>
+<h2 id="What-I-Plan-To-Do-in-early-2022"><a href="#What-I-Plan-To-Do-in-early-2022" class="headerlink" title="What I Plan To Do in early 2022"></a>What I Plan To Do in early 2022</h2><p> 简述：物理实验抄写、期末考试</p>
+<h4 id="期末考试（时间12-31-1-20）"><a href="#期末考试（时间12-31-1-20）" class="headerlink" title="期末考试（时间12.31-1.20）"></a>期末考试（时间12.31-1.20）</h4><p>概率论：宋浩，试题</p>
+<p>计组：CSAPP，试卷</p>
+<p>数据结构：重学课本，走试题</p>
+<p>数据库：找重难点，总结一下，然后课本、试题都过一遍。</p>
+<h4 id="做一个MC启动器更新器"><a href="#做一个MC启动器更新器" class="headerlink" title="做一个MC启动器更新器"></a>做一个MC<del>启动器</del>更新器</h4><p>包含内容：对比mods、config、统一命名，保留不在列表里的、删除旧版本的。</p>
+<h4 id="给JAVA作业糊界面"><a href="#给JAVA作业糊界面" class="headerlink" title="给JAVA作业糊界面"></a>给JAVA作业糊界面</h4><h4 id="给数据库的实验3收尾"><a href="#给数据库的实验3收尾" class="headerlink" title="给数据库的实验3收尾"></a>给数据库的实验3收尾</h4><p>不要做得太精细！！！反过来，报告写细点！！</p>
+<h1 id="文末补充："><a href="#文末补充：" class="headerlink" title="文末补充："></a>文末补充：</h1><p>介绍的比较详细的挂载贴：<a href="https://www.right.com.cn/FORUM/thread-80771-1-1.html">https://www.right.com.cn/FORUM/thread-80771-1-1.html</a></p>
 ]]></content>
       <categories>
-        <category>C++</category>
+        <category>生活记录</category>
       </categories>
       <tags>
-        <tag>笔记</tag>
+        <tag>记录</tag>
+        <tag>月记</tag>
       </tags>
   </entry>
   <entry>
