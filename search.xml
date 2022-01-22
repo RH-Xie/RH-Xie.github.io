@@ -1,82 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>C++笔记</title>
-    <url>/2021/05/31/C++%E7%AC%94%E8%AE%B0%5B%E6%95%A3%E8%AE%B0%5D/</url>
-    <content><![CDATA[<h1 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h1><p>Warning: This passage includes wrong grammar, wrong words.</p>
-<hr>
-<p>How to understand pure virtual function and abstract class ?</p>
-<p>We can’t always know the implementation of base class, for it’s just not sure before derivate classes define the functions to make that description. For instance, we define a base class Shape, but we can’t draw it before we define it’s real shape in a derivate class, Rectangle or Triangle. In this occasion, the base class didn’t initialize the parameters or functions on how to draw it, because none of the methods to initialization seems to be appropriate. We can’t just draw a default rectangle instead of letting users use derivate classes. Why not let users make a good use of derivate classes ?</p>
-<hr>
-<p>Which to choose?</p>
-<p>There’s a template function containing arguments of type Double and type Float. Then I call the function and key 1.1 and 2.2 into it. Then what’s type of these two temporary arguments?</p>
-<p>In fact, if you just do this, both arguments will be recognized as type Double. What about forcing the second argument into Float? That will go as you think : the second argument is successfully changed into Float.</p>
-<p>In short, C++ Compiler regards decimals as Double at default, but you can force it into Float or Int.</p>
-<hr>
-<p>How to call Template Function directly without calling normal function I defined?</p>
-<p>Just use this format:</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">FunctionName&lt;&gt;(argument1, argument2);</span><br></pre></td></tr></table></figure>
-
-<p>There’s nothing in &lt;&gt;, but this provides the hint for compiler to use the template function.</p>
-<p>How to forcibly NOT call template function?</p>
-<p>Easy. Just let the template have only one typename and two arguments in this same type, then key two different types of arguments in it. This will run well once you prepare the corresponding function you want to call.</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">mmax</span><span class="params">(T a, T b)</span><span class="comment">//I do NOT want to call this!!</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a &gt;b?a:b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">mmax</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">char</span> b)</span><span class="comment">//And I want to call this instead!</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a &gt; b ? a : b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; mmax(<span class="number">1</span>,<span class="number">1.2222</span>);<span class="comment">//This is what I said &quot;key two different types of arguments&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>How to skip variable with <code>const</code> in class?</p>
-<p>Use the Initialization Function when .</p>
-<hr>
-<p>Today I saw an <strong>AMAZING</strong> explanation of how to pass the size of an array.</p>
-<p>@<a href="https://stackoverflow.com/questions/1328223/when-a-function-has-a-specific-size-array-parameter-why-is-it-replaced-with-a-p">https://stackoverflow.com/questions/1328223/when-a-function-has-a-specific-size-array-parameter-why-is-it-replaced-with-a-p</a></p>
-<p>The function:</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo</span> <span class="params">( <span class="keyword">char</span> a[<span class="number">100</span>] )</span></span>;</span><br></pre></td></tr></table></figure>
-
-<p>Will have the parameter adjusted to be a pointer, and so becomes:</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo</span> <span class="params">( <span class="keyword">char</span> * a )</span></span>;</span><br></pre></td></tr></table></figure>
-
-<p>If you want that the array type is preserved, you should pass in a reference to the array:</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo</span> <span class="params">( <span class="keyword">char</span> (&amp;a)[<span class="number">100</span>] )</span></span>;</span><br></pre></td></tr></table></figure>
-
-<p><strong>C++ ‘03 8.3.5/3:</strong></p>
-<blockquote>
-<p>…The type of a function is determined using the following rules. The type of each parameter is determined from its own decl-specifier-seq and declarator. After determining the type of each parameter, any parameter of type “array of T” or “function returning T” is adjusted to be “pointer to T” or “pointer to function returning T,” respectively….</p>
-</blockquote>
-<p><strong>To explain the syntax:</strong></p>
-<p>Check for “right-left” rule in google; I found one description of it <a href="http://www.cpp-home.com/archives/106.html">here</a>.</p>
-<p>It would be applied to this example approximately as follows:</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo</span> <span class="params">(<span class="keyword">char</span> (&amp;a)[<span class="number">100</span>])</span></span>;</span><br></pre></td></tr></table></figure>
-
-<p>Start at identifier ‘a’</p>
-<blockquote>
-<p>‘a’ is a</p>
-</blockquote>
-<p>Move right - we find a <code>)</code> so we reverse direction looking for the <code>(</code>. As we move left we pass <code>&amp;</code></p>
-<blockquote>
-<p>‘a’ is a reference</p>
-</blockquote>
-<p>After the <code>&amp;</code> we reach the opening <code>(</code> so we reverse again and look right. We now see <code>[100]</code></p>
-<blockquote>
-<p>‘a’ is a reference to an array of 100</p>
-</blockquote>
-<p>And we reverse direction again until we reach <code>char</code>:</p>
-<blockquote>
-<p>‘a’ is a reference to an array of 100 chars</p>
-</blockquote>
-<p>Text above elaborately explains how the right-left works.</p>
-<p>And I say that Notion is a quite good place for pasting codes and pages. It even retains the links (Hypertext) in pages that you copy.</p>
-<hr>
-<p>I don’t know how important on adding <code>this</code> to a base class which has derivate class until today. It is convenient for you to copy them directly to the derivate class without frequently adding <code>this</code> . But don’t do it in friend function.</p>
-<p>Overloading of signal “=’ could <strong>NOT</strong> be declared as a friend function.</p>
-<p>Declaration order of class</p>
-<p>If vs show some problems on “see the declaration of class xx” and “xxx is not a member of class xx”, but actually xxx is a member of class xx, then you need to check whether your class xx includes other classes. If it does, make the included one declared in front of class xx.</p>
-]]></content>
-      <categories>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>c++笔记[结构体]</title>
     <url>/2020/11/29/c++%E7%AC%94%E8%AE%B0%5B%E7%BB%93%E6%9E%84%E4%BD%93%5D/</url>
     <content><![CDATA[<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h3 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h3><p>这是第二篇c++笔记，原因是写在纸质笔记本上我并不会去看，写得慢还写得很乱<del>写在博客你可能也不会去看</del>。</p>
@@ -242,6 +166,82 @@
       </tags>
   </entry>
   <entry>
+    <title>C++笔记</title>
+    <url>/2021/05/31/C++%E7%AC%94%E8%AE%B0%5B%E6%95%A3%E8%AE%B0%5D/</url>
+    <content><![CDATA[<h1 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h1><p>Warning: This passage includes wrong grammar, wrong words.</p>
+<hr>
+<p>How to understand pure virtual function and abstract class ?</p>
+<p>We can’t always know the implementation of base class, for it’s just not sure before derivate classes define the functions to make that description. For instance, we define a base class Shape, but we can’t draw it before we define it’s real shape in a derivate class, Rectangle or Triangle. In this occasion, the base class didn’t initialize the parameters or functions on how to draw it, because none of the methods to initialization seems to be appropriate. We can’t just draw a default rectangle instead of letting users use derivate classes. Why not let users make a good use of derivate classes ?</p>
+<hr>
+<p>Which to choose?</p>
+<p>There’s a template function containing arguments of type Double and type Float. Then I call the function and key 1.1 and 2.2 into it. Then what’s type of these two temporary arguments?</p>
+<p>In fact, if you just do this, both arguments will be recognized as type Double. What about forcing the second argument into Float? That will go as you think : the second argument is successfully changed into Float.</p>
+<p>In short, C++ Compiler regards decimals as Double at default, but you can force it into Float or Int.</p>
+<hr>
+<p>How to call Template Function directly without calling normal function I defined?</p>
+<p>Just use this format:</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">FunctionName&lt;&gt;(argument1, argument2);</span><br></pre></td></tr></table></figure>
+
+<p>There’s nothing in &lt;&gt;, but this provides the hint for compiler to use the template function.</p>
+<p>How to forcibly NOT call template function?</p>
+<p>Easy. Just let the template have only one typename and two arguments in this same type, then key two different types of arguments in it. This will run well once you prepare the corresponding function you want to call.</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">mmax</span><span class="params">(T a, T b)</span><span class="comment">//I do NOT want to call this!!</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a &gt;b?a:b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">mmax</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">char</span> b)</span><span class="comment">//And I want to call this instead!</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a &gt; b ? a : b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; mmax(<span class="number">1</span>,<span class="number">1.2222</span>);<span class="comment">//This is what I said &quot;key two different types of arguments&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>How to skip variable with <code>const</code> in class?</p>
+<p>Use the Initialization Function when .</p>
+<hr>
+<p>Today I saw an <strong>AMAZING</strong> explanation of how to pass the size of an array.</p>
+<p>@<a href="https://stackoverflow.com/questions/1328223/when-a-function-has-a-specific-size-array-parameter-why-is-it-replaced-with-a-p">https://stackoverflow.com/questions/1328223/when-a-function-has-a-specific-size-array-parameter-why-is-it-replaced-with-a-p</a></p>
+<p>The function:</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo</span> <span class="params">( <span class="keyword">char</span> a[<span class="number">100</span>] )</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>Will have the parameter adjusted to be a pointer, and so becomes:</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo</span> <span class="params">( <span class="keyword">char</span> * a )</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>If you want that the array type is preserved, you should pass in a reference to the array:</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo</span> <span class="params">( <span class="keyword">char</span> (&amp;a)[<span class="number">100</span>] )</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>C++ ‘03 8.3.5/3:</strong></p>
+<blockquote>
+<p>…The type of a function is determined using the following rules. The type of each parameter is determined from its own decl-specifier-seq and declarator. After determining the type of each parameter, any parameter of type “array of T” or “function returning T” is adjusted to be “pointer to T” or “pointer to function returning T,” respectively….</p>
+</blockquote>
+<p><strong>To explain the syntax:</strong></p>
+<p>Check for “right-left” rule in google; I found one description of it <a href="http://www.cpp-home.com/archives/106.html">here</a>.</p>
+<p>It would be applied to this example approximately as follows:</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo</span> <span class="params">(<span class="keyword">char</span> (&amp;a)[<span class="number">100</span>])</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>Start at identifier ‘a’</p>
+<blockquote>
+<p>‘a’ is a</p>
+</blockquote>
+<p>Move right - we find a <code>)</code> so we reverse direction looking for the <code>(</code>. As we move left we pass <code>&amp;</code></p>
+<blockquote>
+<p>‘a’ is a reference</p>
+</blockquote>
+<p>After the <code>&amp;</code> we reach the opening <code>(</code> so we reverse again and look right. We now see <code>[100]</code></p>
+<blockquote>
+<p>‘a’ is a reference to an array of 100</p>
+</blockquote>
+<p>And we reverse direction again until we reach <code>char</code>:</p>
+<blockquote>
+<p>‘a’ is a reference to an array of 100 chars</p>
+</blockquote>
+<p>Text above elaborately explains how the right-left works.</p>
+<p>And I say that Notion is a quite good place for pasting codes and pages. It even retains the links (Hypertext) in pages that you copy.</p>
+<hr>
+<p>I don’t know how important on adding <code>this</code> to a base class which has derivate class until today. It is convenient for you to copy them directly to the derivate class without frequently adding <code>this</code> . But don’t do it in friend function.</p>
+<p>Overloading of signal “=’ could <strong>NOT</strong> be declared as a friend function.</p>
+<p>Declaration order of class</p>
+<p>If vs show some problems on “see the declaration of class xx” and “xxx is not a member of class xx”, but actually xxx is a member of class xx, then you need to check whether your class xx includes other classes. If it does, make the included one declared in front of class xx.</p>
+]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>月记 ~ Oct 2021</title>
     <url>/2021/10/18/Oct2021/</url>
     <content><![CDATA[<!-- more -->
@@ -353,60 +353,6 @@
       </tags>
   </entry>
   <entry>
-    <title>测试页面</title>
-    <url>/2020/11/20/%E6%B5%8B%E8%AF%95/</url>
-    <content><![CDATA[<p>这个页面是用来测试的，是因第一次Hexo一片空白而产生的测试页面</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>结构体补充</title>
-    <url>/2020/12/15/%E7%BB%93%E6%9E%84%E4%BD%93%E8%A1%A5%E5%85%85/</url>
-    <content><![CDATA[<p>补充关于结构体和链表的操作</p>
-<a id="more"></a>
-
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function">Student* <span class="title">loadData</span><span class="params">(<span class="keyword">int</span>&amp; n)</span><span class="comment">//考虑做存档功能</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	n = <span class="number">0</span>;<span class="comment">//之前的数据全部清零</span></span><br><span class="line">	<span class="keyword">int</span> No; <span class="keyword">char</span> Name[<span class="number">20</span>]; <span class="keyword">double</span> Score[<span class="number">3</span>];</span><br><span class="line">	Student* T = <span class="keyword">new</span> Student;<span class="comment">//只有Student T是在运行时栈上，会被销毁</span></span><br><span class="line">	Student* mp2 = T;</span><br><span class="line">	FILE* fp = fopen(<span class="string">&quot;./学生成绩单.txt&quot;</span>, <span class="string">&quot;r&quot;</span>);</span><br><span class="line"><span class="keyword">while</span> (!feof(fp)) </span><br><span class="line">    <span class="comment">//feof（）检测一个文件是否结束，即到达文件尾，若结束，则返回非0值，否则返回0</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">fscanf</span>(fp, <span class="string">&quot;%d\t%s\t%lf\t%lf\t%lf\n&quot;</span>, &amp;No, Name, Score, Score + <span class="number">1</span>, Score + <span class="number">2</span>);</span><br><span class="line">	mp2-&gt;No = No; strcpy_s(mp2-&gt;Name, Name); mp2-&gt;score[<span class="number">0</span>] = Score[<span class="number">0</span>]; mp2-&gt;score[<span class="number">1</span>] = Score[<span class="number">1</span>]; mp2-&gt;score[<span class="number">2</span>] = Score[<span class="number">2</span>];</span><br><span class="line">	mp2-&gt;next = <span class="keyword">new</span> Student;</span><br><span class="line">	mp2 = mp2-&gt;next;</span><br><span class="line">	mp2-&gt;next = <span class="literal">nullptr</span>;<span class="comment">//使成员next变为nullptr，这才是真正的封装，下面那个不算，只是指针归零，方便下次再用。</span></span><br><span class="line">	n++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>问题代码：多出一组屯屯屯</p>
-<p>原因出于在已new了一组空的结构体，按while内逻辑，会多出一个“给下一组数据准备的空间”，无论多少组都是，结束循环后会多出一组空结构体，然后名字就叫“屯屯屯…（20个）”。</p>
-<p>改正后：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">Student* <span class="title">loadData</span><span class="params">(<span class="keyword">int</span>&amp; n)</span><span class="comment">//考虑做存档功能？</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	n = <span class="number">0</span>;<span class="comment">//之前的数据全部清零</span></span><br><span class="line">	<span class="keyword">int</span> No; <span class="keyword">char</span> Name[<span class="number">20</span>]; <span class="keyword">double</span> Score[<span class="number">3</span>];</span><br><span class="line">	Student* T = <span class="keyword">new</span> Student;<span class="comment">//只有Student T是在运行时栈上，会被销毁</span></span><br><span class="line">	Student* mp2 = T;</span><br><span class="line">	FILE* fp = fopen(<span class="string">&quot;./学生成绩单.txt&quot;</span>, <span class="string">&quot;r&quot;</span>);</span><br><span class="line">	<span class="keyword">while</span> (!feof(fp)) <span class="comment">//feof（）检测一个文件是否结束，即到达文件尾，若结束，则返回非0值，否则返回0</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (n &gt; <span class="number">0</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			mp2-&gt;next = <span class="keyword">new</span> Student;</span><br><span class="line">			mp2 = mp2-&gt;next;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">fscanf</span>(fp, <span class="string">&quot;%d\t%s\t%lf\t%lf\t%lf\n&quot;</span>, &amp;No, Name, Score, Score + <span class="number">1</span>, Score + <span class="number">2</span>);</span><br><span class="line">		mp2-&gt;No = No; strcpy_s(mp2-&gt;Name, Name); mp2-&gt;score[<span class="number">0</span>] = Score[<span class="number">0</span>]; mp2-&gt;score[<span class="number">1</span>] = Score[<span class="number">1</span>]; mp2-&gt;score[<span class="number">2</span>] = Score[<span class="number">2</span>];</span><br><span class="line">		mp2-&gt;next = <span class="literal">nullptr</span>;<span class="comment">//使成员next变为nullptr，这才是真正的封装，下面那个不算，只是指针归零，方便下次再用。</span></span><br><span class="line">		n++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//封装尾部，不能只让移动指针变为nullptr，否则最后一个结构体的成员next仍为乱码。</span></span><br><span class="line">	<span class="comment">//让指针变为nullptr只是让指针归零，归零后甚至还能调用；但原本指针指向的数据呢？还在那里？归于荒野？都是。</span></span><br><span class="line">	<span class="comment">//也就是说，next指针和这个mp2是不同的两个指针，一个是结构体成员，一个是外来辅助用的。</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">//其实这也是封装不统一导致的后果，有的封空结构体的头为nullptr，有的封空结构体的尾为nullptr，</span></span><br><span class="line">	<span class="comment">//其他功能调用到时候又各有不同（特别是while(移动指针!=nullptr)），结果为了统一只能两个都封</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//再注：原本的封装方式略有问题，我们创建的每一个结构体都应该是满的，但之前是装满之后再new一个出来，这不好，会多出一组屯屯屯（不过正好因为这个问题也有了上面的结论）</span></span><br><span class="line">	<span class="comment">//这也才想起我之前为什么在case 3里面分出两种情况：一种是第一次添加，另一种是第二次及以后添加，因为我们在前头都已经声明了一个空的结构体，如果这个结构体不使用，</span></span><br><span class="line">	<span class="comment">//而用统一格式去添加新结构体的话，就会向上面那样多出一组屯屯屯；但是，既然知道了关键点在哪里，也不用再写一次第一次该怎么办的分支了——用简单的吧，给new“上锁”</span></span><br><span class="line">	<span class="comment">//那么“锁”只有在n &gt; 0才去打开。</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//这种方式是不能使用的：我们没必要把不知道会不会填充的地方开辟出来。而应该确认了它会填充，再开辟空间</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<p>另一个简单点的例子，不过你要提前想好，我们已经声明了一个空的结构体;</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">&#123;…………省略前面…………</span><br><span class="line">    <span class="keyword">int</span> overlap = <span class="number">0</span>;<span class="comment">//检测重复数量</span></span><br><span class="line">	<span class="keyword">while</span> (moving_pin != <span class="literal">nullptr</span>)</span><br><span class="line">    &#123;</span><br><span class="line">		<span class="keyword">if</span> (moving_pin-&gt;No != No)</span><br><span class="line">				overlap++;</span><br><span class="line">		moving_pin = moving_pin-&gt;next;</span><br><span class="line">		moving_pin = head;</span><br><span class="line">		(*p).next = <span class="keyword">new</span> Student;</span><br><span class="line">		p = p-&gt;next;</span><br><span class="line">		p-&gt;No = No; <span class="built_in">strcpy</span>(p-&gt;Name, Name); p-&gt;score[<span class="number">0</span>] = score[<span class="number">0</span>]; p-&gt;score[<span class="number">1</span>] = score[<span class="number">1</span>]; p-&gt;score[<span class="number">2</span>] = score[<span class="number">2</span>];</span><br><span class="line">		p-&gt;next = <span class="literal">nullptr</span>;<span class="comment">//调整了先锋指针封装末尾的顺序，原本这是在else if外面的</span></span><br><span class="line">		n++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>关于评论区</title>
-    <url>/2020/12/14/%E5%85%B3%E4%BA%8E%E8%AF%84%E8%AE%BA%E5%8C%BA/</url>
-    <content><![CDATA[<p>其实很简单</p>
-<a id="more"></a>
-
-<h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><p>第一步，安装，不过因为我中途更换了教程贴，所以我不大敢确定这一步是不是必要的，但我直觉它需要</p>
-<p>cmd里面输入：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm i --save gitalk</span><br></pre></td></tr></table></figure>
-
-<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><p>第二步，开始之前我倒是想废话两句，Github上的教程卡在npm安装上了，import不太懂是什么情况，前面加了npm也没用。基于时间问题，只能去找找帖子。结果找了老半天，有swig安装，有ejs安装，直到我发现自己的文件格式跟他们都不一样，我是.njk。这里举几篇例子，但他们做得其实都不错。</p>
-<p>其实呢，创建gitalk.swig的时候居然没发现，隔壁就有一个gitalk.njk，之后写这篇博客的时，回想起来，终于意识到网上版本是真的版本太久了，打开一看：</p>
-
-<p>原来已经简化了，之前要添加的乱七八糟的，都在这里，不用添加了，那好，直接走起，注册去！</p>
-<p><a href="https://github.com/settings/applications/new">点击这里进入Github OAuth注册</a></p>
-<p>注册的同时，和其他教程一样，修改.\theme\主题\下的_config.yml即可，详细描述参考上面的四篇教程就足够了，这里不再赘述。</p>
-]]></content>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>我的第一篇文章</title>
     <url>/2020/11/21/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
     <content><![CDATA[<p>始于2020</p>
@@ -447,6 +393,60 @@
       </categories>
       <tags>
         <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>结构体补充</title>
+    <url>/2020/12/15/%E7%BB%93%E6%9E%84%E4%BD%93%E8%A1%A5%E5%85%85/</url>
+    <content><![CDATA[<p>补充关于结构体和链表的操作</p>
+<a id="more"></a>
+
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function">Student* <span class="title">loadData</span><span class="params">(<span class="keyword">int</span>&amp; n)</span><span class="comment">//考虑做存档功能</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	n = <span class="number">0</span>;<span class="comment">//之前的数据全部清零</span></span><br><span class="line">	<span class="keyword">int</span> No; <span class="keyword">char</span> Name[<span class="number">20</span>]; <span class="keyword">double</span> Score[<span class="number">3</span>];</span><br><span class="line">	Student* T = <span class="keyword">new</span> Student;<span class="comment">//只有Student T是在运行时栈上，会被销毁</span></span><br><span class="line">	Student* mp2 = T;</span><br><span class="line">	FILE* fp = fopen(<span class="string">&quot;./学生成绩单.txt&quot;</span>, <span class="string">&quot;r&quot;</span>);</span><br><span class="line"><span class="keyword">while</span> (!feof(fp)) </span><br><span class="line">    <span class="comment">//feof（）检测一个文件是否结束，即到达文件尾，若结束，则返回非0值，否则返回0</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">fscanf</span>(fp, <span class="string">&quot;%d\t%s\t%lf\t%lf\t%lf\n&quot;</span>, &amp;No, Name, Score, Score + <span class="number">1</span>, Score + <span class="number">2</span>);</span><br><span class="line">	mp2-&gt;No = No; strcpy_s(mp2-&gt;Name, Name); mp2-&gt;score[<span class="number">0</span>] = Score[<span class="number">0</span>]; mp2-&gt;score[<span class="number">1</span>] = Score[<span class="number">1</span>]; mp2-&gt;score[<span class="number">2</span>] = Score[<span class="number">2</span>];</span><br><span class="line">	mp2-&gt;next = <span class="keyword">new</span> Student;</span><br><span class="line">	mp2 = mp2-&gt;next;</span><br><span class="line">	mp2-&gt;next = <span class="literal">nullptr</span>;<span class="comment">//使成员next变为nullptr，这才是真正的封装，下面那个不算，只是指针归零，方便下次再用。</span></span><br><span class="line">	n++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>问题代码：多出一组屯屯屯</p>
+<p>原因出于在已new了一组空的结构体，按while内逻辑，会多出一个“给下一组数据准备的空间”，无论多少组都是，结束循环后会多出一组空结构体，然后名字就叫“屯屯屯…（20个）”。</p>
+<p>改正后：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">Student* <span class="title">loadData</span><span class="params">(<span class="keyword">int</span>&amp; n)</span><span class="comment">//考虑做存档功能？</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	n = <span class="number">0</span>;<span class="comment">//之前的数据全部清零</span></span><br><span class="line">	<span class="keyword">int</span> No; <span class="keyword">char</span> Name[<span class="number">20</span>]; <span class="keyword">double</span> Score[<span class="number">3</span>];</span><br><span class="line">	Student* T = <span class="keyword">new</span> Student;<span class="comment">//只有Student T是在运行时栈上，会被销毁</span></span><br><span class="line">	Student* mp2 = T;</span><br><span class="line">	FILE* fp = fopen(<span class="string">&quot;./学生成绩单.txt&quot;</span>, <span class="string">&quot;r&quot;</span>);</span><br><span class="line">	<span class="keyword">while</span> (!feof(fp)) <span class="comment">//feof（）检测一个文件是否结束，即到达文件尾，若结束，则返回非0值，否则返回0</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (n &gt; <span class="number">0</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			mp2-&gt;next = <span class="keyword">new</span> Student;</span><br><span class="line">			mp2 = mp2-&gt;next;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">fscanf</span>(fp, <span class="string">&quot;%d\t%s\t%lf\t%lf\t%lf\n&quot;</span>, &amp;No, Name, Score, Score + <span class="number">1</span>, Score + <span class="number">2</span>);</span><br><span class="line">		mp2-&gt;No = No; strcpy_s(mp2-&gt;Name, Name); mp2-&gt;score[<span class="number">0</span>] = Score[<span class="number">0</span>]; mp2-&gt;score[<span class="number">1</span>] = Score[<span class="number">1</span>]; mp2-&gt;score[<span class="number">2</span>] = Score[<span class="number">2</span>];</span><br><span class="line">		mp2-&gt;next = <span class="literal">nullptr</span>;<span class="comment">//使成员next变为nullptr，这才是真正的封装，下面那个不算，只是指针归零，方便下次再用。</span></span><br><span class="line">		n++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//封装尾部，不能只让移动指针变为nullptr，否则最后一个结构体的成员next仍为乱码。</span></span><br><span class="line">	<span class="comment">//让指针变为nullptr只是让指针归零，归零后甚至还能调用；但原本指针指向的数据呢？还在那里？归于荒野？都是。</span></span><br><span class="line">	<span class="comment">//也就是说，next指针和这个mp2是不同的两个指针，一个是结构体成员，一个是外来辅助用的。</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">//其实这也是封装不统一导致的后果，有的封空结构体的头为nullptr，有的封空结构体的尾为nullptr，</span></span><br><span class="line">	<span class="comment">//其他功能调用到时候又各有不同（特别是while(移动指针!=nullptr)），结果为了统一只能两个都封</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//再注：原本的封装方式略有问题，我们创建的每一个结构体都应该是满的，但之前是装满之后再new一个出来，这不好，会多出一组屯屯屯（不过正好因为这个问题也有了上面的结论）</span></span><br><span class="line">	<span class="comment">//这也才想起我之前为什么在case 3里面分出两种情况：一种是第一次添加，另一种是第二次及以后添加，因为我们在前头都已经声明了一个空的结构体，如果这个结构体不使用，</span></span><br><span class="line">	<span class="comment">//而用统一格式去添加新结构体的话，就会向上面那样多出一组屯屯屯；但是，既然知道了关键点在哪里，也不用再写一次第一次该怎么办的分支了——用简单的吧，给new“上锁”</span></span><br><span class="line">	<span class="comment">//那么“锁”只有在n &gt; 0才去打开。</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//这种方式是不能使用的：我们没必要把不知道会不会填充的地方开辟出来。而应该确认了它会填充，再开辟空间</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>另一个简单点的例子，不过你要提前想好，我们已经声明了一个空的结构体;</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">&#123;…………省略前面…………</span><br><span class="line">    <span class="keyword">int</span> overlap = <span class="number">0</span>;<span class="comment">//检测重复数量</span></span><br><span class="line">	<span class="keyword">while</span> (moving_pin != <span class="literal">nullptr</span>)</span><br><span class="line">    &#123;</span><br><span class="line">		<span class="keyword">if</span> (moving_pin-&gt;No != No)</span><br><span class="line">				overlap++;</span><br><span class="line">		moving_pin = moving_pin-&gt;next;</span><br><span class="line">		moving_pin = head;</span><br><span class="line">		(*p).next = <span class="keyword">new</span> Student;</span><br><span class="line">		p = p-&gt;next;</span><br><span class="line">		p-&gt;No = No; <span class="built_in">strcpy</span>(p-&gt;Name, Name); p-&gt;score[<span class="number">0</span>] = score[<span class="number">0</span>]; p-&gt;score[<span class="number">1</span>] = score[<span class="number">1</span>]; p-&gt;score[<span class="number">2</span>] = score[<span class="number">2</span>];</span><br><span class="line">		p-&gt;next = <span class="literal">nullptr</span>;<span class="comment">//调整了先锋指针封装末尾的顺序，原本这是在else if外面的</span></span><br><span class="line">		n++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>测试页面</title>
+    <url>/2020/11/20/%E6%B5%8B%E8%AF%95/</url>
+    <content><![CDATA[<p>这个页面是用来测试的，是因第一次Hexo一片空白而产生的测试页面</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>关于评论区</title>
+    <url>/2020/12/14/%E5%85%B3%E4%BA%8E%E8%AF%84%E8%AE%BA%E5%8C%BA/</url>
+    <content><![CDATA[<p>其实很简单</p>
+<a id="more"></a>
+
+<h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><p>第一步，安装，不过因为我中途更换了教程贴，所以我不大敢确定这一步是不是必要的，但我直觉它需要</p>
+<p>cmd里面输入：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm i --save gitalk</span><br></pre></td></tr></table></figure>
+
+<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><p>第二步，开始之前我倒是想废话两句，Github上的教程卡在npm安装上了，import不太懂是什么情况，前面加了npm也没用。基于时间问题，只能去找找帖子。结果找了老半天，有swig安装，有ejs安装，直到我发现自己的文件格式跟他们都不一样，我是.njk。这里举几篇例子，但他们做得其实都不错。</p>
+<p>其实呢，创建gitalk.swig的时候居然没发现，隔壁就有一个gitalk.njk，之后写这篇博客的时，回想起来，终于意识到网上版本是真的版本太久了，打开一看：</p>
+
+<p>原来已经简化了，之前要添加的乱七八糟的，都在这里，不用添加了，那好，直接走起，注册去！</p>
+<p><a href="https://github.com/settings/applications/new">点击这里进入Github OAuth注册</a></p>
+<p>注册的同时，和其他教程一样，修改.\theme\主题\下的_config.yml即可，详细描述参考上面的四篇教程就足够了，这里不再赘述。</p>
+]]></content>
+      <tags>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
