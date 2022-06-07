@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"8.0.2","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":"auto","trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="前有新篇章，尝试一下">
+<meta property="og:type" content="article">
+<meta property="og:title" content="技术博客（一）">
+<meta property="og:url" content="http://example.com/2022/05/17/%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%B8%80%EF%BC%89/index.html">
+<meta property="og:site_name" content="お帰り、ドクター。">
+<meta property="og:description" content="前有新篇章，尝试一下">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2022/05/17/98vamqECiHV3r2M.png">
+<meta property="og:image" content="https://s2.loli.net/2022/05/17/1SzOyEQd64oJGCg.png">
+<meta property="og:image" content="https://s2.loli.net/2022/05/17/S3WzwFQ6AX1qjKG.png">
+<meta property="og:image" content="https://s2.loli.net/2022/05/17/8lfezkaqWAQUdY4.png">
+<meta property="og:image" content="https://s2.loli.net/2022/06/07/kAma2cxRFT8wenS.png">
+<meta property="article:published_time" content="2022-05-17T02:18:49.000Z">
+<meta property="article:modified_time" content="2022-06-07T16:05:03.543Z">
+<meta property="article:author" content="RH Xie">
+<meta property="article:tag" content="记录">
+<meta property="article:tag" content="月记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/05/17/98vamqECiHV3r2M.png">
+
+
+<link rel="canonical" href="http://example.com/2022/05/17/%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%B8%80%EF%BC%89/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/ilyabirman-likely@2/release/likely.min.css"><link rel="stylesheet" href="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.css"><style>
+#needsharebutton-float {
+  bottom: 88px;
+  cursor: pointer;
+  left: -8px;
+  position: fixed;
+  z-index: 9999;
+}
+#needsharebutton-float .btn {
+  border: 1px solid $btn-default-border-color;
+  border-radius: 4px;
+  padding: 0 10px 0 14px;
+}
+</style>
+
+  <title>技术博客（一） | お帰り、ドクター。</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">お帰り、ドクター。</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E7%AF%87"><span class="nav-number">1.</span> <span class="nav-text">开篇</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%91%E6%9D%A5%E5%81%9A%E7%9A%84%E4%BA%8B"><span class="nav-number">2.</span> <span class="nav-text">近来做的事</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E5%A0%86%E6%8A%A5%E5%91%8A"><span class="nav-number">2.1.</span> <span class="nav-text">一堆报告</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E6%80%BB%E7%BB%93"><span class="nav-number">2.1.1.</span> <span class="nav-text">软件工程总结</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13%E6%8A%98%E7%BA%BFPCM%E7%BC%96%E7%A0%81-%E5%9F%BA%E5%B8%A6%E4%BC%A0%E8%BE%93"><span class="nav-number">2.2.</span> <span class="nav-text">13折线PCM编码&#x2F;基带传输</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%93%E5%8C%85-%E7%BD%91%E7%BB%9C"><span class="nav-number">2.2.1.</span> <span class="nav-text">抓包&#x2F;网络</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%BE%E5%A4%96"><span class="nav-number">2.3.</span> <span class="nav-text">课外</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%99%AE%E9%80%9A%E8%AF%9D%E8%80%83%E8%AF%95"><span class="nav-number">2.3.1.</span> <span class="nav-text">普通话考试</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue"><span class="nav-number">3.</span> <span class="nav-text">Vue</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">3.1.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E5%9C%A8%E5%81%9A%E7%9A%84%E4%BA%8B"><span class="nav-number">4.</span> <span class="nav-text">正在做的事</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E5%88%92%E5%81%9A%E7%9A%84%E4%BA%8B"><span class="nav-number">5.</span> <span class="nav-text">计划做的事</span></a></li></ol></div>
+        </section>
+        <!--/noindex-->
+
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="RH Xie"
+      src="/images/20201108230401.jpg">
+  <p class="site-author-name" itemprop="name">RH Xie</p>
+  <div class="site-description" itemprop="description">每个人面前，都有一块无知之幕 / There lays a veil of ignorance in front of every mankind.</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://situ2001.com/" title="https:&#x2F;&#x2F;situ2001.com" rel="noopener" target="_blank">situ2001</a>
+        </li>
+    </ul>
+  </div>
+
+        </section>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/17/%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%B8%80%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/20201108230401.jpg">
+      <meta itemprop="name" content="RH Xie">
+      <meta itemprop="description" content="每个人面前，都有一块无知之幕 / There lays a veil of ignorance in front of every mankind.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="お帰り、ドクター。">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          技术博客（一）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-05-17 10:18:49" itemprop="dateCreated datePublished" datetime="2022-05-17T10:18:49+08:00">2022-05-17</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2022-06-08 00:05:03" itemprop="dateModified" datetime="2022-06-08T00:05:03+08:00">2022-06-08</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">技术记录</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="开篇"><a href="#开篇" class="headerlink" title="开篇"></a>开篇</h2><p>​        开出技术博客这个目录，自然是要记下业内或非业内的专业知识。与想象不同，从实际出发，我在开写前并不要求第一次写这类博客要写出个什么水平，而是要开个头，这样好有后面的进步，简而言之是”循序渐进”。</p>
+<p>​        在技术博客这一类目下，要求还是有几点的。一是目的，技术博客从之前单一混乱的生活记录中分离出来，是因为有这样的目的，才有这个目录。我过去的记录多模仿了他人的参赛记录，却没有参赛的格局，只是记录琐事，这种应当另开一目，归到轻松愉快的日常中。技术博客便从自己学到了什么入手，详细过程，对之后的技术博客提出跟进要求。二是格式，与生活记录使用相似的结构即可，即做了什么、在做什么、要做什么三大部份。可能在名词上有些不同，但总的是”过去””现在””未来”三个格局。</p>
+<h2 id="近来做的事"><a href="#近来做的事" class="headerlink" title="近来做的事"></a>近来做的事</h2><h3 id="一堆报告"><a href="#一堆报告" class="headerlink" title="一堆报告"></a>一堆报告</h3><h4 id="软件工程总结"><a href="#软件工程总结" class="headerlink" title="软件工程总结"></a>软件工程总结</h4><p>​        几个简单的图的使用。作图软件用的Rational ROSE，习惯之后还算好用（重点在于最后可以直接复制到Word文档，并且很清晰）；另一软件draw.io图类型比较全，不专为OOAD准备，流程图、甘特图、网络拓扑图都能画，但输出方面就一般了（也可能是我没专门去研究，只是画过一些很简单的图）。总体建议就是，做OOAD用ROSE就对了，其他图就draw.io，思维导图就XMind。</p>
+<p>​        要说学到了什么东西，主要还是去知网上看论文了。</p>
+<p>​        就拿最新看的一篇，用Vue.js做GIS可视化的，刚好可以给我加深Vue的知识，深入确认自己所学。</p>
+<h3 id="13折线PCM编码-基带传输"><a href="#13折线PCM编码-基带传输" class="headerlink" title="13折线PCM编码/基带传输"></a>13折线PCM编码/基带传输</h3><p>​        先说说13折线PCM编码的位置，它是基带传输前的工作，传输之前，将其压缩成8位*任意长的矩阵编码，是非均匀量化编码的简化版，相对后者来说可实现。整个过程其实就是比较大小、十进制和二进制转换的问题。编码为关键，做好了，译码则简单。</p>
+<p>​        第一步将原波形缩放一下，振幅在[-2048，2048]之间（为什么是这个区间下面解释）。随后按自己的要求采个样。这是准备工作。</p>
+<p>​        随后了解一下8位编码C1～C8的含义。C1表示某一时刻振幅的正负，C2～C4三位，共表示8种状态，即000～111。这8个数字分别代表振幅的大区间开始位置，[0, 16, 32, 64, 128, 256, 512, 1024]。比如振幅为67，则C2C3C4=011，即上面这个数组索引为3的64，表示振幅位于64～127之间。同理，我们可以推导出最大的区间为1024～2047，此时C2～C4=111，结合C1范围可达[-2047, 2047]，为什么不是2048我们接着说。</p>
+<p>​        上面说C2C3C4=011时，最大是127，为什么？这就要看剩下的4位编码C5～C8。C5～C8的作用是将大区间分成2^4=16个区间，即C5C6C7C8=0000时，表示64+0 * (128/16)=64；C5C6C7C8=0001时，64+1 * (128/16)=64 + 8 = 72，表示大于64小于等于72的振幅，统一用0001表示。这就是前面提到”压缩”所在，我们不需要精准到个位，给个大概区间就行，不会太影响译码后波形的大体情况，只是有些失真。而这一点微不足道的失真，却为我们换来了极大的空间，赢得了传输效率。你问我，这失真到底有多大，到底严重不严重啊？看下面图：</p>
+<img src="https://s2.loli.net/2022/05/17/98vamqECiHV3r2M.png" style="zoom:50%;" />
+
+<img src="https://s2.loli.net/2022/05/17/1SzOyEQd64oJGCg.png" style="zoom:50%;" />
+
+<p>​        什么意思？我故意隐藏了两张图的标题，你猜猜，哪个是原来的波形，哪个是译码信号？</p>
+<p>​        嘿嘿，还是留了一手的，振幅在[-1, 1]之间的是原信号波形，另一个则是译码波形。看看吧，完全没区别吧？只有等你放大了许多：</p>
+<img src="https://s2.loli.net/2022/05/17/S3WzwFQ6AX1qjKG.png" style="zoom:50%;" />
+
+<img src="https://s2.loli.net/2022/05/17/8lfezkaqWAQUdY4.png" style="zoom: 67%;" />
+
+<p>​        就像拿着4寸显示屏看8K直播一样，大概也是无用的、浪费的资源居多，显示屏就那么大，再清晰的细节人眼儿也只能展示出4寸的水平。</p>
+<p>​        言归正传，因为16个区间，从头到尾有17个点，第17个怎么办？没关系，我们做个小调整。刚刚我们不是说，64～71都用64表示吗？现在我们向上取整，64仍然是64，但65～72这样的区间，不用64表示，而用72，这样C5C6C7C8=1111时，表示121～128都归为128。列个表格就清晰了：</p>
+<table>
+<thead>
+<tr>
+<th align="center">C5C6C7C8</th>
+<th align="center">振幅范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">0000</td>
+<td align="center">64</td>
+</tr>
+<tr>
+<td align="center">0001</td>
+<td align="center">65～68 =&gt; 68</td>
+</tr>
+<tr>
+<td align="center">0010</td>
+<td align="center">69～72 =&gt; 72</td>
+</tr>
+<tr>
+<td align="center">…</td>
+<td align="center">(125-73) / (17-4) = 4（验证小区间，也叫步伐，正确）</td>
+</tr>
+<tr>
+<td align="center">1111</td>
+<td align="center">125~128 =&gt; 128</td>
+</tr>
+</tbody></table>
+<p>​        误差没有计算过，目测是比分成16块更准确。</p>
+<h4 id="抓包-网络"><a href="#抓包-网络" class="headerlink" title="抓包/网络"></a>抓包/网络</h4><p>​        Wireshark的基本使用方法，是先过滤地址，再过滤协议。地址可以在网页F12网络的”常规”一栏里看到，但是不要开着代理，因为请求全转给代理软件了。如果真这么做，就只能看见”localhost:转发端口”，ping也不大准确。</p>
+<p>​        根据这个网页或目标地址，填”host ip地址”，抓包完成后再填入协议。这两栏有各自的特定语法，查一查捕获过滤器（Capture filter）、显示过滤器（Display filter）。</p>
+<p>​        除此之外，用了下Cisco Packet Tracker，”网络”一词对我来说才有一个真实存在的实体——除了平时见的局域网，路由器接口之间同一网络号、不同主机号组成的网络也是网络的实体之一。配置静态路由关键在于接口之间的接线正确+网络号正确+转发目的地正确，三者缺一不可，把局域网的思想搬到这上面来是不行的。</p>
+<h3 id="课外"><a href="#课外" class="headerlink" title="课外"></a>课外</h3><h4 id="普通话考试"><a href="#普通话考试" class="headerlink" title="普通话考试"></a>普通话考试</h4><p>​        5月21号考了普通话考试。</p>
+<h2 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h2><p>​        目前还在看基础。之前一步登天开始Vite，后来觉得不妥，弃了，打基础去。按照自己的目标，Vue要学到像现在我的JS这样熟练，最好在7月前后完结。</p>
+<p>​        生活记录里提到，跟了个项目，目前是在做网页。因为前端用的是Vue，要求做状态监视，所以使用的是v-charts。Echarts的vue封装v-charts还算能用，但也只是能用地步，算不上好用，文档比较简陋，时常要去Echarts查配置项。不过怎么都比Viser好出一大截，这伙的文档是语雀做的，字符的半角全角都有问题，看着像API文档生成器加上一点描述做出来的。虽然它给了完整的示例+三种框架的实现，但配置项不容易找，要去封装前的AntV G2去查看，并且往往用不了，不知道什么问题。我用以上两个（v-charts、Viser）都实现了一次仪表盘和折线图面积图的组件封装，结果下来还是选了v-charts。</p>
+<p>​        原因有俩，一是v-charts很完好地继承了Echarts配置项，就算是不想用Vue封装的v-charts，只是为了能在Vue里用Echarts，extend配置项依旧满足你对Echarts的需求。相比之下Viser不知道在干啥，只能看着它给的示例去改，然后对比G2文档的API找配置项。其次是动态效果，Viser折腾半天都是“咔”“咔”地变化的，毫无连续性；v-charts就不同了，仪表盘的指针就不说了，一维变化还好，但就算是折线图，二维坐标的变换，v-charts也支持。有了这一点，调一下折线图的动画效果为linear，更新间隔和定时器一致，就可以实现很NB的折线图平滑移动效果。</p>
+<p>​        不过有个问题没解决，就是折线图淡出时，会被“咔”地一下直接shift走，左边直接空了一块。我目前的解决想法是：使用一个有动态效果的算法，在shift之前，不断地用两点间距计算、变换坐标，直到和倒数第二个重合为止，再shift出去。</p>
+<p><img src="https://s2.loli.net/2022/06/07/kAma2cxRFT8wenS.png" alt="未修复"></p>
+<p>​        现在总结下来，如果只用JS，Echarts和AntV G2应该相差不大。但封装过后的v-charts和Viser相比就差远了。一个能用，一个不好用。做Demo的期间，写OS报告也用到图标，这时就用上了Echarts，结果配置起来完全没问题，相当简单，效果也不错。</p>
+<p>​        值得一提的是，相比Viser，其实我们可能还有一个更好的选择：封装AntV F2的VChart，<strong>注意跟v-charts是两个东西</strong>。鉴于v-charts的东西暂时已经足够好用，也没有开发移动端的需求，所以先不去探索。哪天想试试一定要看看这个，毕竟API是完善的。<strong>不过目前要求是懂vux</strong>（跟Vuex是两个东西），<a target="_blank" rel="noopener" href="https://doc.vux.li/zh-CN/components/v-chart.html#examples:%E6%8A%98%E7%BA%BF%E5%9B%BE:%E5%B9%B3%E6%BB%91%E6%9B%B2%E7%BA%BF">完整的文档链接放这里了</a>。下面是一个简介：</p>
+<blockquote>
+<p><code>VUX</code>（读音 [v’ju:z]，同 <code>views</code>）是基于<code>WeUI</code>和<code>Vue</code>(2.x)开发的移动端UI组件库，主要服务于微信页面。</p>
+<p>基于<code>webpack + vue-loader + vux</code>可以快速开发移动端页面，配合<code>vux-loader</code>方便你在<code>WeUI</code>的基础上定制需要的样式。</p>
+<p><code>vux-loader</code>保证了组件按需使用，因此不用担心最终打包了整个vux的组件库代码。</p>
+<p><code>VUX</code>并不完全依赖于<code>WeUI</code>，<code>VUX</code> 在 <code>WeUI</code> 的基础上扩展了多个常用组件，但是尽量保持整体UI样式接近<code>WeUI</code>的设计规范。</p>
+</blockquote>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>​        遗憾依旧，<del>没有参加到任何项目或是比赛中</del>（现在倒可能参加了一个），只是参与些小活动，混混第二课堂分数。</p>
+<h2 id="正在做的事"><a href="#正在做的事" class="headerlink" title="正在做的事"></a>正在做的事</h2><p>​        近来减少了周记和月记的输出，但暗地里没少写文字。平生所悟都记在了”磁山后录”里。注重效率之后，平时做的事更多了，学会用Notion来记录目标、完成目标，并且持之以恒了有一段时间（其实也就不到一个星期）。</p>
+<p>​        近来一在学日语，逐渐从简单走向复杂。我打算每天听简明日语之外，还要看看那本语法书。</p>
+<p>​        二是经常看论文，我十分自信地认为，这种学习方式将会为我带来丰富的收获。</p>
+<p>​        三来开始了MC的mod制作，找到了非常好的教程，坚持下去，看看能走到哪一步罢。</p>
+<p>​        还有就是写报告。通信原理基本靠录视频、隔壁班代码和网上代码。计网老老实实地做了，有些还算实用。OS花的时间应该是最多的，但总体只觉得实验一是最接近操作系统的。其他的要么是模拟实验，系统函数都不用；要么就完全是写数据结构算法的。于是实验三干脆用JS写，Echarts可视化方便很呐。</p>
+<h2 id="计划做的事"><a href="#计划做的事" class="headerlink" title="计划做的事"></a>计划做的事</h2><ul>
+<li>坚持之前提到的</li>
+<li>两周之内，看一到两本课外书（文学相关的）</li>
+<li>完成毛概论文（已完成）</li>
+<li>重启Bomblab</li>
+<li>注意OS的实验，有概率暴雷，需要自觉提前完成</li>
+<li>准备好回到课本、准备考试的架势</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div class="post-widgets">
+    <div class="likely">
+        <div class="twitter">Tweet</div>
+        <div class="facebook">Share</div>
+        <div class="linkedin">Link</div>
+        <div class="gplus">Plus</div>
+        <div class="vkontakte">Share</div>
+        <div class="odnoklassniki">Class</div>
+        <div class="telegram">Send</div>
+        <div class="whatsapp">Send</div>
+        <div class="pinterest">Pin</div>
+    </div>
+  </div>
+  <script src="//cdn.jsdelivr.net/npm/ilyabirman-likely@2/release/likely.min.js"></script>
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>RH Xie
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/2022/05/17/%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%B8%80%EF%BC%89/" title="技术博客（一）">http://example.com/2022/05/17/技术博客（一）/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%B0%E5%BD%95/" rel="tag"># 记录</a>
+              <a href="/tags/%E6%9C%88%E8%AE%B0/" rel="tag"># 月记</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/01/21/%E6%9C%88%E8%AE%B0%20~%20Jan%202022/" rel="prev" title="月记 ~ Jan 2022">
+                  <i class="fa fa-chevron-left"></i> 月记 ~ Jan 2022
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/05/21/%E7%94%9F%E6%B4%BB%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%B8%80%EF%BC%89/" rel="next" title="生活博客（一）">
+                  生活博客（一） <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+      
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">RH Xie</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">62k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">57 分钟</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script size="100" alpha="0.1" zIndex="2" src="//cdn.jsdelivr.net/npm/ribbon.js@1.0.2/dist/ribbon.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+<div id="needsharebutton-float">
+      <span class="btn">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </span>
+    </div>
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+      flOptions = {};
+        flOptions.iconStyle = "box";
+        flOptions.boxForm = "horizontal";
+        flOptions.position = "middleRight";
+        flOptions.networks = "Weibo,Wechat,QQZone";
+      new needShareButton('#needsharebutton-float', flOptions);
+  </script>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css">
+
+<script>
+NexT.utils.loadComments('#gitalk-container', () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '9357c0208739fcd1f665',
+      clientSecret: '90594f83b0ec46a77a9e8ab4d983300445c08941',
+      repo        : 'RH-Xie.github.io',
+      owner       : 'RH-Xie',
+      admin       : ['RH-Xie'],
+      id          : '0ecd57c9c574f7719d58b3ab9ebf42a7',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>

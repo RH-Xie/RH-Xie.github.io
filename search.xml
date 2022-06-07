@@ -353,12 +353,6 @@
       </tags>
   </entry>
   <entry>
-    <title>测试页面</title>
-    <url>/2020/11/20/%E6%B5%8B%E8%AF%95/</url>
-    <content><![CDATA[<p>这个页面是用来测试的，是因第一次Hexo一片空白而产生的测试页面</p>
-]]></content>
-  </entry>
-  <entry>
     <title>关于评论区</title>
     <url>/2020/12/14/%E5%85%B3%E4%BA%8E%E8%AF%84%E8%AE%BA%E5%8C%BA/</url>
     <content><![CDATA[<p>其实很简单</p>
@@ -378,33 +372,6 @@
 ]]></content>
       <tags>
         <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>结构体补充</title>
-    <url>/2020/12/15/%E7%BB%93%E6%9E%84%E4%BD%93%E8%A1%A5%E5%85%85/</url>
-    <content><![CDATA[<p>补充关于结构体和链表的操作</p>
-<a id="more"></a>
-
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function">Student* <span class="title">loadData</span><span class="params">(<span class="keyword">int</span>&amp; n)</span><span class="comment">//考虑做存档功能</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	n = <span class="number">0</span>;<span class="comment">//之前的数据全部清零</span></span><br><span class="line">	<span class="keyword">int</span> No; <span class="keyword">char</span> Name[<span class="number">20</span>]; <span class="keyword">double</span> Score[<span class="number">3</span>];</span><br><span class="line">	Student* T = <span class="keyword">new</span> Student;<span class="comment">//只有Student T是在运行时栈上，会被销毁</span></span><br><span class="line">	Student* mp2 = T;</span><br><span class="line">	FILE* fp = fopen(<span class="string">&quot;./学生成绩单.txt&quot;</span>, <span class="string">&quot;r&quot;</span>);</span><br><span class="line"><span class="keyword">while</span> (!feof(fp)) </span><br><span class="line">    <span class="comment">//feof（）检测一个文件是否结束，即到达文件尾，若结束，则返回非0值，否则返回0</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">fscanf</span>(fp, <span class="string">&quot;%d\t%s\t%lf\t%lf\t%lf\n&quot;</span>, &amp;No, Name, Score, Score + <span class="number">1</span>, Score + <span class="number">2</span>);</span><br><span class="line">	mp2-&gt;No = No; strcpy_s(mp2-&gt;Name, Name); mp2-&gt;score[<span class="number">0</span>] = Score[<span class="number">0</span>]; mp2-&gt;score[<span class="number">1</span>] = Score[<span class="number">1</span>]; mp2-&gt;score[<span class="number">2</span>] = Score[<span class="number">2</span>];</span><br><span class="line">	mp2-&gt;next = <span class="keyword">new</span> Student;</span><br><span class="line">	mp2 = mp2-&gt;next;</span><br><span class="line">	mp2-&gt;next = <span class="literal">nullptr</span>;<span class="comment">//使成员next变为nullptr，这才是真正的封装，下面那个不算，只是指针归零，方便下次再用。</span></span><br><span class="line">	n++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>问题代码：多出一组屯屯屯</p>
-<p>原因出于在已new了一组空的结构体，按while内逻辑，会多出一个“给下一组数据准备的空间”，无论多少组都是，结束循环后会多出一组空结构体，然后名字就叫“屯屯屯…（20个）”。</p>
-<p>改正后：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">Student* <span class="title">loadData</span><span class="params">(<span class="keyword">int</span>&amp; n)</span><span class="comment">//考虑做存档功能？</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	n = <span class="number">0</span>;<span class="comment">//之前的数据全部清零</span></span><br><span class="line">	<span class="keyword">int</span> No; <span class="keyword">char</span> Name[<span class="number">20</span>]; <span class="keyword">double</span> Score[<span class="number">3</span>];</span><br><span class="line">	Student* T = <span class="keyword">new</span> Student;<span class="comment">//只有Student T是在运行时栈上，会被销毁</span></span><br><span class="line">	Student* mp2 = T;</span><br><span class="line">	FILE* fp = fopen(<span class="string">&quot;./学生成绩单.txt&quot;</span>, <span class="string">&quot;r&quot;</span>);</span><br><span class="line">	<span class="keyword">while</span> (!feof(fp)) <span class="comment">//feof（）检测一个文件是否结束，即到达文件尾，若结束，则返回非0值，否则返回0</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (n &gt; <span class="number">0</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			mp2-&gt;next = <span class="keyword">new</span> Student;</span><br><span class="line">			mp2 = mp2-&gt;next;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">fscanf</span>(fp, <span class="string">&quot;%d\t%s\t%lf\t%lf\t%lf\n&quot;</span>, &amp;No, Name, Score, Score + <span class="number">1</span>, Score + <span class="number">2</span>);</span><br><span class="line">		mp2-&gt;No = No; strcpy_s(mp2-&gt;Name, Name); mp2-&gt;score[<span class="number">0</span>] = Score[<span class="number">0</span>]; mp2-&gt;score[<span class="number">1</span>] = Score[<span class="number">1</span>]; mp2-&gt;score[<span class="number">2</span>] = Score[<span class="number">2</span>];</span><br><span class="line">		mp2-&gt;next = <span class="literal">nullptr</span>;<span class="comment">//使成员next变为nullptr，这才是真正的封装，下面那个不算，只是指针归零，方便下次再用。</span></span><br><span class="line">		n++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//封装尾部，不能只让移动指针变为nullptr，否则最后一个结构体的成员next仍为乱码。</span></span><br><span class="line">	<span class="comment">//让指针变为nullptr只是让指针归零，归零后甚至还能调用；但原本指针指向的数据呢？还在那里？归于荒野？都是。</span></span><br><span class="line">	<span class="comment">//也就是说，next指针和这个mp2是不同的两个指针，一个是结构体成员，一个是外来辅助用的。</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">//其实这也是封装不统一导致的后果，有的封空结构体的头为nullptr，有的封空结构体的尾为nullptr，</span></span><br><span class="line">	<span class="comment">//其他功能调用到时候又各有不同（特别是while(移动指针!=nullptr)），结果为了统一只能两个都封</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//再注：原本的封装方式略有问题，我们创建的每一个结构体都应该是满的，但之前是装满之后再new一个出来，这不好，会多出一组屯屯屯（不过正好因为这个问题也有了上面的结论）</span></span><br><span class="line">	<span class="comment">//这也才想起我之前为什么在case 3里面分出两种情况：一种是第一次添加，另一种是第二次及以后添加，因为我们在前头都已经声明了一个空的结构体，如果这个结构体不使用，</span></span><br><span class="line">	<span class="comment">//而用统一格式去添加新结构体的话，就会向上面那样多出一组屯屯屯；但是，既然知道了关键点在哪里，也不用再写一次第一次该怎么办的分支了——用简单的吧，给new“上锁”</span></span><br><span class="line">	<span class="comment">//那么“锁”只有在n &gt; 0才去打开。</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//这种方式是不能使用的：我们没必要把不知道会不会填充的地方开辟出来。而应该确认了它会填充，再开辟空间</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<p>另一个简单点的例子，不过你要提前想好，我们已经声明了一个空的结构体;</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">&#123;…………省略前面…………</span><br><span class="line">    <span class="keyword">int</span> overlap = <span class="number">0</span>;<span class="comment">//检测重复数量</span></span><br><span class="line">	<span class="keyword">while</span> (moving_pin != <span class="literal">nullptr</span>)</span><br><span class="line">    &#123;</span><br><span class="line">		<span class="keyword">if</span> (moving_pin-&gt;No != No)</span><br><span class="line">				overlap++;</span><br><span class="line">		moving_pin = moving_pin-&gt;next;</span><br><span class="line">		moving_pin = head;</span><br><span class="line">		(*p).next = <span class="keyword">new</span> Student;</span><br><span class="line">		p = p-&gt;next;</span><br><span class="line">		p-&gt;No = No; <span class="built_in">strcpy</span>(p-&gt;Name, Name); p-&gt;score[<span class="number">0</span>] = score[<span class="number">0</span>]; p-&gt;score[<span class="number">1</span>] = score[<span class="number">1</span>]; p-&gt;score[<span class="number">2</span>] = score[<span class="number">2</span>];</span><br><span class="line">		p-&gt;next = <span class="literal">nullptr</span>;<span class="comment">//调整了先锋指针封装末尾的顺序，原本这是在else if外面的</span></span><br><span class="line">		n++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -448,6 +415,176 @@
       </categories>
       <tags>
         <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>测试页面</title>
+    <url>/2020/11/20/%E6%B5%8B%E8%AF%95/</url>
+    <content><![CDATA[<p>这个页面是用来测试的，是因第一次Hexo一片空白而产生的测试页面</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>技术博客（一）</title>
+    <url>/2022/05/17/%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%B8%80%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="开篇"><a href="#开篇" class="headerlink" title="开篇"></a>开篇</h2><p>​        开出技术博客这个目录，自然是要记下业内或非业内的专业知识。与想象不同，从实际出发，我在开写前并不要求第一次写这类博客要写出个什么水平，而是要开个头，这样好有后面的进步，简而言之是”循序渐进”。</p>
+<p>​        在技术博客这一类目下，要求还是有几点的。一是目的，技术博客从之前单一混乱的生活记录中分离出来，是因为有这样的目的，才有这个目录。我过去的记录多模仿了他人的参赛记录，却没有参赛的格局，只是记录琐事，这种应当另开一目，归到轻松愉快的日常中。技术博客便从自己学到了什么入手，详细过程，对之后的技术博客提出跟进要求。二是格式，与生活记录使用相似的结构即可，即做了什么、在做什么、要做什么三大部份。可能在名词上有些不同，但总的是”过去””现在””未来”三个格局。</p>
+<h2 id="近来做的事"><a href="#近来做的事" class="headerlink" title="近来做的事"></a>近来做的事</h2><h3 id="一堆报告"><a href="#一堆报告" class="headerlink" title="一堆报告"></a>一堆报告</h3><h4 id="软件工程总结"><a href="#软件工程总结" class="headerlink" title="软件工程总结"></a>软件工程总结</h4><p>​        几个简单的图的使用。作图软件用的Rational ROSE，习惯之后还算好用（重点在于最后可以直接复制到Word文档，并且很清晰）；另一软件draw.io图类型比较全，不专为OOAD准备，流程图、甘特图、网络拓扑图都能画，但输出方面就一般了（也可能是我没专门去研究，只是画过一些很简单的图）。总体建议就是，做OOAD用ROSE就对了，其他图就draw.io，思维导图就XMind。</p>
+<p>​        要说学到了什么东西，主要还是去知网上看论文了。</p>
+<p>​        就拿最新看的一篇，用Vue.js做GIS可视化的，刚好可以给我加深Vue的知识，深入确认自己所学。</p>
+<h3 id="13折线PCM编码-基带传输"><a href="#13折线PCM编码-基带传输" class="headerlink" title="13折线PCM编码/基带传输"></a>13折线PCM编码/基带传输</h3><p>​        先说说13折线PCM编码的位置，它是基带传输前的工作，传输之前，将其压缩成8位*任意长的矩阵编码，是非均匀量化编码的简化版，相对后者来说可实现。整个过程其实就是比较大小、十进制和二进制转换的问题。编码为关键，做好了，译码则简单。</p>
+<p>​        第一步将原波形缩放一下，振幅在[-2048，2048]之间（为什么是这个区间下面解释）。随后按自己的要求采个样。这是准备工作。</p>
+<p>​        随后了解一下8位编码C1～C8的含义。C1表示某一时刻振幅的正负，C2～C4三位，共表示8种状态，即000～111。这8个数字分别代表振幅的大区间开始位置，[0, 16, 32, 64, 128, 256, 512, 1024]。比如振幅为67，则C2C3C4=011，即上面这个数组索引为3的64，表示振幅位于64～127之间。同理，我们可以推导出最大的区间为1024～2047，此时C2～C4=111，结合C1范围可达[-2047, 2047]，为什么不是2048我们接着说。</p>
+<p>​        上面说C2C3C4=011时，最大是127，为什么？这就要看剩下的4位编码C5～C8。C5～C8的作用是将大区间分成2^4=16个区间，即C5C6C7C8=0000时，表示64+0 * (128/16)=64；C5C6C7C8=0001时，64+1 * (128/16)=64 + 8 = 72，表示大于64小于等于72的振幅，统一用0001表示。这就是前面提到”压缩”所在，我们不需要精准到个位，给个大概区间就行，不会太影响译码后波形的大体情况，只是有些失真。而这一点微不足道的失真，却为我们换来了极大的空间，赢得了传输效率。你问我，这失真到底有多大，到底严重不严重啊？看下面图：</p>
+<img src="https://s2.loli.net/2022/05/17/98vamqECiHV3r2M.png" style="zoom:50%;" />
+
+<img src="https://s2.loli.net/2022/05/17/1SzOyEQd64oJGCg.png" style="zoom:50%;" />
+
+<p>​        什么意思？我故意隐藏了两张图的标题，你猜猜，哪个是原来的波形，哪个是译码信号？</p>
+<p>​        嘿嘿，还是留了一手的，振幅在[-1, 1]之间的是原信号波形，另一个则是译码波形。看看吧，完全没区别吧？只有等你放大了许多：</p>
+<img src="https://s2.loli.net/2022/05/17/S3WzwFQ6AX1qjKG.png" style="zoom:50%;" />
+
+<img src="https://s2.loli.net/2022/05/17/8lfezkaqWAQUdY4.png" style="zoom: 67%;" />
+
+<p>​        就像拿着4寸显示屏看8K直播一样，大概也是无用的、浪费的资源居多，显示屏就那么大，再清晰的细节人眼儿也只能展示出4寸的水平。</p>
+<p>​        言归正传，因为16个区间，从头到尾有17个点，第17个怎么办？没关系，我们做个小调整。刚刚我们不是说，64～71都用64表示吗？现在我们向上取整，64仍然是64，但65～72这样的区间，不用64表示，而用72，这样C5C6C7C8=1111时，表示121～128都归为128。列个表格就清晰了：</p>
+<table>
+<thead>
+<tr>
+<th align="center">C5C6C7C8</th>
+<th align="center">振幅范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">0000</td>
+<td align="center">64</td>
+</tr>
+<tr>
+<td align="center">0001</td>
+<td align="center">65～68 =&gt; 68</td>
+</tr>
+<tr>
+<td align="center">0010</td>
+<td align="center">69～72 =&gt; 72</td>
+</tr>
+<tr>
+<td align="center">…</td>
+<td align="center">(125-73) / (17-4) = 4（验证小区间，也叫步伐，正确）</td>
+</tr>
+<tr>
+<td align="center">1111</td>
+<td align="center">125~128 =&gt; 128</td>
+</tr>
+</tbody></table>
+<p>​        误差没有计算过，目测是比分成16块更准确。</p>
+<h4 id="抓包-网络"><a href="#抓包-网络" class="headerlink" title="抓包/网络"></a>抓包/网络</h4><p>​        Wireshark的基本使用方法，是先过滤地址，再过滤协议。地址可以在网页F12网络的”常规”一栏里看到，但是不要开着代理，因为请求全转给代理软件了。如果真这么做，就只能看见”localhost:转发端口”，ping也不大准确。</p>
+<p>​        根据这个网页或目标地址，填”host ip地址”，抓包完成后再填入协议。这两栏有各自的特定语法，查一查捕获过滤器（Capture filter）、显示过滤器（Display filter）。</p>
+<p>​        除此之外，用了下Cisco Packet Tracker，”网络”一词对我来说才有一个真实存在的实体——除了平时见的局域网，路由器接口之间同一网络号、不同主机号组成的网络也是网络的实体之一。配置静态路由关键在于接口之间的接线正确+网络号正确+转发目的地正确，三者缺一不可，把局域网的思想搬到这上面来是不行的。</p>
+<h3 id="课外"><a href="#课外" class="headerlink" title="课外"></a>课外</h3><h4 id="普通话考试"><a href="#普通话考试" class="headerlink" title="普通话考试"></a>普通话考试</h4><p>​        5月21号考了普通话考试。</p>
+<h2 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h2><p>​        目前还在看基础。之前一步登天开始Vite，后来觉得不妥，弃了，打基础去。按照自己的目标，Vue要学到像现在我的JS这样熟练，最好在7月前后完结。</p>
+<p>​        生活记录里提到，跟了个项目，目前是在做网页。因为前端用的是Vue，要求做状态监视，所以使用的是v-charts。Echarts的vue封装v-charts还算能用，但也只是能用地步，算不上好用，文档比较简陋，时常要去Echarts查配置项。不过怎么都比Viser好出一大截，这伙的文档是语雀做的，字符的半角全角都有问题，看着像API文档生成器加上一点描述做出来的。虽然它给了完整的示例+三种框架的实现，但配置项不容易找，要去封装前的AntV G2去查看，并且往往用不了，不知道什么问题。我用以上两个（v-charts、Viser）都实现了一次仪表盘和折线图面积图的组件封装，结果下来还是选了v-charts。</p>
+<p>​        原因有俩，一是v-charts很完好地继承了Echarts配置项，就算是不想用Vue封装的v-charts，只是为了能在Vue里用Echarts，extend配置项依旧满足你对Echarts的需求。相比之下Viser不知道在干啥，只能看着它给的示例去改，然后对比G2文档的API找配置项。其次是动态效果，Viser折腾半天都是“咔”“咔”地变化的，毫无连续性；v-charts就不同了，仪表盘的指针就不说了，一维变化还好，但就算是折线图，二维坐标的变换，v-charts也支持。有了这一点，调一下折线图的动画效果为linear，更新间隔和定时器一致，就可以实现很NB的折线图平滑移动效果。</p>
+<p>​        不过有个问题没解决，就是折线图淡出时，会被“咔”地一下直接shift走，左边直接空了一块。我目前的解决想法是：使用一个有动态效果的算法，在shift之前，不断地用两点间距计算、变换坐标，直到和倒数第二个重合为止，再shift出去。</p>
+<p><img src="https://s2.loli.net/2022/06/07/kAma2cxRFT8wenS.png" alt="未修复"></p>
+<p>​        现在总结下来，如果只用JS，Echarts和AntV G2应该相差不大。但封装过后的v-charts和Viser相比就差远了。一个能用，一个不好用。做Demo的期间，写OS报告也用到图标，这时就用上了Echarts，结果配置起来完全没问题，相当简单，效果也不错。</p>
+<p>​        值得一提的是，相比Viser，其实我们可能还有一个更好的选择：封装AntV F2的VChart，<strong>注意跟v-charts是两个东西</strong>。鉴于v-charts的东西暂时已经足够好用，也没有开发移动端的需求，所以先不去探索。哪天想试试一定要看看这个，毕竟API是完善的。<strong>不过目前要求是懂vux</strong>（跟Vuex是两个东西），<a href="https://doc.vux.li/zh-CN/components/v-chart.html#examples:%E6%8A%98%E7%BA%BF%E5%9B%BE:%E5%B9%B3%E6%BB%91%E6%9B%B2%E7%BA%BF">完整的文档链接放这里了</a>。下面是一个简介：</p>
+<blockquote>
+<p><code>VUX</code>（读音 [v’ju:z]，同 <code>views</code>）是基于<code>WeUI</code>和<code>Vue</code>(2.x)开发的移动端UI组件库，主要服务于微信页面。</p>
+<p>基于<code>webpack + vue-loader + vux</code>可以快速开发移动端页面，配合<code>vux-loader</code>方便你在<code>WeUI</code>的基础上定制需要的样式。</p>
+<p><code>vux-loader</code>保证了组件按需使用，因此不用担心最终打包了整个vux的组件库代码。</p>
+<p><code>VUX</code>并不完全依赖于<code>WeUI</code>，<code>VUX</code> 在 <code>WeUI</code> 的基础上扩展了多个常用组件，但是尽量保持整体UI样式接近<code>WeUI</code>的设计规范。</p>
+</blockquote>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>​        遗憾依旧，<del>没有参加到任何项目或是比赛中</del>（现在倒可能参加了一个），只是参与些小活动，混混第二课堂分数。</p>
+<h2 id="正在做的事"><a href="#正在做的事" class="headerlink" title="正在做的事"></a>正在做的事</h2><p>​        近来减少了周记和月记的输出，但暗地里没少写文字。平生所悟都记在了”磁山后录”里。注重效率之后，平时做的事更多了，学会用Notion来记录目标、完成目标，并且持之以恒了有一段时间（其实也就不到一个星期）。</p>
+<p>​        近来一在学日语，逐渐从简单走向复杂。我打算每天听简明日语之外，还要看看那本语法书。</p>
+<p>​        二是经常看论文，我十分自信地认为，这种学习方式将会为我带来丰富的收获。</p>
+<p>​        三来开始了MC的mod制作，找到了非常好的教程，坚持下去，看看能走到哪一步罢。</p>
+<p>​        还有就是写报告。通信原理基本靠录视频、隔壁班代码和网上代码。计网老老实实地做了，有些还算实用。OS花的时间应该是最多的，但总体只觉得实验一是最接近操作系统的。其他的要么是模拟实验，系统函数都不用；要么就完全是写数据结构算法的。于是实验三干脆用JS写，Echarts可视化方便很呐。</p>
+<h2 id="计划做的事"><a href="#计划做的事" class="headerlink" title="计划做的事"></a>计划做的事</h2><ul>
+<li>坚持之前提到的</li>
+<li>两周之内，看一到两本课外书（文学相关的）</li>
+<li>完成毛概论文（已完成）</li>
+<li>重启Bomblab</li>
+<li>注意OS的实验，有概率暴雷，需要自觉提前完成</li>
+<li>准备好回到课本、准备考试的架势</li>
+</ul>
+]]></content>
+      <categories>
+        <category>技术记录</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+        <tag>月记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>结构体补充</title>
+    <url>/2020/12/15/%E7%BB%93%E6%9E%84%E4%BD%93%E8%A1%A5%E5%85%85/</url>
+    <content><![CDATA[<p>补充关于结构体和链表的操作</p>
+<a id="more"></a>
+
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function">Student* <span class="title">loadData</span><span class="params">(<span class="keyword">int</span>&amp; n)</span><span class="comment">//考虑做存档功能</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	n = <span class="number">0</span>;<span class="comment">//之前的数据全部清零</span></span><br><span class="line">	<span class="keyword">int</span> No; <span class="keyword">char</span> Name[<span class="number">20</span>]; <span class="keyword">double</span> Score[<span class="number">3</span>];</span><br><span class="line">	Student* T = <span class="keyword">new</span> Student;<span class="comment">//只有Student T是在运行时栈上，会被销毁</span></span><br><span class="line">	Student* mp2 = T;</span><br><span class="line">	FILE* fp = fopen(<span class="string">&quot;./学生成绩单.txt&quot;</span>, <span class="string">&quot;r&quot;</span>);</span><br><span class="line"><span class="keyword">while</span> (!feof(fp)) </span><br><span class="line">    <span class="comment">//feof（）检测一个文件是否结束，即到达文件尾，若结束，则返回非0值，否则返回0</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">fscanf</span>(fp, <span class="string">&quot;%d\t%s\t%lf\t%lf\t%lf\n&quot;</span>, &amp;No, Name, Score, Score + <span class="number">1</span>, Score + <span class="number">2</span>);</span><br><span class="line">	mp2-&gt;No = No; strcpy_s(mp2-&gt;Name, Name); mp2-&gt;score[<span class="number">0</span>] = Score[<span class="number">0</span>]; mp2-&gt;score[<span class="number">1</span>] = Score[<span class="number">1</span>]; mp2-&gt;score[<span class="number">2</span>] = Score[<span class="number">2</span>];</span><br><span class="line">	mp2-&gt;next = <span class="keyword">new</span> Student;</span><br><span class="line">	mp2 = mp2-&gt;next;</span><br><span class="line">	mp2-&gt;next = <span class="literal">nullptr</span>;<span class="comment">//使成员next变为nullptr，这才是真正的封装，下面那个不算，只是指针归零，方便下次再用。</span></span><br><span class="line">	n++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>问题代码：多出一组屯屯屯</p>
+<p>原因出于在已new了一组空的结构体，按while内逻辑，会多出一个“给下一组数据准备的空间”，无论多少组都是，结束循环后会多出一组空结构体，然后名字就叫“屯屯屯…（20个）”。</p>
+<p>改正后：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">Student* <span class="title">loadData</span><span class="params">(<span class="keyword">int</span>&amp; n)</span><span class="comment">//考虑做存档功能？</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	n = <span class="number">0</span>;<span class="comment">//之前的数据全部清零</span></span><br><span class="line">	<span class="keyword">int</span> No; <span class="keyword">char</span> Name[<span class="number">20</span>]; <span class="keyword">double</span> Score[<span class="number">3</span>];</span><br><span class="line">	Student* T = <span class="keyword">new</span> Student;<span class="comment">//只有Student T是在运行时栈上，会被销毁</span></span><br><span class="line">	Student* mp2 = T;</span><br><span class="line">	FILE* fp = fopen(<span class="string">&quot;./学生成绩单.txt&quot;</span>, <span class="string">&quot;r&quot;</span>);</span><br><span class="line">	<span class="keyword">while</span> (!feof(fp)) <span class="comment">//feof（）检测一个文件是否结束，即到达文件尾，若结束，则返回非0值，否则返回0</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (n &gt; <span class="number">0</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			mp2-&gt;next = <span class="keyword">new</span> Student;</span><br><span class="line">			mp2 = mp2-&gt;next;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">fscanf</span>(fp, <span class="string">&quot;%d\t%s\t%lf\t%lf\t%lf\n&quot;</span>, &amp;No, Name, Score, Score + <span class="number">1</span>, Score + <span class="number">2</span>);</span><br><span class="line">		mp2-&gt;No = No; strcpy_s(mp2-&gt;Name, Name); mp2-&gt;score[<span class="number">0</span>] = Score[<span class="number">0</span>]; mp2-&gt;score[<span class="number">1</span>] = Score[<span class="number">1</span>]; mp2-&gt;score[<span class="number">2</span>] = Score[<span class="number">2</span>];</span><br><span class="line">		mp2-&gt;next = <span class="literal">nullptr</span>;<span class="comment">//使成员next变为nullptr，这才是真正的封装，下面那个不算，只是指针归零，方便下次再用。</span></span><br><span class="line">		n++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//封装尾部，不能只让移动指针变为nullptr，否则最后一个结构体的成员next仍为乱码。</span></span><br><span class="line">	<span class="comment">//让指针变为nullptr只是让指针归零，归零后甚至还能调用；但原本指针指向的数据呢？还在那里？归于荒野？都是。</span></span><br><span class="line">	<span class="comment">//也就是说，next指针和这个mp2是不同的两个指针，一个是结构体成员，一个是外来辅助用的。</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">//其实这也是封装不统一导致的后果，有的封空结构体的头为nullptr，有的封空结构体的尾为nullptr，</span></span><br><span class="line">	<span class="comment">//其他功能调用到时候又各有不同（特别是while(移动指针!=nullptr)），结果为了统一只能两个都封</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//再注：原本的封装方式略有问题，我们创建的每一个结构体都应该是满的，但之前是装满之后再new一个出来，这不好，会多出一组屯屯屯（不过正好因为这个问题也有了上面的结论）</span></span><br><span class="line">	<span class="comment">//这也才想起我之前为什么在case 3里面分出两种情况：一种是第一次添加，另一种是第二次及以后添加，因为我们在前头都已经声明了一个空的结构体，如果这个结构体不使用，</span></span><br><span class="line">	<span class="comment">//而用统一格式去添加新结构体的话，就会向上面那样多出一组屯屯屯；但是，既然知道了关键点在哪里，也不用再写一次第一次该怎么办的分支了——用简单的吧，给new“上锁”</span></span><br><span class="line">	<span class="comment">//那么“锁”只有在n &gt; 0才去打开。</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//这种方式是不能使用的：我们没必要把不知道会不会填充的地方开辟出来。而应该确认了它会填充，再开辟空间</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>另一个简单点的例子，不过你要提前想好，我们已经声明了一个空的结构体;</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">&#123;…………省略前面…………</span><br><span class="line">    <span class="keyword">int</span> overlap = <span class="number">0</span>;<span class="comment">//检测重复数量</span></span><br><span class="line">	<span class="keyword">while</span> (moving_pin != <span class="literal">nullptr</span>)</span><br><span class="line">    &#123;</span><br><span class="line">		<span class="keyword">if</span> (moving_pin-&gt;No != No)</span><br><span class="line">				overlap++;</span><br><span class="line">		moving_pin = moving_pin-&gt;next;</span><br><span class="line">		moving_pin = head;</span><br><span class="line">		(*p).next = <span class="keyword">new</span> Student;</span><br><span class="line">		p = p-&gt;next;</span><br><span class="line">		p-&gt;No = No; <span class="built_in">strcpy</span>(p-&gt;Name, Name); p-&gt;score[<span class="number">0</span>] = score[<span class="number">0</span>]; p-&gt;score[<span class="number">1</span>] = score[<span class="number">1</span>]; p-&gt;score[<span class="number">2</span>] = score[<span class="number">2</span>];</span><br><span class="line">		p-&gt;next = <span class="literal">nullptr</span>;<span class="comment">//调整了先锋指针封装末尾的顺序，原本这是在else if外面的</span></span><br><span class="line">		n++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>生活博客（一）</title>
+    <url>/2022/05/21/%E7%94%9F%E6%B4%BB%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%B8%80%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="开篇"><a href="#开篇" class="headerlink" title="开篇"></a>开篇</h2><p>​        开篇点题，生活记录即学习之外的一些记录。大概还是会以疫情为主基调。</p>
+<h2 id="近来做了什么"><a href="#近来做了什么" class="headerlink" title="近来做了什么"></a>近来做了什么</h2><h3 id="普通话考试"><a href="#普通话考试" class="headerlink" title="普通话考试"></a>普通话考试</h3><p>​        5月21日参加了普通话考试。得益于高质量大学的组织能力和效率，考试流程没有任何为难人的事——考试是单间，一人一屋，静音效果特好，不像很多地方考场，人员混杂着考。遗憾的是，我确信自己最后没考得多好，因为一些原始的问题还是暴露了出来，像回读、读错、卡壳，能上个二乙应该就十分不错了，但是三甲三乙就难看了点，这似乎是相当难受的卡点分数。</p>
+<p>​        考这个试目前没有什么大用，我将其视为我回归实况主的第一步。第一步已经迈出，生命不息，实况不止。</p>
+<h3 id="读论文"><a href="#读论文" class="headerlink" title="读论文"></a>读论文</h3><p>​        近来受软件工程结课作业的益，跑去知网上扒拉了几篇论文来看，颇有身处学府之神圣感。</p>
+<p>​        目前只看国内论文。我有想过看国外论文，但很明显现阶段不宜直接跳到国外去，对我来说那叫本末倒置。先看看国内优秀的论文，再去看国外，才知道差距，才知道要怎么看，要看什么。目前收藏了一些前端应用的论文，以省级校级优秀论文为主。这些文章讲好听可以叫做先进的高科技应用，讲得很难听也就是中肯的项目开发经历，没有不值得看的。里面有很多考量因素，即便生凑也有说得过去的理由。相对于绝大多数长篇博客来说，论文水准高出一截。</p>
+<h3 id="学日语"><a href="#学日语" class="headerlink" title="学日语"></a>学日语</h3><p>​        开始学日语。一方面是阅读现代的教程，另一方面去听简明日语的课程。后者进行时，虽然总觉得不知何处有些尴尬，但总体还是可以一用。</p>
+<p>​        近来课外书看的少了，不是做实验就是各种小考大考，又或是各种活动。在这里我计划下准备要看的课外书，最近只看一本就够，不可囫囵吞枣。在计划的，有一本《枪炮、病菌与钢铁》，讲世界文明的。</p>
+<h3 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h3><p>​        参加了个项目，目前项目的审查状态未知，只是听着老师的建议去做点小网页。于是Vue的进度又前进了一大截，并且庆幸Vue的生态比Vite宽泛得多，很多第三方库都照顾。之前Vite想引入个小图标都难如登天。做了几个小组件之后，对响应式的实现有了切实的了解，主要是数组在响应式中的应用。深入的内容记在技术博客里。</p>
+<h3 id="读书"><a href="#读书" class="headerlink" title="读书"></a>读书</h3><p>​        读了《ES6 For Humans》的大部分，介绍2015年发布的ES6中新增的一些规范，但看下来也只是粗略认识了下ES6的新东西，没有很深入。意外的收获是，Typora将MD转为PDF会非常好看，尤其是Pixyll主题，对英文和Typora的各种结构有很强的适配，建议用MD写的书全用这个主题转成PDF，放在IPAD上看。</p>
+<h3 id="做核酸"><a href="#做核酸" class="headerlink" title="做核酸"></a>做核酸</h3><p>​        这个月做了七次核酸。六月初，上海解封。音律联觉暂时没啥消息，估摸着至少要暑假才有可能。</p>
+<h3 id="“想当然”"><a href="#“想当然”" class="headerlink" title="“想当然”"></a>“想当然”</h3><p>​        这一天，我发现了“事后诸葛亮”的可怕之处。</p>
+<p>​        五月的晚上，我刚刚开始了Viser和v-chart的探索之旅。在调好一个仪表盘、还未来得及多把玩一会，QQ弹消息，说车万群群主转让了。群主许久没有冒泡，想来最近应该是忙的不行，又大三快大四了，应该时常要去实习，不活跃也能理解，所以转让群主也没啥不合理的。和他交流了几句，问问最近咋样——虽然没回答这个问题，但他说了点别的，感觉跟平时没啥两样，我也就答应了。他给自己留了个前群主头衔，我想应该这是足够称职的，他冒泡时可比我活跃多了。</p>
+<p>​        然而时钟刚过零点，车万群发来了一条聊天记录：有人自称已经头孢陪酒，（并且在群里发了遗书，这是后来通过另一群主知道的）群友报警，已经确认此人在我们这儿。</p>
+<p>​        一看，就是群主。</p>
+<p>​        这下群里炸了，群友找了各种各样的方法去搜刮他的信息，哪怕是错误的信息——却没一个联络得上。我曾经和他一起去跑过校园跑，意外的是，一年多了，居然还有记录。确认名字后去企业微信查，联络了同班同学。另一边，有热心群友已经到他宿舍确认情况，舍友先发现他头孢陪酒，叫救护车拉走了。</p>
+<p>​        一开始我犹豫要不要问他的同班同学。在最初我问了三个人，事出紧急我没有隐藏“头孢陪酒”这一有刺激性的消息。意外的是他们回复了，并且提供了很有用的信息，确认了舍友是哪几位。此时已是一点半，我在企业微信询问了他们班一半的人，恰好这一半人中有那位陪同群主去医院的舍友。</p>
+<p>​        我仍然感谢这位舍友愿意提供手机号码，为警方完结了这个案子，让紧急的气氛终于在两点多，在几个群、几十个人的神经紧绷中解除。而对于消息和隐私的泄露，至少到今天，他也没有找我和群友的麻烦。</p>
+<p>​        事后，我再往回看时，与当时的紧张和漫长等待感相反的是，我总觉得有些端倪。</p>
+<p>​        从结果上来看，是他的舍友先发现并叫救护车，及时救了他一命，导致我们看起来就像没有做什么。而报了警，后来才上报学校，学校的冷处理可能会没那么顺利，从而影响到群主本人。这样一来，事不关己的人们就会断言：“根本不用报警啊，你一报警就不好处理了，还把消息扩散了出去，说不定人家还不用休学一年，被你这一搞，耽误人生。”</p>
+<p>​        我和报警的群友们可以一致反驳他：“看见遗书，又说头孢陪酒，我们能坐视不管？”</p>
+<p>​        可“不用报警”这一想法本就不尊重我和所有参与的群友们，这样的反驳，恐怕还是不能让事不关己者放下那冷漠高贵的自尊。是的，因此，我们有必要不再把这条消息告诉任何人，不再扩散任何与自杀者有关的信息，以保护他和我们自己。</p>
+<p>​        这是我对本次事件最终的舆论处理定案：不让舆论参与、不参与舆论，这是最有效的防线。让事件在时间冲刷下，逐渐淡出，抚平伤痛，是定案的目的。我唯一担心的，是他的舍友怎么想，他的同学怎么想，他们是否站在我们这边？还是制造舆论与我们对立？我们无法控制，也无法自清。</p>
+<p>​        <strong>“事后诸葛亮”，如此可怕。</strong></p>
+<p>​        就像一开始我和原群主沟通，我再三确认，我一点儿异常都看不出。而<strong>事后</strong>我再去看一遍这个对话，冷汗直冒，仿佛字字句句都在说“我在交代后事”。而如果他的舍友们，同学们，用“事后诸葛亮”的角度对我们评价，那就免不了说：“你们要是早劝他就没事了”、“这么明显看不出来？”“你们为什么要报警”者云云。因此，谈起“今晚转群主是不是和头孢陪酒有什么关系”，这个对话我至今未敢转到车万群里去。</p>
+<p>​        关于舆论，舆论有一千种理由，让不合理的事变合理；也有一万种方式，攻击任何一个事件参与者。就像上面的，我还能用最实际的情况反驳：“都大三了，万一舍友去实习了，而只剩下他一个人在宿舍？如果是，我们不报警会发生什么事？你是否想过这一点？”这下事不关己者又变成我们的支持者了。很感谢你能看到这里，这个时代没有太多人喜欢长篇大论，有人在读到本部分“想来最近应该是忙的不行”的时候就已经急得跳脚了，然后带着有色眼镜离开。这就是事后诸葛亮在糟糕网络舆论环境下孵化的成果。</p>
+<p>​        这是我人生头一次站在这一的高度，或者说是维度，去看人和人性——我先通过一次完整的对话，自己通过事前事后对比，感受到事后诸葛亮的恐怖。随后这个现象再次出现，但这回受害者不是群主了，而是变成我和群友；事后诸葛亮从我自己，变成了任何一个可以了解本事件的其他人。</p>
+<h2 id="在做什么"><a href="#在做什么" class="headerlink" title="在做什么"></a>在做什么</h2><h3 id="学Vue"><a href="#学Vue" class="headerlink" title="学Vue"></a>学Vue</h3><p>​        现在课程接近到二分之一了，后面比较重要的，有路由、组件通信、setup和vue3内容等。</p>
+<h3 id="mc的mod编程"><a href="#mc的mod编程" class="headerlink" title="mc的mod编程"></a>mc的mod编程</h3><p>​        难就难在版本不同，Map对应的各个函数有不同，需要自己去看接口。现在玩MOD颇有JS调别人第三方库的感觉，写这些的人太猛了。</p>
+<h3 id="写报告"><a href="#写报告" class="headerlink" title="写报告"></a>写报告</h3><p>​        三个实验课，还应付的过来。早前的软件工程已经出成绩了，赏脸给了优，《带你听懂》也十分给面，考试多少分，成绩就不会比这个分低。体育倒是担忧的——逃课两次被抓了。一次是测1km的，一次是跳远五十米那些。会不会被记到逃课记录里，看造化力。</p>
+<h2 id="想说什么"><a href="#想说什么" class="headerlink" title="想说什么"></a>想说什么</h2><p>​        最近基本三点一线，图书馆教室宿舍，疫情防控依旧在进行，核酸从这个月开始常态化，隔三岔五就来一次，不过得益于高质量大学的拨款力度，核酸免费。</p>
+<p>​        “想当然”，是我对事件中自己行为的一次评判。我首先是想当然地找了校园跑APP的记录，确认名字；想当然地去微信确认电话号码，打电话，不通；而后又想当然地，去联系他的同学，结果开始那会没把“头孢陪酒”这四个字藏好，没思考如果走漏了消息，可能会对他日后产生怎样影响；想当然地熬夜等消息，把平安信带给群友们，给警方提供了舍友的联系电话；之后两天，想当然地问问原群主，身体恢复如何，我们什么时候去探望一下——结果是已经出院，不需要了。如此多“想当然”之后，我终于知道，行事得谨慎些了。</p>
+<p>​        最后接近考试了，一方面需要加紧复习和做题，另一方面要跟进项目，把应该有的效果都做出来。但并不能因此放弃休息或是带病上岗，需要注意自己，尤其是眼睛和脊椎的保养。</p>
+]]></content>
+      <categories>
+        <category>生活记录</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+        <tag>月记</tag>
       </tags>
   </entry>
   <entry>
