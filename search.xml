@@ -1,40 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>2022行纪（01）</title>
-    <url>/2022/09/07/2022%E8%A1%8C%E7%BA%AA%EF%BC%8801%EF%BC%89/</url>
-    <content><![CDATA[<blockquote>
-<p>前言：</p>
-<p>本篇由多篇记录溯源整理而成，各部分时间有所跳动。</p>
-</blockquote>
-<h2 id="2022-7"><a href="#2022-7" class="headerlink" title="2022.7"></a>2022.7</h2><p>原本我为我的暑假准备了很多Todos，念在字节青训营并不容易坚持到底，故设计零散的目标分给暑假去实现。结果是选择了青训营，而Todos搁置一边。但这并不意味着这些Todos不再去做了，或者是暑假没有做事——青训营的学习心路还是值得一记的。</p>
-<p>按照断更以来的时间顺序，我记下一些暑假前后的事情。</p>
-<h3 id="实验，课设和考试"><a href="#实验，课设和考试" class="headerlink" title="实验，课设和考试"></a>实验，课设和考试</h3><p>实验完成得七七八八，其实在之前也被提到过，这学期压力算是很小，三个实验一个课设</p>
-<p>计网实验怪怪的，不去实现TCP/IP协议或者是其他网络相关的东西，倒是用各种软件去模拟网络，甚至还要写程序模拟个交换机。对于可视化，想想需要Qt之类的写算法就贼麻烦，又没要求算法效率，所以直接JavaScript写了计网和操作系统需要可视化的部分，表格啊图表啊什么的。写一次就扔的文件，也没有用TypeScript的必要，降低投入成本。结果还算过得去，成绩都不差。</p>
-<p>课设只有操作系统，我一眼就相中了“文件系统”。相比什么子进程同步锁，这模拟一个文件系统，完全就是字符串处理罢了，多简单啊！</p>
-<p>于是用C写了两天写出来，还贼逼真，改改颜色几乎以假乱真了。剩下3天带着平板去实验室复习。毕竟考试吧，挺玄乎的，没有太多真题和往年卷，靠自己多做才行。计网和OS大多都是课后习题里出。</p>
-<p>毛概就是背了，根据给的提示，狂背，困了就手打，能记住多少就是多少。好在选好老师，怎么折腾都不怕太差。</p>
-<h3 id="重构了项目页面"><a href="#重构了项目页面" class="headerlink" title="重构了项目页面"></a>重构了项目页面</h3><p>准确来说是终于用上了UI库，是尤大曾推荐的Vuetify。使用体验还不错，只是初次接触，难免有些操作生硬的地方。比如侧边栏究竟跟顶栏谁盖住谁，人家UI库也没想着你会两个都要，导致交差一起不好看，东西被盖住，理所当然。我学前端不到半年，这样的意识还没有树立起来，还是要多多学习Material Design那些Guidelines。</p>
-<p>至于监控页面的那个项目，经过简单的重构，打包的产物放在我新买的服务器上运行后，我就没有再动过了。两个月后，没想到老师让我展示展示，这下可尴尬，服务器已经关掉一个月了。这就说明，还是有必要物色一个常驻服务器了。</p>
-<h3 id="尝试重构博客"><a href="#尝试重构博客" class="headerlink" title="尝试重构博客"></a>尝试重构博客</h3><p>用了上面说的UI库，我加上解析<code>.md</code>的功能，就大致把新博客做了出来。可惜很多地方解析不到位，还需要很多修缮。</p>
-<p>时间不等人，重构一半，邮件弹出，青训营也开始了。</p>
-<h3 id="进入基础班"><a href="#进入基础班" class="headerlink" title="进入基础班"></a>进入基础班</h3><p>从唠嗑大群人数来看，基本上交了卷都能进基础班。即使是这样我也没冒险去尝试进阶班，因为说不好没选上会连基础班都进不去，那暑假就容易荒废。大多数人来这里，一是为了找人合作最后的大项目，二是字节提供前端课程，三是这里的学习氛围。在这两个月学习中，我也体会到氛围的重要：交流、社区汲取是提升技术、开眼界的两个通道。</p>
-<h2 id="2022-8"><a href="#2022-8" class="headerlink" title="2022.8"></a>2022.8</h2><blockquote>
-<p>有道曰：“善始者众，善终者寡。”</p>
-</blockquote>
-<p>唠嗑群在开营前后几天，人数巅峰为3000有余。</p>
-<h3 id="组队"><a href="#组队" class="headerlink" title="组队"></a>组队</h3><p>一波三折。</p>
-<p>大多人第一次进入飞书，其中也包括了我。而迅速换上头像，能让我们更快融入其中。</p>
-<p>我主动联系了许多人，他们有的已经实习，有的与我同年；有经验丰富，也有小白一枚。我并没太多想法，只是跟随一开始约好的人。一个8人群很快就组建完毕，甚至在Github上也有了Organization。此时，群内大约有5名大佬，久经沙场，另外3人我在内，是小白水平。组织名就叫：</p>
+    <title>2022行纪（02）</title>
+    <url>/2022/11/22/2022%E8%A1%8C%E7%BA%AA%EF%BC%8802%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="2022-09"><a href="#2022-09" class="headerlink" title="2022.09"></a>2022.09</h2><p>壬寅年戊申月，已至学府，须臾而安定学府城中。</p>
+<h3 id="无事者"><a href="#无事者" class="headerlink" title="无事者"></a>无事者</h3><p>研学者多试，有如二氧化碳维稳者，有如披防护服体验者，皆有酬寻试。</p>
+<p>无事者如我，遂前应试，得报酬少许。复试之，尾声渐近，加之疲矣，故国庆后不再前往。</p>
+<p>入学新者，军训必加之，募求劳务志愿者。</p>
+<p>无事者如我，遂前劳之，得志愿时少许。复劳多日，甚无聊。</p>
+<p>尾声之际，邻舍荐新兴小程序团队，职求前端。</p>
+<p>无事者如我，遂前面试，得许，入队待命，辛亥月方得令开发，时至今日，愈发迫近。</p>
+<h3 id="青训收尾"><a href="#青训收尾" class="headerlink" title="青训收尾"></a>青训收尾</h3><p>青训营答辩未登场，以他人代之，幸得成绩斐然，可喜可贺。此月暮，证书邮至，欣喜十分。装饰华丽，大方简重，记录留念；另有奖品数项，皆实用。其后打卡活动，日行万步，样式操练，算法进阶，百词收纳，尽数操持。Github教育有佬相助，得学生资格，尝Copilot，甚叹。</p>
+<p>此外，去月已至辛亥纪念馆，今月复至，览中山公园，游大学城中环道路，游广外华师外围，叹防控，不得以入。</p>
+<p>国庆，量其前一日无课，宜及早返乡，乃返。然任务繁重，游玩之时，不大尽兴。</p>
+<h2 id="2022-10"><a href="#2022-10" class="headerlink" title="2022.10"></a>2022.10</h2><p>壬寅年庚戌月，复返学府。无重物携带，遂地铁后骑行。</p>
+<p>随即，全员核酸日渐频繁，鲁迅门虽设而常关。</p>
+<p>游戏历史如日中天如火如荼，人工智能算法之折腾孜孜不倦。</p>
+<p>常至图书馆，空调有余力。时而日行万步，慢跑两千五。</p>
+<h3 id="百日打卡"><a href="#百日打卡" class="headerlink" title="百日打卡"></a>百日打卡</h3><p>目前我已加入青训营的百日打卡计划，内容如下：<br>每日任务：力扣刷题、CSS学习、每日刷单词、日语学习、日行万步。<br>总体任务：写一个uni-app应用、日语N3、读书、重构博客。</p>
+<p>而百日之后，我最终打算这样验收：</p>
+<ul>
+<li><p>从零开始做一个UI库</p>
+</li>
+<li><p>实现Mini-vue</p>
+</li>
+</ul>
+<h3 id="在车万群开展活动"><a href="#在车万群开展活动" class="headerlink" title="在车万群开展活动"></a>在车万群开展活动</h3><p>（时间来到了十月末，10.28星期五的早上）</p>
+<p>活动倒是展开的七七八八，算是久违地活跃了一波。先是STG接力和则赛，随后打算在年末再来个绘画接力。MC服开起来测试了会，不过似乎太吓人了，没什么人在里面深耕我写的任务。当然啦，这个周目我的动机是做给自己玩，给自己造一个安心的空间，所以有无人实际上不是主要的。<br>目前是什么状况呢？我想制造一个RPG地图，但是兼顾生存，分开两个世界，只要在进入世界时设置点指令即可。一个休闲，一个冒险，十分新颖。而且搭配有音乐、图书导入的功能（原型阶段），不可谓不是20年代MC的新享受。</p>
+<h3 id="游戏课上讲车万和方舟"><a href="#游戏课上讲车万和方舟" class="headerlink" title="游戏课上讲车万和方舟"></a>游戏课上讲车万和方舟</h3><p>方舟可能没机会了，但是车万还好钦定上。不过方舟那个我打算当作作业，也给做出来，毕竟能讲的东西可太充足了。</p>
+<h3 id="写年记"><a href="#写年记" class="headerlink" title="写年记"></a>写年记</h3><p>上一篇年记在2021.9就写了，而现在九月已经过去，国庆已至，需要例行对过去一年总结分析。<br>（2022.10.28）诚然，我并没有那么多时间真的从头写一篇，只能在已有的基础上持续更新近况。如果这是一个问题，那么同时也是一个需求，我可以做一个APP或是桌面应用来定制化解决这样的问题。</p>
+]]></content>
+      <categories>
+        <category>生活记录</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+        <tag>年记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2022行纪（03）</title>
+    <url>/2023/01/09/2022%E8%A1%8C%E7%BA%AA%EF%BC%8803%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="2022-11"><a href="#2022-11" class="headerlink" title="2022.11"></a>2022.11</h2><h3 id="封校"><a href="#封校" class="headerlink" title="封校"></a>封校</h3><p>周三清晨的我，驻足在宿舍大楼门口，正准备重复一遍，上周三的苦状。</p>
+<p>门口前，不合时宜的卷闸，与阳光灿漫的大街出现在同一时空——而在往常，只有早于六点的蒙蒙亮天空，才会去陪伴那堵钢铁卷闸门。</p>
 <blockquote>
-<p>“心脏和字节只能有一个跳动”</p>
+<p>🚧 11.9  封楼了</p>
 </blockquote>
-<p>几天磋商，几天考量。结果磋商不大成功，群主似乎找好了下家，率先跑路；随后当天晚，另一名大佬也另谋高就，组织失去了两个重要的主心骨，不可谓不令人担忧队伍的后续发展。</p>
-<h3 id="写项目"><a href="#写项目" class="headerlink" title="写项目"></a>写项目</h3><p>群内许久无音信，没人开始做项目，但我只有这一件事要做。一个人把项目骨架日出来就写文档，然后就是团队开发了。六人有三人参与项目开发，另有一人在后期负责PPT。</p>
-<p>记得一个人写的那会，问题巨多，Vite3差点换成Vite2，后来<code>.umd.js</code>和<code>.css</code>编译在一起没引起什么特殊问题，才保留了Vite3。</p>
-<p>到八月中旬，104支队伍提交项目。按每支队7人，三千人此时只剩下七百在坚持。</p>
-<h3 id="暑假结束"><a href="#暑假结束" class="headerlink" title="暑假结束"></a>暑假结束</h3><p>答辩由另一位大佬主持。成绩还不错的，只是这个项目的潜力完全不止这点。如果当时6个人开足马力，必定是可以夺得第一。首先UI库跟模块结合打包有问题没解决，其次没做组件商城，这十分可惜。</p>
-<p>晋级答辩60支队伍，即约420人，差不多是报名时的1/9。获得结营证书65人，是报名时的1/46。本来有结营资格的有130多人，结果过半被卡在旷课或笔记数量不够上——这是在项目截止后，运营组多给了一个星期去弥补笔记的情况下。</p>
+<p>原本这是双周（第十周），周三第一节有课，俗称“早八”，而编译原理课比较骇人，偶尔会给人不舒服的感觉。于我而言，恐怕莫过于浪费时间和精力在未涉足的内容上。</p>
+<p>“回去都回去了，先等学校通知，”卷闸门外的衬衫西裤如此喊道。</p>
+<p>我把卷闸门摄入镜头，发上几个熟悉的群聊。</p>
+<p>驻足宿舍门外的好奇目光，越来越多，偶尔冒头，偶尔踱步。原路返回的这两分钟，微信群、QQ群消息如轰炸机落下的成堆炸弹，轰炸了整片社交圈。</p>
+<p>于是趁着封楼、上网课的时间，开足马力做方舟的ppt。周三做到周日晚，几乎废寝忘食，所整理的图片资料无数，催生了一些新的需求，比如“私人图库”，给本地图片带上标签，方便查找。</p>
+<h3 id="传教"><a href="#传教" class="headerlink" title="传教"></a>传教</h3><p>做了方舟和东方的PPT，后者需要备课上台演讲。两边都做得很好。对自己而言是十分乃至一百分满意的交代。</p>
+<p>按顺序来，先是方舟的PPT——完成于11月13日晚，用时估计为七天满——在开始之前的一个星期就已经做准备工作。</p>
+<p>《游戏中的历史与文化》，广州大学的一门非专业选修课，设于“历史与文化”栏目下，主讲教师是刘畅，偶尔不是。如果能在大二选上这么一门选修，大约是最合时宜的。二次元、游戏厨两个高度重合的标签，几乎属于这课堂中每个人。</p>
+<p>往届在课堂上展示STG L难度的18级师兄，业已离开校园，以致老师不得不恢复以前的东方压轴宣讲节目。我拿下了这个配合演讲的机会，打了首发（红永妖花）的部分，也有少量的二创、社区内容。可惜讲本家内容时依旧支吾，是没有备课的。备课演讲，实际上需要环境和练习，而我的这些时间去复习车万、找美图去了，只要把本家内容讲个大概，有足够的梗和美少女，也就应该能满足听众。</p>
+<p>此前那个周二，为了赶上可能的缺席机会，为了能让方舟也有机会登上讲台，拼力赶了一天幻灯片，连周三早上的组网技术课都在写这个。同时周末准备大量投入时间，结果发现作业抄错题，转而去赶作业，遂罢。推迟到这周二开展，依然赶了足足一天。</p>
+<p>我设想的目标，实在过于精细，过于注重PPT的内容堆砌，内容密度一次又一次提高，还加入了不可能讲解的音乐。而这作为参评作业，竟没有获得奖项，实在耿耿于怀。</p>
+<h2 id="2022-12"><a href="#2022-12" class="headerlink" title="2022.12"></a>2022.12</h2><h3 id="疫潮"><a href="#疫潮" class="headerlink" title="疫潮"></a>疫潮</h3><blockquote>
+<p>👻 繁华与忙碌并没有如期而至，取而代之的是大面积感染如潮水般汹涌而来。</p>
+</blockquote>
+<p>十二月的我并没有像往常那样，挑灯夜战写实验报告，吸收课程考点，即使那本应该是这样。</p>
+<p>此时的十二月，更像是年前的大扫除，除邋遢，把广州城一扫而空，大学生们如潮水回流大海，回到各自家乡。这段时间发生的事情太多，也有太多不如意。技术的学习几乎处于停滞，外来的干扰接二连三。课程虽有收获，但那显然不是我所需要的。</p>
+<p>十一月初，封校，一个星期，厂的物资丰富，没有造成很大困扰。十一月下旬全国疫情传播，校内许多人都趁此跑回家。一个星期后，我在十二月五日启程回家，十分空荡，路途意外顺利，说明挑对了时间。这次大学生返乡潮之后，全国疫情已不受控制，二十号我在家里就感染了新冠，三天左右，遗留了一堆症状，比如口干咳嗽眼睛疼等等。这次提前返乡，实质上是把医疗压力分散到全国各地。</p>
+<p>这便是三年抗疫的最终成效了。有失败的，也有成功的。让很多人晚三年感染新冠，但阻止不了新冠感染全部人。国家放下了防控压力，随之而来的是舆控压力。还记得，我们把2020称作“魔幻的一年”吗？</p>
+<blockquote>
+<p>“折戟沉沙铁未销，自将磨洗认前朝”</p>
+</blockquote>
+<p>症状变化大概如下：</p>
+<ul>
+<li>第一天（周一），困，头晕眼胀</li>
+<li>第一天晚，高烧</li>
+<li>第二天（周二），高烧</li>
+<li>第三天，退烧</li>
+<li>第四天，肺部肌肉酸痛</li>
+<li>第五天~两个月内：咳嗽</li>
+</ul>
+<h2 id="总结（杂谈）"><a href="#总结（杂谈）" class="headerlink" title="总结（杂谈）"></a>总结（杂谈）</h2><p>每当杂谈，便是回顾，回顾便知未来打算。</p>
+<p>整个学期过去的有些快。同时好像又什么都没做，此时1月9日坐在这里，几乎就和8月29号坐在此处一样。细数，九月加入团队，十月摸鱼，十一月赶工，十二月遣返，最后的十二月和一月共同承担了不该有之重。</p>
+<p>因为续写的次数过多，屡屡想要全盘重写，又感到没什么好总结，做事重要。这样度过了大概三天，期间无非就是看书，运动，联机，咳嗽。连我都感觉时间过去的太快，以至于每天晚睡前、午睡前都努力想象着起来后可以干什么。而睡眠质量的下降需要额外的时间来休息，使本不充分利用的时间更加挤。</p>
 ]]></content>
       <categories>
         <category>生活记录</category>
@@ -121,84 +165,40 @@
       </tags>
   </entry>
   <entry>
-    <title>2022行纪（03）</title>
-    <url>/2023/01/09/2022%E8%A1%8C%E7%BA%AA%EF%BC%8803%EF%BC%89/</url>
-    <content><![CDATA[<h2 id="2022-11"><a href="#2022-11" class="headerlink" title="2022.11"></a>2022.11</h2><h3 id="封校"><a href="#封校" class="headerlink" title="封校"></a>封校</h3><p>周三清晨的我，驻足在宿舍大楼门口，正准备重复一遍，上周三的苦状。</p>
-<p>门口前，不合时宜的卷闸，与阳光灿漫的大街出现在同一时空——而在往常，只有早于六点的蒙蒙亮天空，才会去陪伴那堵钢铁卷闸门。</p>
+    <title>2022行纪（01）</title>
+    <url>/2022/09/07/2022%E8%A1%8C%E7%BA%AA%EF%BC%8801%EF%BC%89/</url>
+    <content><![CDATA[<blockquote>
+<p>前言：</p>
+<p>本篇由多篇记录溯源整理而成，各部分时间有所跳动。</p>
+</blockquote>
+<h2 id="2022-7"><a href="#2022-7" class="headerlink" title="2022.7"></a>2022.7</h2><p>原本我为我的暑假准备了很多Todos，念在字节青训营并不容易坚持到底，故设计零散的目标分给暑假去实现。结果是选择了青训营，而Todos搁置一边。但这并不意味着这些Todos不再去做了，或者是暑假没有做事——青训营的学习心路还是值得一记的。</p>
+<p>按照断更以来的时间顺序，我记下一些暑假前后的事情。</p>
+<h3 id="实验，课设和考试"><a href="#实验，课设和考试" class="headerlink" title="实验，课设和考试"></a>实验，课设和考试</h3><p>实验完成得七七八八，其实在之前也被提到过，这学期压力算是很小，三个实验一个课设</p>
+<p>计网实验怪怪的，不去实现TCP/IP协议或者是其他网络相关的东西，倒是用各种软件去模拟网络，甚至还要写程序模拟个交换机。对于可视化，想想需要Qt之类的写算法就贼麻烦，又没要求算法效率，所以直接JavaScript写了计网和操作系统需要可视化的部分，表格啊图表啊什么的。写一次就扔的文件，也没有用TypeScript的必要，降低投入成本。结果还算过得去，成绩都不差。</p>
+<p>课设只有操作系统，我一眼就相中了“文件系统”。相比什么子进程同步锁，这模拟一个文件系统，完全就是字符串处理罢了，多简单啊！</p>
+<p>于是用C写了两天写出来，还贼逼真，改改颜色几乎以假乱真了。剩下3天带着平板去实验室复习。毕竟考试吧，挺玄乎的，没有太多真题和往年卷，靠自己多做才行。计网和OS大多都是课后习题里出。</p>
+<p>毛概就是背了，根据给的提示，狂背，困了就手打，能记住多少就是多少。好在选好老师，怎么折腾都不怕太差。</p>
+<h3 id="重构了项目页面"><a href="#重构了项目页面" class="headerlink" title="重构了项目页面"></a>重构了项目页面</h3><p>准确来说是终于用上了UI库，是尤大曾推荐的Vuetify。使用体验还不错，只是初次接触，难免有些操作生硬的地方。比如侧边栏究竟跟顶栏谁盖住谁，人家UI库也没想着你会两个都要，导致交差一起不好看，东西被盖住，理所当然。我学前端不到半年，这样的意识还没有树立起来，还是要多多学习Material Design那些Guidelines。</p>
+<p>至于监控页面的那个项目，经过简单的重构，打包的产物放在我新买的服务器上运行后，我就没有再动过了。两个月后，没想到老师让我展示展示，这下可尴尬，服务器已经关掉一个月了。这就说明，还是有必要物色一个常驻服务器了。</p>
+<h3 id="尝试重构博客"><a href="#尝试重构博客" class="headerlink" title="尝试重构博客"></a>尝试重构博客</h3><p>用了上面说的UI库，我加上解析<code>.md</code>的功能，就大致把新博客做了出来。可惜很多地方解析不到位，还需要很多修缮。</p>
+<p>时间不等人，重构一半，邮件弹出，青训营也开始了。</p>
+<h3 id="进入基础班"><a href="#进入基础班" class="headerlink" title="进入基础班"></a>进入基础班</h3><p>从唠嗑大群人数来看，基本上交了卷都能进基础班。即使是这样我也没冒险去尝试进阶班，因为说不好没选上会连基础班都进不去，那暑假就容易荒废。大多数人来这里，一是为了找人合作最后的大项目，二是字节提供前端课程，三是这里的学习氛围。在这两个月学习中，我也体会到氛围的重要：交流、社区汲取是提升技术、开眼界的两个通道。</p>
+<h2 id="2022-8"><a href="#2022-8" class="headerlink" title="2022.8"></a>2022.8</h2><blockquote>
+<p>有道曰：“善始者众，善终者寡。”</p>
+</blockquote>
+<p>唠嗑群在开营前后几天，人数巅峰为3000有余。</p>
+<h3 id="组队"><a href="#组队" class="headerlink" title="组队"></a>组队</h3><p>一波三折。</p>
+<p>大多人第一次进入飞书，其中也包括了我。而迅速换上头像，能让我们更快融入其中。</p>
+<p>我主动联系了许多人，他们有的已经实习，有的与我同年；有经验丰富，也有小白一枚。我并没太多想法，只是跟随一开始约好的人。一个8人群很快就组建完毕，甚至在Github上也有了Organization。此时，群内大约有5名大佬，久经沙场，另外3人我在内，是小白水平。组织名就叫：</p>
 <blockquote>
-<p>🚧 11.9  封楼了</p>
+<p>“心脏和字节只能有一个跳动”</p>
 </blockquote>
-<p>原本这是双周（第十周），周三第一节有课，俗称“早八”，而编译原理课比较骇人，偶尔会给人不舒服的感觉。于我而言，恐怕莫过于浪费时间和精力在未涉足的内容上。</p>
-<p>“回去都回去了，先等学校通知，”卷闸门外的衬衫西裤如此喊道。</p>
-<p>我把卷闸门摄入镜头，发上几个熟悉的群聊。</p>
-<p>驻足宿舍门外的好奇目光，越来越多，偶尔冒头，偶尔踱步。原路返回的这两分钟，微信群、QQ群消息如轰炸机落下的成堆炸弹，轰炸了整片社交圈。</p>
-<p>于是趁着封楼、上网课的时间，开足马力做方舟的ppt。周三做到周日晚，几乎废寝忘食，所整理的图片资料无数，催生了一些新的需求，比如“私人图库”，给本地图片带上标签，方便查找。</p>
-<h3 id="传教"><a href="#传教" class="headerlink" title="传教"></a>传教</h3><p>做了方舟和东方的PPT，后者需要备课上台演讲。两边都做得很好。对自己而言是十分乃至一百分满意的交代。</p>
-<p>按顺序来，先是方舟的PPT——完成于11月13日晚，用时估计为七天满——在开始之前的一个星期就已经做准备工作。</p>
-<p>《游戏中的历史与文化》，广州大学的一门非专业选修课，设于“历史与文化”栏目下，主讲教师是刘畅，偶尔不是。如果能在大二选上这么一门选修，大约是最合时宜的。二次元、游戏厨两个高度重合的标签，几乎属于这课堂中每个人。</p>
-<p>往届在课堂上展示STG L难度的18级师兄，业已离开校园，以致老师不得不恢复以前的东方压轴宣讲节目。我拿下了这个配合演讲的机会，打了首发（红永妖花）的部分，也有少量的二创、社区内容。可惜讲本家内容时依旧支吾，是没有备课的。备课演讲，实际上需要环境和练习，而我的这些时间去复习车万、找美图去了，只要把本家内容讲个大概，有足够的梗和美少女，也就应该能满足听众。</p>
-<p>此前那个周二，为了赶上可能的缺席机会，为了能让方舟也有机会登上讲台，拼力赶了一天幻灯片，连周三早上的组网技术课都在写这个。同时周末准备大量投入时间，结果发现作业抄错题，转而去赶作业，遂罢。推迟到这周二开展，依然赶了足足一天。</p>
-<p>我设想的目标，实在过于精细，过于注重PPT的内容堆砌，内容密度一次又一次提高，还加入了不可能讲解的音乐。而这作为参评作业，竟没有获得奖项，实在耿耿于怀。</p>
-<h2 id="2022-12"><a href="#2022-12" class="headerlink" title="2022.12"></a>2022.12</h2><h3 id="疫潮"><a href="#疫潮" class="headerlink" title="疫潮"></a>疫潮</h3><blockquote>
-<p>👻 繁华与忙碌并没有如期而至，取而代之的是大面积感染如潮水般汹涌而来。</p>
-</blockquote>
-<p>十二月的我并没有像往常那样，挑灯夜战写实验报告，吸收课程考点，即使那本应该是这样。</p>
-<p>此时的十二月，更像是年前的大扫除，除邋遢，把广州城一扫而空，大学生们如潮水回流大海，回到各自家乡。这段时间发生的事情太多，也有太多不如意。技术的学习几乎处于停滞，外来的干扰接二连三。课程虽有收获，但那显然不是我所需要的。</p>
-<p>十一月初，封校，一个星期，厂的物资丰富，没有造成很大困扰。十一月下旬全国疫情传播，校内许多人都趁此跑回家。一个星期后，我在十二月五日启程回家，十分空荡，路途意外顺利，说明挑对了时间。这次大学生返乡潮之后，全国疫情已不受控制，二十号我在家里就感染了新冠，三天左右，遗留了一堆症状，比如口干咳嗽眼睛疼等等。这次提前返乡，实质上是把医疗压力分散到全国各地。</p>
-<p>这便是三年抗疫的最终成效了。有失败的，也有成功的。让很多人晚三年感染新冠，但阻止不了新冠感染全部人。国家放下了防控压力，随之而来的是舆控压力。还记得，我们把2020称作“魔幻的一年”吗？</p>
-<blockquote>
-<p>“折戟沉沙铁未销，自将磨洗认前朝”</p>
-</blockquote>
-<p>症状变化大概如下：</p>
-<ul>
-<li>第一天（周一），困，头晕眼胀</li>
-<li>第一天晚，高烧</li>
-<li>第二天（周二），高烧</li>
-<li>第三天，退烧</li>
-<li>第四天，肺部肌肉酸痛</li>
-<li>第五天~两个月内：咳嗽</li>
-</ul>
-<h2 id="总结（杂谈）"><a href="#总结（杂谈）" class="headerlink" title="总结（杂谈）"></a>总结（杂谈）</h2><p>每当杂谈，便是回顾，回顾便知未来打算。</p>
-<p>整个学期过去的有些快。同时好像又什么都没做，此时1月9日坐在这里，几乎就和8月29号坐在此处一样。细数，九月加入团队，十月摸鱼，十一月赶工，十二月遣返，最后的十二月和一月共同承担了不该有之重。</p>
-<p>因为续写的次数过多，屡屡想要全盘重写，又感到没什么好总结，做事重要。这样度过了大概三天，期间无非就是看书，运动，联机，咳嗽。连我都感觉时间过去的太快，以至于每天晚睡前、午睡前都努力想象着起来后可以干什么。而睡眠质量的下降需要额外的时间来休息，使本不充分利用的时间更加挤。</p>
-]]></content>
-      <categories>
-        <category>生活记录</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-        <tag>年记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2022行纪（02）</title>
-    <url>/2022/11/22/2022%E8%A1%8C%E7%BA%AA%EF%BC%8802%EF%BC%89/</url>
-    <content><![CDATA[<h2 id="2022-09"><a href="#2022-09" class="headerlink" title="2022.09"></a>2022.09</h2><p>壬寅年戊申月，已至学府，须臾而安定学府城中。</p>
-<h3 id="无事者"><a href="#无事者" class="headerlink" title="无事者"></a>无事者</h3><p>研学者多试，有如二氧化碳维稳者，有如披防护服体验者，皆有酬寻试。</p>
-<p>无事者如我，遂前应试，得报酬少许。复试之，尾声渐近，加之疲矣，故国庆后不再前往。</p>
-<p>入学新者，军训必加之，募求劳务志愿者。</p>
-<p>无事者如我，遂前劳之，得志愿时少许。复劳多日，甚无聊。</p>
-<p>尾声之际，邻舍荐新兴小程序团队，职求前端。</p>
-<p>无事者如我，遂前面试，得许，入队待命，辛亥月方得令开发，时至今日，愈发迫近。</p>
-<h3 id="青训收尾"><a href="#青训收尾" class="headerlink" title="青训收尾"></a>青训收尾</h3><p>青训营答辩未登场，以他人代之，幸得成绩斐然，可喜可贺。此月暮，证书邮至，欣喜十分。装饰华丽，大方简重，记录留念；另有奖品数项，皆实用。其后打卡活动，日行万步，样式操练，算法进阶，百词收纳，尽数操持。Github教育有佬相助，得学生资格，尝Copilot，甚叹。</p>
-<p>此外，去月已至辛亥纪念馆，今月复至，览中山公园，游大学城中环道路，游广外华师外围，叹防控，不得以入。</p>
-<p>国庆，量其前一日无课，宜及早返乡，乃返。然任务繁重，游玩之时，不大尽兴。</p>
-<h2 id="2022-10"><a href="#2022-10" class="headerlink" title="2022.10"></a>2022.10</h2><p>壬寅年庚戌月，复返学府。无重物携带，遂地铁后骑行。</p>
-<p>随即，全员核酸日渐频繁，鲁迅门虽设而常关。</p>
-<p>游戏历史如日中天如火如荼，人工智能算法之折腾孜孜不倦。</p>
-<p>常至图书馆，空调有余力。时而日行万步，慢跑两千五。</p>
-<h3 id="百日打卡"><a href="#百日打卡" class="headerlink" title="百日打卡"></a>百日打卡</h3><p>目前我已加入青训营的百日打卡计划，内容如下：<br>每日任务：力扣刷题、CSS学习、每日刷单词、日语学习、日行万步。<br>总体任务：写一个uni-app应用、日语N3、读书、重构博客。</p>
-<p>而百日之后，我最终打算这样验收：</p>
-<ul>
-<li><p>从零开始做一个UI库</p>
-</li>
-<li><p>实现Mini-vue</p>
-</li>
-</ul>
-<h3 id="在车万群开展活动"><a href="#在车万群开展活动" class="headerlink" title="在车万群开展活动"></a>在车万群开展活动</h3><p>（时间来到了十月末，10.28星期五的早上）</p>
-<p>活动倒是展开的七七八八，算是久违地活跃了一波。先是STG接力和则赛，随后打算在年末再来个绘画接力。MC服开起来测试了会，不过似乎太吓人了，没什么人在里面深耕我写的任务。当然啦，这个周目我的动机是做给自己玩，给自己造一个安心的空间，所以有无人实际上不是主要的。<br>目前是什么状况呢？我想制造一个RPG地图，但是兼顾生存，分开两个世界，只要在进入世界时设置点指令即可。一个休闲，一个冒险，十分新颖。而且搭配有音乐、图书导入的功能（原型阶段），不可谓不是20年代MC的新享受。</p>
-<h3 id="游戏课上讲车万和方舟"><a href="#游戏课上讲车万和方舟" class="headerlink" title="游戏课上讲车万和方舟"></a>游戏课上讲车万和方舟</h3><p>方舟可能没机会了，但是车万还好钦定上。不过方舟那个我打算当作作业，也给做出来，毕竟能讲的东西可太充足了。</p>
-<h3 id="写年记"><a href="#写年记" class="headerlink" title="写年记"></a>写年记</h3><p>上一篇年记在2021.9就写了，而现在九月已经过去，国庆已至，需要例行对过去一年总结分析。<br>（2022.10.28）诚然，我并没有那么多时间真的从头写一篇，只能在已有的基础上持续更新近况。如果这是一个问题，那么同时也是一个需求，我可以做一个APP或是桌面应用来定制化解决这样的问题。</p>
+<p>几天磋商，几天考量。结果磋商不大成功，群主似乎找好了下家，率先跑路；随后当天晚，另一名大佬也另谋高就，组织失去了两个重要的主心骨，不可谓不令人担忧队伍的后续发展。</p>
+<h3 id="写项目"><a href="#写项目" class="headerlink" title="写项目"></a>写项目</h3><p>群内许久无音信，没人开始做项目，但我只有这一件事要做。一个人把项目骨架日出来就写文档，然后就是团队开发了。六人有三人参与项目开发，另有一人在后期负责PPT。</p>
+<p>记得一个人写的那会，问题巨多，Vite3差点换成Vite2，后来<code>.umd.js</code>和<code>.css</code>编译在一起没引起什么特殊问题，才保留了Vite3。</p>
+<p>到八月中旬，104支队伍提交项目。按每支队7人，三千人此时只剩下七百在坚持。</p>
+<h3 id="暑假结束"><a href="#暑假结束" class="headerlink" title="暑假结束"></a>暑假结束</h3><p>答辩由另一位大佬主持。成绩还不错的，只是这个项目的潜力完全不止这点。如果当时6个人开足马力，必定是可以夺得第一。首先UI库跟模块结合打包有问题没解决，其次没做组件商城，这十分可惜。</p>
+<p>晋级答辩60支队伍，即约420人，差不多是报名时的1/9。获得结营证书65人，是报名时的1/46。本来有结营资格的有130多人，结果过半被卡在旷课或笔记数量不够上——这是在项目截止后，运营组多给了一个星期去弥补笔记的情况下。</p>
 ]]></content>
       <categories>
         <category>生活记录</category>
@@ -498,6 +498,104 @@
       </tags>
   </entry>
   <entry>
+    <title>c++笔记[结构体]</title>
+    <url>/2020/11/29/c++%E7%AC%94%E8%AE%B0%5B%E7%BB%93%E6%9E%84%E4%BD%93%5D/</url>
+    <content><![CDATA[<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h3 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h3><p>这是第二篇c++笔记，原因是写在纸质笔记本上我并不会去看，写得慢还写得很乱<del>写在博客你可能也不会去看</del>。</p>
+<p>这一次是结构体，为什么连这个都要写呢？因为结构体里会有比较多容易混淆的东西，就比如我以为<code>struct</code>是可以换成别的东西，而没有认识到这是个关键字</p>
+<p>而我刚开始就是轻视了这一块，独自去编译器里探索</p>
+<p>探索了个寂寞</p>
+<p>再然后，只能老老实实看老师的视频</p>
+<p>在此写下笔记，以记录一些易忘点、易漏点，以及一些认识结构体的关键突破点。</p>
+<h3 id="结构体“复制”"><a href="#结构体“复制”" class="headerlink" title="结构体“复制”"></a>结构体“复制”</h3><p>当且仅当两个结构体类型相同时，才可以相互赋值。成员未初始化值的，在函数（包括main函数）外默认为0，否则为伪随机值（存储单元的值）。</p>
+<p>这种赋值也叫位拷贝，即按位拷贝，逐位逐位地拷贝（其实只是和值拷贝区分）</p>
+<h3 id="结构体作形参"><a href="#结构体作形参" class="headerlink" title="结构体作形参"></a>结构体作形参</h3><p>结构体的<strong>成员</strong>在函数中作为参数时，有三种方法可以将其“导入”</p>
+<p>一是用“类型+变量名”，得到一份copy，不操作原变量，函数内的拷贝操作完即销毁，存在开销大、用途有限（比如我只是想把数据拿出来看看，不对数据进行操作），缺点明显。</p>
+<p>二是用指针，也就是结构体的首地址，拿根针在结构体的某个成员上移来移去表示对应的值，缺点是不够直观。</p>
+<p>三是使用引用，对，这是福音，结构体可以使用引用，操作起来跟main函数内部没什么两样。当然了，会改变原结构体的信息，注意备份。</p>
+<p>第三种在平常操作中很推荐，不过如果仅仅是打印、得出结论，不想改变原数据，那么第一种可以尝试。</p>
+<p>初学还是建议<strong>非必要情况不要使用第一种</strong>。第二种为了练习指针的话，也浅尝辄止。</p>
+<p>1.4</p>
+<p>结构体中一般<strong>不考虑</strong>成员顺序对结构体<strong>占用字节</strong>的影响，而更加考虑代码的可维护性。至于代码的可维护性，局部的代码不太能阐述这件事情。成员顺序不同，结构体占用字节也有所不同，其原因是<strong>字节对齐</strong>。</p>
+<p>有关字节对齐，只要知道对齐是为了机器读取方便而进行的一种操作就可以了。</p>
+<h3 id="关于new和delete"><a href="#关于new和delete" class="headerlink" title="关于new和delete"></a>关于new和delete</h3><p>形如new int、new double、new char(‘a’)，会开辟空间并返回地址，用<strong>delete 地址</strong> 来删除。</p>
+<p>形如new int [10]、new char [20]等等，会开辟数组（包括字符数组）并返回数组首地址，用<strong>delete 首地址</strong>来删除</p>
+<p>具体使用：*int p = new 类型[(初值)] [长度];</p>
+<p>delete p;</p>
+<h4 id="关于delete之后"><a href="#关于delete之后" class="headerlink" title="关于delete之后"></a>关于delete之后</h4><p>delete后，指针p仍存在，仅仅是”new 类型[(初值)] [长度] “不见了。</p>
+<p>这个指针可以通过p=nullptr清理回收。</p>
+<p>这里强调一下，用nullptr，不用0，也不用NULL，nullptr是为了避免0和NULL在指针上产生问题而生的，用它就没错，而以后进一步学习，再来区分NULL、0、nullptr三者区别。</p>
+<h4 id="值得注意的delete-数组"><a href="#值得注意的delete-数组" class="headerlink" title="值得注意的delete []数组"></a>值得注意的delete []数组</h4><p>删除数组如果使用</p>
+<p>注意，new的存储单元在运行时堆上，默认为随机值</p>
+<p>头指针head:在结构体定时，最后一个成员后面，加上一个指针，便可以把每个具体的结构体连接起来</p>
+<p>（请注意这仅仅是思想，具体步骤，请看Part II）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//这是一段伪代码，visit和next均为特定的操作，并非c++内置。</span></span><br><span class="line">Student* p =head;</span><br><span class="line"><span class="keyword">while</span>(p)<span class="comment">//也就是p不为NULL时，就继续循环。结构体的最后一个是NULL。</span></span><br><span class="line">&#123;</span><br><span class="line">    visit(p);</span><br><span class="line">    p=p-&gt;next;<span class="comment">//走向下一个</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>有BUG的代码</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">output</span><span class="params">(Student&amp; s)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	Student* p = &amp;s;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; p-&gt;No &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; p-&gt;Name &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; p-&gt;score[<span class="number">0</span>] &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; p-&gt;score[<span class="number">1</span>] &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; p-&gt;score[<span class="number">2</span>] &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; p[i].score[<span class="number">0</span>] + p[i].score[<span class="number">1</span>] + p[i].score[<span class="number">2</span>] &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;<span class="comment">//p是由s开始的结构体的（亦是首地址），后面调用时为s1</span></span><br><span class="line">		p++;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<p>问题发现了；指针隔着跳了，结果总分是第1、3、5名的，显示在1 2 3名的总分上，而4 5名的总分是第7 9名的，并不存在，显示为0和-nan。-nan意为Not a Number，即NaN。<br>具体体现为，i=3时，p便已经在s5上了。<br>问题又来了，指针为什么会跳呢?<br>观察发现，input()和output()表示分数的方式，不一样，input()为p-&gt;score[数字]格式，output()的总分为p[i].score[数字]格式。<br>调试中看到，有关p[i]的描述在第四名和第五名上，都是错误的，没有指向正确对象。<br>再联想下，p和i都是每次循环自增1，在仅仅循环一次的情况下，怎么样才能让p移动2呢？那就是p和i同时增加1了，代码中确实有这个操作。<br>那问题就解决了，表示分数p自增1即可，跟i没有实质上的关系，i是个计数用的。<br>这应该是源于习惯问题，习惯上用计数器作移动的指标。<br>结果碰上格式混用，前面一部分纯指针，用-&gt;，没出问题，后一半用p[i]，出问题了，双倍自增。<br>于是去掉[i]，换用(<em>p)即可。（注意”.”运算符比”</em>“运算符优先级高，括号不能去掉，否则是”地址.成员”，而正确格式是”结构体.成员”）</p>
+<p>所以把总分的显示格式与i无关化即可，随便选择一种格式均可。如p-&gt;score[0]，(*p).socre[0]。</p>
+<p>这里另外一提，目前见过好几次while(变量)的结构，也就是等待变量归零再退出循环，常见的有：变量最终归为链表的最后一节nullptr。不过不知怎么的，虽然能用，感觉这么用相当不规范，而且首次见到可能不大好理解——while(next!=0)比这个好理解多了。老师的视频里出现了这种写法，暂且视作规范吧。（或许这就是简化的写法吧）</p>
+<hr>
+<h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>这是我个人给它的一个定义，给一个可用、实用的链表下的一个定义。</p>
+<p>链表有三个要素：头指针（用于寻找数据位置），其他成员（用于数据储存），节点指针（形成链表的前提）。</p>
+<p>整体来看，链表包括头指针、成员、节点指针和尾指针（一般值为nullptr，当然，你想做头尾相接的也行）；而从结构体的角度来看，链表由一or多个结构体组成，链表中每个结构体尾部都有一个指针指向下一个结构体。</p>
+<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><p>整体思想：每建立一个结构体，都让尾指针“next = new 结构体类型”；复制头指针，让这个复制的指针在链表上移动，以取得自己想要的数据。</p>
+<p>具体操作，举例</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Student</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> No;</span><br><span class="line">    <span class="keyword">char</span> Name[<span class="number">20</span>];<span class="comment">//名字最多9个汉字</span></span><br><span class="line">    <span class="keyword">double</span> score[<span class="number">3</span>];<span class="comment">//三门成绩</span></span><br><span class="line">    Student* next;<span class="comment">//节点指针，如果这个链表到尾部了，那么这是尾指针（暂时只考虑单向链表，也就是从头走到尾的）</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Student ChainList;<span class="comment">//先在运行时栈创建一个结构体，其实head = new Student也可以</span></span><br><span class="line">    Student* head = ChainList;<span class="comment">//获取头指针</span></span><br><span class="line">    ---录入数据---（链表操作在后面说，先创建，才能操作）</span><br><span class="line">    head.next = <span class="keyword">new</span> Student;<span class="comment">//在运行时堆里new一个新的空结构体</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>到这里，虽然我们只创建了含两个结构体的链表，而且第二个还是空的，但接下来的事，其实也就在重复以上的操作</p>
+<p>这就是连续输入数据。</p>
+<h3 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h3><h4 id="结构体作形参-1"><a href="#结构体作形参-1" class="headerlink" title="结构体作形参"></a>结构体作形参</h4><p>创建函数时，十分<strong>建议引用</strong>，但指针也不差。所以刚刚上面给出了两种创建方式：在运行时栈里创建and运行时堆里创建。</p>
+<p>前一种可以有名字，调用函数时，参数位置直接填写链表名，在函数里使用“链表名.成员= 想要赋的值”完事（也就是第一个结构体的名称，上例为ChainList，则如果我想录入分数，只需要：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">ChainList.score[<span class="number">0</span>]=第一门成绩;</span><br><span class="line">ChainList.score[<span class="number">1</span>]=第二门成绩;</span><br><span class="line">ChainList.score[<span class="number">2</span>]=第三门成绩;</span><br></pre></td></tr></table></figure>
+
+<p>（其中，点”.”是成员运算符，接下来的“-&gt;”是指向运算符）</p>
+<p>后一种写个指针，然后input函数中使用“head-&gt;成员=想要赋的值”的格式给成员赋值。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">head-&gt;score[<span class="number">0</span>]=第一门成绩;</span><br><span class="line">head-&gt;score[<span class="number">1</span>]=第二门成绩;</span><br><span class="line">head-&gt;score[<span class="number">2</span>]=第三门成绩;</span><br></pre></td></tr></table></figure>
+
+<p>但接下来两点才是重点。</p>
+<p>①为了链表可以重复操作，你必须额外再创建两个指针，分别用于在链表的头指针处和最前端处，不妨先叫它们：moving_pointer和pioneer_pointer（移动指针和先锋指针，当然，是我瞎编的）。其中moving_pointer初值为head，并且在每次操作完链表后，加一句moving_pointer = head，将其值自动归为头指针的地址，以备下一次使用；另一个pioneer_pointer，一般为最后一个结构体的头指针，而在每次创建一个结构体时，更新为尾指针，然后获得的返回值，再次成为最后一个结构体的头指针，即</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">pioneer_pointer = pioneer_pointer-&gt;next;</span><br><span class="line">pioneer_pointer = <span class="keyword">new</span> Student;</span><br></pre></td></tr></table></figure>
+
+<p>一般接着输入函数，请看例子：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="number">3</span>:<span class="comment">//插入新的学生信息</span></span><br><span class="line">	<span class="keyword">if</span> (n == <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line"></span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;[添加]请输入学生信息：\n&quot;</span>;</span><br><span class="line">		input(stu);</span><br><span class="line">		n++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (n &gt; <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;[添加]请输入学生信息：\n&quot;</span>;</span><br><span class="line"></span><br><span class="line">		(*p).next = <span class="keyword">new</span> Student;<span class="comment">//此处的p即为pioneer_pointer</span></span><br><span class="line">		p = p-&gt;next;</span><br><span class="line">		input(*p);</span><br><span class="line">	&#125;</span><br><span class="line">	p-&gt;next = <span class="literal">nullptr</span>;</span><br><span class="line">	<span class="keyword">if</span> (moving_pin == <span class="literal">nullptr</span>)head = p;</span><br><span class="line">	<span class="keyword">break</span>;</span><br></pre></td></tr></table></figure>
+
+<p>为什么需要它们？想一想，第一次输入完成时，对于引用型函数来说，下一次应该在它的参数位置填什么？还是ChainList吗？</p>
+<p>显然不是。</p>
+<p>上面代码的input()函数就是引用型的，我更换成了*p（先锋指针作为最后一个结构体的头指针，那么*p发挥了类似ChainList的作用），不然的话，下一次赋值将直接覆盖第一次的数据，并没有形成链表</p>
+<p>②</p>
+<h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><p>类似于input()函数，只不过关于char字符数组的部分，需要用strcpy_s(字符串1,字符串2)。这里不知道为什么strcpy()不行，会报错，而strcpy_s()没有这个问题，以下input()函数仅供参考：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">input</span><span class="params">(Student&amp; v_stu)</span><span class="comment">//我也忘记v是什么意思了，virtual?但形参是parameter。</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; v_stu.No &gt;&gt;v_stu.Name&gt;&gt; v_stu.score[<span class="number">0</span>] &gt;&gt; v_stu.score[<span class="number">1</span>] &gt;&gt; v_stu.score[<span class="number">2</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="插入、删除"><a href="#插入、删除" class="headerlink" title="插入、删除"></a>插入、删除</h4><p>这里只简略说明下思路，代码放到另一篇文章里了（参考篇）。</p>
+<p>插入，因为暂时不需要排序，所以每次往new出来的新空间里input就可以了（有排序那另说，其实也只不过是next指针的调换）。</p>
+<p>删除，要分三种情况</p>
+<p>一是去头，二是去尾，三是去中间。去头需要调动头指针，让头部往后挪；去尾在删掉数据后，让倒数第二个结构体的next指向新的空间即可；去中间，将前一个结构体的next指针赋值为将要被删的结构体的next指针，然后删除想删除的结构体成员即可。（将要被删除结构体的next指针其实就是它下一个结构体的头指针，这样就依然可以连起来）</p>
+<h4 id="交换顺序"><a href="#交换顺序" class="headerlink" title="交换顺序"></a>交换顺序</h4><p>参考数组排序的做法即可，就是指针交换那儿有点绕，多想想就好。</p>
+<p>具体一点，我的方法是选择排序，一定一动，定与动比较，需要交换时，我们假设个结构体a和b吧，先给个中间变量t（是指针），先让t= a.next,再使a.next = b.next,最后b.next = t，（）</p>
+<p>选择排序，冒泡排序，目前我就学了这两种，而我还需要学八种。先放上典图。</p>
+<p><img src="https://raw.githubusercontent.com/Makri-hub/WolpersHome.github.io/PicGo/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20201211173838.png"></p>
+<p>我也并不急于去理解它们，等到了时候再说吧。这里上代码，看起来就像把平面图形拉成了立体图形。（其实就是多输入几个）</p>
+<p>这里给出的代码，要注意，我是另外备份了一个链表来排序的。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap_not_including_pin</span><span class="params">(Student&amp; a, Student&amp; b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	Student T;<span class="comment">//中间变量</span></span><br><span class="line">	strcpy_s(T.Name, a.Name); T.No = a.No; T.score[<span class="number">0</span>] = a.score[<span class="number">0</span>]; T.score[<span class="number">1</span>] = a.score[<span class="number">1</span>]; T.score[<span class="number">2</span>] = a.score[<span class="number">2</span>];<span class="comment">//T = a</span></span><br><span class="line">	strcpy_s(a.Name, b.Name); a.No = b.No; a.score[<span class="number">0</span>] = b.score[<span class="number">0</span>]; a.score[<span class="number">1</span>] = b.score[<span class="number">1</span>]; a.score[<span class="number">2</span>] = b.score[<span class="number">2</span>];<span class="comment">//a = b;</span></span><br><span class="line">	strcpy_s(b.Name, T.Name); b.No = T.No; b.score[<span class="number">0</span>] = T.score[<span class="number">0</span>]; b.score[<span class="number">1</span>] = T.score[<span class="number">1</span>]; b.score[<span class="number">2</span>] = T.score[<span class="number">2</span>];<span class="comment">//b = t;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对比下简单变量的交换，就明白上面是什么意思了。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap_not_including__pointer</span><span class="params">(<span class="keyword">int</span> &amp;a,<span class="keyword">int</span> &amp;b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> T;</span><br><span class="line">    T = a;</span><br><span class="line">    a = b;</span><br><span class="line">    b = t;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以上，写得比较菜，定有疏漏之处，还恳请各位轻喷。比如链表的那两个“必须额外再复制两个指针”是否可以简化点思路？是否尝试过复制结构体的方法？</p>
+<p>文章实质上可能是期末复习笔记之类的，凑合着像一篇教程</p>
+]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C++笔记[数组]</title>
     <url>/2020/11/23/c++%E7%AC%94%E8%AE%B0%5B%E6%95%B0%E7%BB%84%5D/</url>
     <content><![CDATA[<h2 id="数组的各种符号，摸清楚"><a href="#数组的各种符号，摸清楚" class="headerlink" title="数组的各种符号，摸清楚"></a><!-- more -->数组的各种符号，摸清楚</h2><hr>
@@ -562,6 +660,69 @@
       </categories>
       <tags>
         <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于评论区</title>
+    <url>/2020/12/14/%E5%85%B3%E4%BA%8E%E8%AF%84%E8%AE%BA%E5%8C%BA/</url>
+    <content><![CDATA[<p>其实很简单</p>
+<a id="more"></a>
+
+<h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><p>第一步，安装，不过因为我中途更换了教程贴，所以我不大敢确定这一步是不是必要的，但我直觉它需要</p>
+<p>cmd里面输入：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm i --save gitalk</span><br></pre></td></tr></table></figure>
+
+<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><p>第二步，开始之前我倒是想废话两句，Github上的教程卡在npm安装上了，import不太懂是什么情况，前面加了npm也没用。基于时间问题，只能去找找帖子。结果找了老半天，有swig安装，有ejs安装，直到我发现自己的文件格式跟他们都不一样，我是.njk。这里举几篇例子，但他们做得其实都不错。</p>
+<p>其实呢，创建gitalk.swig的时候居然没发现，隔壁就有一个gitalk.njk，之后写这篇博客的时，回想起来，终于意识到网上版本是真的版本太久了，打开一看：</p>
+
+<p>原来已经简化了，之前要添加的乱七八糟的，都在这里，不用添加了，那好，直接走起，注册去！</p>
+<p><a href="https://github.com/settings/applications/new">点击这里进入Github OAuth注册</a></p>
+<p>注册的同时，和其他教程一样，修改.\theme\主题\下的_config.yml即可，详细描述参考上面的四篇教程就足够了，这里不再赘述。</p>
+<h2 id="2022-1-22："><a href="#2022-1-22：" class="headerlink" title="* 2022/1/22："></a>* 2022/1/22：</h2><p>Gitalk出现了Error: Request failed with status code 403，原因似乎是反向代理有关，不太了解。<br>但要解决问题可以看看<a href="https://umm.js.org/p/1d1d49e9/">这个</a>博客，确实是一用就生效。</p>
+]]></content>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>我的第一篇文章</title>
+    <url>/2020/11/21/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
+    <content><![CDATA[<p>始于2020</p>
+<a id="more"></a>
+
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 搭建博客</li>
+<li><input checked="" disabled="" type="checkbox"> 使用合适的主题</li>
+<li><input checked="" disabled="" type="checkbox"> 更改头像</li>
+<li><input disabled="" type="checkbox"> 添加分类（标签和目录）</li>
+<li><input disabled="" type="checkbox"> 开放评论区</li>
+</ul>
+<p>这里↑要回车一下才能跳开tag（奇怪的bug）</p>
+<p>间距有点宽，调一下？</p>
+<p>好吧并没有找到调节的地方，先放一放。</p>
+<p>11月21日小雪，早晨，终于完整地完成了Hexo博客的搭建。</p>
+<p>历时居然有三个星期。第一个星期看Next和Hexo的原版文档，在Gitlab那边花了很多时间；结果也没怎么成功（说不定现在回去弄一下其实也可以用，因为关键一步已经“搞懂”了）</p>
+<p>然后第二个星期，老老实实去GitHub搞，但因为一如既往的皮命名，网址访问不了——把存储名写成了WolpersHome.github.io，你是有多喜欢狐狸。</p>
+<p>要写自己的用户名+.github.io才可以。具体原理没有搞清楚，不过挺奇妙的是我还没输完，只输入用户名时，它告诉我如果只输入用户名作为存储名的话，可以给自己的github页面做README.md，大概也挺好的？</p>
+<p>当然，最后一个星期五晚上，终于接通，是通过b站看视频比对模拟完成的——为什么说是比对模拟，因为视频至少是一年前的，而更新之后的Hexo在_config.yml上有略微改变——最显著的就是找不到那个“URL”而只有一个“prettyurl（简洁的url）”，输入之后也全部木大，估摸着是给买了服务器和域名的人用的——这一步GitHub给我们提供了免费的页面，也算是文件储存服务器了吧。</p>
+<p>简单谈谈这个博客的来历。某天situ2001把他博客发了给我，很棒，虽然没做太炫酷的东西，但博客有该有的东西，页面不伤眼——于是想到我打word时痛苦的眼睛，以及没有优雅感的.docx堆，我下定决心也做一个。当然，照猫画虎就是了，前人道路已经没有黑暗之处，走走便是。</p>
+<p>于是照猫画虎画了三个星期。更恰当来说，是“照虎画猫”。现在还没找到合适的主题，没有标签和分类，没有评论功能。评论多半是给我自己更正什么的。</p>
+<p>好了现在还没解决的问题有一，ip没有变，还是github的，我要确认那是不是需要购买域名才能换成我想要的博客ip——买个.cn或.com，每个月都得开销，这谁顶得住。（这是大致的认识，但我写的时候就觉得有偏差，域名ip？有空具体查下看看）</p>
+<p>先把我成功搭建博客的扶手梯放在这里，以供复习搭建思路。↓↓↓↓↓</p>
+<p><a href="http://www.bilibili.com/video/BV1Yb411a7ty">www.bilibili.com/video/BV1Yb411a7ty</a></p>
+<p>本来想在这里放上代码，发现html语言的符号会让页面全部木大，而使用代码块演示，倒是可以。</p>
+<img src="https://i.loli.net/2020/11/22/GWLTJmQnPiMrt9f.png" alt="![QQ]20201122124154.png" style="zoom:80%;" />
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;iframe src&#x3D;&quot;&#x2F;&#x2F;player.bilibili.com&#x2F;player.html?aid&#x3D;44544186&amp;bvid&#x3D;BV1Yb411a7ty&amp;cid&#x3D;158772893&amp;page&#x3D;1&quot; scrolling&#x3D;&quot;no&quot; border&#x3D;&quot;0&quot; frameborder&#x3D;&quot;no&quot; framespacing&#x3D;&quot;0&quot; allowfullscreen&#x3D;&quot;true&quot;&gt; &lt;&#x2F;iframe&gt;</span><br></pre></td></tr></table></figure>
+
+<p>写这篇文章的同时，我学会了hexo上放b站视频，复制代码块，使用图库，后台hexo自动登录等等，还是多亏了互联网。</p>
+<p>行文没有思路，经常穿插，内容偶有重复，是随心所致，望谅解。</p>
+]]></content>
+      <categories>
+        <category>生活记录</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
       </tags>
   </entry>
   <entry>
@@ -899,164 +1060,37 @@
       </tags>
   </entry>
   <entry>
-    <title>关于评论区</title>
-    <url>/2020/12/14/%E5%85%B3%E4%BA%8E%E8%AF%84%E8%AE%BA%E5%8C%BA/</url>
-    <content><![CDATA[<p>其实很简单</p>
-<a id="more"></a>
-
-<h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><p>第一步，安装，不过因为我中途更换了教程贴，所以我不大敢确定这一步是不是必要的，但我直觉它需要</p>
-<p>cmd里面输入：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm i --save gitalk</span><br></pre></td></tr></table></figure>
-
-<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><p>第二步，开始之前我倒是想废话两句，Github上的教程卡在npm安装上了，import不太懂是什么情况，前面加了npm也没用。基于时间问题，只能去找找帖子。结果找了老半天，有swig安装，有ejs安装，直到我发现自己的文件格式跟他们都不一样，我是.njk。这里举几篇例子，但他们做得其实都不错。</p>
-<p>其实呢，创建gitalk.swig的时候居然没发现，隔壁就有一个gitalk.njk，之后写这篇博客的时，回想起来，终于意识到网上版本是真的版本太久了，打开一看：</p>
-
-<p>原来已经简化了，之前要添加的乱七八糟的，都在这里，不用添加了，那好，直接走起，注册去！</p>
-<p><a href="https://github.com/settings/applications/new">点击这里进入Github OAuth注册</a></p>
-<p>注册的同时，和其他教程一样，修改.\theme\主题\下的_config.yml即可，详细描述参考上面的四篇教程就足够了，这里不再赘述。</p>
-<h2 id="2022-1-22："><a href="#2022-1-22：" class="headerlink" title="* 2022/1/22："></a>* 2022/1/22：</h2><p>Gitalk出现了Error: Request failed with status code 403，原因似乎是反向代理有关，不太了解。<br>但要解决问题可以看看<a href="https://umm.js.org/p/1d1d49e9/">这个</a>博客，确实是一用就生效。</p>
-]]></content>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>c++笔记[结构体]</title>
-    <url>/2020/11/29/c++%E7%AC%94%E8%AE%B0%5B%E7%BB%93%E6%9E%84%E4%BD%93%5D/</url>
-    <content><![CDATA[<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h3 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h3><p>这是第二篇c++笔记，原因是写在纸质笔记本上我并不会去看，写得慢还写得很乱<del>写在博客你可能也不会去看</del>。</p>
-<p>这一次是结构体，为什么连这个都要写呢？因为结构体里会有比较多容易混淆的东西，就比如我以为<code>struct</code>是可以换成别的东西，而没有认识到这是个关键字</p>
-<p>而我刚开始就是轻视了这一块，独自去编译器里探索</p>
-<p>探索了个寂寞</p>
-<p>再然后，只能老老实实看老师的视频</p>
-<p>在此写下笔记，以记录一些易忘点、易漏点，以及一些认识结构体的关键突破点。</p>
-<h3 id="结构体“复制”"><a href="#结构体“复制”" class="headerlink" title="结构体“复制”"></a>结构体“复制”</h3><p>当且仅当两个结构体类型相同时，才可以相互赋值。成员未初始化值的，在函数（包括main函数）外默认为0，否则为伪随机值（存储单元的值）。</p>
-<p>这种赋值也叫位拷贝，即按位拷贝，逐位逐位地拷贝（其实只是和值拷贝区分）</p>
-<h3 id="结构体作形参"><a href="#结构体作形参" class="headerlink" title="结构体作形参"></a>结构体作形参</h3><p>结构体的<strong>成员</strong>在函数中作为参数时，有三种方法可以将其“导入”</p>
-<p>一是用“类型+变量名”，得到一份copy，不操作原变量，函数内的拷贝操作完即销毁，存在开销大、用途有限（比如我只是想把数据拿出来看看，不对数据进行操作），缺点明显。</p>
-<p>二是用指针，也就是结构体的首地址，拿根针在结构体的某个成员上移来移去表示对应的值，缺点是不够直观。</p>
-<p>三是使用引用，对，这是福音，结构体可以使用引用，操作起来跟main函数内部没什么两样。当然了，会改变原结构体的信息，注意备份。</p>
-<p>第三种在平常操作中很推荐，不过如果仅仅是打印、得出结论，不想改变原数据，那么第一种可以尝试。</p>
-<p>初学还是建议<strong>非必要情况不要使用第一种</strong>。第二种为了练习指针的话，也浅尝辄止。</p>
-<p>1.4</p>
-<p>结构体中一般<strong>不考虑</strong>成员顺序对结构体<strong>占用字节</strong>的影响，而更加考虑代码的可维护性。至于代码的可维护性，局部的代码不太能阐述这件事情。成员顺序不同，结构体占用字节也有所不同，其原因是<strong>字节对齐</strong>。</p>
-<p>有关字节对齐，只要知道对齐是为了机器读取方便而进行的一种操作就可以了。</p>
-<h3 id="关于new和delete"><a href="#关于new和delete" class="headerlink" title="关于new和delete"></a>关于new和delete</h3><p>形如new int、new double、new char(‘a’)，会开辟空间并返回地址，用<strong>delete 地址</strong> 来删除。</p>
-<p>形如new int [10]、new char [20]等等，会开辟数组（包括字符数组）并返回数组首地址，用<strong>delete 首地址</strong>来删除</p>
-<p>具体使用：*int p = new 类型[(初值)] [长度];</p>
-<p>delete p;</p>
-<h4 id="关于delete之后"><a href="#关于delete之后" class="headerlink" title="关于delete之后"></a>关于delete之后</h4><p>delete后，指针p仍存在，仅仅是”new 类型[(初值)] [长度] “不见了。</p>
-<p>这个指针可以通过p=nullptr清理回收。</p>
-<p>这里强调一下，用nullptr，不用0，也不用NULL，nullptr是为了避免0和NULL在指针上产生问题而生的，用它就没错，而以后进一步学习，再来区分NULL、0、nullptr三者区别。</p>
-<h4 id="值得注意的delete-数组"><a href="#值得注意的delete-数组" class="headerlink" title="值得注意的delete []数组"></a>值得注意的delete []数组</h4><p>删除数组如果使用</p>
-<p>注意，new的存储单元在运行时堆上，默认为随机值</p>
-<p>头指针head:在结构体定时，最后一个成员后面，加上一个指针，便可以把每个具体的结构体连接起来</p>
-<p>（请注意这仅仅是思想，具体步骤，请看Part II）</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//这是一段伪代码，visit和next均为特定的操作，并非c++内置。</span></span><br><span class="line">Student* p =head;</span><br><span class="line"><span class="keyword">while</span>(p)<span class="comment">//也就是p不为NULL时，就继续循环。结构体的最后一个是NULL。</span></span><br><span class="line">&#123;</span><br><span class="line">    visit(p);</span><br><span class="line">    p=p-&gt;next;<span class="comment">//走向下一个</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>有BUG的代码</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">output</span><span class="params">(Student&amp; s)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	Student* p = &amp;s;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; p-&gt;No &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; p-&gt;Name &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; p-&gt;score[<span class="number">0</span>] &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; p-&gt;score[<span class="number">1</span>] &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; p-&gt;score[<span class="number">2</span>] &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; p[i].score[<span class="number">0</span>] + p[i].score[<span class="number">1</span>] + p[i].score[<span class="number">2</span>] &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;<span class="comment">//p是由s开始的结构体的（亦是首地址），后面调用时为s1</span></span><br><span class="line">		p++;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-
-<p>问题发现了；指针隔着跳了，结果总分是第1、3、5名的，显示在1 2 3名的总分上，而4 5名的总分是第7 9名的，并不存在，显示为0和-nan。-nan意为Not a Number，即NaN。<br>具体体现为，i=3时，p便已经在s5上了。<br>问题又来了，指针为什么会跳呢?<br>观察发现，input()和output()表示分数的方式，不一样，input()为p-&gt;score[数字]格式，output()的总分为p[i].score[数字]格式。<br>调试中看到，有关p[i]的描述在第四名和第五名上，都是错误的，没有指向正确对象。<br>再联想下，p和i都是每次循环自增1，在仅仅循环一次的情况下，怎么样才能让p移动2呢？那就是p和i同时增加1了，代码中确实有这个操作。<br>那问题就解决了，表示分数p自增1即可，跟i没有实质上的关系，i是个计数用的。<br>这应该是源于习惯问题，习惯上用计数器作移动的指标。<br>结果碰上格式混用，前面一部分纯指针，用-&gt;，没出问题，后一半用p[i]，出问题了，双倍自增。<br>于是去掉[i]，换用(<em>p)即可。（注意”.”运算符比”</em>“运算符优先级高，括号不能去掉，否则是”地址.成员”，而正确格式是”结构体.成员”）</p>
-<p>所以把总分的显示格式与i无关化即可，随便选择一种格式均可。如p-&gt;score[0]，(*p).socre[0]。</p>
-<p>这里另外一提，目前见过好几次while(变量)的结构，也就是等待变量归零再退出循环，常见的有：变量最终归为链表的最后一节nullptr。不过不知怎么的，虽然能用，感觉这么用相当不规范，而且首次见到可能不大好理解——while(next!=0)比这个好理解多了。老师的视频里出现了这种写法，暂且视作规范吧。（或许这就是简化的写法吧）</p>
-<hr>
-<h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>这是我个人给它的一个定义，给一个可用、实用的链表下的一个定义。</p>
-<p>链表有三个要素：头指针（用于寻找数据位置），其他成员（用于数据储存），节点指针（形成链表的前提）。</p>
-<p>整体来看，链表包括头指针、成员、节点指针和尾指针（一般值为nullptr，当然，你想做头尾相接的也行）；而从结构体的角度来看，链表由一or多个结构体组成，链表中每个结构体尾部都有一个指针指向下一个结构体。</p>
-<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><p>整体思想：每建立一个结构体，都让尾指针“next = new 结构体类型”；复制头指针，让这个复制的指针在链表上移动，以取得自己想要的数据。</p>
-<p>具体操作，举例</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Student</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> No;</span><br><span class="line">    <span class="keyword">char</span> Name[<span class="number">20</span>];<span class="comment">//名字最多9个汉字</span></span><br><span class="line">    <span class="keyword">double</span> score[<span class="number">3</span>];<span class="comment">//三门成绩</span></span><br><span class="line">    Student* next;<span class="comment">//节点指针，如果这个链表到尾部了，那么这是尾指针（暂时只考虑单向链表，也就是从头走到尾的）</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Student ChainList;<span class="comment">//先在运行时栈创建一个结构体，其实head = new Student也可以</span></span><br><span class="line">    Student* head = ChainList;<span class="comment">//获取头指针</span></span><br><span class="line">    ---录入数据---（链表操作在后面说，先创建，才能操作）</span><br><span class="line">    head.next = <span class="keyword">new</span> Student;<span class="comment">//在运行时堆里new一个新的空结构体</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>到这里，虽然我们只创建了含两个结构体的链表，而且第二个还是空的，但接下来的事，其实也就在重复以上的操作</p>
-<p>这就是连续输入数据。</p>
-<h3 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h3><h4 id="结构体作形参-1"><a href="#结构体作形参-1" class="headerlink" title="结构体作形参"></a>结构体作形参</h4><p>创建函数时，十分<strong>建议引用</strong>，但指针也不差。所以刚刚上面给出了两种创建方式：在运行时栈里创建and运行时堆里创建。</p>
-<p>前一种可以有名字，调用函数时，参数位置直接填写链表名，在函数里使用“链表名.成员= 想要赋的值”完事（也就是第一个结构体的名称，上例为ChainList，则如果我想录入分数，只需要：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">ChainList.score[<span class="number">0</span>]=第一门成绩;</span><br><span class="line">ChainList.score[<span class="number">1</span>]=第二门成绩;</span><br><span class="line">ChainList.score[<span class="number">2</span>]=第三门成绩;</span><br></pre></td></tr></table></figure>
-
-<p>（其中，点”.”是成员运算符，接下来的“-&gt;”是指向运算符）</p>
-<p>后一种写个指针，然后input函数中使用“head-&gt;成员=想要赋的值”的格式给成员赋值。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">head-&gt;score[<span class="number">0</span>]=第一门成绩;</span><br><span class="line">head-&gt;score[<span class="number">1</span>]=第二门成绩;</span><br><span class="line">head-&gt;score[<span class="number">2</span>]=第三门成绩;</span><br></pre></td></tr></table></figure>
-
-<p>但接下来两点才是重点。</p>
-<p>①为了链表可以重复操作，你必须额外再创建两个指针，分别用于在链表的头指针处和最前端处，不妨先叫它们：moving_pointer和pioneer_pointer（移动指针和先锋指针，当然，是我瞎编的）。其中moving_pointer初值为head，并且在每次操作完链表后，加一句moving_pointer = head，将其值自动归为头指针的地址，以备下一次使用；另一个pioneer_pointer，一般为最后一个结构体的头指针，而在每次创建一个结构体时，更新为尾指针，然后获得的返回值，再次成为最后一个结构体的头指针，即</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">pioneer_pointer = pioneer_pointer-&gt;next;</span><br><span class="line">pioneer_pointer = <span class="keyword">new</span> Student;</span><br></pre></td></tr></table></figure>
-
-<p>一般接着输入函数，请看例子：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="number">3</span>:<span class="comment">//插入新的学生信息</span></span><br><span class="line">	<span class="keyword">if</span> (n == <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line"></span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;[添加]请输入学生信息：\n&quot;</span>;</span><br><span class="line">		input(stu);</span><br><span class="line">		n++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (n &gt; <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;[添加]请输入学生信息：\n&quot;</span>;</span><br><span class="line"></span><br><span class="line">		(*p).next = <span class="keyword">new</span> Student;<span class="comment">//此处的p即为pioneer_pointer</span></span><br><span class="line">		p = p-&gt;next;</span><br><span class="line">		input(*p);</span><br><span class="line">	&#125;</span><br><span class="line">	p-&gt;next = <span class="literal">nullptr</span>;</span><br><span class="line">	<span class="keyword">if</span> (moving_pin == <span class="literal">nullptr</span>)head = p;</span><br><span class="line">	<span class="keyword">break</span>;</span><br></pre></td></tr></table></figure>
-
-<p>为什么需要它们？想一想，第一次输入完成时，对于引用型函数来说，下一次应该在它的参数位置填什么？还是ChainList吗？</p>
-<p>显然不是。</p>
-<p>上面代码的input()函数就是引用型的，我更换成了*p（先锋指针作为最后一个结构体的头指针，那么*p发挥了类似ChainList的作用），不然的话，下一次赋值将直接覆盖第一次的数据，并没有形成链表</p>
-<p>②</p>
-<h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><p>类似于input()函数，只不过关于char字符数组的部分，需要用strcpy_s(字符串1,字符串2)。这里不知道为什么strcpy()不行，会报错，而strcpy_s()没有这个问题，以下input()函数仅供参考：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">input</span><span class="params">(Student&amp; v_stu)</span><span class="comment">//我也忘记v是什么意思了，virtual?但形参是parameter。</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; v_stu.No &gt;&gt;v_stu.Name&gt;&gt; v_stu.score[<span class="number">0</span>] &gt;&gt; v_stu.score[<span class="number">1</span>] &gt;&gt; v_stu.score[<span class="number">2</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="插入、删除"><a href="#插入、删除" class="headerlink" title="插入、删除"></a>插入、删除</h4><p>这里只简略说明下思路，代码放到另一篇文章里了（参考篇）。</p>
-<p>插入，因为暂时不需要排序，所以每次往new出来的新空间里input就可以了（有排序那另说，其实也只不过是next指针的调换）。</p>
-<p>删除，要分三种情况</p>
-<p>一是去头，二是去尾，三是去中间。去头需要调动头指针，让头部往后挪；去尾在删掉数据后，让倒数第二个结构体的next指向新的空间即可；去中间，将前一个结构体的next指针赋值为将要被删的结构体的next指针，然后删除想删除的结构体成员即可。（将要被删除结构体的next指针其实就是它下一个结构体的头指针，这样就依然可以连起来）</p>
-<h4 id="交换顺序"><a href="#交换顺序" class="headerlink" title="交换顺序"></a>交换顺序</h4><p>参考数组排序的做法即可，就是指针交换那儿有点绕，多想想就好。</p>
-<p>具体一点，我的方法是选择排序，一定一动，定与动比较，需要交换时，我们假设个结构体a和b吧，先给个中间变量t（是指针），先让t= a.next,再使a.next = b.next,最后b.next = t，（）</p>
-<p>选择排序，冒泡排序，目前我就学了这两种，而我还需要学八种。先放上典图。</p>
-<p><img src="https://raw.githubusercontent.com/Makri-hub/WolpersHome.github.io/PicGo/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20201211173838.png"></p>
-<p>我也并不急于去理解它们，等到了时候再说吧。这里上代码，看起来就像把平面图形拉成了立体图形。（其实就是多输入几个）</p>
-<p>这里给出的代码，要注意，我是另外备份了一个链表来排序的。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap_not_including_pin</span><span class="params">(Student&amp; a, Student&amp; b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	Student T;<span class="comment">//中间变量</span></span><br><span class="line">	strcpy_s(T.Name, a.Name); T.No = a.No; T.score[<span class="number">0</span>] = a.score[<span class="number">0</span>]; T.score[<span class="number">1</span>] = a.score[<span class="number">1</span>]; T.score[<span class="number">2</span>] = a.score[<span class="number">2</span>];<span class="comment">//T = a</span></span><br><span class="line">	strcpy_s(a.Name, b.Name); a.No = b.No; a.score[<span class="number">0</span>] = b.score[<span class="number">0</span>]; a.score[<span class="number">1</span>] = b.score[<span class="number">1</span>]; a.score[<span class="number">2</span>] = b.score[<span class="number">2</span>];<span class="comment">//a = b;</span></span><br><span class="line">	strcpy_s(b.Name, T.Name); b.No = T.No; b.score[<span class="number">0</span>] = T.score[<span class="number">0</span>]; b.score[<span class="number">1</span>] = T.score[<span class="number">1</span>]; b.score[<span class="number">2</span>] = T.score[<span class="number">2</span>];<span class="comment">//b = t;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>对比下简单变量的交换，就明白上面是什么意思了。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap_not_including__pointer</span><span class="params">(<span class="keyword">int</span> &amp;a,<span class="keyword">int</span> &amp;b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> T;</span><br><span class="line">    T = a;</span><br><span class="line">    a = b;</span><br><span class="line">    b = t;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>以上，写得比较菜，定有疏漏之处，还恳请各位轻喷。比如链表的那两个“必须额外再复制两个指针”是否可以简化点思路？是否尝试过复制结构体的方法？</p>
-<p>文章实质上可能是期末复习笔记之类的，凑合着像一篇教程</p>
-]]></content>
-      <categories>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>我的第一篇文章</title>
-    <url>/2020/11/21/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[<p>始于2020</p>
-<a id="more"></a>
-
+    <title>月记 ~ Oct 2023</title>
+    <url>/2023/10/15/%E6%96%B0%E5%A1%98%E4%B9%8B%E5%A4%9C/</url>
+    <content><![CDATA[<h2 id="夏末秋初"><a href="#夏末秋初" class="headerlink" title="夏末秋初"></a>夏末秋初</h2><h3 id="故事伊始"><a href="#故事伊始" class="headerlink" title="故事伊始"></a>故事伊始</h3><p>有一天，年轻人在华工寻找工作机会。</p>
+<p>有一天，年轻人在天河万科广场溜达，走进了一家叫“张亮麻辣烫”的食肆。里面开着空调，如果他愿意还可以直对着空调吹，直到吃完那碗20元的麻辣烫，然后坐在位子上歇一下，思考出门后左拐还是右拐。</p>
+<p>有一天，年轻人从床上睡醒，拉开窗帘只有一片黑，直至远处细微的反光告诉他窗户没有被黑漆糊上，夜晚才真正来临了，并且伸手不见五指。</p>
+<p>有一天，年轻人发现万科广场外不到200m的地方，是赤坎一样的荒山野岭，在导航的八百米路程中他要走过两三百米这样的山石沙路，然后踏进繁华都市解决晚餐。</p>
+<p>有一天，年轻人回家待了一个月。这一个月他过的很开心，吃月饼喝早茶，买新衣，和家人讨论新闻。即使在家最后一个晚上他无论如何都不想就此结束。</p>
+<p>线下面试如约而至，他必须提前回去，以便那天中午再乘车去华工。</p>
+<p>有一天，年轻人早上做笔试，下午线下面试，晚上又是笔试。晚上他几乎睁不开眼，就这样疲惫地坐在电脑前草草结了笔试。</p>
+<p>有一天，年轻人坐在城中村的出租屋里，怀着每天都是最后一天的心情，写下了一些文字，并祝福着未来前程远大，步步高升，做着喜欢的工作过着如意的生活，并和所有过去的朋友打了照面，由此幻想不再飘渺，快乐不再短暂；祝福着幻想和审判一同到来，他致以敬意，问心无愧领受命运。</p>
+<h3 id="事记"><a href="#事记" class="headerlink" title="事记"></a>事记</h3><p>十月初，我已经在家呆了一个月。因为看在这期间已经结束实习，并没有校内事务，暑假也没有回家团聚过，于是教师节那天从大学离开，和家里人过中秋国庆，作为剩下日子里为数不多陪同家人的一次长假。我知道这样的日子只会越来越少，自当珍惜。</p>
+<p>但离开大学还是错过了一些机会。一些企业的宣讲会、招聘会或双选会在月底现场举办，这有些无可奈何，判定了损失不算巨大后便决定节后再回。</p>
+<p>期间我另找了一份实习，在天河网易，与低代码相关。写记录时已经租好房子，准备在这里度过农历新年前的所有时间。开始前的最后一晚上，我打算用来准备相关材料，完成后写技术博客，然后再打打游戏，结束这一天。</p>
+<p>这个点找实习其实并不OK，真正有竞争力的应届生已经结束了两段大厂实习，手握多个秋招offer。</p>
+<p>于是我也开始思考自己的前端人生，思考我下一个开辟方向应是哪里。现状是比一些人好，但好不到哪里去，前途也未定，技术的积累已经很久没有继续了。</p>
+<p>所以我计划这期间动笔写三篇文章：</p>
 <ul>
-<li><input checked="" disabled="" type="checkbox"> 搭建博客</li>
-<li><input checked="" disabled="" type="checkbox"> 使用合适的主题</li>
-<li><input checked="" disabled="" type="checkbox"> 更改头像</li>
-<li><input disabled="" type="checkbox"> 添加分类（标签和目录）</li>
-<li><input disabled="" type="checkbox"> 开放评论区</li>
+<li>Git协作模式</li>
+<li>博客搭建之旅</li>
+<li>我的秋招（一）</li>
 </ul>
-<p>这里↑要回车一下才能跳开tag（奇怪的bug）</p>
-<p>间距有点宽，调一下？</p>
-<p>好吧并没有找到调节的地方，先放一放。</p>
-<p>11月21日小雪，早晨，终于完整地完成了Hexo博客的搭建。</p>
-<p>历时居然有三个星期。第一个星期看Next和Hexo的原版文档，在Gitlab那边花了很多时间；结果也没怎么成功（说不定现在回去弄一下其实也可以用，因为关键一步已经“搞懂”了）</p>
-<p>然后第二个星期，老老实实去GitHub搞，但因为一如既往的皮命名，网址访问不了——把存储名写成了WolpersHome.github.io，你是有多喜欢狐狸。</p>
-<p>要写自己的用户名+.github.io才可以。具体原理没有搞清楚，不过挺奇妙的是我还没输完，只输入用户名时，它告诉我如果只输入用户名作为存储名的话，可以给自己的github页面做README.md，大概也挺好的？</p>
-<p>当然，最后一个星期五晚上，终于接通，是通过b站看视频比对模拟完成的——为什么说是比对模拟，因为视频至少是一年前的，而更新之后的Hexo在_config.yml上有略微改变——最显著的就是找不到那个“URL”而只有一个“prettyurl（简洁的url）”，输入之后也全部木大，估摸着是给买了服务器和域名的人用的——这一步GitHub给我们提供了免费的页面，也算是文件储存服务器了吧。</p>
-<p>简单谈谈这个博客的来历。某天situ2001把他博客发了给我，很棒，虽然没做太炫酷的东西，但博客有该有的东西，页面不伤眼——于是想到我打word时痛苦的眼睛，以及没有优雅感的.docx堆，我下定决心也做一个。当然，照猫画虎就是了，前人道路已经没有黑暗之处，走走便是。</p>
-<p>于是照猫画虎画了三个星期。更恰当来说，是“照虎画猫”。现在还没找到合适的主题，没有标签和分类，没有评论功能。评论多半是给我自己更正什么的。</p>
-<p>好了现在还没解决的问题有一，ip没有变，还是github的，我要确认那是不是需要购买域名才能换成我想要的博客ip——买个.cn或.com，每个月都得开销，这谁顶得住。（这是大致的认识，但我写的时候就觉得有偏差，域名ip？有空具体查下看看）</p>
-<p>先把我成功搭建博客的扶手梯放在这里，以供复习搭建思路。↓↓↓↓↓</p>
-<p><a href="http://www.bilibili.com/video/BV1Yb411a7ty">www.bilibili.com/video/BV1Yb411a7ty</a></p>
-<p>本来想在这里放上代码，发现html语言的符号会让页面全部木大，而使用代码块演示，倒是可以。</p>
-<img src="https://i.loli.net/2020/11/22/GWLTJmQnPiMrt9f.png" alt="![QQ]20201122124154.png" style="zoom:80%;" />
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;iframe src&#x3D;&quot;&#x2F;&#x2F;player.bilibili.com&#x2F;player.html?aid&#x3D;44544186&amp;bvid&#x3D;BV1Yb411a7ty&amp;cid&#x3D;158772893&amp;page&#x3D;1&quot; scrolling&#x3D;&quot;no&quot; border&#x3D;&quot;0&quot; frameborder&#x3D;&quot;no&quot; framespacing&#x3D;&quot;0&quot; allowfullscreen&#x3D;&quot;true&quot;&gt; &lt;&#x2F;iframe&gt;</span><br></pre></td></tr></table></figure>
-
-<p>写这篇文章的同时，我学会了hexo上放b站视频，复制代码块，使用图库，后台hexo自动登录等等，还是多亏了互联网。</p>
-<p>行文没有思路，经常穿插，内容偶有重复，是随心所致，望谅解。</p>
+<p>秋招已经确定好了主题：探究秋招卷的意义，并且给各个年级建议。</p>
+<h3 id="故事之末"><a href="#故事之末" class="headerlink" title="故事之末"></a>故事之末</h3><p>“癸卯年壬戌月，新历十五日，携行李步窄巷。逾三日，愁流量见底，度以流量节制，终以阅书度日，单机打趣。遂定他日返校，下载资料电影游戏若干，充实生活。至于流量转换之法，他日再究。”</p>
+<p>“此法有益集中，如往日之卡带磁碟，实体介质，返璞归真。然通讯之不便，亲友之失联，恐弥补艰难。”</p>
 ]]></content>
       <categories>
         <category>生活记录</category>
       </categories>
       <tags>
         <tag>记录</tag>
+        <tag>月记</tag>
       </tags>
   </entry>
   <entry>
@@ -1153,30 +1187,23 @@
       </tags>
   </entry>
   <entry>
-    <title>月记 ~ Oct 2023</title>
-    <url>/2023/10/15/%E6%96%B0%E5%A1%98%E4%B9%8B%E5%A4%9C/</url>
-    <content><![CDATA[<h2 id="夏末秋初"><a href="#夏末秋初" class="headerlink" title="夏末秋初"></a>夏末秋初</h2><h3 id="故事伊始"><a href="#故事伊始" class="headerlink" title="故事伊始"></a>故事伊始</h3><p>有一天，年轻人在华工寻找工作机会。</p>
-<p>有一天，年轻人在天河万科广场溜达，走进了一家叫“张亮麻辣烫”的食肆。里面开着空调，如果他愿意还可以直对着空调吹，直到吃完那碗20元的麻辣烫，然后坐在位子上歇一下，思考出门后左拐还是右拐。</p>
-<p>有一天，年轻人从床上睡醒，拉开窗帘只有一片黑，直至远处细微的反光告诉他窗户没有被黑漆糊上，夜晚才真正来临了，并且伸手不见五指。</p>
-<p>有一天，年轻人发现万科广场外不到200m的地方，是赤坎一样的荒山野岭，在导航的八百米路程中他要走过两三百米这样的山石沙路，然后踏进繁华都市解决晚餐。</p>
-<p>有一天，年轻人回家待了一个月。这一个月他过的很开心，吃月饼喝早茶，买新衣，和家人讨论新闻。即使在家最后一个晚上他无论如何都不想就此结束。</p>
-<p>线下面试如约而至，他必须提前回去，以便那天中午再乘车去华工。</p>
-<p>有一天，年轻人早上做笔试，下午线下面试，晚上又是笔试。晚上他几乎睁不开眼，就这样疲惫地坐在电脑前草草结了笔试。</p>
-<p>有一天，年轻人坐在城中村的出租屋里，怀着每天都是最后一天的心情，写下了一些文字，并祝福着未来前程远大，步步高升，做着喜欢的工作过着如意的生活，并和所有过去的朋友打了照面，由此幻想不再飘渺，快乐不再短暂；祝福着幻想和审判一同到来，他致以敬意，问心无愧领受命运。</p>
-<h3 id="事记"><a href="#事记" class="headerlink" title="事记"></a>事记</h3><p>十月初，我已经在家呆了一个月。因为看在这期间已经结束实习，并没有校内事务，暑假也没有回家团聚过，于是教师节那天从大学离开，和家里人过中秋国庆，作为剩下日子里为数不多陪同家人的一次长假。我知道这样的日子只会越来越少，自当珍惜。</p>
-<p>但离开大学还是错过了一些机会。一些企业的宣讲会、招聘会或双选会在月底现场举办，这有些无可奈何，判定了损失不算巨大后便决定节后再回。</p>
-<p>期间我另找了一份实习，在天河网易，与低代码相关。写记录时已经租好房子，准备在这里度过农历新年前的所有时间。开始前的最后一晚上，我打算用来准备相关材料，完成后写技术博客，然后再打打游戏，结束这一天。</p>
-<p>这个点找实习其实并不OK，真正有竞争力的应届生已经结束了两段大厂实习，手握多个秋招offer。</p>
-<p>于是我也开始思考自己的前端人生，思考我下一个开辟方向应是哪里。现状是比一些人好，但好不到哪里去，前途也未定，技术的积累已经很久没有继续了。</p>
-<p>所以我计划这期间动笔写三篇文章：</p>
-<ul>
-<li>Git协作模式</li>
-<li>博客搭建之旅</li>
-<li>我的秋招（一）</li>
-</ul>
-<p>秋招已经确定好了主题：探究秋招卷的意义，并且给各个年级建议。</p>
-<h3 id="故事之末"><a href="#故事之末" class="headerlink" title="故事之末"></a>故事之末</h3><p>“癸卯年壬戌月，新历十五日，携行李步窄巷。逾三日，愁流量见底，度以流量节制，终以阅书度日，单机打趣。遂定他日返校，下载资料电影游戏若干，充实生活。至于流量转换之法，他日再究。”</p>
-<p>“此法有益集中，如往日之卡带磁碟，实体介质，返璞归真。然通讯之不便，亲友之失联，恐弥补艰难。”</p>
+    <title>生活博客（一）</title>
+    <url>/2022/05/21/%E7%94%9F%E6%B4%BB%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%B8%80%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="开篇"><a href="#开篇" class="headerlink" title="开篇"></a>开篇</h2><p>​        开篇点题，生活记录即学习之外的一些记录。大概还是会以疫情为主基调。</p>
+<h2 id="近来做了什么"><a href="#近来做了什么" class="headerlink" title="近来做了什么"></a>近来做了什么</h2><h3 id="普通话考试"><a href="#普通话考试" class="headerlink" title="普通话考试"></a>普通话考试</h3><p>​        5月21日参加了普通话考试。得益于高质量大学的组织能力和效率，考试流程没有任何为难人的事——考试是单间，一人一屋，静音效果特好，不像很多地方考场，人员混杂着考。遗憾的是，我确信自己最后没考得多好，因为一些原始的问题还是暴露了出来，像回读、读错、卡壳，能上个二乙应该就十分不错了，但是三甲三乙就难看了点，这似乎是相当难受的卡点分数。</p>
+<p>​        考这个试目前没有什么大用，我将其视为我回归实况主的第一步。第一步已经迈出，生命不息，实况不止。</p>
+<h3 id="读论文"><a href="#读论文" class="headerlink" title="读论文"></a>读论文</h3><p>​        近来受软件工程结课作业的益，跑去知网上扒拉了几篇论文来看，颇有身处学府之神圣感。</p>
+<p>​        目前只看国内论文。我有想过看国外论文，但很明显现阶段不宜直接跳到国外去，对我来说那叫本末倒置。先看看国内优秀的论文，再去看国外，才知道差距，才知道要怎么看，要看什么。目前收藏了一些前端应用的论文，以省级校级优秀论文为主。这些文章讲好听可以叫做先进的高科技应用，讲得很难听也就是中肯的项目开发经历，没有不值得看的。里面有很多考量因素，即便生凑也有说得过去的理由。相对于绝大多数长篇博客来说，论文水准高出一截。</p>
+<h3 id="学日语"><a href="#学日语" class="headerlink" title="学日语"></a>学日语</h3><p>​        开始学日语。一方面是阅读现代的教程，另一方面去听简明日语的课程。后者进行时，虽然总觉得不知何处有些尴尬，但总体还是可以一用。</p>
+<p>​        近来课外书看的少了，不是做实验就是各种小考大考，又或是各种活动。在这里我计划下准备要看的课外书，最近只看一本就够，不可囫囵吞枣。在计划的，有一本《枪炮、病菌与钢铁》，讲世界文明的。</p>
+<h3 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h3><p>​        参加了个项目，目前项目的审查状态未知，只是听着老师的建议去做点小网页。于是Vue的进度又前进了一大截，并且庆幸Vue的生态比Vite宽泛得多，很多第三方库都照顾。之前Vite想引入个小图标都难如登天。做了几个小组件之后，对响应式的实现有了切实的了解，主要是数组在响应式中的应用。深入的内容记在技术博客里。</p>
+<h3 id="读书"><a href="#读书" class="headerlink" title="读书"></a>读书</h3><p>​        读了《ES6 For Humans》的大部分，介绍2015年发布的ES6中新增的一些规范，但看下来也只是粗略认识了下ES6的新东西，没有很深入。意外的收获是，Typora将MD转为PDF会非常好看，尤其是Pixyll主题，对英文和Typora的各种结构有很强的适配，建议用MD写的书全用这个主题转成PDF，放在IPAD上看。</p>
+<h3 id="做核酸"><a href="#做核酸" class="headerlink" title="做核酸"></a>做核酸</h3><p>​        这个月做了七次核酸。六月初，上海解封。音律联觉暂时没啥消息，估摸着至少要暑假才有可能。</p>
+<h2 id="在做什么"><a href="#在做什么" class="headerlink" title="在做什么"></a>在做什么</h2><h3 id="学Vue"><a href="#学Vue" class="headerlink" title="学Vue"></a>学Vue</h3><p>​        现在课程接近到二分之一了，后面比较重要的，有路由、组件通信、setup和vue3内容等。</p>
+<h3 id="mc的mod编程"><a href="#mc的mod编程" class="headerlink" title="mc的mod编程"></a>mc的mod编程</h3><p>​        难就难在版本不同，Map对应的各个函数有不同，需要自己去看接口。现在玩MOD颇有JS调别人第三方库的感觉，写这些的人太猛了。</p>
+<h3 id="写报告"><a href="#写报告" class="headerlink" title="写报告"></a>写报告</h3><p>​        三个实验课，还应付的过来。早前的软件工程已经出成绩了，赏脸给了优，《带你听懂》也十分给面，考试多少分，成绩就不会比这个分低。体育倒是担忧的——逃课两次被抓了。一次是测1km的，一次是跳远五十米那些。会不会被记到逃课记录里，看造化力。</p>
+<h2 id="想说什么"><a href="#想说什么" class="headerlink" title="想说什么"></a>想说什么</h2><p>​        最近基本三点一线，图书馆教室宿舍，疫情防控依旧在进行，核酸从这个月开始常态化，隔三岔五就来一次，不过得益于高质量大学的拨款力度，核酸免费。</p>
+<p>​        最后接近考试了，一方面需要加紧复习和做题，另一方面要跟进项目，把应该有的效果都做出来。但并不能因此放弃休息或是带病上岗，需要注意自己，尤其是眼睛和脊椎的保养。</p>
 ]]></content>
       <categories>
         <category>生活记录</category>
@@ -1185,6 +1212,12 @@
         <tag>记录</tag>
         <tag>月记</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>测试页面</title>
+    <url>/2020/11/20/%E6%B5%8B%E8%AF%95/</url>
+    <content><![CDATA[<p>这个页面是用来测试的，是因第一次Hexo一片空白而产生的测试页面</p>
+]]></content>
   </entry>
   <entry>
     <title>月记 ~ Jan 2022</title>
@@ -1359,39 +1392,6 @@
       <tags>
         <tag>笔记</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>生活博客（一）</title>
-    <url>/2022/05/21/%E7%94%9F%E6%B4%BB%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%B8%80%EF%BC%89/</url>
-    <content><![CDATA[<h2 id="开篇"><a href="#开篇" class="headerlink" title="开篇"></a>开篇</h2><p>​        开篇点题，生活记录即学习之外的一些记录。大概还是会以疫情为主基调。</p>
-<h2 id="近来做了什么"><a href="#近来做了什么" class="headerlink" title="近来做了什么"></a>近来做了什么</h2><h3 id="普通话考试"><a href="#普通话考试" class="headerlink" title="普通话考试"></a>普通话考试</h3><p>​        5月21日参加了普通话考试。得益于高质量大学的组织能力和效率，考试流程没有任何为难人的事——考试是单间，一人一屋，静音效果特好，不像很多地方考场，人员混杂着考。遗憾的是，我确信自己最后没考得多好，因为一些原始的问题还是暴露了出来，像回读、读错、卡壳，能上个二乙应该就十分不错了，但是三甲三乙就难看了点，这似乎是相当难受的卡点分数。</p>
-<p>​        考这个试目前没有什么大用，我将其视为我回归实况主的第一步。第一步已经迈出，生命不息，实况不止。</p>
-<h3 id="读论文"><a href="#读论文" class="headerlink" title="读论文"></a>读论文</h3><p>​        近来受软件工程结课作业的益，跑去知网上扒拉了几篇论文来看，颇有身处学府之神圣感。</p>
-<p>​        目前只看国内论文。我有想过看国外论文，但很明显现阶段不宜直接跳到国外去，对我来说那叫本末倒置。先看看国内优秀的论文，再去看国外，才知道差距，才知道要怎么看，要看什么。目前收藏了一些前端应用的论文，以省级校级优秀论文为主。这些文章讲好听可以叫做先进的高科技应用，讲得很难听也就是中肯的项目开发经历，没有不值得看的。里面有很多考量因素，即便生凑也有说得过去的理由。相对于绝大多数长篇博客来说，论文水准高出一截。</p>
-<h3 id="学日语"><a href="#学日语" class="headerlink" title="学日语"></a>学日语</h3><p>​        开始学日语。一方面是阅读现代的教程，另一方面去听简明日语的课程。后者进行时，虽然总觉得不知何处有些尴尬，但总体还是可以一用。</p>
-<p>​        近来课外书看的少了，不是做实验就是各种小考大考，又或是各种活动。在这里我计划下准备要看的课外书，最近只看一本就够，不可囫囵吞枣。在计划的，有一本《枪炮、病菌与钢铁》，讲世界文明的。</p>
-<h3 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h3><p>​        参加了个项目，目前项目的审查状态未知，只是听着老师的建议去做点小网页。于是Vue的进度又前进了一大截，并且庆幸Vue的生态比Vite宽泛得多，很多第三方库都照顾。之前Vite想引入个小图标都难如登天。做了几个小组件之后，对响应式的实现有了切实的了解，主要是数组在响应式中的应用。深入的内容记在技术博客里。</p>
-<h3 id="读书"><a href="#读书" class="headerlink" title="读书"></a>读书</h3><p>​        读了《ES6 For Humans》的大部分，介绍2015年发布的ES6中新增的一些规范，但看下来也只是粗略认识了下ES6的新东西，没有很深入。意外的收获是，Typora将MD转为PDF会非常好看，尤其是Pixyll主题，对英文和Typora的各种结构有很强的适配，建议用MD写的书全用这个主题转成PDF，放在IPAD上看。</p>
-<h3 id="做核酸"><a href="#做核酸" class="headerlink" title="做核酸"></a>做核酸</h3><p>​        这个月做了七次核酸。六月初，上海解封。音律联觉暂时没啥消息，估摸着至少要暑假才有可能。</p>
-<h2 id="在做什么"><a href="#在做什么" class="headerlink" title="在做什么"></a>在做什么</h2><h3 id="学Vue"><a href="#学Vue" class="headerlink" title="学Vue"></a>学Vue</h3><p>​        现在课程接近到二分之一了，后面比较重要的，有路由、组件通信、setup和vue3内容等。</p>
-<h3 id="mc的mod编程"><a href="#mc的mod编程" class="headerlink" title="mc的mod编程"></a>mc的mod编程</h3><p>​        难就难在版本不同，Map对应的各个函数有不同，需要自己去看接口。现在玩MOD颇有JS调别人第三方库的感觉，写这些的人太猛了。</p>
-<h3 id="写报告"><a href="#写报告" class="headerlink" title="写报告"></a>写报告</h3><p>​        三个实验课，还应付的过来。早前的软件工程已经出成绩了，赏脸给了优，《带你听懂》也十分给面，考试多少分，成绩就不会比这个分低。体育倒是担忧的——逃课两次被抓了。一次是测1km的，一次是跳远五十米那些。会不会被记到逃课记录里，看造化力。</p>
-<h2 id="想说什么"><a href="#想说什么" class="headerlink" title="想说什么"></a>想说什么</h2><p>​        最近基本三点一线，图书馆教室宿舍，疫情防控依旧在进行，核酸从这个月开始常态化，隔三岔五就来一次，不过得益于高质量大学的拨款力度，核酸免费。</p>
-<p>​        最后接近考试了，一方面需要加紧复习和做题，另一方面要跟进项目，把应该有的效果都做出来。但并不能因此放弃休息或是带病上岗，需要注意自己，尤其是眼睛和脊椎的保养。</p>
-]]></content>
-      <categories>
-        <category>生活记录</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-        <tag>月记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>测试页面</title>
-    <url>/2020/11/20/%E6%B5%8B%E8%AF%95/</url>
-    <content><![CDATA[<p>这个页面是用来测试的，是因第一次Hexo一片空白而产生的测试页面</p>
-]]></content>
   </entry>
   <entry>
     <title>零散的年记</title>
