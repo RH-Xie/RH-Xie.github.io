@@ -1,6 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>2022行纪（01）</title>
+    <url>/2022/09/07/2022%E8%A1%8C%E7%BA%AA%EF%BC%8801%EF%BC%89/</url>
+    <content><![CDATA[<blockquote>
+<p>前言：</p>
+<p>本篇由多篇记录溯源整理而成，各部分时间有所跳动。</p>
+</blockquote>
+<h2 id="2022-7"><a href="#2022-7" class="headerlink" title="2022.7"></a>2022.7</h2><p>原本我为我的暑假准备了很多Todos，念在字节青训营并不容易坚持到底，故设计零散的目标分给暑假去实现。结果是选择了青训营，而Todos搁置一边。但这并不意味着这些Todos不再去做了，或者是暑假没有做事——青训营的学习心路还是值得一记的。</p>
+<p>按照断更以来的时间顺序，我记下一些暑假前后的事情。</p>
+<h3 id="实验，课设和考试"><a href="#实验，课设和考试" class="headerlink" title="实验，课设和考试"></a>实验，课设和考试</h3><p>实验完成得七七八八，其实在之前也被提到过，这学期压力算是很小，三个实验一个课设</p>
+<p>计网实验怪怪的，不去实现TCP/IP协议或者是其他网络相关的东西，倒是用各种软件去模拟网络，甚至还要写程序模拟个交换机。对于可视化，想想需要Qt之类的写算法就贼麻烦，又没要求算法效率，所以直接JavaScript写了计网和操作系统需要可视化的部分，表格啊图表啊什么的。写一次就扔的文件，也没有用TypeScript的必要，降低投入成本。结果还算过得去，成绩都不差。</p>
+<p>课设只有操作系统，我一眼就相中了“文件系统”。相比什么子进程同步锁，这模拟一个文件系统，完全就是字符串处理罢了，多简单啊！</p>
+<p>于是用C写了两天写出来，还贼逼真，改改颜色几乎以假乱真了。剩下3天带着平板去实验室复习。毕竟考试吧，挺玄乎的，没有太多真题和往年卷，靠自己多做才行。计网和OS大多都是课后习题里出。</p>
+<p>毛概就是背了，根据给的提示，狂背，困了就手打，能记住多少就是多少。好在选好老师，怎么折腾都不怕太差。</p>
+<h3 id="重构了项目页面"><a href="#重构了项目页面" class="headerlink" title="重构了项目页面"></a>重构了项目页面</h3><p>准确来说是终于用上了UI库，是尤大曾推荐的Vuetify。使用体验还不错，只是初次接触，难免有些操作生硬的地方。比如侧边栏究竟跟顶栏谁盖住谁，人家UI库也没想着你会两个都要，导致交差一起不好看，东西被盖住，理所当然。我学前端不到半年，这样的意识还没有树立起来，还是要多多学习Material Design那些Guidelines。</p>
+<p>至于监控页面的那个项目，经过简单的重构，打包的产物放在我新买的服务器上运行后，我就没有再动过了。两个月后，没想到老师让我展示展示，这下可尴尬，服务器已经关掉一个月了。这就说明，还是有必要物色一个常驻服务器了。</p>
+<h3 id="尝试重构博客"><a href="#尝试重构博客" class="headerlink" title="尝试重构博客"></a>尝试重构博客</h3><p>用了上面说的UI库，我加上解析<code>.md</code>的功能，就大致把新博客做了出来。可惜很多地方解析不到位，还需要很多修缮。</p>
+<p>时间不等人，重构一半，邮件弹出，青训营也开始了。</p>
+<h3 id="进入基础班"><a href="#进入基础班" class="headerlink" title="进入基础班"></a>进入基础班</h3><p>从唠嗑大群人数来看，基本上交了卷都能进基础班。即使是这样我也没冒险去尝试进阶班，因为说不好没选上会连基础班都进不去，那暑假就容易荒废。大多数人来这里，一是为了找人合作最后的大项目，二是字节提供前端课程，三是这里的学习氛围。在这两个月学习中，我也体会到氛围的重要：交流、社区汲取是提升技术、开眼界的两个通道。</p>
+<h2 id="2022-8"><a href="#2022-8" class="headerlink" title="2022.8"></a>2022.8</h2><blockquote>
+<p>有道曰：“善始者众，善终者寡。”</p>
+</blockquote>
+<p>唠嗑群在开营前后几天，人数巅峰为3000有余。</p>
+<h3 id="组队"><a href="#组队" class="headerlink" title="组队"></a>组队</h3><p>一波三折。</p>
+<p>大多人第一次进入飞书，其中也包括了我。而迅速换上头像，能让我们更快融入其中。</p>
+<p>我主动联系了许多人，他们有的已经实习，有的与我同年；有经验丰富，也有小白一枚。我并没太多想法，只是跟随一开始约好的人。一个8人群很快就组建完毕，甚至在Github上也有了Organization。此时，群内大约有5名大佬，久经沙场，另外3人我在内，是小白水平。组织名就叫：</p>
+<blockquote>
+<p>“心脏和字节只能有一个跳动”</p>
+</blockquote>
+<p>几天磋商，几天考量。结果磋商不大成功，群主似乎找好了下家，率先跑路；随后当天晚，另一名大佬也另谋高就，组织失去了两个重要的主心骨，不可谓不令人担忧队伍的后续发展。</p>
+<h3 id="写项目"><a href="#写项目" class="headerlink" title="写项目"></a>写项目</h3><p>群内许久无音信，没人开始做项目，但我只有这一件事要做。一个人把项目骨架日出来就写文档，然后就是团队开发了。六人有三人参与项目开发，另有一人在后期负责PPT。</p>
+<p>记得一个人写的那会，问题巨多，Vite3差点换成Vite2，后来<code>.umd.js</code>和<code>.css</code>编译在一起没引起什么特殊问题，才保留了Vite3。</p>
+<p>到八月中旬，104支队伍提交项目。按每支队7人，三千人此时只剩下七百在坚持。</p>
+<h3 id="暑假结束"><a href="#暑假结束" class="headerlink" title="暑假结束"></a>暑假结束</h3><p>答辩由另一位大佬主持。成绩还不错的，只是这个项目的潜力完全不止这点。如果当时6个人开足马力，必定是可以夺得第一。首先UI库跟模块结合打包有问题没解决，其次没做组件商城，这十分可惜。</p>
+<p>晋级答辩60支队伍，即约420人，差不多是报名时的1/9。获得结营证书65人，是报名时的1/46。本来有结营资格的有130多人，结果过半被卡在旷课或笔记数量不够上——这是在项目截止后，运营组多给了一个星期去弥补笔记的情况下。</p>
+]]></content>
+      <categories>
+        <category>生活记录</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+        <tag>年记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>2022行纪（02）</title>
     <url>/2022/11/22/2022%E8%A1%8C%E7%BA%AA%EF%BC%8802%EF%BC%89/</url>
     <content><![CDATA[<h2 id="2022-09"><a href="#2022-09" class="headerlink" title="2022.09"></a>2022.09</h2><p>壬寅年戊申月，已至学府，须臾而安定学府城中。</p>
@@ -29,56 +73,6 @@
 <p>活动倒是展开的七七八八，算是久违地活跃了一波。先是STG接力和则赛，随后打算在年末再来个绘画接力。MC服开起来测试了会，不过似乎太吓人了，没什么人在里面深耕我写的任务。当然啦，这个周目我的动机是做给自己玩，给自己造一个安心的空间，所以有无人实际上不是主要的。<br>目前是什么状况呢？我想制造一个RPG地图，但是兼顾生存，分开两个世界，只要在进入世界时设置点指令即可。一个休闲，一个冒险，十分新颖。而且搭配有音乐、图书导入的功能（原型阶段），不可谓不是20年代MC的新享受。</p>
 <h3 id="游戏课上讲车万和方舟"><a href="#游戏课上讲车万和方舟" class="headerlink" title="游戏课上讲车万和方舟"></a>游戏课上讲车万和方舟</h3><p>方舟可能没机会了，但是车万还好钦定上。不过方舟那个我打算当作作业，也给做出来，毕竟能讲的东西可太充足了。</p>
 <h3 id="写年记"><a href="#写年记" class="headerlink" title="写年记"></a>写年记</h3><p>上一篇年记在2021.9就写了，而现在九月已经过去，国庆已至，需要例行对过去一年总结分析。<br>（2022.10.28）诚然，我并没有那么多时间真的从头写一篇，只能在已有的基础上持续更新近况。如果这是一个问题，那么同时也是一个需求，我可以做一个APP或是桌面应用来定制化解决这样的问题。</p>
-]]></content>
-      <categories>
-        <category>生活记录</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-        <tag>年记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2022行纪（03）</title>
-    <url>/2023/01/09/2022%E8%A1%8C%E7%BA%AA%EF%BC%8803%EF%BC%89/</url>
-    <content><![CDATA[<h2 id="2022-11"><a href="#2022-11" class="headerlink" title="2022.11"></a>2022.11</h2><h3 id="封校"><a href="#封校" class="headerlink" title="封校"></a>封校</h3><p>周三清晨的我，驻足在宿舍大楼门口，正准备重复一遍，上周三的苦状。</p>
-<p>门口前，不合时宜的卷闸，与阳光灿漫的大街出现在同一时空——而在往常，只有早于六点的蒙蒙亮天空，才会去陪伴那堵钢铁卷闸门。</p>
-<blockquote>
-<p>🚧 11.9  封楼了</p>
-</blockquote>
-<p>原本这是双周（第十周），周三第一节有课，俗称“早八”，而编译原理课比较骇人，偶尔会给人不舒服的感觉。于我而言，恐怕莫过于浪费时间和精力在未涉足的内容上。</p>
-<p>“回去都回去了，先等学校通知，”卷闸门外的衬衫西裤如此喊道。</p>
-<p>我把卷闸门摄入镜头，发上几个熟悉的群聊。</p>
-<p>驻足宿舍门外的好奇目光，越来越多，偶尔冒头，偶尔踱步。原路返回的这两分钟，微信群、QQ群消息如轰炸机落下的成堆炸弹，轰炸了整片社交圈。</p>
-<p>于是趁着封楼、上网课的时间，开足马力做方舟的ppt。周三做到周日晚，几乎废寝忘食，所整理的图片资料无数，催生了一些新的需求，比如“私人图库”，给本地图片带上标签，方便查找。</p>
-<h3 id="传教"><a href="#传教" class="headerlink" title="传教"></a>传教</h3><p>做了方舟和东方的PPT，后者需要备课上台演讲。两边都做得很好。对自己而言是十分乃至一百分满意的交代。</p>
-<p>按顺序来，先是方舟的PPT——完成于11月13日晚，用时估计为七天满——在开始之前的一个星期就已经做准备工作。</p>
-<p>《游戏中的历史与文化》，广州大学的一门非专业选修课，设于“历史与文化”栏目下，主讲教师是刘畅，偶尔不是。如果能在大二选上这么一门选修，大约是最合时宜的。二次元、游戏厨两个高度重合的标签，几乎属于这课堂中每个人。</p>
-<p>往届在课堂上展示STG L难度的18级师兄，业已离开校园，以致老师不得不恢复以前的东方压轴宣讲节目。我拿下了这个配合演讲的机会，打了首发（红永妖花）的部分，也有少量的二创、社区内容。可惜讲本家内容时依旧支吾，是没有备课的。备课演讲，实际上需要环境和练习，而我的这些时间去复习车万、找美图去了，只要把本家内容讲个大概，有足够的梗和美少女，也就应该能满足听众。</p>
-<p>此前那个周二，为了赶上可能的缺席机会，为了能让方舟也有机会登上讲台，拼力赶了一天幻灯片，连周三早上的组网技术课都在写这个。同时周末准备大量投入时间，结果发现作业抄错题，转而去赶作业，遂罢。推迟到这周二开展，依然赶了足足一天。</p>
-<p>我设想的目标，实在过于精细，过于注重PPT的内容堆砌，内容密度一次又一次提高，还加入了不可能讲解的音乐。而这作为参评作业，竟没有获得奖项，实在耿耿于怀。</p>
-<h2 id="2022-12"><a href="#2022-12" class="headerlink" title="2022.12"></a>2022.12</h2><h3 id="疫潮"><a href="#疫潮" class="headerlink" title="疫潮"></a>疫潮</h3><blockquote>
-<p>👻 繁华与忙碌并没有如期而至，取而代之的是大面积感染如潮水般汹涌而来。</p>
-</blockquote>
-<p>十二月的我并没有像往常那样，挑灯夜战写实验报告，吸收课程考点，即使那本应该是这样。</p>
-<p>此时的十二月，更像是年前的大扫除，除邋遢，把广州城一扫而空，大学生们如潮水回流大海，回到各自家乡。这段时间发生的事情太多，也有太多不如意。技术的学习几乎处于停滞，外来的干扰接二连三。课程虽有收获，但那显然不是我所需要的。</p>
-<p>十一月初，封校，一个星期，厂的物资丰富，没有造成很大困扰。十一月下旬全国疫情传播，校内许多人都趁此跑回家。一个星期后，我在十二月五日启程回家，十分空荡，路途意外顺利，说明挑对了时间。这次大学生返乡潮之后，全国疫情已不受控制，二十号我在家里就感染了新冠，三天左右，遗留了一堆症状，比如口干咳嗽眼睛疼等等。这次提前返乡，实质上是把医疗压力分散到全国各地。</p>
-<p>这便是三年抗疫的最终成效了。有失败的，也有成功的。让很多人晚三年感染新冠，但阻止不了新冠感染全部人。国家放下了防控压力，随之而来的是舆控压力。还记得，我们把2020称作“魔幻的一年”吗？</p>
-<blockquote>
-<p>“折戟沉沙铁未销，自将磨洗认前朝”</p>
-</blockquote>
-<p>症状变化大概如下：</p>
-<ul>
-<li>第一天（周一），困，头晕眼胀</li>
-<li>第一天晚，高烧</li>
-<li>第二天（周二），高烧</li>
-<li>第三天，退烧</li>
-<li>第四天，肺部肌肉酸痛</li>
-<li>第五天~两个月内：咳嗽</li>
-</ul>
-<h2 id="总结（杂谈）"><a href="#总结（杂谈）" class="headerlink" title="总结（杂谈）"></a>总结（杂谈）</h2><p>每当杂谈，便是回顾，回顾便知未来打算。</p>
-<p>整个学期过去的有些快。同时好像又什么都没做，此时1月9日坐在这里，几乎就和8月29号坐在此处一样。细数，九月加入团队，十月摸鱼，十一月赶工，十二月遣返，最后的十二月和一月共同承担了不该有之重。</p>
-<p>因为续写的次数过多，屡屡想要全盘重写，又感到没什么好总结，做事重要。这样度过了大概三天，期间无非就是看书，运动，联机，咳嗽。连我都感觉时间过去的太快，以至于每天晚睡前、午睡前都努力想象着起来后可以干什么。而睡眠质量的下降需要额外的时间来休息，使本不充分利用的时间更加挤。</p>
 ]]></content>
       <categories>
         <category>生活记录</category>
@@ -162,50 +156,6 @@
       </categories>
       <tags>
         <tag>笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2022行纪（01）</title>
-    <url>/2022/09/07/2022%E8%A1%8C%E7%BA%AA%EF%BC%8801%EF%BC%89/</url>
-    <content><![CDATA[<blockquote>
-<p>前言：</p>
-<p>本篇由多篇记录溯源整理而成，各部分时间有所跳动。</p>
-</blockquote>
-<h2 id="2022-7"><a href="#2022-7" class="headerlink" title="2022.7"></a>2022.7</h2><p>原本我为我的暑假准备了很多Todos，念在字节青训营并不容易坚持到底，故设计零散的目标分给暑假去实现。结果是选择了青训营，而Todos搁置一边。但这并不意味着这些Todos不再去做了，或者是暑假没有做事——青训营的学习心路还是值得一记的。</p>
-<p>按照断更以来的时间顺序，我记下一些暑假前后的事情。</p>
-<h3 id="实验，课设和考试"><a href="#实验，课设和考试" class="headerlink" title="实验，课设和考试"></a>实验，课设和考试</h3><p>实验完成得七七八八，其实在之前也被提到过，这学期压力算是很小，三个实验一个课设</p>
-<p>计网实验怪怪的，不去实现TCP/IP协议或者是其他网络相关的东西，倒是用各种软件去模拟网络，甚至还要写程序模拟个交换机。对于可视化，想想需要Qt之类的写算法就贼麻烦，又没要求算法效率，所以直接JavaScript写了计网和操作系统需要可视化的部分，表格啊图表啊什么的。写一次就扔的文件，也没有用TypeScript的必要，降低投入成本。结果还算过得去，成绩都不差。</p>
-<p>课设只有操作系统，我一眼就相中了“文件系统”。相比什么子进程同步锁，这模拟一个文件系统，完全就是字符串处理罢了，多简单啊！</p>
-<p>于是用C写了两天写出来，还贼逼真，改改颜色几乎以假乱真了。剩下3天带着平板去实验室复习。毕竟考试吧，挺玄乎的，没有太多真题和往年卷，靠自己多做才行。计网和OS大多都是课后习题里出。</p>
-<p>毛概就是背了，根据给的提示，狂背，困了就手打，能记住多少就是多少。好在选好老师，怎么折腾都不怕太差。</p>
-<h3 id="重构了项目页面"><a href="#重构了项目页面" class="headerlink" title="重构了项目页面"></a>重构了项目页面</h3><p>准确来说是终于用上了UI库，是尤大曾推荐的Vuetify。使用体验还不错，只是初次接触，难免有些操作生硬的地方。比如侧边栏究竟跟顶栏谁盖住谁，人家UI库也没想着你会两个都要，导致交差一起不好看，东西被盖住，理所当然。我学前端不到半年，这样的意识还没有树立起来，还是要多多学习Material Design那些Guidelines。</p>
-<p>至于监控页面的那个项目，经过简单的重构，打包的产物放在我新买的服务器上运行后，我就没有再动过了。两个月后，没想到老师让我展示展示，这下可尴尬，服务器已经关掉一个月了。这就说明，还是有必要物色一个常驻服务器了。</p>
-<h3 id="尝试重构博客"><a href="#尝试重构博客" class="headerlink" title="尝试重构博客"></a>尝试重构博客</h3><p>用了上面说的UI库，我加上解析<code>.md</code>的功能，就大致把新博客做了出来。可惜很多地方解析不到位，还需要很多修缮。</p>
-<p>时间不等人，重构一半，邮件弹出，青训营也开始了。</p>
-<h3 id="进入基础班"><a href="#进入基础班" class="headerlink" title="进入基础班"></a>进入基础班</h3><p>从唠嗑大群人数来看，基本上交了卷都能进基础班。即使是这样我也没冒险去尝试进阶班，因为说不好没选上会连基础班都进不去，那暑假就容易荒废。大多数人来这里，一是为了找人合作最后的大项目，二是字节提供前端课程，三是这里的学习氛围。在这两个月学习中，我也体会到氛围的重要：交流、社区汲取是提升技术、开眼界的两个通道。</p>
-<h2 id="2022-8"><a href="#2022-8" class="headerlink" title="2022.8"></a>2022.8</h2><blockquote>
-<p>有道曰：“善始者众，善终者寡。”</p>
-</blockquote>
-<p>唠嗑群在开营前后几天，人数巅峰为3000有余。</p>
-<h3 id="组队"><a href="#组队" class="headerlink" title="组队"></a>组队</h3><p>一波三折。</p>
-<p>大多人第一次进入飞书，其中也包括了我。而迅速换上头像，能让我们更快融入其中。</p>
-<p>我主动联系了许多人，他们有的已经实习，有的与我同年；有经验丰富，也有小白一枚。我并没太多想法，只是跟随一开始约好的人。一个8人群很快就组建完毕，甚至在Github上也有了Organization。此时，群内大约有5名大佬，久经沙场，另外3人我在内，是小白水平。组织名就叫：</p>
-<blockquote>
-<p>“心脏和字节只能有一个跳动”</p>
-</blockquote>
-<p>几天磋商，几天考量。结果磋商不大成功，群主似乎找好了下家，率先跑路；随后当天晚，另一名大佬也另谋高就，组织失去了两个重要的主心骨，不可谓不令人担忧队伍的后续发展。</p>
-<h3 id="写项目"><a href="#写项目" class="headerlink" title="写项目"></a>写项目</h3><p>群内许久无音信，没人开始做项目，但我只有这一件事要做。一个人把项目骨架日出来就写文档，然后就是团队开发了。六人有三人参与项目开发，另有一人在后期负责PPT。</p>
-<p>记得一个人写的那会，问题巨多，Vite3差点换成Vite2，后来<code>.umd.js</code>和<code>.css</code>编译在一起没引起什么特殊问题，才保留了Vite3。</p>
-<p>到八月中旬，104支队伍提交项目。按每支队7人，三千人此时只剩下七百在坚持。</p>
-<h3 id="暑假结束"><a href="#暑假结束" class="headerlink" title="暑假结束"></a>暑假结束</h3><p>答辩由另一位大佬主持。成绩还不错的，只是这个项目的潜力完全不止这点。如果当时6个人开足马力，必定是可以夺得第一。首先UI库跟模块结合打包有问题没解决，其次没做组件商城，这十分可惜。</p>
-<p>晋级答辩60支队伍，即约420人，差不多是报名时的1/9。获得结营证书65人，是报名时的1/46。本来有结营资格的有130多人，结果过半被卡在旷课或笔记数量不够上——这是在项目截止后，运营组多给了一个星期去弥补笔记的情况下。</p>
-]]></content>
-      <categories>
-        <category>生活记录</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-        <tag>年记</tag>
       </tags>
   </entry>
   <entry>
@@ -384,6 +334,145 @@
       <tags>
         <tag>记录</tag>
         <tag>月记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2022行纪（03）</title>
+    <url>/2023/01/09/2022%E8%A1%8C%E7%BA%AA%EF%BC%8803%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="2022-11"><a href="#2022-11" class="headerlink" title="2022.11"></a>2022.11</h2><h3 id="封校"><a href="#封校" class="headerlink" title="封校"></a>封校</h3><p>周三清晨的我，驻足在宿舍大楼门口，正准备重复一遍，上周三的苦状。</p>
+<p>门口前，不合时宜的卷闸，与阳光灿漫的大街出现在同一时空——而在往常，只有早于六点的蒙蒙亮天空，才会去陪伴那堵钢铁卷闸门。</p>
+<blockquote>
+<p>🚧 11.9  封楼了</p>
+</blockquote>
+<p>原本这是双周（第十周），周三第一节有课，俗称“早八”，而编译原理课比较骇人，偶尔会给人不舒服的感觉。于我而言，恐怕莫过于浪费时间和精力在未涉足的内容上。</p>
+<p>“回去都回去了，先等学校通知，”卷闸门外的衬衫西裤如此喊道。</p>
+<p>我把卷闸门摄入镜头，发上几个熟悉的群聊。</p>
+<p>驻足宿舍门外的好奇目光，越来越多，偶尔冒头，偶尔踱步。原路返回的这两分钟，微信群、QQ群消息如轰炸机落下的成堆炸弹，轰炸了整片社交圈。</p>
+<p>于是趁着封楼、上网课的时间，开足马力做方舟的ppt。周三做到周日晚，几乎废寝忘食，所整理的图片资料无数，催生了一些新的需求，比如“私人图库”，给本地图片带上标签，方便查找。</p>
+<h3 id="传教"><a href="#传教" class="headerlink" title="传教"></a>传教</h3><p>做了方舟和东方的PPT，后者需要备课上台演讲。两边都做得很好。对自己而言是十分乃至一百分满意的交代。</p>
+<p>按顺序来，先是方舟的PPT——完成于11月13日晚，用时估计为七天满——在开始之前的一个星期就已经做准备工作。</p>
+<p>《游戏中的历史与文化》，广州大学的一门非专业选修课，设于“历史与文化”栏目下，主讲教师是刘畅，偶尔不是。如果能在大二选上这么一门选修，大约是最合时宜的。二次元、游戏厨两个高度重合的标签，几乎属于这课堂中每个人。</p>
+<p>往届在课堂上展示STG L难度的18级师兄，业已离开校园，以致老师不得不恢复以前的东方压轴宣讲节目。我拿下了这个配合演讲的机会，打了首发（红永妖花）的部分，也有少量的二创、社区内容。可惜讲本家内容时依旧支吾，是没有备课的。备课演讲，实际上需要环境和练习，而我的这些时间去复习车万、找美图去了，只要把本家内容讲个大概，有足够的梗和美少女，也就应该能满足听众。</p>
+<p>此前那个周二，为了赶上可能的缺席机会，为了能让方舟也有机会登上讲台，拼力赶了一天幻灯片，连周三早上的组网技术课都在写这个。同时周末准备大量投入时间，结果发现作业抄错题，转而去赶作业，遂罢。推迟到这周二开展，依然赶了足足一天。</p>
+<p>我设想的目标，实在过于精细，过于注重PPT的内容堆砌，内容密度一次又一次提高，还加入了不可能讲解的音乐。而这作为参评作业，竟没有获得奖项，实在耿耿于怀。</p>
+<h2 id="2022-12"><a href="#2022-12" class="headerlink" title="2022.12"></a>2022.12</h2><h3 id="疫潮"><a href="#疫潮" class="headerlink" title="疫潮"></a>疫潮</h3><blockquote>
+<p>👻 繁华与忙碌并没有如期而至，取而代之的是大面积感染如潮水般汹涌而来。</p>
+</blockquote>
+<p>十二月的我并没有像往常那样，挑灯夜战写实验报告，吸收课程考点，即使那本应该是这样。</p>
+<p>此时的十二月，更像是年前的大扫除，除邋遢，把广州城一扫而空，大学生们如潮水回流大海，回到各自家乡。这段时间发生的事情太多，也有太多不如意。技术的学习几乎处于停滞，外来的干扰接二连三。课程虽有收获，但那显然不是我所需要的。</p>
+<p>十一月初，封校，一个星期，厂的物资丰富，没有造成很大困扰。十一月下旬全国疫情传播，校内许多人都趁此跑回家。一个星期后，我在十二月五日启程回家，十分空荡，路途意外顺利，说明挑对了时间。这次大学生返乡潮之后，全国疫情已不受控制，二十号我在家里就感染了新冠，三天左右，遗留了一堆症状，比如口干咳嗽眼睛疼等等。这次提前返乡，实质上是把医疗压力分散到全国各地。</p>
+<p>这便是三年抗疫的最终成效了。有失败的，也有成功的。让很多人晚三年感染新冠，但阻止不了新冠感染全部人。国家放下了防控压力，随之而来的是舆控压力。还记得，我们把2020称作“魔幻的一年”吗？</p>
+<blockquote>
+<p>“折戟沉沙铁未销，自将磨洗认前朝”</p>
+</blockquote>
+<p>症状变化大概如下：</p>
+<ul>
+<li>第一天（周一），困，头晕眼胀</li>
+<li>第一天晚，高烧</li>
+<li>第二天（周二），高烧</li>
+<li>第三天，退烧</li>
+<li>第四天，肺部肌肉酸痛</li>
+<li>第五天~两个月内：咳嗽</li>
+</ul>
+<h2 id="总结（杂谈）"><a href="#总结（杂谈）" class="headerlink" title="总结（杂谈）"></a>总结（杂谈）</h2><p>每当杂谈，便是回顾，回顾便知未来打算。</p>
+<p>整个学期过去的有些快。同时好像又什么都没做，此时1月9日坐在这里，几乎就和8月29号坐在此处一样。细数，九月加入团队，十月摸鱼，十一月赶工，十二月遣返，最后的十二月和一月共同承担了不该有之重。</p>
+<p>因为续写的次数过多，屡屡想要全盘重写，又感到没什么好总结，做事重要。这样度过了大概三天，期间无非就是看书，运动，联机，咳嗽。连我都感觉时间过去的太快，以至于每天晚睡前、午睡前都努力想象着起来后可以干什么。而睡眠质量的下降需要额外的时间来休息，使本不充分利用的时间更加挤。</p>
+]]></content>
+      <categories>
+        <category>生活记录</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+        <tag>年记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++笔记[数组]</title>
+    <url>/2020/11/23/c++%E7%AC%94%E8%AE%B0%5B%E6%95%B0%E7%BB%84%5D/</url>
+    <content><![CDATA[<h2 id="数组的各种符号，摸清楚"><a href="#数组的各种符号，摸清楚" class="headerlink" title="数组的各种符号，摸清楚"></a><!-- more -->数组的各种符号，摸清楚</h2><hr>
+<h3 id="起步"><a href="#起步" class="headerlink" title="起步"></a>起步</h3><img src="https://i.loli.net/2020/11/24/5hOA8Pt3DSMH7bf.png" style="zoom:125%;" />
+
+<p>首先记住上图，[]表示数组取值运算符。地址可以“无限”加下去（有限的无限）</p>
+<p>它们对应的代码是这样的：（main函数省略）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a[] = &#123; <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">6</span>,<span class="number">7</span> &#125;;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">sizeof</span>(a) / <span class="keyword">sizeof</span>(<span class="keyword">int</span>); i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; a[i] &lt;&lt; <span class="string">&#x27;,&#x27;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span> &lt;&lt; <span class="string">&quot;a表示&quot;</span> &lt;&lt; a &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;*a表示&quot;</span> &lt;&lt; *a &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;a[0]表示&quot;</span> &lt;&lt; a[<span class="number">0</span>] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;a[1]表示&quot;</span> &lt;&lt; a[<span class="number">1</span>] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;a+1表示&quot;</span> &lt;&lt; a + <span class="number">1</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;a+6表示&quot;</span> &lt;&lt; a + <span class="number">6</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;交换数组首尾&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="交换函数"><a href="#交换函数" class="headerlink" title="交换函数"></a>交换函数</h3><p>记住正常的交换函数，用指针从实质地指向值，与以前的区别在于，指针直接对应值，绕开了字母变量。也就是指针（十六进制地址）上有一个值（char,int,double等）</p>
+<p>以下x,y是十六进制的地址，*x为指向的变量。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(T* x, T* y)</span> <span class="comment">//交换指针指向的变量</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	T t = *x;<span class="comment">//t赋值为x指向的变量</span></span><br><span class="line">	*x = *y;<span class="comment">//将y的值赋给x</span></span><br><span class="line">	*y = t;<span class="comment">//y得到变量t的值</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里又想到取址符&amp;，那这样一来，以前的”int a= 5;”中a与值，与指针，之间是什么关系？</p>
+<p>1.T* a与T a平级，没有依赖关系，定义时，均可以不初始化，而且对应量都是随机的（十六进制数0xcccccccc[???]和随机的T类型内容（但为什么每次都是固定的一个数呢？））</p>
+<p>2.两者指向同一对象时，用&amp;联系起来。&amp;普通变量=变量的地址。</p>
+<p>明白以上两点，数组就好理解了。交换地址上的值，实际上是以指针形式表达变量（因为指针也是变量），并进行着类似以前”int t = a,a =b, b=t;”的操作。而此处具体可以表达为：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">普通变量的值 &#x3D; 指针1上的值</span><br><span class="line"></span><br><span class="line">指针1上的值 &#x3D; 指针2上的值</span><br><span class="line"></span><br><span class="line">指针2上的值 &#x3D; 普通变量的值</span><br></pre></td></tr></table></figure>
+
+<p>完成交换。</p>
+<p>▲注意交换完后，原数组会变化！</p>
+<p>因此最好使用以下函数进行备份</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">backup</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> p[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n = <span class="keyword">sizeof</span>(a)/<span class="keyword">sizeof</span>(<span class="keyword">int</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">        p[i] = a[i];</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;<span class="comment">//未试过能否运行，思路是这个就差不多了，遍历复制。</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="探索函数与数组的激烈摩擦"><a href="#探索函数与数组的激烈摩擦" class="headerlink" title="探索函数与数组的激烈摩擦"></a>探索函数与数组的激烈摩擦</h2><h3 id="数组在函数中的写法"><a href="#数组在函数中的写法" class="headerlink" title="数组在函数中的写法"></a>数组在函数中的写法</h3><p>就像指针在函数的参数位置，表达为T* m一样神奇，数组的首地址表达为T m[]</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sort_order</span><span class="params">(T m[],<span class="keyword">int</span> size)</span><span class="comment">//因为数组不能引用而只能用指针!!!</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> len = size / <span class="keyword">sizeof</span>(T);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= len; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = i+<span class="number">1</span>; j &lt;= len; j++)</span><br><span class="line">			<span class="keyword">if</span> (m[i - <span class="number">1</span>] &lt; m[j - <span class="number">1</span>])</span><br><span class="line">				pin_swap(m + i - <span class="number">1</span>, m + j - <span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>不要写T *m[]！！m[]本身就是个地址！如果这么干，你需要给它喂指针的地址（类型是T **，双星啊）（叶莲娜：“？”）</p>
+<h3 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h3><p><strong>标识符</strong>是c++中由字母（A-Z，a-z）、数字（0-9）、下划线“_”组成，并且首字符不能是数字，但可以是字母或者下划线，例如”len = 10”中len就是标识符。<strong>指针也是标识符</strong>，指针有自己的地址。</p>
+<p>下午使用选择排序函数+交换函数的顺序时，编译器最后一声轰鸣：“选择排序函数它找不到标识符！！”</p>
+<p>查了下百度，当初我是不信的，后来把它们换了下顺序，程序duang的一下运行了，并且成功排序。</p>
+<p><img src="https://raw.githubusercontent.com/Makri-hub/WolpersHome.github.io/PicGo/%E8%B0%83%E5%92%8C%E5%9B%BE%E7%89%87.png"></p>
+<p>啊，用html调节图片好难受，远没有word功能多，原则上还是少用图片吧。</p>
+<p>这期间借鉴了：</p>
+<p><a href="https://blog.csdn.net/qq_41573234/article/details/80297995">HTML——添加图像、设置图像属性_时光·漫步的博客-CSDN博客</a></p>
+<p><a href="https://blog.csdn.net/zfx1101804091/article/details/108749605">Typora关于 插入图片 居中 靠左 靠右设置_zfx1101804091的博客-CSDN博客_typora 图片居中</a></p>
+<p>来帮助设置图片。</p>
+<h3 id="字符数组"><a href="#字符数组" class="headerlink" title="字符数组"></a>字符数组</h3><p>以下这段关于字符数组的连接，出现了严重的问题。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span>* <span class="title">mystrcat</span><span class="params">(<span class="keyword">char</span>* strDest, <span class="keyword">const</span> <span class="keyword">char</span>* strSrc)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n = <span class="built_in">strlen</span>(strDest);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; strSrc[i] != <span class="string">&#x27;\0&#x27;</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> ((<span class="string">&#x27;A&#x27;</span> &lt;= strSrc[i] &lt;= <span class="string">&#x27;Z&#x27;</span> )|| (<span class="string">&#x27;a&#x27;</span> &lt;= strSrc[i] &lt;= <span class="string">&#x27;z&#x27;</span>))</span><br><span class="line">		&#123;</span><br><span class="line">			*(strDest + n +i) = strSrc[i];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> strDest;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>问题一：在c++中不能使用类似a&lt;=x&lt;=b、a&lt;x&lt;b这样的判断语句，拿a&lt;x&lt;b为例，c++中大小、等、不等判断符的<strong>结合性</strong>均为从左往右，判别式的逻辑是：</p>
+<p>a&lt;x否？否，则化为0&lt;b；是，化为1&lt;b；</p>
+<p>然后1&lt;b否？否，则为0；是，化为1。此处不再做过多赘述。</p>
+<p>问题二：指针的移动没有处理好（具体点说，是这个int i不好用）            </p>
+<p>在这里应该设置两个指针（或者两个自增变量），一个i，在strDest上移动，一个j，在strSrc上移动；而这里仅有一个i，无论如何都会自增，导致strSrc上的位置错误，显示是乱码变了（一个乱码汉字变成另一个乱码汉字，因为汉字对应的编码变了，但笔者还没学汉字的编码，只能先搁着之后再回来补充）</p>
+<h3 id="指针和数组（待补）"><a href="#指针和数组（待补）" class="headerlink" title="指针和数组（待补）"></a>指针和数组（待补）</h3><p>如果有（main函数省略）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a[<span class="number">20</span>];</span><br><span class="line"><span class="keyword">int</span>* p  = a;</span><br><span class="line">a[<span class="number">1</span>] = <span class="number">5</span>;</span><br></pre></td></tr></table></figure>
+
+<p>这是常见的操作，那么：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(p[<span class="number">1</span>] ==a[<span class="number">1</span>])</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;p[1]表达意思与a[1]相同\n&quot;</span>;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;p[1]值为：&quot;</span>&lt;&lt;p[<span class="number">1</span>]&lt;&lt;<span class="string">&quot;\na[1]值为：&quot;</span>&lt;&lt;a[<span class="number">1</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;p[1]表达意思与a[1]不同&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>大家猜猜输出的是哪个？</p>
+<p>答案是第一个，相同，对应值是都是5。</p>
+<p>为什么“指针名[n]”可以表示“数组名[n]”，首先我认为数组a本身是个指针</p>
+<p>而这个认识，就是二维数组的基础</p>
+<p>这里留个坑，留下一张图给大家细细品味，注意“类型”一栏。</p>
+<p><img src="https://raw.githubusercontent.com/Makri-hub/WolpersHome.github.io/PicGo/%E8%AF%A1%E5%BC%82.png"></p>
+]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于评论区</title>
+    <url>/2020/12/14/%E5%85%B3%E4%BA%8E%E8%AF%84%E8%AE%BA%E5%8C%BA/</url>
+    <content><![CDATA[<p>其实很简单</p>
+<a id="more"></a>
+
+<h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><p>第一步，安装，不过因为我中途更换了教程贴，所以我不大敢确定这一步是不是必要的，但我直觉它需要</p>
+<p>cmd里面输入：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm i --save gitalk</span><br></pre></td></tr></table></figure>
+
+<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><p>第二步，开始之前我倒是想废话两句，Github上的教程卡在npm安装上了，import不太懂是什么情况，前面加了npm也没用。基于时间问题，只能去找找帖子。结果找了老半天，有swig安装，有ejs安装，直到我发现自己的文件格式跟他们都不一样，我是.njk。这里举几篇例子，但他们做得其实都不错。</p>
+<p>其实呢，创建gitalk.swig的时候居然没发现，隔壁就有一个gitalk.njk，之后写这篇博客的时，回想起来，终于意识到网上版本是真的版本太久了，打开一看：</p>
+
+<p>原来已经简化了，之前要添加的乱七八糟的，都在这里，不用添加了，那好，直接走起，注册去！</p>
+<p><a href="https://github.com/settings/applications/new">点击这里进入Github OAuth注册</a></p>
+<p>注册的同时，和其他教程一样，修改.\theme\主题\下的_config.yml即可，详细描述参考上面的四篇教程就足够了，这里不再赘述。</p>
+<h2 id="2022-1-22："><a href="#2022-1-22：" class="headerlink" title="* 2022/1/22："></a>* 2022/1/22：</h2><p>Gitalk出现了Error: Request failed with status code 403，原因似乎是反向代理有关，不太了解。<br>但要解决问题可以看看<a href="https://umm.js.org/p/1d1d49e9/">这个</a>博客，确实是一用就生效。</p>
+]]></content>
+      <tags>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -593,95 +682,6 @@
       </categories>
       <tags>
         <tag>笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++笔记[数组]</title>
-    <url>/2020/11/23/c++%E7%AC%94%E8%AE%B0%5B%E6%95%B0%E7%BB%84%5D/</url>
-    <content><![CDATA[<h2 id="数组的各种符号，摸清楚"><a href="#数组的各种符号，摸清楚" class="headerlink" title="数组的各种符号，摸清楚"></a><!-- more -->数组的各种符号，摸清楚</h2><hr>
-<h3 id="起步"><a href="#起步" class="headerlink" title="起步"></a>起步</h3><img src="https://i.loli.net/2020/11/24/5hOA8Pt3DSMH7bf.png" style="zoom:125%;" />
-
-<p>首先记住上图，[]表示数组取值运算符。地址可以“无限”加下去（有限的无限）</p>
-<p>它们对应的代码是这样的：（main函数省略）</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a[] = &#123; <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">6</span>,<span class="number">7</span> &#125;;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">sizeof</span>(a) / <span class="keyword">sizeof</span>(<span class="keyword">int</span>); i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; a[i] &lt;&lt; <span class="string">&#x27;,&#x27;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span> &lt;&lt; <span class="string">&quot;a表示&quot;</span> &lt;&lt; a &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;*a表示&quot;</span> &lt;&lt; *a &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;a[0]表示&quot;</span> &lt;&lt; a[<span class="number">0</span>] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;a[1]表示&quot;</span> &lt;&lt; a[<span class="number">1</span>] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;a+1表示&quot;</span> &lt;&lt; a + <span class="number">1</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;a+6表示&quot;</span> &lt;&lt; a + <span class="number">6</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;交换数组首尾&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure>
-
-<h3 id="交换函数"><a href="#交换函数" class="headerlink" title="交换函数"></a>交换函数</h3><p>记住正常的交换函数，用指针从实质地指向值，与以前的区别在于，指针直接对应值，绕开了字母变量。也就是指针（十六进制地址）上有一个值（char,int,double等）</p>
-<p>以下x,y是十六进制的地址，*x为指向的变量。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(T* x, T* y)</span> <span class="comment">//交换指针指向的变量</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	T t = *x;<span class="comment">//t赋值为x指向的变量</span></span><br><span class="line">	*x = *y;<span class="comment">//将y的值赋给x</span></span><br><span class="line">	*y = t;<span class="comment">//y得到变量t的值</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这里又想到取址符&amp;，那这样一来，以前的”int a= 5;”中a与值，与指针，之间是什么关系？</p>
-<p>1.T* a与T a平级，没有依赖关系，定义时，均可以不初始化，而且对应量都是随机的（十六进制数0xcccccccc[???]和随机的T类型内容（但为什么每次都是固定的一个数呢？））</p>
-<p>2.两者指向同一对象时，用&amp;联系起来。&amp;普通变量=变量的地址。</p>
-<p>明白以上两点，数组就好理解了。交换地址上的值，实际上是以指针形式表达变量（因为指针也是变量），并进行着类似以前”int t = a,a =b, b=t;”的操作。而此处具体可以表达为：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">普通变量的值 &#x3D; 指针1上的值</span><br><span class="line"></span><br><span class="line">指针1上的值 &#x3D; 指针2上的值</span><br><span class="line"></span><br><span class="line">指针2上的值 &#x3D; 普通变量的值</span><br></pre></td></tr></table></figure>
-
-<p>完成交换。</p>
-<p>▲注意交换完后，原数组会变化！</p>
-<p>因此最好使用以下函数进行备份</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">backup</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> p[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n = <span class="keyword">sizeof</span>(a)/<span class="keyword">sizeof</span>(<span class="keyword">int</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">        p[i] = a[i];</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;<span class="comment">//未试过能否运行，思路是这个就差不多了，遍历复制。</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="探索函数与数组的激烈摩擦"><a href="#探索函数与数组的激烈摩擦" class="headerlink" title="探索函数与数组的激烈摩擦"></a>探索函数与数组的激烈摩擦</h2><h3 id="数组在函数中的写法"><a href="#数组在函数中的写法" class="headerlink" title="数组在函数中的写法"></a>数组在函数中的写法</h3><p>就像指针在函数的参数位置，表达为T* m一样神奇，数组的首地址表达为T m[]</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sort_order</span><span class="params">(T m[],<span class="keyword">int</span> size)</span><span class="comment">//因为数组不能引用而只能用指针!!!</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> len = size / <span class="keyword">sizeof</span>(T);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= len; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = i+<span class="number">1</span>; j &lt;= len; j++)</span><br><span class="line">			<span class="keyword">if</span> (m[i - <span class="number">1</span>] &lt; m[j - <span class="number">1</span>])</span><br><span class="line">				pin_swap(m + i - <span class="number">1</span>, m + j - <span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>不要写T *m[]！！m[]本身就是个地址！如果这么干，你需要给它喂指针的地址（类型是T **，双星啊）（叶莲娜：“？”）</p>
-<h3 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h3><p><strong>标识符</strong>是c++中由字母（A-Z，a-z）、数字（0-9）、下划线“_”组成，并且首字符不能是数字，但可以是字母或者下划线，例如”len = 10”中len就是标识符。<strong>指针也是标识符</strong>，指针有自己的地址。</p>
-<p>下午使用选择排序函数+交换函数的顺序时，编译器最后一声轰鸣：“选择排序函数它找不到标识符！！”</p>
-<p>查了下百度，当初我是不信的，后来把它们换了下顺序，程序duang的一下运行了，并且成功排序。</p>
-<p><img src="https://raw.githubusercontent.com/Makri-hub/WolpersHome.github.io/PicGo/%E8%B0%83%E5%92%8C%E5%9B%BE%E7%89%87.png"></p>
-<p>啊，用html调节图片好难受，远没有word功能多，原则上还是少用图片吧。</p>
-<p>这期间借鉴了：</p>
-<p><a href="https://blog.csdn.net/qq_41573234/article/details/80297995">HTML——添加图像、设置图像属性_时光·漫步的博客-CSDN博客</a></p>
-<p><a href="https://blog.csdn.net/zfx1101804091/article/details/108749605">Typora关于 插入图片 居中 靠左 靠右设置_zfx1101804091的博客-CSDN博客_typora 图片居中</a></p>
-<p>来帮助设置图片。</p>
-<h3 id="字符数组"><a href="#字符数组" class="headerlink" title="字符数组"></a>字符数组</h3><p>以下这段关于字符数组的连接，出现了严重的问题。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span>* <span class="title">mystrcat</span><span class="params">(<span class="keyword">char</span>* strDest, <span class="keyword">const</span> <span class="keyword">char</span>* strSrc)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n = <span class="built_in">strlen</span>(strDest);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; strSrc[i] != <span class="string">&#x27;\0&#x27;</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> ((<span class="string">&#x27;A&#x27;</span> &lt;= strSrc[i] &lt;= <span class="string">&#x27;Z&#x27;</span> )|| (<span class="string">&#x27;a&#x27;</span> &lt;= strSrc[i] &lt;= <span class="string">&#x27;z&#x27;</span>))</span><br><span class="line">		&#123;</span><br><span class="line">			*(strDest + n +i) = strSrc[i];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> strDest;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>问题一：在c++中不能使用类似a&lt;=x&lt;=b、a&lt;x&lt;b这样的判断语句，拿a&lt;x&lt;b为例，c++中大小、等、不等判断符的<strong>结合性</strong>均为从左往右，判别式的逻辑是：</p>
-<p>a&lt;x否？否，则化为0&lt;b；是，化为1&lt;b；</p>
-<p>然后1&lt;b否？否，则为0；是，化为1。此处不再做过多赘述。</p>
-<p>问题二：指针的移动没有处理好（具体点说，是这个int i不好用）            </p>
-<p>在这里应该设置两个指针（或者两个自增变量），一个i，在strDest上移动，一个j，在strSrc上移动；而这里仅有一个i，无论如何都会自增，导致strSrc上的位置错误，显示是乱码变了（一个乱码汉字变成另一个乱码汉字，因为汉字对应的编码变了，但笔者还没学汉字的编码，只能先搁着之后再回来补充）</p>
-<h3 id="指针和数组（待补）"><a href="#指针和数组（待补）" class="headerlink" title="指针和数组（待补）"></a>指针和数组（待补）</h3><p>如果有（main函数省略）</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a[<span class="number">20</span>];</span><br><span class="line"><span class="keyword">int</span>* p  = a;</span><br><span class="line">a[<span class="number">1</span>] = <span class="number">5</span>;</span><br></pre></td></tr></table></figure>
-
-<p>这是常见的操作，那么：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(p[<span class="number">1</span>] ==a[<span class="number">1</span>])</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;p[1]表达意思与a[1]相同\n&quot;</span>;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;p[1]值为：&quot;</span>&lt;&lt;p[<span class="number">1</span>]&lt;&lt;<span class="string">&quot;\na[1]值为：&quot;</span>&lt;&lt;a[<span class="number">1</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;p[1]表达意思与a[1]不同&quot;</span>;</span><br></pre></td></tr></table></figure>
-
-<p>大家猜猜输出的是哪个？</p>
-<p>答案是第一个，相同，对应值是都是5。</p>
-<p>为什么“指针名[n]”可以表示“数组名[n]”，首先我认为数组a本身是个指针</p>
-<p>而这个认识，就是二维数组的基础</p>
-<p>这里留个坑，留下一张图给大家细细品味，注意“类型”一栏。</p>
-<p><img src="https://raw.githubusercontent.com/Makri-hub/WolpersHome.github.io/PicGo/%E8%AF%A1%E5%BC%82.png"></p>
-]]></content>
-      <categories>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>关于评论区</title>
-    <url>/2020/12/14/%E5%85%B3%E4%BA%8E%E8%AF%84%E8%AE%BA%E5%8C%BA/</url>
-    <content><![CDATA[<p>其实很简单</p>
-<a id="more"></a>
-
-<h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><p>第一步，安装，不过因为我中途更换了教程贴，所以我不大敢确定这一步是不是必要的，但我直觉它需要</p>
-<p>cmd里面输入：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm i --save gitalk</span><br></pre></td></tr></table></figure>
-
-<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><p>第二步，开始之前我倒是想废话两句，Github上的教程卡在npm安装上了，import不太懂是什么情况，前面加了npm也没用。基于时间问题，只能去找找帖子。结果找了老半天，有swig安装，有ejs安装，直到我发现自己的文件格式跟他们都不一样，我是.njk。这里举几篇例子，但他们做得其实都不错。</p>
-<p>其实呢，创建gitalk.swig的时候居然没发现，隔壁就有一个gitalk.njk，之后写这篇博客的时，回想起来，终于意识到网上版本是真的版本太久了，打开一看：</p>
-
-<p>原来已经简化了，之前要添加的乱七八糟的，都在这里，不用添加了，那好，直接走起，注册去！</p>
-<p><a href="https://github.com/settings/applications/new">点击这里进入Github OAuth注册</a></p>
-<p>注册的同时，和其他教程一样，修改.\theme\主题\下的_config.yml即可，详细描述参考上面的四篇教程就足够了，这里不再赘述。</p>
-<h2 id="2022-1-22："><a href="#2022-1-22：" class="headerlink" title="* 2022/1/22："></a>* 2022/1/22：</h2><p>Gitalk出现了Error: Request failed with status code 403，原因似乎是反向代理有关，不太了解。<br>但要解决问题可以看看<a href="https://umm.js.org/p/1d1d49e9/">这个</a>博客，确实是一用就生效。</p>
-]]></content>
-      <tags>
-        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -1060,40 +1060,6 @@
       </tags>
   </entry>
   <entry>
-    <title>月记 ~ Oct 2023</title>
-    <url>/2023/10/15/%E6%96%B0%E5%A1%98%E4%B9%8B%E5%A4%9C/</url>
-    <content><![CDATA[<h2 id="夏末秋初"><a href="#夏末秋初" class="headerlink" title="夏末秋初"></a>夏末秋初</h2><h3 id="故事伊始"><a href="#故事伊始" class="headerlink" title="故事伊始"></a>故事伊始</h3><p>有一天，年轻人在华工寻找工作机会。</p>
-<p>有一天，年轻人在天河万科广场溜达，走进了一家叫“张亮麻辣烫”的食肆。里面开着空调，如果他愿意还可以直对着空调吹，直到吃完那碗20元的麻辣烫，然后坐在位子上歇一下，思考出门后左拐还是右拐。</p>
-<p>有一天，年轻人从床上睡醒，拉开窗帘只有一片黑，直至远处细微的反光告诉他窗户没有被黑漆糊上，夜晚才真正来临了，并且伸手不见五指。</p>
-<p>有一天，年轻人发现万科广场外不到200m的地方，是赤坎一样的荒山野岭，在导航的八百米路程中他要走过两三百米这样的山石沙路，然后踏进繁华都市解决晚餐。</p>
-<p>有一天，年轻人回家待了一个月。这一个月他过的很开心，吃月饼喝早茶，买新衣，和家人讨论新闻。即使在家最后一个晚上他无论如何都不想就此结束。</p>
-<p>线下面试如约而至，他必须提前回去，以便那天中午再乘车去华工。</p>
-<p>有一天，年轻人早上做笔试，下午线下面试，晚上又是笔试。晚上他几乎睁不开眼，就这样疲惫地坐在电脑前草草结了笔试。</p>
-<p>有一天，年轻人坐在城中村的出租屋里，怀着每天都是最后一天的心情，写下了一些文字，并祝福着未来前程远大，步步高升，做着喜欢的工作过着如意的生活，并和所有过去的朋友打了照面，由此幻想不再飘渺，快乐不再短暂；祝福着幻想和审判一同到来，他致以敬意，问心无愧领受命运。</p>
-<h3 id="事记"><a href="#事记" class="headerlink" title="事记"></a>事记</h3><p>十月初，我已经在家呆了一个月。因为看在这期间已经结束实习，并没有校内事务，暑假也没有回家团聚过，于是教师节那天从大学离开，和家里人过中秋国庆，作为剩下日子里为数不多陪同家人的一次长假。我知道这样的日子只会越来越少，自当珍惜。</p>
-<p>但离开大学还是错过了一些机会。一些企业的宣讲会、招聘会或双选会在月底现场举办，这有些无可奈何，判定了损失不算巨大后便决定节后再回。</p>
-<p>期间我另找了一份实习，在天河网易，与低代码相关。写记录时已经租好房子，准备在这里度过农历新年前的所有时间。开始前的最后一晚上，我打算用来准备相关材料，完成后写技术博客，然后再打打游戏，结束这一天。</p>
-<p>这个点找实习其实并不OK，真正有竞争力的应届生已经结束了两段大厂实习，手握多个秋招offer。</p>
-<p>于是我也开始思考自己的前端人生，思考我下一个开辟方向应是哪里。现状是比一些人好，但好不到哪里去，前途也未定，技术的积累已经很久没有继续了。</p>
-<p>所以我计划这期间动笔写三篇文章：</p>
-<ul>
-<li>Git协作模式</li>
-<li>博客搭建之旅</li>
-<li>我的秋招（一）</li>
-</ul>
-<p>秋招已经确定好了主题：探究秋招卷的意义，并且给各个年级建议。</p>
-<h3 id="故事之末"><a href="#故事之末" class="headerlink" title="故事之末"></a>故事之末</h3><p>“癸卯年壬戌月，新历十五日，携行李步窄巷。逾三日，愁流量见底，度以流量节制，终以阅书度日，单机打趣。遂定他日返校，下载资料电影游戏若干，充实生活。至于流量转换之法，他日再究。”</p>
-<p>“此法有益集中，如往日之卡带磁碟，实体介质，返璞归真。然通讯之不便，亲友之失联，恐弥补艰难。”</p>
-]]></content>
-      <categories>
-        <category>生活记录</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-        <tag>月记</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>技术博客（一）</title>
     <url>/2022/05/17/%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%B8%80%EF%BC%89/</url>
     <content><![CDATA[<h2 id="开篇"><a href="#开篇" class="headerlink" title="开篇"></a>开篇</h2><p>​        开出技术博客这个目录，自然是要记下业内或非业内的专业知识。与想象不同，从实际出发，我在开写前并不要求第一次写这类博客要写出个什么水平，而是要开个头，这样好有后面的进步，简而言之是”循序渐进”。</p>
@@ -1187,23 +1153,36 @@
       </tags>
   </entry>
   <entry>
-    <title>生活博客（一）</title>
-    <url>/2022/05/21/%E7%94%9F%E6%B4%BB%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%B8%80%EF%BC%89/</url>
-    <content><![CDATA[<h2 id="开篇"><a href="#开篇" class="headerlink" title="开篇"></a>开篇</h2><p>​        开篇点题，生活记录即学习之外的一些记录。大概还是会以疫情为主基调。</p>
-<h2 id="近来做了什么"><a href="#近来做了什么" class="headerlink" title="近来做了什么"></a>近来做了什么</h2><h3 id="普通话考试"><a href="#普通话考试" class="headerlink" title="普通话考试"></a>普通话考试</h3><p>​        5月21日参加了普通话考试。得益于高质量大学的组织能力和效率，考试流程没有任何为难人的事——考试是单间，一人一屋，静音效果特好，不像很多地方考场，人员混杂着考。遗憾的是，我确信自己最后没考得多好，因为一些原始的问题还是暴露了出来，像回读、读错、卡壳，能上个二乙应该就十分不错了，但是三甲三乙就难看了点，这似乎是相当难受的卡点分数。</p>
-<p>​        考这个试目前没有什么大用，我将其视为我回归实况主的第一步。第一步已经迈出，生命不息，实况不止。</p>
-<h3 id="读论文"><a href="#读论文" class="headerlink" title="读论文"></a>读论文</h3><p>​        近来受软件工程结课作业的益，跑去知网上扒拉了几篇论文来看，颇有身处学府之神圣感。</p>
-<p>​        目前只看国内论文。我有想过看国外论文，但很明显现阶段不宜直接跳到国外去，对我来说那叫本末倒置。先看看国内优秀的论文，再去看国外，才知道差距，才知道要怎么看，要看什么。目前收藏了一些前端应用的论文，以省级校级优秀论文为主。这些文章讲好听可以叫做先进的高科技应用，讲得很难听也就是中肯的项目开发经历，没有不值得看的。里面有很多考量因素，即便生凑也有说得过去的理由。相对于绝大多数长篇博客来说，论文水准高出一截。</p>
-<h3 id="学日语"><a href="#学日语" class="headerlink" title="学日语"></a>学日语</h3><p>​        开始学日语。一方面是阅读现代的教程，另一方面去听简明日语的课程。后者进行时，虽然总觉得不知何处有些尴尬，但总体还是可以一用。</p>
-<p>​        近来课外书看的少了，不是做实验就是各种小考大考，又或是各种活动。在这里我计划下准备要看的课外书，最近只看一本就够，不可囫囵吞枣。在计划的，有一本《枪炮、病菌与钢铁》，讲世界文明的。</p>
-<h3 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h3><p>​        参加了个项目，目前项目的审查状态未知，只是听着老师的建议去做点小网页。于是Vue的进度又前进了一大截，并且庆幸Vue的生态比Vite宽泛得多，很多第三方库都照顾。之前Vite想引入个小图标都难如登天。做了几个小组件之后，对响应式的实现有了切实的了解，主要是数组在响应式中的应用。深入的内容记在技术博客里。</p>
-<h3 id="读书"><a href="#读书" class="headerlink" title="读书"></a>读书</h3><p>​        读了《ES6 For Humans》的大部分，介绍2015年发布的ES6中新增的一些规范，但看下来也只是粗略认识了下ES6的新东西，没有很深入。意外的收获是，Typora将MD转为PDF会非常好看，尤其是Pixyll主题，对英文和Typora的各种结构有很强的适配，建议用MD写的书全用这个主题转成PDF，放在IPAD上看。</p>
-<h3 id="做核酸"><a href="#做核酸" class="headerlink" title="做核酸"></a>做核酸</h3><p>​        这个月做了七次核酸。六月初，上海解封。音律联觉暂时没啥消息，估摸着至少要暑假才有可能。</p>
-<h2 id="在做什么"><a href="#在做什么" class="headerlink" title="在做什么"></a>在做什么</h2><h3 id="学Vue"><a href="#学Vue" class="headerlink" title="学Vue"></a>学Vue</h3><p>​        现在课程接近到二分之一了，后面比较重要的，有路由、组件通信、setup和vue3内容等。</p>
-<h3 id="mc的mod编程"><a href="#mc的mod编程" class="headerlink" title="mc的mod编程"></a>mc的mod编程</h3><p>​        难就难在版本不同，Map对应的各个函数有不同，需要自己去看接口。现在玩MOD颇有JS调别人第三方库的感觉，写这些的人太猛了。</p>
-<h3 id="写报告"><a href="#写报告" class="headerlink" title="写报告"></a>写报告</h3><p>​        三个实验课，还应付的过来。早前的软件工程已经出成绩了，赏脸给了优，《带你听懂》也十分给面，考试多少分，成绩就不会比这个分低。体育倒是担忧的——逃课两次被抓了。一次是测1km的，一次是跳远五十米那些。会不会被记到逃课记录里，看造化力。</p>
-<h2 id="想说什么"><a href="#想说什么" class="headerlink" title="想说什么"></a>想说什么</h2><p>​        最近基本三点一线，图书馆教室宿舍，疫情防控依旧在进行，核酸从这个月开始常态化，隔三岔五就来一次，不过得益于高质量大学的拨款力度，核酸免费。</p>
-<p>​        最后接近考试了，一方面需要加紧复习和做题，另一方面要跟进项目，把应该有的效果都做出来。但并不能因此放弃休息或是带病上岗，需要注意自己，尤其是眼睛和脊椎的保养。</p>
+    <title>测试页面</title>
+    <url>/2020/11/20/%E6%B5%8B%E8%AF%95/</url>
+    <content><![CDATA[<p>这个页面是用来测试的，是因第一次Hexo一片空白而产生的测试页面</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>月记 ~ Oct 2023</title>
+    <url>/2023/10/15/%E6%96%B0%E5%A1%98%E4%B9%8B%E5%A4%9C/</url>
+    <content><![CDATA[<h2 id="夏末秋初"><a href="#夏末秋初" class="headerlink" title="夏末秋初"></a>夏末秋初</h2><h3 id="故事伊始"><a href="#故事伊始" class="headerlink" title="故事伊始"></a>故事伊始</h3><p>有一天，年轻人在华工寻找工作机会。</p>
+<p>有一天，年轻人在天河万科广场溜达，走进了一家叫“张亮麻辣烫”的食肆。里面开着空调，如果他愿意还可以直对着空调吹，直到吃完那碗20元的麻辣烫，然后坐在位子上歇一下，思考出门后左拐还是右拐。</p>
+<p>有一天，年轻人从床上睡醒，拉开窗帘只有一片黑，直至远处细微的反光告诉他窗户没有被黑漆糊上，夜晚才真正来临了，并且伸手不见五指。</p>
+<p>有一天，年轻人发现万科广场外不到200m的地方，是家乡一样的荒山野岭，在导航的八百米路程中他要走过两三百米这样的山石沙路，然后踏进繁华都市解决晚餐。</p>
+<p>有一天，年轻人回家待了一个月。这一个月他过的很开心，吃月饼喝早茶，买新衣，和家人讨论新闻。即使在家最后一个晚上他无论如何都不想就此结束。</p>
+<p>线下面试如约而至，他必须提前回去，以便那天中午再乘车去华工。</p>
+<p>有一天，年轻人早上做笔试，下午线下面试，晚上又是笔试。晚上他几乎睁不开眼，就这样疲惫地坐在电脑前草草结了笔试。</p>
+<p>有一天，年轻人坐在城中村的出租屋里，怀着每天都是最后一天的心情，写下了一些文字，并祝福着未来前程远大，步步高升，做着喜欢的工作过着如意的生活，并和所有过去的朋友打了照面，由此幻想不再飘渺，快乐不再短暂；祝福着幻想和审判一同到来，他致以敬意，问心无愧领受命运。</p>
+<h3 id="事记"><a href="#事记" class="headerlink" title="事记"></a>事记</h3><p>十月初，我已经在家呆了一个月。因为看在这期间已经结束实习，并没有校内事务，暑假也没有回家团聚过，于是教师节那天从大学离开，和家里人过中秋国庆，作为剩下日子里为数不多陪同家人的一次长假。我知道这样的日子只会越来越少，自当珍惜。</p>
+<p>但离开大学还是错过了一些机会。一些企业的宣讲会、招聘会或双选会在月底现场举办，这有些无可奈何，判定了损失不算巨大后便决定节后再回。</p>
+<p>期间我另找了一份实习，在天河网易，与低代码相关。写记录时已经租好房子，准备在这里度过农历新年前的所有时间。开始前的最后一晚上，我打算用来准备相关材料，完成后写技术博客，然后再打打游戏，结束这一天。</p>
+<p>这个点找实习其实并不OK，真正有竞争力的应届生已经结束了两段大厂实习，手握多个秋招offer。</p>
+<p>于是我也开始思考自己的前端人生，思考我下一个开辟方向应是哪里。现状是比一些人好，但好不到哪里去，前途也未定，技术的积累已经很久没有继续了。</p>
+<p>所以我计划这期间动笔写三篇文章：</p>
+<ul>
+<li>Git协作模式</li>
+<li>博客搭建之旅</li>
+<li>我的秋招（一）</li>
+</ul>
+<p>秋招已经确定好了主题：探究秋招卷的意义，并且给各个年级建议。</p>
+<h3 id="故事之末"><a href="#故事之末" class="headerlink" title="故事之末"></a>故事之末</h3><p>“癸卯年壬戌月，新历十五日，携行李步窄巷。逾三日，愁流量见底，度以流量节制，终以阅书度日，单机打趣。遂定他日返校，下载资料电影游戏若干，充实生活。至于流量转换之法，他日再究。”</p>
+<p>“此法有益集中，如往日之卡带磁碟，实体介质，返璞归真。然通讯之不便，亲友之失联，恐弥补艰难。”</p>
 ]]></content>
       <categories>
         <category>生活记录</category>
@@ -1212,12 +1191,6 @@
         <tag>记录</tag>
         <tag>月记</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>测试页面</title>
-    <url>/2020/11/20/%E6%B5%8B%E8%AF%95/</url>
-    <content><![CDATA[<p>这个页面是用来测试的，是因第一次Hexo一片空白而产生的测试页面</p>
-]]></content>
   </entry>
   <entry>
     <title>月记 ~ Jan 2022</title>
@@ -1391,6 +1364,33 @@
       </categories>
       <tags>
         <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>生活博客（一）</title>
+    <url>/2022/05/21/%E7%94%9F%E6%B4%BB%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%B8%80%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="开篇"><a href="#开篇" class="headerlink" title="开篇"></a>开篇</h2><p>​        开篇点题，生活记录即学习之外的一些记录。大概还是会以疫情为主基调。</p>
+<h2 id="近来做了什么"><a href="#近来做了什么" class="headerlink" title="近来做了什么"></a>近来做了什么</h2><h3 id="普通话考试"><a href="#普通话考试" class="headerlink" title="普通话考试"></a>普通话考试</h3><p>​        5月21日参加了普通话考试。得益于高质量大学的组织能力和效率，考试流程没有任何为难人的事——考试是单间，一人一屋，静音效果特好，不像很多地方考场，人员混杂着考。遗憾的是，我确信自己最后没考得多好，因为一些原始的问题还是暴露了出来，像回读、读错、卡壳，能上个二乙应该就十分不错了，但是三甲三乙就难看了点，这似乎是相当难受的卡点分数。</p>
+<p>​        考这个试目前没有什么大用，我将其视为我回归实况主的第一步。第一步已经迈出，生命不息，实况不止。</p>
+<h3 id="读论文"><a href="#读论文" class="headerlink" title="读论文"></a>读论文</h3><p>​        近来受软件工程结课作业的益，跑去知网上扒拉了几篇论文来看，颇有身处学府之神圣感。</p>
+<p>​        目前只看国内论文。我有想过看国外论文，但很明显现阶段不宜直接跳到国外去，对我来说那叫本末倒置。先看看国内优秀的论文，再去看国外，才知道差距，才知道要怎么看，要看什么。目前收藏了一些前端应用的论文，以省级校级优秀论文为主。这些文章讲好听可以叫做先进的高科技应用，讲得很难听也就是中肯的项目开发经历，没有不值得看的。里面有很多考量因素，即便生凑也有说得过去的理由。相对于绝大多数长篇博客来说，论文水准高出一截。</p>
+<h3 id="学日语"><a href="#学日语" class="headerlink" title="学日语"></a>学日语</h3><p>​        开始学日语。一方面是阅读现代的教程，另一方面去听简明日语的课程。后者进行时，虽然总觉得不知何处有些尴尬，但总体还是可以一用。</p>
+<p>​        近来课外书看的少了，不是做实验就是各种小考大考，又或是各种活动。在这里我计划下准备要看的课外书，最近只看一本就够，不可囫囵吞枣。在计划的，有一本《枪炮、病菌与钢铁》，讲世界文明的。</p>
+<h3 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h3><p>​        参加了个项目，目前项目的审查状态未知，只是听着老师的建议去做点小网页。于是Vue的进度又前进了一大截，并且庆幸Vue的生态比Vite宽泛得多，很多第三方库都照顾。之前Vite想引入个小图标都难如登天。做了几个小组件之后，对响应式的实现有了切实的了解，主要是数组在响应式中的应用。深入的内容记在技术博客里。</p>
+<h3 id="读书"><a href="#读书" class="headerlink" title="读书"></a>读书</h3><p>​        读了《ES6 For Humans》的大部分，介绍2015年发布的ES6中新增的一些规范，但看下来也只是粗略认识了下ES6的新东西，没有很深入。意外的收获是，Typora将MD转为PDF会非常好看，尤其是Pixyll主题，对英文和Typora的各种结构有很强的适配，建议用MD写的书全用这个主题转成PDF，放在IPAD上看。</p>
+<h3 id="做核酸"><a href="#做核酸" class="headerlink" title="做核酸"></a>做核酸</h3><p>​        这个月做了七次核酸。六月初，上海解封。音律联觉暂时没啥消息，估摸着至少要暑假才有可能。</p>
+<h2 id="在做什么"><a href="#在做什么" class="headerlink" title="在做什么"></a>在做什么</h2><h3 id="学Vue"><a href="#学Vue" class="headerlink" title="学Vue"></a>学Vue</h3><p>​        现在课程接近到二分之一了，后面比较重要的，有路由、组件通信、setup和vue3内容等。</p>
+<h3 id="mc的mod编程"><a href="#mc的mod编程" class="headerlink" title="mc的mod编程"></a>mc的mod编程</h3><p>​        难就难在版本不同，Map对应的各个函数有不同，需要自己去看接口。现在玩MOD颇有JS调别人第三方库的感觉，写这些的人太猛了。</p>
+<h3 id="写报告"><a href="#写报告" class="headerlink" title="写报告"></a>写报告</h3><p>​        三个实验课，还应付的过来。早前的软件工程已经出成绩了，赏脸给了优，《带你听懂》也十分给面，考试多少分，成绩就不会比这个分低。体育倒是担忧的——逃课两次被抓了。一次是测1km的，一次是跳远五十米那些。会不会被记到逃课记录里，看造化力。</p>
+<h2 id="想说什么"><a href="#想说什么" class="headerlink" title="想说什么"></a>想说什么</h2><p>​        最近基本三点一线，图书馆教室宿舍，疫情防控依旧在进行，核酸从这个月开始常态化，隔三岔五就来一次，不过得益于高质量大学的拨款力度，核酸免费。</p>
+<p>​        最后接近考试了，一方面需要加紧复习和做题，另一方面要跟进项目，把应该有的效果都做出来。但并不能因此放弃休息或是带病上岗，需要注意自己，尤其是眼睛和脊椎的保养。</p>
+]]></content>
+      <categories>
+        <category>生活记录</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+        <tag>月记</tag>
       </tags>
   </entry>
   <entry>
